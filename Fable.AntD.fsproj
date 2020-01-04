@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>uxsoft</Authors>
+    <Description>Fable bindings for Ant Design React components</Description>
+    <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
+    <PackageIconUrl>https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg</PackageIconUrl>
+    <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common.fs" />
+    <Compile Include="InputNumber.fs" />
+    <Compile Include="Input.fs" />
+    <Compile Include="Button.fs" />
+    <Compile Include="Select.fs" />
+    <Compile Include="Layout.fs" />
+    <Compile Include="Icon.fs" />
+    <Compile Include="Form.fs" />
+    <Compile Include="DatePicker.fs" />
+    <Compile Include="Menu.fs" />
+    <Compile Include="Typography.fs" />
+    <Compile Include="PageHeader.fs" />
+    <Compile Include="Avatar.fs" />
+    <Compile Include="Breadcrumb.fs" />
+    <Compile Include="Tag.fs" />
+    <Compile Include="List.fs" />
+    <Compile Include="Pagination.fs" />
+    <Compile Include="Descriptions.fs" />
+    <Compile Include="Grid.fs" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
