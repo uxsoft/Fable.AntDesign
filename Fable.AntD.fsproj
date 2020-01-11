@@ -46,10 +46,5 @@
     <Compile Include="TreeSelect.fs" />
     <Compile Include="Typography.fs" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <PackageReference Include="Fable.Core" Version="3.1.4" />
-    <PackageReference Include="Fable.React" Version="5.3.5" />
-    <PackageReference Include="FSharp.Core" Version="4.7.0" />
-  </ItemGroup>
+  <Import Project=".paket\Paket.Restore.targets" />
 </Project>
