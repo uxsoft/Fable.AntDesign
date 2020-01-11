@@ -18,7 +18,7 @@ steps:
     paket install 
   displayName: 'Install Paket'
 
-- script: dotnet build --configuration $(buildConfiguration) /p:Version=$(Build.BuildNumber) /p:AssemblyVersion=$(Build.BuildNumber)
+- script: dotnet build --configuration $(buildConfiguration) /p:Version=1.$(Build.BuildNumber) /p:AssemblyVersion=1.$(Build.BuildNumber)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: NuGetCommand@2
