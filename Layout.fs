@@ -10,7 +10,8 @@ module Layout =
 
     [<RequireQualifiedAccess>]
     type AntLayout =
-        | AntLayout of bool
+        | ClassName of string
+        | HasSider of bool
         static member Custom (key: string, value: obj): AntLayout = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntLayout = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
@@ -48,18 +49,19 @@ module Layout =
     [<RequireQualifiedAccess>]
     type AntSider =
         | Breakpoint of SiderBreakpoint
+        | ClassName of string
         | Collapsed of bool
         | CollapsedWidth of int
         | Collapsible of bool
         | DefaultCollapsed of bool
         | ReverseArrow of bool
         | Theme of Theme
-        | Trigger of U2<string, ReactElement>
+        | Trigger of ReactElement
         | Width of int
         | OnCollapse of (bool -> CollapseType -> unit)
         | OnBreakpoint of (bool -> unit)
-        | ZeroWidthTriggerStyle of CSSProp list
         static member Custom (key: string, value: obj): AntSider = unbox (key, value)
+        static member ZeroWidthTriggerStyle (css: Props.CSSProp list): AntSider = unbox ("zeroWidthTriggerStyle", keyValueList CaseRules.LowerFirst css)
         static member Style (css: Props.CSSProp list): AntSider = unbox ("style", keyValueList CaseRules.LowerFirst css)
     
     let inline antLayout (props: AntLayout list) (children: ReactElement list): ReactElement =

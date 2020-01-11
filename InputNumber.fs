@@ -3,6 +3,7 @@ namespace Fable.AntD
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
+open Browser.Types
 
 /// import declarations for `InputNumber` and its nested components.
 /// For more information, refer to the [official documentation](https://ant.design/components/input-number/)
@@ -36,6 +37,7 @@ module InputNumber =
         | Value of float
         /// The callback triggered when the value is changed.
         | OnChange of (float -> unit)
+        | OnPressEnter of (Event -> unit)
         static member Custom (key: string, value: obj): AntInputNumber = unbox(key, value)
         static member Style (css: Props.CSSProp list): AntInputNumber = unbox ("style", keyValueList CaseRules.LowerFirst css)
 

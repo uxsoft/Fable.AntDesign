@@ -19,7 +19,7 @@ module PageHeader =
         | Extra of ReactElement
         | Breadcrumb of ReactElement
         | Footer of ReactElement
-        | OnChange of (unit -> unit)
+        | OnBack of (unit -> unit)
         static member Custom (key: string, value: obj): AntPageHeader = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntPageHeader = unbox ("style", keyValueList CaseRules.LowerFirst css)
         

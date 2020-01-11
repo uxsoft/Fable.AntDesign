@@ -11,37 +11,34 @@ module Button =
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
-    type ButtonType =
+    type AntButtonType =
         | Primary
         | Dashed
         | Ghost
-        | Danger
-
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type ButtonSize =
-        | Small
+        | Link
         | Default
-        | Large
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
-    type ButtonShape =
+    type AntButtonShape =
         | Circle
-        | [<CompiledName("circle-outline")>] CircleOutline
+        | Round
     
     [<RequireQualifiedAccess>]
     type AntButton =
+        | Disabled of bool
         | Ghost of bool
         | Href of string
-        | Target of string
-        | Type of ButtonType
         | HtmlType of string
-        | Icon of string
-        | Shape of ButtonShape
-        | Size of ButtonSize
+        | Icon of ReactElement
         | Loading of bool
+        | Shape of AntButtonShape
+        | Size of Common.Size
+        | Target of string
+        | Type of AntButtonType
         | OnClick of (Event -> unit)
+        | Block of bool
+        | Danger of bool
         static member Custom (key: string, value: obj): AntButton = unbox(key, value)
         static member Style (css: Props.CSSProp list): AntButton = unbox ("style", keyValueList CaseRules.LowerFirst css)
 

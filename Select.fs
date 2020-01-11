@@ -121,6 +121,3 @@ module Select =
 
     let inline antSelect (props: AntSelect list) (children: ReactElement list): ReactElement =
         ofImport "Select" "antd" (keyValueList CaseRules.LowerFirst props) children
-        
-    let inline antVirtualisedSelect (props: AntSelect list) (children: ReactElement list): ReactElement =
-        ofImport "default" "antd-virtual-select" (keyValueList CaseRules.LowerFirst props) children

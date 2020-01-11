@@ -5,7 +5,6 @@ open Fable.Import
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open Fable.React.Props
 
 [<AutoOpen>]
 module Menu =
@@ -14,8 +13,6 @@ module Menu =
     [<RequireQualifiedAccess>]
     type MenuMode = 
         | Vertical 
-        | [<CompiledName("vertical-left")>] VerticalLeft 
-        | [<CompiledName("vertical-right")>] VerticalRight 
         | Horizontal 
         | Inline
 
@@ -36,35 +33,46 @@ module Menu =
 
     [<RequireQualifiedAccess>]
     type AntMenu =
-        | Id of string
-        | Theme of Theme
-        | Mode of MenuMode 
+        | DefaultOpenKeys of string[]
+        | DefaultSelectedKeys of string[]
+        | ForceSubMenuRender of bool
+        | InlineCollapsed of bool
+        | InlineIndent of int
+        | Mode of MenuMode
+        | Multiple of bool
+        | OpenKeys of string[]
         | Selectable of bool
         | SelectedKeys of string[]
-        | DefaultSelectedKeys of string[]
-        | OpenKeys of string[]
-        | DefaultOpenKeys of string[]
-        | OnOpenChange of (string[] -> unit)
-        | OnSelect of (SelectParam -> unit)
-        | OnDeselect of (SelectParam -> unit)
-        | OnClick of (ClickParam -> unit)
-        | OpenAnimation of string
-        | OpenTransitionName of string
-        | ClassName of string
-        | PrefixCls of string
-        | Multiple of bool
-        | InlineIndent of int
-        | InlineCollapsed of bool
         | SubMenuCloseDelay of float
         | SubMenuOpenDelay of float
-        | GetPopupContainer of (Browser.Types.Element -> Browser.Types.HTMLElement)
+        | Theme of Theme
+        | OnClick of (ClickParam -> unit)
+        | OnDeselect of (SelectParam -> unit)
+        | OnOpenChange of (string[] -> unit)
+        | OnSelect of (SelectParam -> unit)
+        | OverflowedIndicator of ReactElement
         static member Custom (key: string, value: obj): AntMenu = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntMenu = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
     type TitleClickEvent = { key: string; domEvent: Browser.Types.DocumentEvent }
 
     [<RequireQualifiedAccess>]
+    type AntMenuItem =
+        | Disabled of bool
+        | Key of string
+        | Title of ReactElement
+        | OnClick of (unit -> unit)
+        static member Custom (key: string, value: obj): AntMenuItem = unbox (key, value)
+        static member Style (css: Props.CSSProp list): AntMenuItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
+        
+    [<RequireQualifiedAccess>]
+    type AntMenuDivider =
+        static member Custom (key: string, value: obj): AntMenuItem = unbox (key, value)
+        static member Style (css: Props.CSSProp list): AntMenuItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
+    
+    [<RequireQualifiedAccess>]
     type AntMenuSubMenu =
+        | PopupClassName of string
         | Disabled of bool
         | Key of string
         | Title of ReactElement
@@ -74,16 +82,17 @@ module Menu =
         
     [<RequireQualifiedAccess>]
     type AntMenuItemGroup =
+        | Title of ReactElement
         static member Custom (key: string, value: obj): AntMenuSubMenu = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntMenuSubMenu = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
     let inline antMenu (props: AntMenu list) (children: ReactElement list): ReactElement =
        ofImport "Menu" "antd" (keyValueList CaseRules.LowerFirst props) children
 
-    let inline antMenuItem (props: AntMenu list) (children: ReactElement list): ReactElement =
+    let inline antMenuItem (props: AntMenuItem list) (children: ReactElement list): ReactElement =
        ofImport "Menu.Item" "antd" (keyValueList CaseRules.LowerFirst props) children
 
-    let inline antMenuDivider (props: AntMenu list): ReactElement =
+    let inline antMenuDivider (props: AntMenuDivider list): ReactElement =
        ofImport "Menu.Divider" "antd" (keyValueList CaseRules.LowerFirst props) []
    
     let inline antMenuSubMenu (props: AntMenuSubMenu list) (children: ReactElement list): ReactElement =

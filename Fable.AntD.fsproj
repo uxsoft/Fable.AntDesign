@@ -10,25 +10,45 @@
     <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <Compile Include="Common.fs" />
-    <Compile Include="InputNumber.fs" />
-    <Compile Include="Input.fs" />
-    <Compile Include="Button.fs" />
-    <Compile Include="Select.fs" />
-    <Compile Include="Layout.fs" />
-    <Compile Include="Icon.fs" />
-    <Compile Include="Form.fs" />
-    <Compile Include="DatePicker.fs" />
-    <Compile Include="Menu.fs" />
-    <Compile Include="Typography.fs" />
-    <Compile Include="PageHeader.fs" />
+    <Compile Include="Tooltip.fs" />
+    <Compile Include="Affix.fs" />
+    <Compile Include="AutoComplete.fs" />
     <Compile Include="Avatar.fs" />
     <Compile Include="Breadcrumb.fs" />
-    <Compile Include="Tag.fs" />
-    <Compile Include="List.fs" />
-    <Compile Include="Pagination.fs" />
+    <Compile Include="Button.fs" />
+    <Compile Include="Cascader.fs" />
+    <Compile Include="Checkbox.fs" />
+    <Compile Include="DatePicker.fs" />
     <Compile Include="Descriptions.fs" />
+    <Compile Include="Dropdown.fs" />
+    <Compile Include="Form.fs" />
     <Compile Include="Grid.fs" />
+    <Compile Include="Icon.fs" />
+    <Compile Include="Input.fs" />
+    <Compile Include="InputNumber.fs" />
+    <Compile Include="Layout.fs" />
+    <Compile Include="List.fs" />
+    <Compile Include="Mentions.fs" />
+    <Compile Include="Menu.fs" />
+    <Compile Include="Rate.fs" />
+    <Compile Include="Radio.fs" />
+    <Compile Include="Select.fs" />
+    <Compile Include="Slider.fs" />
+    <Compile Include="Switch.fs" />
+    <Compile Include="PageHeader.fs" />
+    <Compile Include="Pagination.fs" />
+    <Compile Include="Steps.fs" />
+    <Compile Include="Tag.fs" />
+    <Compile Include="Tree.fs" />
+    <Compile Include="TreeSelect.fs" />
+    <Compile Include="Typography.fs" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="3.1.4" />
+    <PackageReference Include="Fable.React" Version="5.3.5" />
+    <PackageReference Include="FSharp.Core" Version="4.7.0" />
+  </ItemGroup>
 </Project>

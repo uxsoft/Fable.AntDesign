@@ -45,7 +45,6 @@ module Pagination =
         | Size of PaginationSize
         | Total of int
         | OnChange of (int -> int -> unit)
-        /// current -> size -> unit
         | OnShowSizeChange of (int -> int -> unit) 
         static member Custom (key: string, value: obj): AntPagination = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntPagination = unbox ("style", keyValueList CaseRules.LowerFirst css)
