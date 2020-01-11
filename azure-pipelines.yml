@@ -19,5 +19,6 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: '$(Build.SourcesDirectory)/**/*.nupkg;!$(Build.SourcesDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'external'
+    publishFeedCredentials: 'Nuget Fable.AntD'
