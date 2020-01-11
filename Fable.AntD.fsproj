@@ -8,6 +8,7 @@
     <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
     <PackageIconUrl>https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg</PackageIconUrl>
     <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
+    <Version>1.1.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" />
