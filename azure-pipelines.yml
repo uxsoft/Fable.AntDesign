@@ -13,6 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: dotnet tool install --global Paket 
+  displayName: 'Install Paket'
+
 - script: dotnet build --configuration $(buildConfiguration) /p:Version=$(Build.BuildNumber) /p:AssemblyVersion=$(Build.BuildNumber)
   displayName: 'dotnet build $(buildConfiguration)'
 
