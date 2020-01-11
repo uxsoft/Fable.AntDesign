@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build --configuration $(buildConfiguration) /p:Version=$(Build.BuildNumber) /p:AssemblyVersion=$(Build.BuildNumber)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: NuGetCommand@2
