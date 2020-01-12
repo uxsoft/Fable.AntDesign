@@ -11,6 +11,7 @@ In package.json
 ```
         "antd": "^4.0.0-rc.0",
         "@ant-design/icons": "^4.0.0-alpha.19 ",
+        "regenerator-runtime": "^0.13.3"
 ```
 Usage:
 
@@ -57,3 +58,7 @@ antContent [ ] [
 ]
 
 ```
+
+FAQ:
+
+- When supplying `AntFormItem.Rules`, make sure the form item has a Name otherwise the validations won't work

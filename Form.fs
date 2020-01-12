@@ -12,6 +12,8 @@ open Fable.Core.JS
 [<AutoOpen>]
 module Form =
 
+    importSideEffects "regenerator-runtime/runtime"
+
     [<StringEnum>]
     [<RequireQualifiedAccess>]
     type ValidationStatus = Success | Warning | Error | Validating
