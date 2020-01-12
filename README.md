@@ -62,3 +62,4 @@ antContent [ ] [
 FAQ:
 
 - When supplying `AntFormItem.Rules`, make sure the form item has a Name otherwise the validations won't work
+- Use AntFormItem.Key to make sure the form item is recreated if switching between forms

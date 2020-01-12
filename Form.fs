@@ -77,6 +77,7 @@ module Form =
     
     [<RequireQualifiedAccess>]
     type AntFormItem =
+      | Key of string
       | Colon of bool
       | Dependencies of string array
       | Extra of ReactElement
