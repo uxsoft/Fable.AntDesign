@@ -96,7 +96,7 @@ module Form =
       | WrapperCol of obj
       static member Custom (key: string, value: obj): AntFormItem = unbox (key, value)
       static member Style (css: Props.CSSProp list): AntFormItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
-      static member Rules (css: AntFormRule list): AntFormItem = unbox ("rules", keyValueList CaseRules.LowerFirst css)
+      static member Rules (rules: AntFormRule list list): AntFormItem = unbox ("rules", rules |> List.map (fun rule -> keyValueList CaseRules.LowerFirst rule) |> List.toArray)
 
     [<RequireQualifiedAccess>]
     type AntFormList =
