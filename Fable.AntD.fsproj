@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>uxsoft</Authors>
     <Description>Fable bindings for Ant Design React components</Description>
     <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
-    <PackageIconUrl>https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
@@ -15,13 +15,20 @@
     <Compile Include="Affix.fs" />
     <Compile Include="AutoComplete.fs" />
     <Compile Include="Avatar.fs" />
+    <Compile Include="Badge.fs" />
     <Compile Include="Breadcrumb.fs" />
     <Compile Include="Button.fs" />
+    <Compile Include="Calendar.fs" />
     <Compile Include="Cascader.fs" />
+    <Compile Include="Card.fs" />
+    <Compile Include="Comment.fs" />
+    <Compile Include="Collapse.fs" />
+    <Compile Include="Carousel.fs" />
     <Compile Include="Checkbox.fs" />
     <Compile Include="DatePicker.fs" />
     <Compile Include="Descriptions.fs" />
     <Compile Include="Dropdown.fs" />
+    <Compile Include="Empty.fs" />
     <Compile Include="Form.fs" />
     <Compile Include="Grid.fs" />
     <Compile Include="Icon.fs" />
@@ -35,20 +42,30 @@
     <Compile Include="Radio.fs" />
     <Compile Include="Select.fs" />
     <Compile Include="Slider.fs" />
+    <Compile Include="Statistic.fs" />
     <Compile Include="Switch.fs" />
     <Compile Include="PageHeader.fs" />
     <Compile Include="Pagination.fs" />
     <Compile Include="Steps.fs" />
+    <Compile Include="Tabs.fs" />
     <Compile Include="Tag.fs" />
+    <Compile Include="Timeline.fs" />
+    
+    <Compile Include="Transfer.fs" />
     <Compile Include="Tree.fs" />
     <Compile Include="TreeSelect.fs" />
     <Compile Include="Typography.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />
+    <None Include=".\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.0" />
     <PackageReference Include="Fable.Core" Version="3.1.4" />
+    <PackageReference Include="Fable.MomentJs" Version="1.20200112.4" />
     <PackageReference Include="Fable.React" Version="5.3.5" />
     <PackageReference Include="FSharp.Core" Version="4.7.0" />
   </ItemGroup>
