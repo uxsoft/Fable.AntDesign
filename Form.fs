@@ -46,7 +46,7 @@ module Form =
         | Pattern of string
         | Required of bool
         | Transform of (string -> string)
-        | ``Type`` of string
+        | Type of string
         | Validator of (AntFormRule -> string -> Promise<string>)
         | Whitespace of bool
         | ValidateTrigger of string array
@@ -96,6 +96,7 @@ module Form =
       | WrapperCol of obj
       static member Custom (key: string, value: obj): AntFormItem = unbox (key, value)
       static member Style (css: Props.CSSProp list): AntFormItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
+      /// Don't forget to give the item a name otherwise it won't validate
       static member Rules (rules: AntFormRule list list): AntFormItem = unbox ("rules", rules |> List.map (fun rule -> keyValueList CaseRules.LowerFirst rule) |> List.toArray)
 
     [<RequireQualifiedAccess>]
