@@ -59,12 +59,12 @@ module List =
         | Loading of bool
         | LoadMore of ReactElement
         | Locale of obj
-        | Pagination of U2<bool, obj>
         | Split of bool
-        | DataSource of obj[]
+        | DataSource of obj array
         | RenderItem of  (obj -> ReactElement)
         static member Custom (key: string, value: obj): AntList = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntList = unbox ("style", keyValueList CaseRules.LowerFirst css)
+        static member Pagination (config: AntPagination list): AntList = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
 
     [<RequireQualifiedAccess>]
     type AntListItem =
