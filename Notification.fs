@@ -5,7 +5,7 @@ open Fable.Core.JsInterop
 open Fable.React
 
 [<AutoOpen>]
-module Message =
+module Notification =
     
     type IAntNotification =
         abstract success: obj -> unit

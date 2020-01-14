@@ -16,6 +16,7 @@ module Select =
         | Key of string
         | Title of string
         | Value of string
+        | ClassName of string
         static member Custom (key: string, value: obj): AntOption = unbox(key, value)
         static member Style (css: Props.CSSProp list): AntOption = unbox ("style", keyValueList CaseRules.LowerFirst css)        
 
@@ -25,7 +26,7 @@ module Select =
     [<RequireQualifiedAccess>]
     type AntOptGroup =
         | Key of string
-        | Value of U2<string, ReactElement>
+        | Label of ReactElement
         static member Custom (key: string, value: obj): AntOptGroup = unbox(key, value)
         static member Style (css: Props.CSSProp list) : AntOptGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
@@ -34,7 +35,7 @@ module Select =
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
-    type SelectMode  =
+    type AntSelectMode  =
         | Multiple
         | ComboBox
         | [<CompiledName("tags")>] Tag
@@ -44,6 +45,7 @@ module Select =
     type AntSelect =
         /// Show clear button. Default = false
         | AllowClear of bool
+        | AutoClearSearchValue of bool
         /// Get focus by default. Default = false
         | AutoFocus of bool
         /// Whether active first option by default. Default = true
@@ -56,27 +58,29 @@ module Select =
         | DropdownClassName of string
         /// Whether dropdown's with is same with select. Default = true
         | DropdownMatchSelectWidth of bool
+        | DropDownRender of (ReactElement -> obj -> ReactElement)
         /// If true, filter options by input, if function, filter options against it.
         /// The function will receive two arguments, inputValue and option,
         /// if the function returns true, the option will be included in the filtered set;
         /// Otherwise, it will be excluded. Default = true
-        | FilterOption of U2<bool, string -> string -> bool>
+        | FilterOption of (string -> string -> bool)
         /// Value of action option by default
-        | FirstActiveValue of U2<string, string list>
+        | FirstActiveValue of string array
         /// Parent Node which the selector should be rendered to. Default to body.
         /// When position issues happen, try to modify it into scrollable content and position it relative.
         /// [Example](https://codesandbox.io/s/4j168r7jw0)
-        | GetPopupContainer of (ReactElement -> unit)
+        | GetPopupContainer of (ReactElement -> HTMLElement)
         /// whether to embed label in value, turn the format of value
         /// from `string` to `{key: string, label: ReactNode}`. Default: false
         | LabelInValue of bool
         /// Max tag count to show
-        | MaxTagCount of float
+        | MaxTagCount of int
+        | MaxTagTextLength of int
         /// Placeholder for not showing tags. Can be a replacement node or
         /// a compensation function that works on omitted values
-        | MaxTagPlaceholder of U2<ReactElement, (string list -> unit)>
+        | MaxTagPlaceholder of (string array -> ReactElement)
         /// Set mode of Select (Support after 2.9)
-        | Mode of SelectMode
+        | Mode of AntSelectMode
         /// Specify content to show when no result matches.
         /// Default: 'Not Found'
         | NotFoundContent of string
@@ -85,14 +89,18 @@ module Select =
         | OptionLabelProp of string
         /// Placeholder of select
         | Placeholder of ReactElement
-        /// Whether show search input in single mode.
-        | ShowSearch of bool
         /// Whether to show the drop-down arrow
         | ShowArrow of bool
+        /// Whether show search input in single mode.
+        | ShowSearch of bool
         /// Size of Select input
         | Size of Size
+        | SuffixIcon of ReactElement
+        | RemoveIcon of ReactElement
+        | ClearIcon of ReactElement
+        | MenuItemSelectedIcon of ReactElement
         /// Separator used to tokenize on tag/multiple mode
-        | TokenSeparators of string list
+        | TokenSeparators of string array
         /// Current selected option.
         | Value of string
         /// Called when blur
@@ -116,8 +124,14 @@ module Select =
         /// Callback function that is fired when input changed.
         | OnSearch of (string -> unit)
         | OnSelect of (string -> unit)
+        | DefaultOpen of bool
+        | Open of bool
+        | OnDropdownVisibleChange of (bool -> unit)
+        | Loading of bool
         static member Custom (key: string, value: obj): AntSelect = unbox(key, value)
         static member Style (css: Props.CSSProp list): AntSelect = unbox ("style", keyValueList CaseRules.LowerFirst css)
+        static member DropdownStyle (css: Props.CSSProp list): AntSelect = unbox ("dropdownStyle", keyValueList CaseRules.LowerFirst css)
+        static member DropdownMenuStyle (css: Props.CSSProp list): AntSelect = unbox ("dropdownMenuStyle", keyValueList CaseRules.LowerFirst css)
 
     let inline antSelect (props: AntSelect list) (children: ReactElement list): ReactElement =
         ofImport "Select" "antd" (keyValueList CaseRules.LowerFirst props) children

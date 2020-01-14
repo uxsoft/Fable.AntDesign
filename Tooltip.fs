@@ -3,6 +3,7 @@ namespace Fable.AntD
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
+open Browser.Types
 
 [<AutoOpen>]
 module Tooltip =
@@ -53,8 +54,37 @@ module Tooltip =
         static member Style (css: Props.CSSProp list): AntPopover = unbox ("style", keyValueList CaseRules.LowerFirst css)
         static member OverlayStyle (css: Props.CSSProp list): AntPopover = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
 
+    [<RequireQualifiedAccess>]
+    type AntPopconfirm =
+        | ArrowPointAtCenter of bool
+        | AutoAdjustOverflow of bool
+        | DefaultVisible of bool
+        | GetPopupContainer of (unit -> ReactElement)
+        | MouseEnterDelay of float
+        | MouseLeaveDelay of float
+        | OverlayClassName of string
+        | Placement of AntTooltipPlacement
+        | Trigger of AntTooltipTrigger
+        | Visible of bool
+        | OnVisibleChange of (bool -> unit)
+        | Align of obj
+        | CancelText of string
+        | OkText of string
+        | OkType of AntButtonType
+        | Title of ReactElement
+        | OnCancel of (Event -> unit)
+        | OnConfirm of (Event -> unit)
+        | Icon of ReactElement
+        | Disabled of bool
+        static member Custom (key: string, value: obj): AntPopconfirm = unbox (key, value)
+        static member Style (css: Props.CSSProp list): AntPopconfirm = unbox ("style", keyValueList CaseRules.LowerFirst css)
+        static member OverlayStyle (css: Props.CSSProp list): AntPopconfirm = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
+    
     let inline antTooltip (props: AntTooltip list) (children: ReactElement list): ReactElement =
        ofImport "Tooltip" "antd" (keyValueList CaseRules.LowerFirst props) children
 
     let inline antPopover (props: AntPopover list) (children: ReactElement list): ReactElement =
        ofImport "Popover" "antd" (keyValueList CaseRules.LowerFirst props) children
+       
+    let inline antPopconfirm (props: AntPopconfirm list) (children: ReactElement list): ReactElement =
+       ofImport "Popconfirm" "antd" (keyValueList CaseRules.LowerFirst props) children

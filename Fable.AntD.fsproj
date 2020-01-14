@@ -11,28 +11,33 @@
   <ItemGroup>
     <None Include="README.md" />
     <Compile Include="Common.fs" />
+    <Compile Include="Button.fs" />
     <Compile Include="Tooltip.fs" />
     <Compile Include="Pagination.fs" />
+    <Compile Include="Form.fs" />
     <Compile Include="Affix.fs" />
+    <Compile Include="Anchor.fs" />
     <Compile Include="Alert.fs" />
     <Compile Include="AutoComplete.fs" />
     <Compile Include="Avatar.fs" />
     <Compile Include="Badge.fs" />
+    <Compile Include="BackToTop.fs" />
     <Compile Include="Breadcrumb.fs" />
-    <Compile Include="Button.fs" />
+    
     <Compile Include="Calendar.fs" />
     <Compile Include="Cascader.fs" />
     <Compile Include="Card.fs" />
     <Compile Include="Comment.fs" />
+    <Compile Include="ConfigProvider.fs" />
     <Compile Include="Collapse.fs" />
     <Compile Include="Carousel.fs" />
     <Compile Include="Checkbox.fs" />
     <Compile Include="DatePicker.fs" />
     <Compile Include="Descriptions.fs" />
+    <Compile Include="Divider.fs" />
     <Compile Include="Drawer.fs" />
     <Compile Include="Dropdown.fs" />
     <Compile Include="Empty.fs" />
-    <Compile Include="Form.fs" />
     <Compile Include="Grid.fs" />
     <Compile Include="Icon.fs" />
     <Compile Include="Input.fs" />
@@ -44,14 +49,17 @@
     <Compile Include="Message.fs" />
     <Compile Include="Modal.fs" />
     <Compile Include="Notification.fs" />
-    <Compile Include="Rate.fs" />
     <Compile Include="Radio.fs" />
+    <Compile Include="Rate.fs" />
+    <Compile Include="Result.fs" />
     <Compile Include="Select.fs" />
     <Compile Include="Slider.fs" />
     <Compile Include="Statistic.fs" />
     <Compile Include="Switch.fs" />
     <Compile Include="PageHeader.fs" />
     <Compile Include="Progress.fs" />
+    <Compile Include="Skeleton.fs" />
+    <Compile Include="Spin.fs" />
     <Compile Include="Steps.fs" />
     <Compile Include="Tabs.fs" />
     <Compile Include="Tag.fs" />
@@ -64,11 +72,14 @@
   <ItemGroup>
     <None Include=".\icon.png">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="*.fsproj; **\*.fs" PackagePath="fable\" />
+    <Content Include="*.fsproj; **\*.fs">
+      <Pack>True</Pack>
+      <PackagePath>fable\</PackagePath>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.0" />

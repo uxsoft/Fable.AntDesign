@@ -1,5 +1,6 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
@@ -18,7 +19,7 @@ module Dropdown =
     [<RequireQualifiedAccess>]
     type AntDropdown  =
         | Disabled of bool
-        | GetPopupContainer of (unit -> ReactElement)
+        | GetPopupContainer of (unit -> HTMLElement)
         | Overlay of ReactElement
         | OverlayClassName of string
         | Placement of AntDropdownPlacement

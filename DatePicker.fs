@@ -31,7 +31,7 @@ module DatePicker =
         | Disabled of bool
         | DisabledDate of (Moment -> bool)
         | DropdownClassName of string
-        | GetPopupContainer of (string -> ReactElement)
+        | GetPopupContainer of (string -> HTMLElement)
         | Locale of obj
         | Mode of AntDatePickerMode
         | Open of bool

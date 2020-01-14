@@ -1,5 +1,6 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
@@ -47,7 +48,7 @@ module Cascader =
         | DisplayRender of (string -> AntCascaderOption array -> ReactElement)
         | ExpandTrigger of ExpandTriggerOptions
         | FieldNames of FieldNames
-        | GetPopupContainer of (unit -> ReactElement)
+        | GetPopupContainer of (unit -> HTMLElement)
         | LoadData of (AntCascaderOption array -> unit)
         | NotFoundContent of string
         | Options of AntCascaderOption array

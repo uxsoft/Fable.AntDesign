@@ -1,5 +1,6 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
 open Fable.Core
 open Fable.Core.JsInterop
@@ -28,7 +29,7 @@ module Mentions =
         | OnSearch of (string -> string -> unit)
         | OnFocus of (unit -> unit)
         | OnBlur of (unit -> unit)
-        | GetPopupContainer of (unit -> ReactElement)
+        | GetPopupContainer of (unit -> HTMLElement)
         static member Custom (key: string, value: obj): AntMentions = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntMentions = unbox ("style", keyValueList CaseRules.LowerFirst css)
         
