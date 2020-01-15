@@ -49,28 +49,28 @@ module List =
     type ListSize = Small | Default | Large
 
     [<RequireQualifiedAccess>]
-    type AntList =
+    type AntList<'T> =
         | Bordered of bool
         | Footer of ReactElement
         | Grid of ListGridType
         | Header of ReactElement
         | ItemLayout of string
-        | RowKey of U2<string, obj -> string> 
+        | RowKey of ('T -> string) 
         | Loading of bool
         | LoadMore of ReactElement
         | Locale of obj
         | Split of bool
-        | DataSource of obj array
-        | RenderItem of  (obj -> ReactElement)
-        static member Custom (key: string, value: obj): AntList = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntList = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member Pagination (config: AntPagination list): AntList = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
+        | DataSource of ('T array)
+        | RenderItem of  ('T -> ReactElement)
+        static member Custom (key: string, value: obj): AntList<'T> = unbox (key, value)
+        static member Style (css: Props.CSSProp list): AntList<'T> = unbox ("style", keyValueList CaseRules.LowerFirst css)
+        static member Pagination (config: AntPagination list): AntList<'T> = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
 
     [<RequireQualifiedAccess>]
     type AntListItem =
         | Extra of ReactElement
         | Actions of ReactElement[]
-        | Key of obj
+        | Key of string
         static member Custom (key: string, value: obj): AntListItem = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntListItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
@@ -82,7 +82,7 @@ module List =
         static member Custom (key: string, value: obj): AntListItemMeta = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntListItemMeta = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
-    let inline antList (props: AntList list) (children: ReactElement list): ReactElement =
+    let inline antList (props: AntList<'T> list) (children: ReactElement list): ReactElement =
        ofImport "List" "antd" (keyValueList CaseRules.LowerFirst props) children
     
     let inline antListItem (props: AntListItem list) (children: ReactElement list): ReactElement =
