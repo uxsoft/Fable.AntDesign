@@ -63,6 +63,7 @@
     <Compile Include="Steps.fs" />
     <Compile Include="Tabs.fs" />
     <Compile Include="Tag.fs" />
+    <Compile Include="Table.fs" />
     <Compile Include="Timeline.fs" />
     <Compile Include="Transfer.fs" />
     <Compile Include="Tree.fs" />
