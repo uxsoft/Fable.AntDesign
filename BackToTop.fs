@@ -16,5 +16,5 @@ module BackToTop =
         static member Style (css: Props.CSSProp list): AntBackToTop = unbox ("style", keyValueList CaseRules.LowerFirst css)
         
     let inline antBackToTop (props: AntBackToTop list) (children: ReactElement list): ReactElement =
-       ofImport "BackToTop" "antd" (keyValueList CaseRules.LowerFirst props) children
+       ofImport "BackTop" "antd" (keyValueList CaseRules.LowerFirst props) children
     
