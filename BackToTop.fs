@@ -1,5 +1,6 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
@@ -9,7 +10,7 @@ module BackToTop =
     
     [<RequireQualifiedAccess>]
     type AntBackToTop  =
-        | Target of (unit -> ReactElement)
+        | Target of (unit -> HTMLElement)
         | VisibilityHeight of int
         | OnClick of (unit -> unit)
         static member Custom (key: string, value: obj): AntBackToTop = unbox (key, value)
