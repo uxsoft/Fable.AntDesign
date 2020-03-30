@@ -11,27 +11,21 @@ open Browser.Types
 [<AutoOpen>]
 module Select =
     [<RequireQualifiedAccess>]
-    type AntOption =
+    type AntSelectOption =
         | Disabled of bool
         | Key of string
         | Title of string
         | Value of string
         | ClassName of string
-        static member Custom (key: string, value: obj): AntOption = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntOption = unbox ("style", keyValueList CaseRules.LowerFirst css)        
-
-    let inline antOption (props: AntOption list) (children: ReactElement list): ReactElement =
-       ofImport "Select.Option" "antd" (keyValueList CaseRules.LowerFirst props) children
+        static member Custom (key: string, value: obj): AntSelectOption = unbox(key, value)
+        static member Style (css: Props.CSSProp list): AntSelectOption = unbox ("style", keyValueList CaseRules.LowerFirst css)        
     
     [<RequireQualifiedAccess>]
-    type AntOptGroup =
+    type AntSelectGroup =
         | Key of string
         | Label of ReactElement
-        static member Custom (key: string, value: obj): AntOptGroup = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntOptGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antOptGroup (props: AntOptGroup list) (children: ReactElement list): ReactElement =
-        ofImport "Select.OptGroup" "antd" (keyValueList CaseRules.LowerFirst props) children
+        static member Custom (key: string, value: obj): AntSelectGroup = unbox(key, value)
+        static member Style (css: Props.CSSProp list) : AntSelectGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
@@ -135,3 +129,9 @@ module Select =
 
     let inline antSelect (props: AntSelect list) (children: ReactElement list): ReactElement =
         ofImport "Select" "antd" (keyValueList CaseRules.LowerFirst props) children
+        
+    let inline antSelectOption (props: AntSelectOption list) (children: ReactElement list): ReactElement =
+       ofImport "Select.Option" "antd" (keyValueList CaseRules.LowerFirst props) children
+       
+    let inline antSelectGroup (props: AntSelectGroup list) (children: ReactElement list): ReactElement =
+        ofImport "Select.OptGroup" "antd" (keyValueList CaseRules.LowerFirst props) children

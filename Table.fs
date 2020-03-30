@@ -124,4 +124,11 @@ module Table =
 
     let inline antTable (props: AntTable<'T> list) (children: ReactElement list): ReactElement =
        ofImport "Table" "antd" (keyValueList CaseRules.LowerFirst props) children
+       
+    let inline antTableColumn (props: AntTableColumn<'T> list) (children: ReactElement list): ReactElement =
+        ofImport "Table.Column" "antd" (keyValueList CaseRules.LowerFirst props) children
+
+    let inline antTableColumnGroup (props: AntTableColumnGroup list) (children: ReactElement list): ReactElement =
+        ofImport "Table.ColumnGroup" "antd" (keyValueList CaseRules.LowerFirst props) children
+
     

@@ -16,7 +16,7 @@ module Form =
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
-    type ValidationStatus = Success | Warning | Error | Validating
+    type AntFormValidationStatus = Success | Warning | Error | Validating
 
     [<StringEnum>]
     [<RequireQualifiedAccess>]
@@ -28,7 +28,7 @@ module Form =
     
     [<StringEnum>]
     [<RequireQualifiedAccess>]
-    type FormLayout = Horizontal | Vertical | Inline
+    type AntFormLayout = Horizontal | Vertical | Inline
     
     type AntFormFieldData = {
         touched: bool
@@ -63,7 +63,7 @@ module Form =
       | InitialValues of obj
       | LabelAlign of AntFormLabelAlign
       | LabelCol of obj
-      | Layout of FormLayout
+      | Layout of AntFormLayout
       | Name of string
       | Size of Common.Size
       | ValidateMessages of obj
@@ -93,7 +93,7 @@ module Form =
       | Required of bool
       | ShouldUpdate of bool 
       | Trigger of string
-      | ValidationStatus of ValidationStatus
+      | ValidationStatus of AntFormValidationStatus
       | ValidateTrigger of string array
       | ValuePropName of string
       | WrapperCol of obj
