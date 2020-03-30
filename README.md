@@ -1,5 +1,7 @@
 ﻿# Fable.AntD
 
+Ant Design for Fable f#
+
 To include the package:
 
 In Styles.scss
