@@ -39,6 +39,6 @@ module Modal =
         static member CancelButtonProps (props: AntButton list): AntModal = unbox ("cancelButtonProps", keyValueList CaseRules.LowerFirst props)
 
         
-    let inline antModal (props: AntAffix list) (children: ReactElement list): ReactElement =
+    let inline antModal (props: AntModal list) (children: ReactElement list): ReactElement =
        ofImport "Modal" "antd" (keyValueList CaseRules.LowerFirst props) children
     

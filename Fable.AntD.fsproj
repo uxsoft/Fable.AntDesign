@@ -23,7 +23,6 @@
     <Compile Include="Badge.fs" />
     <Compile Include="BackToTop.fs" />
     <Compile Include="Breadcrumb.fs" />
-    
     <Compile Include="Calendar.fs" />
     <Compile Include="Cascader.fs" />
     <Compile Include="Card.fs" />
@@ -69,6 +68,8 @@
     <Compile Include="Tree.fs" />
     <Compile Include="TreeSelect.fs" />
     <Compile Include="Typography.fs" />
+    <Compile Include="TimePicker.fs" />
+    <Compile Include="Upload.fs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".\icon.png">
