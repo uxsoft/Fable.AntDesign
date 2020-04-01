@@ -57,7 +57,7 @@ module Layout =
         | ReverseArrow of bool
         | Theme of Theme
         | Trigger of ReactElement
-        | Width of int
+        | Width of string
         | OnCollapse of (bool -> CollapseType -> unit)
         | OnBreakpoint of (bool -> unit)
         static member Custom (key: string, value: obj): AntSider = unbox (key, value)

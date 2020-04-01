@@ -19,8 +19,8 @@ module Drawer =
         | MaskClosable of bool
         | Title of ReactElement
         | Visible of bool
-        | Width of int
-        | Height of int
+        | Width of string
+        | Height of string
         | ClassName of string
         | ZIndex of int
         | Placement of AntDrawerPlacement

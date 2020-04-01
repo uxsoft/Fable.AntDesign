@@ -26,7 +26,7 @@ module Modal =
         | OkType of string
         | Title of ReactElement
         | Visible of bool
-        | Width of int
+        | Width of string
         | WrapClassName of string
         | ZIndex of int
         | OnCancel of (Event -> unit)

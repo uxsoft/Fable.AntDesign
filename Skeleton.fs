@@ -29,14 +29,14 @@ module Skeleton =
 
     [<RequireQualifiedAccess>]
     type AntSkeletonTitle =
-        | Width of int
+        | Width of string
         static member Custom (key: string, value: obj): AntSkeletonTitle = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntSkeletonTitle = unbox ("style", keyValueList CaseRules.LowerFirst css)
 
     [<RequireQualifiedAccess>]
     type AntSkeletonParagraph =
         | Rows of int
-        | Width of int
+        | Width of string
         static member Custom (key: string, value: obj): AntSkeletonParagraph = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntSkeletonParagraph = unbox ("style", keyValueList CaseRules.LowerFirst css)
 

@@ -23,7 +23,7 @@ module Progress =
         | StrokeColor of string
         | SuccessPercent of int
         | StrokeWidth of int
-        | Width of int
+        | Width of string
         | GapDegree of int
         | GapPosition of AntProgressPosition
         static member Custom (key: string, value: obj): AntProgress = unbox (key, value)

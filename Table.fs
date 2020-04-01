@@ -72,7 +72,7 @@ module Table =
         | SortOrder of AntTableColumnSortOrder
         | SortDirections of AntTableColumnSortOrder array
         | Title of ReactElement
-        | Width of int
+        | Width of string
         | OnCell of ('T -> int -> AntTableEventHandlers)
         | OnFilter of (unit -> unit)
         | OnFilterDropdownVisibleChange of (bool -> unit)
