@@ -1,6 +1,7 @@
 ﻿namespace Fable.AntD
 
 open Fable.Core
+open Fable.Core.JS
 open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
