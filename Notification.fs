@@ -15,4 +15,4 @@ module Notification =
         abstract destroy: unit -> unit
     
     [<Import("notification", "antd")>]
-    let antNotification : IAntNotification = jsNative
+    let Notification : IAntNotification = jsNative

@@ -6,190 +6,88 @@ open Fable.Core.JsInterop
 open Fable.React
 open Fable.MomentJs
 
-[<AutoOpen>]
-module DatePicker =
+[<StringEnum; RequireQualifiedAccess>]
+type DatePickerMode = Time | Date | Month | Year | Decade
+
+[<StringEnum; RequireQualifiedAccess>]
+type DatePickerPicker = Date | Week | Month | Year
+
+type DatePickerBase(name) =
+    inherit AntElement(name)
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.DateRender with set (v: (Moment -> Moment -> ReactElement)) = x.Attribute "dateRender" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.DisabledDate with set (v: (Moment -> bool)) = x.Attribute "disabledDate" v 
+    member x.DropdownClassName with set (v: string) = x.Attribute "dropdownClassName" v 
+    member x.GetPopupContainer with set (v: (string -> HTMLElement)) = x.Attribute "getPopupContainer" v 
+    member x.Locale with set (v: obj) = x.Attribute "locale" v 
+    member x.Mode with set (v: DatePickerMode) = x.Attribute "mode" v 
+    member x.Open with set (v: bool) = x.Attribute "open" v 
+    member x.Picker with set (v: DatePickerPicker) = x.Attribute "picker" v 
+    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
+    member x.PopupStyle (css: Props.CSSProp list) = x.Attribute "popupStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.Size with set (v: Size) = x.Attribute "size" v
+    member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
+    member x.SuffixIcon with set (v: ReactElement) = x.Attribute "suffixIcon" v 
+    member x.OnOpenChange with set (v: (bool -> unit)) = x.Attribute "onOpenChange" v 
+    member x.OnPanelChange with set (v: (Moment -> DatePickerMode -> unit)) = x.Attribute "onPanelChange" v
+    member x.InputReadOnly with set (v: bool) = x.Attribute "inputReadOnly" v
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntDatePickerMode = Time | Date | Month | Year | Decade
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntDatePickerPicker = Date | Week | Month | Year
+type DatePicker() =
+    inherit DatePickerBase("DatePicker")
+    member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
+    member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
+    member x.DisabledTime with set (v: (Moment -> bool)) = x.Attribute "disabledTime" v 
+    member x.Format with set (v: string array) = x.Attribute "format" v 
+    member x.RenderExtraFooter with set (v: (DatePickerMode -> ReactElement)) = x.Attribute "renderExtraFooter" v 
+    member x.ShowTime with set (v: bool) = x.Attribute "showTime" v 
+    member x.ShowToday with set (v: bool) = x.Attribute "showToday" v 
+    member x.Value with set (v: Moment) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
+    member x.OnOk with set (v: (unit -> unit)) = x.Attribute "onOk" v
 
-    [<RequireQualifiedAccess>]
-    type AntDatePicker =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | ClassName of string
-        | DateRender of (Moment -> Moment -> ReactElement)
-        | Disabled of bool
-        | DisabledDate of (Moment -> bool)
-        | DropdownClassName of string
-        | GetPopupContainer of (string -> HTMLElement)
-        | Locale of obj
-        | Mode of AntDatePickerMode
-        | Open of bool
-        | Picker of AntDatePickerPicker
-        | Placeholder of string
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | OnOpenChange of (bool -> unit)
-        | OnPanelChange of (Moment -> AntDatePickerMode -> unit)
+type YearPicker() =
+    inherit DatePickerBase("DatePicker.YearPicker")
+    member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
+    member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
+    member x.Format with set (v: string) = x.Attribute "format" v 
+    member x.RenderExtraFooter with set (v: (unit -> ReactElement)) = x.Attribute "renderExtraFooter" v 
+    member x.Value with set (v: Moment) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
 
-        | DefaultValue of Moment
-        | DefaultPickerValue of Moment
-        | DisabledTime of (Moment -> bool)
-        | Format of string array
-        | RenderExtraFooter of (AntDatePickerMode -> ReactElement)
-        | ShowTime of bool
-        | ShowToday of bool
-        | Value of Moment
-        | OnChange of (Moment -> string -> unit)
-        | OnOk of (unit -> unit)
-        
-        static member Custom (key: string, value: obj): AntDatePicker = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntDatePicker = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member PopupStyle (css: Props.CSSProp list): AntDatePicker = unbox ("popupStyle", keyValueList CaseRules.LowerFirst css)
-    
-    [<RequireQualifiedAccess>]
-    type AntYearPicker =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | ClassName of string
-        | DateRender of (Moment -> Moment -> ReactElement)
-        | Disabled of bool
-        | DisabledDate of (Moment -> bool)
-        | DropdownClassName of string
-        | GetPopupContainer of (string -> ReactElement)
-        | Locale of obj
-        | Mode of AntDatePickerMode
-        | Open of bool
-        | Picker of AntDatePickerPicker
-        | Placeholder of string
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | OnOpenChange of (bool -> unit)
-        | OnPanelChange of (Moment -> AntDatePickerMode -> unit)
+type MonthPicker() =
+    inherit DatePickerBase("DatePicker.MonthPicker")
+    member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
+    member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
+    member x.Format with set (v: string) = x.Attribute "format" v 
+    member x.MonthCellContentRender with set (v: (string -> string -> ReactElement)) = x.Attribute "monthCellContentRender" v 
+    member x.RenderExtraFooter with set (v: (unit -> ReactElement)) = x.Attribute "renderExtraFooter" v 
+    member x.Value with set (v: Moment) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
 
-        | DefaultValue of Moment
-        | DefaultPickerValue of Moment
-        | Format of string
-        | RenderExtraFooter of (unit -> ReactElement)
-        | Value of Moment
-        | OnChange of (Moment -> string -> unit)
-        static member Custom (key: string, value: obj): AntYearPicker = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntYearPicker = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member PopupStyle (css: Props.CSSProp list): AntYearPicker = unbox ("popupStyle", keyValueList CaseRules.LowerFirst css)
+type WeekPicker() =
+    inherit DatePickerBase("DatePicker.WeekPicker")
+    member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
+    member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
+    member x.Format with set (v: string) = x.Attribute "format" v 
+    member x.Value with set (v: Moment) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
+    member x.RenderExtraFooter with set (v: (DatePickerMode -> ReactElement)) = x.Attribute "renderExtraFooter" v 
 
-    [<RequireQualifiedAccess>]
-    type AntMonthPicker =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | ClassName of string
-        | DateRender of (Moment -> Moment -> ReactElement)
-        | Disabled of bool
-        | DisabledDate of (Moment -> bool)
-        | DropdownClassName of string
-        | GetPopupContainer of (string -> ReactElement)
-        | Locale of obj
-        | Mode of AntDatePickerMode
-        | Open of bool
-        | Picker of AntDatePickerPicker
-        | Placeholder of string
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | OnOpenChange of (bool -> unit)
-        | OnPanelChange of (Moment -> AntDatePickerMode -> unit)
-
-        | DefaultValue of Moment
-        | DefaultPickerValue of Moment
-        | Format of string
-        | MonthCellContentRender of (string -> string -> ReactElement)
-        | RenderExtraFooter of (unit -> ReactElement)
-        | Value of Moment
-        | OnChange of (Moment -> string -> unit)
-        static member Custom (key: string, value: obj): AntMonthPicker = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntMonthPicker = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member PopupStyle (css: Props.CSSProp list): AntMonthPicker = unbox ("popupStyle", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntWeekPicker =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | ClassName of string
-        | DateRender of (Moment -> Moment -> ReactElement)
-        | Disabled of bool
-        | DisabledDate of (Moment -> bool)
-        | DropdownClassName of string
-        | GetPopupContainer of (string -> ReactElement)
-        | Locale of obj
-        | Mode of AntDatePickerMode
-        | Open of bool
-        | Picker of AntDatePickerPicker
-        | Placeholder of string
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | OnOpenChange of (bool -> unit)
-        | OnPanelChange of (Moment -> AntDatePickerMode -> unit)     
-
-        | DefaultValue of Moment
-        | DefaultPickerValue of Moment
-        | Format of string
-        | Value of Moment
-        | OnChange of (Moment -> string -> unit)
-        | RenderExtraFooter of (AntDatePickerMode -> ReactElement)
-        static member Custom (key: string, value: obj): AntWeekPicker = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntWeekPicker = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member PopupStyle (css: Props.CSSProp list): AntWeekPicker = unbox ("popupStyle", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntRangePicker =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | ClassName of string
-        | DateRender of (Moment -> Moment -> ReactElement)
-        | DisabledDate of (Moment -> bool)
-        | DropdownClassName of string
-        | GetPopupContainer of (string -> ReactElement)
-        | Locale of obj
-        | Mode of AntDatePickerMode
-        | Open of bool
-        | Picker of AntDatePickerPicker
-        | Placeholder of string
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | OnOpenChange of (bool -> unit)
-        | OnPanelChange of (Moment -> AntDatePickerMode -> unit)
-
-        | AllowEmpty of bool array
-        | DefaultValue of Moment array
-        | DefaultPickerValue of Moment array
-        | Disabled of bool array
-        | DisabledTime of (Moment array * string -> bool)
-        | Format of string array
-        | Ranges of obj
-        | RenderExtraFooter of (unit -> ReactElement)
-        | Separator of string
-        | ShowTime of bool
-        | Value of Moment array
-        | OnCalendarChange of (Moment array -> string array -> unit)
-        | OnChange of (Moment array -> string array -> unit)
-        static member Custom (key: string, value: obj): AntRangePicker = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRangePicker = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member PopupStyle (css: Props.CSSProp list): AntRangePicker = unbox ("popupStyle", keyValueList CaseRules.LowerFirst css)
-
-    let inline antDatePicker (props: AntDatePicker list) (children: ReactElement list): ReactElement =
-       ofImport "DatePicker" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antYearPicker (props: AntMonthPicker list) (children: ReactElement list): ReactElement =
-       ofImport "DatePicker.YearPicker" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antMonthPicker (props: AntMonthPicker list) (children: ReactElement list): ReactElement =
-       ofImport "DatePicker.MonthPicker" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antWeekPicker (props: AntWeekPicker list) (children: ReactElement list): ReactElement =
-       ofImport "DatePicker.WeekPicker" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antRangePicker (props: AntRangePicker list) (children: ReactElement list): ReactElement =
-       ofImport "DatePicker.RangePicker" "antd" (keyValueList CaseRules.LowerFirst props) children
+type RangePicker() =
+    inherit DatePickerBase("DatePicker.RangePicker")
+    member x.AllowEmpty with set (v: bool array) = x.Attribute "allowEmpty" v 
+    member x.DefaultValue with set (v: Moment array) = x.Attribute "defaultValue" v 
+    member x.DefaultPickerValue with set (v: Moment array) = x.Attribute "defaultPickerValue" v 
+    member x.Disabled with set (v: bool array) = x.Attribute "disabled" v 
+    member x.DisabledTime with set (v: (Moment array * string -> bool)) = x.Attribute "disabledTime" v 
+    member x.Format with set (v: string array) = x.Attribute "Format" v 
+    member x.Ranges with set (v: obj) = x.Attribute "ranges" v 
+    member x.RenderExtraFooter with set (v: (unit -> ReactElement)) = x.Attribute "renderExtraFooter" v 
+    member x.Separator with set (v: string) = x.Attribute "separator" v 
+    member x.ShowTime with set (v: bool) = x.Attribute "showTime" v 
+    member x.Value with set (v: Moment array) = x.Attribute "value" v 
+    member x.OnCalendarChange with set (v: (Moment array -> string array -> unit)) = x.Attribute "onCalendarChange" v 
+    member x.OnChange with set (v: (Moment array -> string array -> unit)) = x.Attribute "onChange" v 

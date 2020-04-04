@@ -5,47 +5,34 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Dropdown =
+[<StringEnum; RequireQualifiedAccess>]
+type DropdownPlacement = BottomLeft | BottomCenter | BottomRight | TopLeft | TopCenter | TopRight
+
+[<StringEnum; RequireQualifiedAccess>]
+type DropdownTrigger = Click | Hover | ContextMenu
+
+type Dropdown() =
+    inherit AntElement("Dropdown")
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.GetPopupContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getPopupContainer" v 
+    member x.Overlay with set (v: ReactElement) = x.Attribute "overlay" v 
+    member x.OverlayClassName with set (v: string) = x.Attribute "overlayClassName" v
+    member x.OverlayStyle (css: Props.CSSProp list) = x.Attribute "overlayStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.Placement with set (v: DropdownPlacement) = x.Attribute "placement" v 
+    member x.Trigger with set (v: DropdownTrigger array) = x.Attribute "trigger" v 
+    member x.Visible with set (v: bool) = x.Attribute "visible" v 
+    member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntDropdownPlacement = BottomLeft | BottomCenter | BottomRight | TopLeft | TopCenter | TopRight
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntDropdownTrigger = Click | Hover | ContextMenu
-    
-    [<RequireQualifiedAccess>]
-    type AntDropdown  =
-        | Disabled of bool
-        | GetPopupContainer of (unit -> HTMLElement)
-        | Overlay of ReactElement
-        | OverlayClassName of string
-        | Placement of AntDropdownPlacement
-        | Trigger of AntDropdownTrigger array
-        | Visible of bool
-        | OnVisibleChange of (bool -> unit)
-        static member Custom (key: string, value: obj): AntDropdown = unbox (key, value)
-        static member OverlayStyle (css: Props.CSSProp list): AntDropdown = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
-        static member Style (css: Props.CSSProp list): AntDropdown = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntDropdownButton  =
-        | Disabled of bool
-        | GetPopupContainer of (unit -> ReactElement)
-        | Overlay of ReactElement
-        | OverlayClassName of string
-        | Placement of AntDropdownPlacement
-        | Trigger of AntDropdownTrigger array
-        | Visible of bool
-        | OnVisibleChange of (bool -> unit)
-        static member Custom (key: string, value: obj): AntDropdownButton = unbox (key, value)
-        static member OverlayStyle (css: Props.CSSProp list): AntDropdownButton = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
-        static member Style (css: Props.CSSProp list): AntDropdownButton = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antDropdown (props: AntDropdown list) (children: ReactElement list): ReactElement =
-       ofImport "Dropdown" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antDropdownButton (props: AntDropdownButton list) (children: ReactElement list): ReactElement =
-       ofImport "Dropdown.Button" "antd" (keyValueList CaseRules.LowerFirst props) children
+type DropdownButton() =
+    inherit AntElement("Dropdown.Button")
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v
+    member x.Icon with set (v: bool) = x.Attribute "icon" v
+    member x.Overlay with set (v: ReactElement) = x.Attribute "disabled" v 
+    member x.Placement with set (v: DropdownPlacement) = x.Attribute "disabled" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v
+    member x.Trigger with set (v: DropdownTrigger array) = x.Attribute "trigger" v
+    member x.Type with set (v: ButtonType) = x.Attribute "type" v
+    member x.Visible with set (v: bool) = x.Attribute "visible" v
+    member x.OnClick with set (v: Event -> unit) = x.Attribute "onClick" v 
+    member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
+    member x.ButtonsRender (v: ReactElement array array -> ReactElement) = x.Attribute "buttonsRender" v

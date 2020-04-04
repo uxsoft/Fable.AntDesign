@@ -4,76 +4,46 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Layout =
+type Layout() =
+    inherit AntElement("Layout")
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.HasSider with set (v: bool) = x.Attribute "hasSider" v 
 
-    [<RequireQualifiedAccess>]
-    type AntLayout =
-        | ClassName of string
-        | HasSider of bool
-        static member Custom (key: string, value: obj): AntLayout = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntLayout = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntHeader =
-        static member Custom (key: string, value: obj): AntHeader = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntHeader = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntContent =
-        static member Custom (key: string, value: obj): AntContent = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntContent = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type Header() =
+    inherit AntElement("Layout.Header")
     
-    [<RequireQualifiedAccess>]
-    type AntFooter =
-        static member Custom (key: string, value: obj): AntFooter = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntFooter = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type Content() =
+    inherit AntElement("Layout.Content")
+
+type Footer() =
+    inherit AntElement("Layout.Footer")
+
+[<StringEnum; RequireQualifiedAccess>]
+type SiderBreakpoint =
+    | [<CompiledName("xs")>] XS
+    | [<CompiledName("sm")>] SM
+    | [<CompiledName("md")>] MD
+    | [<CompiledName("lg")>] LG
+    | [<CompiledName("xl")>] XL
+    | [<CompiledName("xxl")>] XXL
+
+[<StringEnum; RequireQualifiedAccess>]
+type CollapseType = 
+    | [<CompiledName("clickTrigger")>] ClickTrigger
+    | [<CompiledName("responsive")>] Responsive
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type SiderBreakpoint =
-        | [<CompiledName("xs")>] XS
-        | [<CompiledName("sm")>] SM
-        | [<CompiledName("md")>] MD
-        | [<CompiledName("lg")>] LG
-        | [<CompiledName("xl")>] XL
-        | [<CompiledName("xxl")>] XXL
-
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type CollapseType = 
-        | [<CompiledName("clickTrigger")>] ClickTrigger
-        | [<CompiledName("responsive")>] Responsive
-        
-    [<RequireQualifiedAccess>]
-    type AntSider =
-        | Breakpoint of SiderBreakpoint
-        | ClassName of string
-        | Collapsed of bool
-        | CollapsedWidth of int
-        | Collapsible of bool
-        | DefaultCollapsed of bool
-        | ReverseArrow of bool
-        | Theme of Theme
-        | Trigger of ReactElement
-        | Width of string
-        | OnCollapse of (bool -> CollapseType -> unit)
-        | OnBreakpoint of (bool -> unit)
-        static member Custom (key: string, value: obj): AntSider = unbox (key, value)
-        static member ZeroWidthTriggerStyle (css: Props.CSSProp list): AntSider = unbox ("zeroWidthTriggerStyle", keyValueList CaseRules.LowerFirst css)
-        static member Style (css: Props.CSSProp list): AntSider = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antLayout (props: AntLayout list) (children: ReactElement list): ReactElement =
-       ofImport "Layout" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antHeader (props: AntHeader list) (children: ReactElement list): ReactElement =
-       ofImport "Layout.Header" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antContent (props: AntContent list) (children: ReactElement list): ReactElement =
-       ofImport "Layout.Content" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antFooter  (props: AntFooter list) (children: ReactElement list): ReactElement =
-       ofImport "Layout.Footer" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antSider (props: AntSider list) (children: ReactElement list): ReactElement =
-       ofImport "Layout.Sider" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Sider() =
+    inherit AntElement("Layout.Sider")
+    member x.Breakpoint with set (v: SiderBreakpoint) = x.Attribute "breakpoint" v 
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.Collapsed with set (v: bool) = x.Attribute "collapsed" v 
+    member x.CollapsedWidth with set (v: int) = x.Attribute "collapsedWidth" v 
+    member x.Collapsible with set (v: bool) = x.Attribute "collapsible" v 
+    member x.DefaultCollapsed with set (v: bool) = x.Attribute "defaultCollapsed" v 
+    member x.ReverseArrow with set (v: bool) = x.Attribute "reverseArrow" v 
+    member x.Theme with set (v: Theme) = x.Attribute "theme" v 
+    member x.Trigger with set (v: ReactElement) = x.Attribute "trigger" v 
+    member x.Width with set (v: string) = x.Attribute "width" v 
+    member x.OnCollapse with set (v: (bool -> CollapseType -> unit)) = x.Attribute "onCollapse" v 
+    member x.OnBreakpoint with set (v: (bool -> unit)) = x.Attribute "onBreakpoint" v 
+    member x.ZeroWidthTriggerStyle (css: Props.CSSProp list) = x.Attribute "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)

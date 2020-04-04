@@ -2,7 +2,6 @@ namespace Fable.AntD
 
 open Browser.Types
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>]

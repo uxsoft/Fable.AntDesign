@@ -1,110 +1,82 @@
 namespace Fable.AntD
 
 open Browser.Types
-open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Input =
-    
-    [<RequireQualifiedAccess>]
-    type AntInput  =
-        | AddonAfter of ReactElement
-        | AddonBefore of ReactElement
-        | DefaultValue of string
-        | Disabled of bool
-        | Id of string
-        | MaxLength of int
-        | Prefix of ReactElement
-        | Size of Size
-        | Suffix of ReactElement
-        | Type of string
-        | TabIndex of int
-        | Value of string
-        | OnChange of (Event -> unit)
-        | OnPressEnter of (Event -> unit)
-        | AllowClear of bool
-        | Placeholder of string
-        static member Custom (key: string, value: obj): AntInput = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntInput = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antInput (props: AntInput list) (children: ReactElement list): ReactElement =
-       ofImport "Input" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    type AutoSizeType = { minRows: int option; maxRows: int option }
+type Input() =
+    inherit AntElement("Input")
+    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
+    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Id with set (v: string) = x.Attribute "id" v 
+    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
+    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
+    member x.Type with set (v: string) = x.Attribute "type" v 
+    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
 
-    [<RequireQualifiedAccess>]
-    type AntTextArea =
-        | AutoSize of U2<bool, AutoSizeType>
-        | DefaultValue of string
-        | Value of string
-        | OnPressEnter of (KeyboardEvent -> unit)
-        | AllowClear of bool
-        static member Custom (key: string, value: obj): AntTextArea = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntTextArea = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antTextarea (props: AntTextArea list) (children: ReactElement list): ReactElement =
-       ofImport "Input.TextArea" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    [<RequireQualifiedAccess>]   
-    type AntSearch =
-        | AddonAfter of ReactElement
-        | AddonBefore of ReactElement
-        | DefaultValue of string
-        | Disabled of bool
-        | Id of string
-        | MaxLength of int
-        | Prefix of ReactElement
-        | Size of Size
-        | Suffix of ReactElement
-        | Type of string
-        | TabIndex of int
-        | Value of string
-        | OnChange of (Event -> unit)
-        | OnPressEnter of (Event -> unit)
-        | AllowClear of bool
-        | Placeholder of string
-        | EnterButton of U2<bool, ReactElement>
-        | Loading of bool
-        | OnSearch of (string * Event -> unit)
-        static member Custom (key: string, value: obj): AntSearch = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntSearch = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type AutoSizeType = { minRows: int option; maxRows: int option }
 
-    let inline antSearch (props: AntSearch list) (children: ReactElement list): ReactElement =
-       ofImport "Input.Search" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    [<RequireQualifiedAccess>]
-    type AntInputGroup =
-        | Compact of bool
-        | Size of Size
-        static member Custom (key: string, value: obj): AntInputGroup = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntInputGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antInputGroup (props: AntInputGroup list) (children: ReactElement list): ReactElement =
-       ofImport "Input.Group" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    [<RequireQualifiedAccess>]   
-    type AntPassword =
-    | AddonAfter of ReactElement
-    | AddonBefore of ReactElement
-    | DefaultValue of string
-    | Disabled of bool
-    | Id of string
-    | MaxLength of int
-    | Prefix of ReactElement
-    | Size of Size
-    | Suffix of ReactElement
-    | Type of string
-    | TabIndex of int
-    | Value of string
-    | OnChange of (Event -> unit)
-    | OnPressEnter of (Event -> unit)
-    | AllowClear of bool
-    | Placeholder of string    
-    | VisibilityToggle of bool
-        static member Custom (key: string, value: obj): AntPassword = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntPassword = unbox ("style", keyValueList CaseRules.LowerFirst css)    
+type TextArea() =
+    inherit AntElement("Input.TextArea")
+    member x.AutoSize with set (v: bool) = x.Attribute "autoSize" v
+    member x.AutoSizeType with set (v: AutoSizeType) = x.Attribute "autoSize" v
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnPressEnter with set (v: (KeyboardEvent -> unit)) = x.Attribute "onPressEnter" v 
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+   
+type Search() =
+    inherit AntElement("Input.Search")
+    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
+    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Id with set (v: string) = x.Attribute "id" v 
+    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
+    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
+    member x.Type with set (v: string) = x.Attribute "type" v 
+    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
+    member x.EnterButton with set (v: bool) = x.Attribute "enterButton" v
+    member x.ShowEnterButton with set (v: ReactElement) = x.Attribute "enterButton" v
+    member x.Loading with set (v: bool) = x.Attribute "loading" v 
+    member x.OnSearch with set (v: (string * Event -> unit)) = x.Attribute "onSearch" v 
 
-    let inline antPassword (props: AntPassword list) (children: ReactElement list): ReactElement =
-       ofImport "Input.Password" "antd" (keyValueList CaseRules.LowerFirst props) children
+type InputGroup() =
+    inherit AntElement("Input.Group")
+    member x.Compact with set (v: bool) = x.Attribute "compact" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+
+type AntPassword() =
+    inherit AntElement("Input.Password")
+    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
+    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Id with set (v: string) = x.Attribute "id" v 
+    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
+    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
+    member x.Type with set (v: string) = x.Attribute "type" v 
+    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v     
+    member x.VisibilityToggle with set (v: bool) = x.Attribute "visibilityToggle" v 

@@ -1,1593 +1,763 @@
 namespace Fable.AntD
+   
+type Icon(name) =
+    inherit AntElement(name, "@ant-design/icons")
+    member x.Spin with set (v: bool) = x.Attribute "spin" v 
+    member x.Rotate with set (v: float) = x.Attribute "rotate" v 
+    member x.TwoToneColor with set (v: string) = x.Attribute "twoToneColor" v 
 
-open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
-
-[<AutoOpen>]
-module Icon =
-        
-    [<RequireQualifiedAccess>]
-    type AntIcon =
-        | Spin of bool
-        | Rotate of float
-        | TwoToneColor of string
-        static member Custom (key: string, value: obj): AntIcon = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntIcon = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antIconAccountBookFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AccountBookFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAccountBookOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AccountBookOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAccountBookTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AccountBookTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAimOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AimOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlertFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlertFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlertOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlertOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlertTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlertTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlibabaOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlibabaOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlignCenterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlignCenterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlignLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlignLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlignRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlignRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlipayCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlipayCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlipayCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlipayCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlipayOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlipayOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAlipaySquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AlipaySquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAliwangwangFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AliwangwangFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAliwangwangOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AliwangwangOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAliyunOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AliyunOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAmazonCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AmazonCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAmazonOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AmazonOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAmazonSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AmazonSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAndroidFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AndroidFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAndroidOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AndroidOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAntCloudOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AntCloudOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAntDesignOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AntDesignOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconApartmentOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ApartmentOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconApiFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ApiFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconApiOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ApiOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconApiTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ApiTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppstoreAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppstoreAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppstoreFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppstoreFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppstoreOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppstoreOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAppstoreTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AppstoreTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAreaChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AreaChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconArrowDownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ArrowDownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconArrowLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ArrowLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconArrowRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ArrowRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconArrowUpOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ArrowUpOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconArrowsAltOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ArrowsAltOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAudioFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AudioFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAudioMutedOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AudioMutedOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAudioOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AudioOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAudioTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AudioTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconAuditOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "AuditOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBackwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BackwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBackwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BackwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBankFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BankFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBankOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BankOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBankTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BankTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBarChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BarChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBarcodeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BarcodeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBarsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BarsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBehanceCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BehanceCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBehanceOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BehanceOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBehanceSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BehanceSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBehanceSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BehanceSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBellFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BellFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBellOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BellOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBellTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BellTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBgColorsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BgColorsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBlockOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BlockOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBoldOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BoldOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBookFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BookFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBookOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BookOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBookTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BookTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderBottomOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderBottomOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderHorizontalOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderHorizontalOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderInnerOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderInnerOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderOuterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderOuterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderTopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderTopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderVerticleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderVerticleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBorderlessTableOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BorderlessTableOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBoxPlotFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BoxPlotFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBoxPlotOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BoxPlotOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBoxPlotTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BoxPlotTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBranchesOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BranchesOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBugFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BugFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBugOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BugOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBugTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BugTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBuildFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BuildFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBuildOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BuildOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBuildTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BuildTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBulbFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BulbFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBulbOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BulbOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconBulbTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "BulbTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalculatorFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalculatorFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalculatorOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalculatorOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalculatorTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalculatorTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalendarFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalendarFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalendarOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalendarOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCalendarTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CalendarTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCameraFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CameraFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCameraOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CameraOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCameraTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CameraTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretDownFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretDownFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretDownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretDownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretLeftFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretLeftFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretRightFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretRightFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretUpFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretUpFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCaretUpOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CaretUpOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarryOutFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarryOutFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarryOutOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarryOutOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCarryOutTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CarryOutTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCheckSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CheckSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconChromeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ChromeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconChromeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ChromeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCiCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CiCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCiCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CiCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCiCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CiCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCiOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CiOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCiTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CiTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconClearOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ClearOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconClockCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ClockCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconClockCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ClockCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconClockCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ClockCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloseSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloseSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudDownloadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudDownloadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudServerOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudServerOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudSyncOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudSyncOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCloudUploadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CloudUploadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconClusterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ClusterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeSandboxCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeSandboxCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeSandboxOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeSandboxOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeSandboxSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeSandboxSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodepenCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodepenCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodepenCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodepenCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodepenOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodepenOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCodepenSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CodepenSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCoffeeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CoffeeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconColumnHeightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ColumnHeightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconColumnWidthOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ColumnWidthOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCommentOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CommentOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCompassFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CompassFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCompassOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CompassOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCompassTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CompassTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCompressOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CompressOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconConsoleSqlOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ConsoleSqlOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContactsFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContactsFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContactsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContactsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContactsTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContactsTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContainerFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContainerFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContainerOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContainerOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconContainerTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ContainerTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconControlFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ControlFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconControlOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ControlOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconControlTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ControlTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyrightCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyrightCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyrightCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyrightCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyrightCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyrightCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyrightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyrightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCopyrightTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CopyrightTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCreditCardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CreditCardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCreditCardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CreditCardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCreditCardTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CreditCardTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCrownFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CrownFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCrownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CrownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCrownTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CrownTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCustomerServiceFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CustomerServiceFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCustomerServiceOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CustomerServiceOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconCustomerServiceTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "CustomerServiceTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDashOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DashOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDashboardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DashboardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDashboardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DashboardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDashboardTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DashboardTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDatabaseFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DatabaseFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDatabaseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DatabaseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDatabaseTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DatabaseTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeleteColumnOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeleteColumnOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeleteFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeleteFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeleteOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeleteOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeleteRowOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeleteRowOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeleteTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeleteTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeliveredProcedureOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeliveredProcedureOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDeploymentUnitOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DeploymentUnitOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDesktopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DesktopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDiffFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DiffFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDiffOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DiffOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDiffTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DiffTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDingdingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DingdingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDingtalkCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DingtalkCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDingtalkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DingtalkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDingtalkSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DingtalkSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDisconnectOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DisconnectOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDislikeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DislikeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDislikeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DislikeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDislikeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DislikeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDollarCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DollarCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDollarCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DollarCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDollarCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DollarCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDollarOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DollarOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDollarTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DollarTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDotChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DotChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDoubleLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DoubleLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDoubleRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DoubleRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDownloadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DownloadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDragOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DragOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDribbbleCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DribbbleCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDribbbleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DribbbleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDribbbleSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DribbbleSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDribbbleSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DribbbleSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDropboxCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DropboxCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDropboxOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DropboxOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconDropboxSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "DropboxSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEditFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EditFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEditOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EditOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEditTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EditTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEllipsisOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EllipsisOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEnterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EnterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEnvironmentFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EnvironmentFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEnvironmentOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EnvironmentOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEnvironmentTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EnvironmentTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEuroCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EuroCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEuroCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EuroCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEuroCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EuroCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEuroOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EuroOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEuroTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EuroTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExceptionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExceptionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExclamationCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExclamationCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExclamationCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExclamationCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExclamationCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExclamationCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExclamationOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExclamationOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExpandAltOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExpandAltOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExpandOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExpandOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExperimentFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExperimentFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExperimentOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExperimentOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExperimentTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExperimentTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconExportOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ExportOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeInvisibleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeInvisibleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeInvisibleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeInvisibleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeInvisibleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeInvisibleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconEyeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "EyeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFacebookFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FacebookFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFacebookOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FacebookOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFallOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FallOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFastBackwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FastBackwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFastBackwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FastBackwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFastForwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FastForwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFastForwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FastForwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFieldBinaryOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FieldBinaryOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFieldNumberOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FieldNumberOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFieldStringOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FieldStringOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFieldTimeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FieldTimeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileAddFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileAddFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileAddTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileAddTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileDoneOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileDoneOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExcelFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExcelFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExcelOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExcelOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExcelTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExcelTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExclamationFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExclamationFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExclamationOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExclamationOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileExclamationTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileExclamationTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileGifOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileGifOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileImageFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileImageFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileImageOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileImageOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileImageTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileImageTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileJpgOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileJpgOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileMarkdownFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileMarkdownFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileMarkdownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileMarkdownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileMarkdownTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileMarkdownTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePdfFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePdfFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePdfOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePdfOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePdfTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePdfTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePptFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePptFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePptOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePptOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilePptTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilePptTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileProtectOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileProtectOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileSearchOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileSearchOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileSyncOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileSyncOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileTextFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileTextFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileTextOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileTextOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileTextTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileTextTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileUnknownFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileUnknownFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileUnknownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileUnknownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileUnknownTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileUnknownTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileWordFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileWordFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileWordOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileWordOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileWordTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileWordTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileZipFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileZipFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileZipOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileZipOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFileZipTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FileZipTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilterFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilterFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFilterTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FilterTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFireFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FireFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFireOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FireOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFireTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FireTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFlagFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FlagFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFlagOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FlagOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFlagTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FlagTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderAddFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderAddFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderAddTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderAddTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderOpenFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderOpenFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderOpenOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderOpenOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderOpenTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderOpenTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFolderViewOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FolderViewOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFontColorsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FontColorsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFontSizeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FontSizeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconForkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ForkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFormOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FormOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFormatPainterFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FormatPainterFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFormatPainterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FormatPainterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconForwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ForwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconForwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ForwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFrownFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FrownFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFrownOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FrownOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFrownTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FrownTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFullscreenExitOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FullscreenExitOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFullscreenOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FullscreenOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFunctionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FunctionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFundFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FundFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFundOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FundOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFundProjectionScreenOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FundProjectionScreenOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFundTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FundTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFundViewOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FundViewOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFunnelPlotFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FunnelPlotFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFunnelPlotOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FunnelPlotOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconFunnelPlotTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "FunnelPlotTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGatewayOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GatewayOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGifOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GifOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGiftFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GiftFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGiftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GiftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGiftTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GiftTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGithubFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GithubFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGithubOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GithubOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGitlabFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GitlabFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGitlabOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GitlabOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGlobalOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GlobalOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoldFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoldFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoldOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoldOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoldTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoldTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoldenFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoldenFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoogleCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoogleCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoogleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoogleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGooglePlusCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GooglePlusCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGooglePlusOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GooglePlusOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGooglePlusSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GooglePlusSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGoogleSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GoogleSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconGroupOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "GroupOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHddFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HddFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHddTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HddTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHeartFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HeartFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHeartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HeartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHeartTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HeartTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHeatMapOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HeatMapOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHighlightFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HighlightFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHighlightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HighlightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHighlightTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HighlightTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHistoryOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HistoryOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHomeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HomeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHomeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HomeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHomeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HomeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHourglassFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HourglassFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHourglassOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HourglassOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHourglassTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "HourglassTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHtml5Filled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "Html5Filled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHtml5Outlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "Html5Outlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconHtml5TwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "Html5TwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIdcardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IdcardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIdcardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IdcardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIdcardTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IdcardTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIeCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IeCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIeSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IeSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconImportOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ImportOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInboxOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InboxOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInfoCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InfoCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInfoCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InfoCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInfoCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InfoCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInfoOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InfoOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsertRowAboveOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsertRowAboveOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsertRowBelowOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsertRowBelowOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsertRowLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsertRowLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsertRowRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsertRowRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInstagramFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InstagramFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInstagramOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InstagramOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsuranceFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsuranceFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsuranceOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsuranceOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInsuranceTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InsuranceTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInteractionFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InteractionFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInteractionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InteractionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconInteractionTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "InteractionTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconIssuesCloseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "IssuesCloseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconItalicOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ItalicOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconKeyOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "KeyOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLaptopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LaptopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLayoutFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LayoutFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLayoutOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LayoutOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLayoutTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LayoutTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLeftSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LeftSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLikeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LikeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLikeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LikeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLikeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LikeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLineChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LineChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLineHeightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LineHeightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLineOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LineOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLinkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LinkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLinkedinFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LinkedinFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLinkedinOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LinkedinOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLoading3QuartersOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "Loading3QuartersOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLoadingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LoadingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLockFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LockFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLockOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LockOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLockTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LockTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLoginOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LoginOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconLogoutOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "LogoutOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMacCommandFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MacCommandFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMacCommandOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MacCommandOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMailFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MailFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMailOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MailOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMailTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MailTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconManOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ManOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMedicineBoxFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MedicineBoxFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMedicineBoxOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MedicineBoxOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMedicineBoxTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MedicineBoxTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMediumCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MediumCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMediumOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MediumOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMediumSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MediumSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMediumWorkmarkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MediumWorkmarkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMehFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MehFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMehOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MehOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMehTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MehTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMenuFoldOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MenuFoldOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMenuOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MenuOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMenuUnfoldOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MenuUnfoldOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMergeCellsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MergeCellsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMessageFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MessageFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMessageOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MessageOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMessageTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MessageTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMinusSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MinusSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMobileFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MobileFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMobileOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MobileOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMobileTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MobileTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMoneyCollectFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MoneyCollectFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMoneyCollectOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MoneyCollectOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMoneyCollectTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MoneyCollectTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMonitorOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MonitorOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconMoreOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "MoreOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNodeCollapseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NodeCollapseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNodeExpandOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NodeExpandOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNodeIndexOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NodeIndexOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNotificationFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NotificationFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNotificationOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NotificationOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNotificationTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NotificationTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconNumberOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "NumberOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconOneToOneOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "OneToOneOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconOrderedListOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "OrderedListOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPaperClipOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PaperClipOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPartitionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PartitionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPauseCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PauseCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPauseCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PauseCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPauseCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PauseCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPauseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PauseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPayCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PayCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPayCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PayCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPercentageOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PercentageOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPhoneFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PhoneFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPhoneOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PhoneOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPhoneTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PhoneTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPicCenterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PicCenterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPicLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PicLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPicRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PicRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPictureFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PictureFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPictureOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PictureOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPictureTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PictureTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPieChartFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PieChartFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPieChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PieChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPieChartTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PieChartTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlayCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlayCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlayCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlayCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlayCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlayCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlaySquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlaySquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlaySquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlaySquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlaySquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlaySquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPlusSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PlusSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPoundCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PoundCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPoundCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PoundCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPoundCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PoundCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPoundOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PoundOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPoweroffOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PoweroffOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPrinterFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PrinterFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPrinterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PrinterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPrinterTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PrinterTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProfileFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProfileFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProfileOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProfileOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProfileTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProfileTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProjectFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProjectFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProjectOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProjectOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconProjectTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ProjectTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPropertySafetyFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PropertySafetyFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPropertySafetyOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PropertySafetyOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPropertySafetyTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PropertySafetyTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPullRequestOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PullRequestOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPushpinFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PushpinFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPushpinOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PushpinOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconPushpinTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "PushpinTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQqCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QqCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQqOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QqOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQqSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QqSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQrcodeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QrcodeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQuestionCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QuestionCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQuestionCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QuestionCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQuestionCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QuestionCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconQuestionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "QuestionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadarChartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadarChartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadiusBottomleftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadiusBottomleftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadiusBottomrightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadiusBottomrightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadiusSettingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadiusSettingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadiusUpleftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadiusUpleftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRadiusUprightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RadiusUprightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReadFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReadFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReconciliationFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReconciliationFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReconciliationOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReconciliationOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReconciliationTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReconciliationTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedEnvelopeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedEnvelopeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedEnvelopeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedEnvelopeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedEnvelopeTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedEnvelopeTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedditCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedditCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedditOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedditOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedditSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedditSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRedoOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RedoOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconReloadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ReloadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRestFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RestFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRestOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RestOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRestTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RestTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRetweetOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RetweetOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRightSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RightSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRiseOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RiseOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRobotFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RobotFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRobotOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RobotOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRocketFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RocketFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRocketOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RocketOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRocketTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RocketTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRollbackOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RollbackOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRotateLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RotateLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconRotateRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "RotateRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSafetyCertificateFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SafetyCertificateFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSafetyCertificateOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SafetyCertificateOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSafetyCertificateTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SafetyCertificateTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSafetyOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SafetyOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSaveFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SaveFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSaveOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SaveOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSaveTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SaveTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconScanOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ScanOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconScheduleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ScheduleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconScheduleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ScheduleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconScheduleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ScheduleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconScissorOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ScissorOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSearchOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SearchOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSecurityScanFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SecurityScanFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSecurityScanOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SecurityScanOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSecurityScanTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SecurityScanTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSelectOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SelectOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSendOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SendOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSettingFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SettingFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSettingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SettingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSettingTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SettingTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShakeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShakeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShareAltOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShareAltOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShopFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShopFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShopTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShopTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShoppingCartOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShoppingCartOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShoppingFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShoppingFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShoppingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShoppingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShoppingTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShoppingTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconShrinkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ShrinkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSignalFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SignalFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSisternodeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SisternodeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSketchCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SketchCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSketchOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SketchOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSketchSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SketchSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSkinFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SkinFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSkinOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SkinOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSkinTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SkinTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSkypeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SkypeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSkypeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SkypeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlackCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlackCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlackOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlackOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlackSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlackSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlackSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlackSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlidersFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlidersFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlidersOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlidersOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSlidersTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SlidersTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSmallDashOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SmallDashOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSmileFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SmileFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSmileOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SmileOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSmileTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SmileTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSnippetsFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SnippetsFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSnippetsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SnippetsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSnippetsTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SnippetsTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSolutionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SolutionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSortAscendingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SortAscendingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSortDescendingOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SortDescendingOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSoundFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SoundFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSoundOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SoundOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSoundTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SoundTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSplitCellsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SplitCellsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStarFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StarFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStarOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StarOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStarTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StarTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStepBackwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StepBackwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStepBackwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StepBackwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStepForwardFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StepForwardFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStepForwardOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StepForwardOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStockOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StockOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStopFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StopFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStopTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StopTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconStrikethroughOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "StrikethroughOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSubnodeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SubnodeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwapLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwapLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwapOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwapOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwapRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwapRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwitcherFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwitcherFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwitcherOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwitcherOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSwitcherTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SwitcherTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconSyncOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "SyncOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTableOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TableOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTabletFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TabletFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTabletOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TabletOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTabletTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TabletTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagsFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagsFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTagsTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TagsTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTaobaoCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TaobaoCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTaobaoCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TaobaoCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTaobaoOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TaobaoOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTaobaoSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TaobaoSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTeamOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TeamOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconThunderboltFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ThunderboltFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconThunderboltOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ThunderboltOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconThunderboltTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ThunderboltTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconToTopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ToTopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconToolFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ToolFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconToolOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ToolOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconToolTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ToolTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrademarkCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrademarkCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrademarkCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrademarkCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrademarkCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrademarkCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrademarkOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrademarkOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTransactionOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TransactionOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTranslationOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TranslationOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrophyFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrophyFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrophyOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrophyOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTrophyTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TrophyTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTwitterCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TwitterCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTwitterOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TwitterOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconTwitterSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "TwitterSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUnderlineOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UnderlineOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUndoOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UndoOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUngroupOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UngroupOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUnlockFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UnlockFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUnlockOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UnlockOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUnlockTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UnlockTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUnorderedListOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UnorderedListOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpCircleTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpCircleTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUpSquareTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UpSquareTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUploadOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UploadOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUsbFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UsbFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUsbOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UsbOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUsbTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UsbTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUserAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UserAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUserDeleteOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UserDeleteOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUserOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UserOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUserSwitchOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UserSwitchOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUsergroupAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UsergroupAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconUsergroupDeleteOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "UsergroupDeleteOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerifiedOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerifiedOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerticalAlignBottomOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerticalAlignBottomOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerticalAlignMiddleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerticalAlignMiddleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerticalAlignTopOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerticalAlignTopOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerticalLeftOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerticalLeftOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVerticalRightOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VerticalRightOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVideoCameraAddOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VideoCameraAddOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVideoCameraFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VideoCameraFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVideoCameraOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VideoCameraOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconVideoCameraTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "VideoCameraTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWalletFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WalletFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWalletOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WalletOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWalletTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WalletTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWarningFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WarningFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWarningOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WarningOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWarningTwoTone (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WarningTwoTone" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWechatFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WechatFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWechatOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WechatOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWeiboCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WeiboCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWeiboCircleOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WeiboCircleOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWeiboOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WeiboOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWeiboSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WeiboSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWeiboSquareOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WeiboSquareOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWhatsAppOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WhatsAppOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWifiOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WifiOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWindowsFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WindowsFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWindowsOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WindowsOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconWomanOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "WomanOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYahooFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YahooFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYahooOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YahooOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYoutubeFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YoutubeFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYoutubeOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YoutubeOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYuqueFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YuqueFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconYuqueOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "YuqueOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconZhihuCircleFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ZhihuCircleFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconZhihuOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ZhihuOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconZhihuSquareFilled (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ZhihuSquareFilled" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconZoomInOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ZoomInOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
-    let inline antIconZoomOutOutlined (props: AntIcon list) (children: ReactElement list): ReactElement =
-        ofImport "ZoomOutOutlined" "@ant-design/icons" (keyValueList CaseRules.LowerFirst props) children
+    static member ArrowUpOutlined = Icon("ArrowUpOutlined")
+    static member ArrowDownOutlined = Icon("ArrowDownOutlined")
+    static member ArrowLeftOutlined = Icon("ArrowLeftOutlined")
+    static member ArrowRightOutlined = Icon("ArrowRightOutlined")
+    static member PlayCircleOutlined = Icon("PlayCircleOutlined")
+    static member UpSquareOutlined = Icon("UpSquareOutlined")
+    static member DownSquareOutlined = Icon("DownSquareOutlined")
+    static member LeftSquareOutlined = Icon("LeftSquareOutlined")
+    static member RightSquareOutlined = Icon("RightSquareOutlined")
+    static member LoginOutlined = Icon("LoginOutlined")
+    static member LogoutOutlined = Icon("LogoutOutlined")
+    static member MenuFoldOutlined = Icon("MenuFoldOutlined")
+    static member MenuUnfoldOutlined = Icon("MenuUnfoldOutlined")
+    static member BorderBottomOutlined = Icon("BorderBottomOutlined")
+    static member BorderHorizontalOutlined = Icon("BorderHorizontalOutlined")
+    static member BorderInnerOutlined = Icon("BorderInnerOutlined")
+    static member BorderOuterOutlined = Icon("BorderOuterOutlined")
+    static member BorderLeftOutlined = Icon("BorderLeftOutlined")
+    static member BorderRightOutlined = Icon("BorderRightOutlined")
+    static member BorderTopOutlined = Icon("BorderTopOutlined")
+    static member BorderVerticleOutlined = Icon("BorderVerticleOutlined")
+    static member PicCenterOutlined = Icon("PicCenterOutlined")
+    static member PicLeftOutlined = Icon("PicLeftOutlined")
+    static member PicRightOutlined = Icon("PicRightOutlined")
+    static member RadiusBottomleftOutlined = Icon("RadiusBottomleftOutlined")
+    static member RadiusBottomrightOutlined = Icon("RadiusBottomrightOutlined")
+    static member RadiusUpleftOutlined = Icon("RadiusUpleftOutlined")
+    static member RadiusUprightOutlined = Icon("RadiusUprightOutlined")
+    static member FullscreenOutlined = Icon("FullscreenOutlined")
+    static member FullscreenExitOutlined = Icon("FullscreenExitOutlined")
+    static member QuestionOutlined = Icon("QuestionOutlined")
+    static member QuestionCircleOutlined = Icon("QuestionCircleOutlined")
+    static member PlusOutlined = Icon("PlusOutlined")
+    static member PlusCircleOutlined = Icon("PlusCircleOutlined")
+    static member PauseOutlined = Icon("PauseOutlined")
+    static member PauseCircleOutlined = Icon("PauseCircleOutlined")
+    static member MinusOutlined = Icon("MinusOutlined")
+    static member MinusCircleOutlined = Icon("MinusCircleOutlined")
+    static member PlusSquareOutlined = Icon("PlusSquareOutlined")
+    static member MinusSquareOutlined = Icon("MinusSquareOutlined")
+    static member InfoOutlined = Icon("InfoOutlined")
+    static member InfoCircleOutlined = Icon("InfoCircleOutlined")
+    static member ExclamationOutlined = Icon("ExclamationOutlined")
+    static member ExclamationCircleOutlined = Icon("ExclamationCircleOutlined")
+    static member CloseOutlined = Icon("CloseOutlined")
+    static member CloseCircleOutlined = Icon("CloseCircleOutlined")
+    static member CloseSquareOutlined = Icon("CloseSquareOutlined")
+    static member CheckOutlined = Icon("CheckOutlined")
+    static member CheckCircleOutlined = Icon("CheckCircleOutlined")
+    static member CheckSquareOutlined = Icon("CheckSquareOutlined")
+    static member ClockCircleOutlined = Icon("ClockCircleOutlined")
+    static member WarningOutlined = Icon("WarningOutlined")
+    static member IssuesCloseOutlined = Icon("IssuesCloseOutlined")
+    static member StopOutlined = Icon("StopOutlined")
+    static member EditOutlined = Icon("EditOutlined")
+    static member FormOutlined = Icon("FormOutlined")
+    static member CopyOutlined = Icon("CopyOutlined")
+    static member ScissorOutlined = Icon("ScissorOutlined")
+    static member DeleteOutlined = Icon("DeleteOutlined")
+    static member SnippetsOutlined = Icon("SnippetsOutlined")
+    static member DiffOutlined = Icon("DiffOutlined")
+    static member HighlightOutlined = Icon("HighlightOutlined")
+    static member AlignCenterOutlined = Icon("AlignCenterOutlined")
+    static member AlignLeftOutlined = Icon("AlignLeftOutlined")
+    static member AlignRightOutlined = Icon("AlignRightOutlined")
+    static member BgColorsOutlined = Icon("BgColorsOutlined")
+    static member BoldOutlined = Icon("BoldOutlined")
+    static member ItalicOutlined = Icon("ItalicOutlined")
+    static member UnderlineOutlined = Icon("UnderlineOutlined")
+    static member StrikethroughOutlined = Icon("StrikethroughOutlined")
+    static member RedoOutlined = Icon("RedoOutlined")
+    static member UndoOutlined = Icon("UndoOutlined")
+    static member ZoomInOutlined = Icon("ZoomInOutlined")
+    static member ZoomOutOutlined = Icon("ZoomOutOutlined")
+    static member FontColorsOutlined = Icon("FontColorsOutlined")
+    static member FontSizeOutlined = Icon("FontSizeOutlined")
+    static member LineHeightOutlined = Icon("LineHeightOutlined")
+    static member DashOutlined = Icon("DashOutlined")
+    static member SmallDashOutlined = Icon("SmallDashOutlined")
+    static member SortAscendingOutlined = Icon("SortAscendingOutlined")
+    static member SortDescendingOutlined = Icon("SortDescendingOutlined")
+    static member DragOutlined = Icon("DragOutlined")
+    static member OrderedListOutlined = Icon("OrderedListOutlined")
+    static member UnorderedListOutlined = Icon("UnorderedListOutlined")
+    static member RadiusSettingOutlined = Icon("RadiusSettingOutlined")
+    static member ColumnWidthOutlined = Icon("ColumnWidthOutlined")
+    static member ColumnHeightOutlined = Icon("ColumnHeightOutlined")
+    static member AreaChartOutlined = Icon("AreaChartOutlined")
+    static member PieChartOutlined = Icon("PieChartOutlined")
+    static member BarChartOutlined = Icon("BarChartOutlined")
+    static member DotChartOutlined = Icon("DotChartOutlined")
+    static member LineChartOutlined = Icon("LineChartOutlined")
+    static member RadarChartOutlined = Icon("RadarChartOutlined")
+    static member HeatMapOutlined = Icon("HeatMapOutlined")
+    static member FallOutlined = Icon("FallOutlined")
+    static member RiseOutlined = Icon("RiseOutlined")
+    static member StockOutlined = Icon("StockOutlined")
+    static member BoxPlotOutlined = Icon("BoxPlotOutlined")
+    static member FundOutlined = Icon("FundOutlined")
+    static member SlidersOutlined = Icon("SlidersOutlined")
+    static member AndroidOutlined = Icon("AndroidOutlined")
+    static member AppleOutlined = Icon("AppleOutlined")
+    static member WindowsOutlined = Icon("WindowsOutlined")
+    static member IeOutlined = Icon("IeOutlined")
+    static member ChromeOutlined = Icon("ChromeOutlined")
+    static member GithubOutlined = Icon("GithubOutlined")
+    static member AliwangwangOutlined = Icon("AliwangwangOutlined")
+    static member DingdingOutlined = Icon("DingdingOutlined")
+    static member WeiboSquareOutlined = Icon("WeiboSquareOutlined")
+    static member WeiboCircleOutlined = Icon("WeiboCircleOutlined")
+    static member TaobaoCircleOutlined = Icon("TaobaoCircleOutlined")
+    static member Html5Outlined = Icon("Html5Outlined")
+    static member WeiboOutlined = Icon("WeiboOutlined")
+    static member TwitterOutlined = Icon("TwitterOutlined")
+    static member WechatOutlined = Icon("WechatOutlined")
+    static member YoutubeOutlined = Icon("YoutubeOutlined")
+    static member AlipayCircleOutlined = Icon("AlipayCircleOutlined")
+    static member TaobaoOutlined = Icon("TaobaoOutlined")
+    static member SkypeOutlined = Icon("SkypeOutlined")
+    static member QqOutlined = Icon("QqOutlined")
+    static member MediumWorkmarkOutlined = Icon("MediumWorkmarkOutlined")
+    static member GitlabOutlined = Icon("GitlabOutlined")
+    static member MediumOutlined = Icon("MediumOutlined")
+    static member LinkedinOutlined = Icon("LinkedinOutlined")
+    static member GooglePlusOutlined = Icon("GooglePlusOutlined")
+    static member DropboxOutlined = Icon("DropboxOutlined")
+    static member FacebookOutlined = Icon("FacebookOutlined")
+    static member CodepenOutlined = Icon("CodepenOutlined")
+    static member CodeSandboxOutlined = Icon("CodeSandboxOutlined")
+    static member AmazonOutlined = Icon("AmazonOutlined")
+    static member GoogleOutlined = Icon("GoogleOutlined")
+    static member CodepenCircleOutlined = Icon("CodepenCircleOutlined")
+    static member AlipayOutlined = Icon("AlipayOutlined")
+    static member AntDesignOutlined = Icon("AntDesignOutlined")
+    static member AntCloudOutlined = Icon("AntCloudOutlined")
+    static member AliyunOutlined = Icon("AliyunOutlined")
+    static member ZhihuOutlined = Icon("ZhihuOutlined")
+    static member SlackOutlined = Icon("SlackOutlined")
+    static member SlackSquareOutlined = Icon("SlackSquareOutlined")
+    static member BehanceOutlined = Icon("BehanceOutlined")
+    static member BehanceSquareOutlined = Icon("BehanceSquareOutlined")
+    static member DribbbleOutlined = Icon("DribbbleOutlined")
+    static member DribbbleSquareOutlined = Icon("DribbbleSquareOutlined")
+    static member InstagramOutlined = Icon("InstagramOutlined")
+    static member YuqueOutlined = Icon("YuqueOutlined")
+    static member AlibabaOutlined = Icon("AlibabaOutlined")
+    static member YahooOutlined = Icon("YahooOutlined")
+    static member RedditOutlined = Icon("RedditOutlined")
+    static member SketchOutlined = Icon("SketchOutlined")
+    static member AccountBookOutlined = Icon("AccountBookOutlined")
+    static member AimOutlined = Icon("AimOutlined")
+    static member AlertOutlined = Icon("AlertOutlined")
+    static member ApartmentOutlined = Icon("ApartmentOutlined")
+    static member ApiOutlined = Icon("ApiOutlined")
+    static member AppstoreAddOutlined = Icon("AppstoreAddOutlined")
+    static member AppstoreOutlined = Icon("AppstoreOutlined")
+    static member AudioOutlined = Icon("AudioOutlined")
+    static member AudioMutedOutlined = Icon("AudioMutedOutlined")
+    static member AuditOutlined = Icon("AuditOutlined")
+    static member BankOutlined = Icon("BankOutlined")
+    static member BarcodeOutlined = Icon("BarcodeOutlined")
+    static member BarsOutlined = Icon("BarsOutlined")
+    static member BellOutlined = Icon("BellOutlined")
+    static member BlockOutlined = Icon("BlockOutlined")
+    static member BookOutlined = Icon("BookOutlined")
+    static member BorderOutlined = Icon("BorderOutlined")
+    static member BorderlessTableOutlined = Icon("BorderlessTableOutlined")
+    static member BranchesOutlined = Icon("BranchesOutlined")
+    static member BugOutlined = Icon("BugOutlined")
+    static member BuildOutlined = Icon("BuildOutlined")
+    static member BulbOutlined = Icon("BulbOutlined")
+    static member CalculatorOutlined = Icon("CalculatorOutlined")
+    static member CalendarOutlined = Icon("CalendarOutlined")
+    static member CameraOutlined = Icon("CameraOutlined")
+    static member CarOutlined = Icon("CarOutlined")
+    static member CarryOutOutlined = Icon("CarryOutOutlined")
+    static member CiCircleOutlined = Icon("CiCircleOutlined")
+    static member CiOutlined = Icon("CiOutlined")
+    static member ClearOutlined = Icon("ClearOutlined")
+    static member CloudDownloadOutlined = Icon("CloudDownloadOutlined")
+    static member CloudOutlined = Icon("CloudOutlined")
+    static member CloudServerOutlined = Icon("CloudServerOutlined")
+    static member CloudSyncOutlined = Icon("CloudSyncOutlined")
+    static member CloudUploadOutlined = Icon("CloudUploadOutlined")
+    static member ClusterOutlined = Icon("ClusterOutlined")
+    static member CodeOutlined = Icon("CodeOutlined")
+    static member CoffeeOutlined = Icon("CoffeeOutlined")
+    static member CommentOutlined = Icon("CommentOutlined")
+    static member CompassOutlined = Icon("CompassOutlined")
+    static member CompressOutlined = Icon("CompressOutlined")
+    static member ConsoleSqlOutlined = Icon("ConsoleSqlOutlined")
+    static member ContactsOutlined = Icon("ContactsOutlined")
+    static member ContainerOutlined = Icon("ContainerOutlined")
+    static member ControlOutlined = Icon("ControlOutlined")
+    static member CopyrightCircleOutlined = Icon("CopyrightCircleOutlined")
+    static member CopyrightOutlined = Icon("CopyrightOutlined")
+    static member CreditCardOutlined = Icon("CreditCardOutlined")
+    static member CrownOutlined = Icon("CrownOutlined")
+    static member CustomerServiceOutlined = Icon("CustomerServiceOutlined")
+    static member DashboardOutlined = Icon("DashboardOutlined")
+    static member DatabaseOutlined = Icon("DatabaseOutlined")
+    static member DeleteColumnOutlined = Icon("DeleteColumnOutlined")
+    static member DeleteRowOutlined = Icon("DeleteRowOutlined")
+    static member DeliveredProcedureOutlined = Icon("DeliveredProcedureOutlined")
+    static member DeploymentUnitOutlined = Icon("DeploymentUnitOutlined")
+    static member DesktopOutlined = Icon("DesktopOutlined")
+    static member DingtalkOutlined = Icon("DingtalkOutlined")
+    static member DisconnectOutlined = Icon("DisconnectOutlined")
+    static member DislikeOutlined = Icon("DislikeOutlined")
+    static member DollarCircleOutlined = Icon("DollarCircleOutlined")
+    static member DollarOutlined = Icon("DollarOutlined")
+    static member DownloadOutlined = Icon("DownloadOutlined")
+    static member EllipsisOutlined = Icon("EllipsisOutlined")
+    static member EnvironmentOutlined = Icon("EnvironmentOutlined")
+    static member EuroCircleOutlined = Icon("EuroCircleOutlined")
+    static member EuroOutlined = Icon("EuroOutlined")
+    static member ExceptionOutlined = Icon("ExceptionOutlined")
+    static member ExpandAltOutlined = Icon("ExpandAltOutlined")
+    static member ExpandOutlined = Icon("ExpandOutlined")
+    static member ExperimentOutlined = Icon("ExperimentOutlined")
+    static member ExportOutlined = Icon("ExportOutlined")
+    static member EyeOutlined = Icon("EyeOutlined")
+    static member EyeInvisibleOutlined = Icon("EyeInvisibleOutlined")
+    static member FieldBinaryOutlined = Icon("FieldBinaryOutlined")
+    static member FieldNumberOutlined = Icon("FieldNumberOutlined")
+    static member FieldStringOutlined = Icon("FieldStringOutlined")
+    static member FieldTimeOutlined = Icon("FieldTimeOutlined")
+    static member FileAddOutlined = Icon("FileAddOutlined")
+    static member FileDoneOutlined = Icon("FileDoneOutlined")
+    static member FileExcelOutlined = Icon("FileExcelOutlined")
+    static member FileExclamationOutlined = Icon("FileExclamationOutlined")
+    static member FileOutlined = Icon("FileOutlined")
+    static member FileGifOutlined = Icon("FileGifOutlined")
+    static member FileImageOutlined = Icon("FileImageOutlined")
+    static member FileJpgOutlined = Icon("FileJpgOutlined")
+    static member FileMarkdownOutlined = Icon("FileMarkdownOutlined")
+    static member FilePdfOutlined = Icon("FilePdfOutlined")
+    static member FilePptOutlined = Icon("FilePptOutlined")
+    static member FileProtectOutlined = Icon("FileProtectOutlined")
+    static member FileSearchOutlined = Icon("FileSearchOutlined")
+    static member FileSyncOutlined = Icon("FileSyncOutlined")
+    static member FileTextOutlined = Icon("FileTextOutlined")
+    static member FileUnknownOutlined = Icon("FileUnknownOutlined")
+    static member FileWordOutlined = Icon("FileWordOutlined")
+    static member FileZipOutlined = Icon("FileZipOutlined")
+    static member FilterOutlined = Icon("FilterOutlined")
+    static member FireOutlined = Icon("FireOutlined")
+    static member FlagOutlined = Icon("FlagOutlined")
+    static member FolderAddOutlined = Icon("FolderAddOutlined")
+    static member FolderOutlined = Icon("FolderOutlined")
+    static member FolderOpenOutlined = Icon("FolderOpenOutlined")
+    static member FolderViewOutlined = Icon("FolderViewOutlined")
+    static member ForkOutlined = Icon("ForkOutlined")
+    static member FormatPainterOutlined = Icon("FormatPainterOutlined")
+    static member FrownOutlined = Icon("FrownOutlined")
+    static member FunctionOutlined = Icon("FunctionOutlined")
+    static member FundProjectionScreenOutlined = Icon("FundProjectionScreenOutlined")
+    static member FundViewOutlined = Icon("FundViewOutlined")
+    static member FunnelPlotOutlined = Icon("FunnelPlotOutlined")
+    static member GatewayOutlined = Icon("GatewayOutlined")
+    static member GifOutlined = Icon("GifOutlined")
+    static member GiftOutlined = Icon("GiftOutlined")
+    static member GlobalOutlined = Icon("GlobalOutlined")
+    static member GoldOutlined = Icon("GoldOutlined")
+    static member GroupOutlined = Icon("GroupOutlined")
+    static member HddOutlined = Icon("HddOutlined")
+    static member HeartOutlined = Icon("HeartOutlined")
+    static member HistoryOutlined = Icon("HistoryOutlined")
+    static member HomeOutlined = Icon("HomeOutlined")
+    static member HourglassOutlined = Icon("HourglassOutlined")
+    static member IdcardOutlined = Icon("IdcardOutlined")
+    static member ImportOutlined = Icon("ImportOutlined")
+    static member InboxOutlined = Icon("InboxOutlined")
+    static member InsertRowAboveOutlined = Icon("InsertRowAboveOutlined")
+    static member InsertRowBelowOutlined = Icon("InsertRowBelowOutlined")
+    static member InsertRowLeftOutlined = Icon("InsertRowLeftOutlined")
+    static member InsertRowRightOutlined = Icon("InsertRowRightOutlined")
+    static member InsuranceOutlined = Icon("InsuranceOutlined")
+    static member InteractionOutlined = Icon("InteractionOutlined")
+    static member KeyOutlined = Icon("KeyOutlined")
+    static member LaptopOutlined = Icon("LaptopOutlined")
+    static member LayoutOutlined = Icon("LayoutOutlined")
+    static member LikeOutlined = Icon("LikeOutlined")
+    static member LineOutlined = Icon("LineOutlined")
+    static member LinkOutlined = Icon("LinkOutlined")
+    static member Loading3QuartersOutlined = Icon("Loading3QuartersOutlined")
+    static member LoadingOutlined = Icon("LoadingOutlined")
+    static member LockOutlined = Icon("LockOutlined")
+    static member MacCommandOutlined = Icon("MacCommandOutlined")
+    static member MailOutlined = Icon("MailOutlined")
+    static member ManOutlined = Icon("ManOutlined")
+    static member MedicineBoxOutlined = Icon("MedicineBoxOutlined")
+    static member MehOutlined = Icon("MehOutlined")
+    static member MenuOutlined = Icon("MenuOutlined")
+    static member MergeCellsOutlined = Icon("MergeCellsOutlined")
+    static member MessageOutlined = Icon("MessageOutlined")
+    static member MobileOutlined = Icon("MobileOutlined")
+    static member MoneyCollectOutlined = Icon("MoneyCollectOutlined")
+    static member MonitorOutlined = Icon("MonitorOutlined")
+    static member MoreOutlined = Icon("MoreOutlined")
+    static member NodeCollapseOutlined = Icon("NodeCollapseOutlined")
+    static member NodeExpandOutlined = Icon("NodeExpandOutlined")
+    static member NodeIndexOutlined = Icon("NodeIndexOutlined")
+    static member NotificationOutlined = Icon("NotificationOutlined")
+    static member NumberOutlined = Icon("NumberOutlined")
+    static member OneToOneOutlined = Icon("OneToOneOutlined")
+    static member PaperClipOutlined = Icon("PaperClipOutlined")
+    static member PartitionOutlined = Icon("PartitionOutlined")
+    static member PayCircleOutlined = Icon("PayCircleOutlined")
+    static member PercentageOutlined = Icon("PercentageOutlined")
+    static member PhoneOutlined = Icon("PhoneOutlined")
+    static member PictureOutlined = Icon("PictureOutlined")
+    static member PlaySquareOutlined = Icon("PlaySquareOutlined")
+    static member PoundCircleOutlined = Icon("PoundCircleOutlined")
+    static member PoundOutlined = Icon("PoundOutlined")
+    static member PoweroffOutlined = Icon("PoweroffOutlined")
+    static member PrinterOutlined = Icon("PrinterOutlined")
+    static member ProfileOutlined = Icon("ProfileOutlined")
+    static member ProjectOutlined = Icon("ProjectOutlined")
+    static member PropertySafetyOutlined = Icon("PropertySafetyOutlined")
+    static member PullRequestOutlined = Icon("PullRequestOutlined")
+    static member PushpinOutlined = Icon("PushpinOutlined")
+    static member QrcodeOutlined = Icon("QrcodeOutlined")
+    static member ReadOutlined = Icon("ReadOutlined")
+    static member ReconciliationOutlined = Icon("ReconciliationOutlined")
+    static member RedEnvelopeOutlined = Icon("RedEnvelopeOutlined")
+    static member ReloadOutlined = Icon("ReloadOutlined")
+    static member RestOutlined = Icon("RestOutlined")
+    static member RobotOutlined = Icon("RobotOutlined")
+    static member RocketOutlined = Icon("RocketOutlined")
+    static member RotateLeftOutlined = Icon("RotateLeftOutlined")
+    static member RotateRightOutlined = Icon("RotateRightOutlined")
+    static member SafetyCertificateOutlined = Icon("SafetyCertificateOutlined")
+    static member SafetyOutlined = Icon("SafetyOutlined")
+    static member SaveOutlined = Icon("SaveOutlined")
+    static member ScanOutlined = Icon("ScanOutlined")
+    static member ScheduleOutlined = Icon("ScheduleOutlined")
+    static member SearchOutlined = Icon("SearchOutlined")
+    static member SecurityScanOutlined = Icon("SecurityScanOutlined")
+    static member SelectOutlined = Icon("SelectOutlined")
+    static member SendOutlined = Icon("SendOutlined")
+    static member SettingOutlined = Icon("SettingOutlined")
+    static member ShakeOutlined = Icon("ShakeOutlined")
+    static member ShareAltOutlined = Icon("ShareAltOutlined")
+    static member ShopOutlined = Icon("ShopOutlined")
+    static member ShoppingCartOutlined = Icon("ShoppingCartOutlined")
+    static member ShoppingOutlined = Icon("ShoppingOutlined")
+    static member SisternodeOutlined = Icon("SisternodeOutlined")
+    static member SkinOutlined = Icon("SkinOutlined")
+    static member SmileOutlined = Icon("SmileOutlined")
+    static member SolutionOutlined = Icon("SolutionOutlined")
+    static member SoundOutlined = Icon("SoundOutlined")
+    static member SplitCellsOutlined = Icon("SplitCellsOutlined")
+    static member StarOutlined = Icon("StarOutlined")
+    static member SubnodeOutlined = Icon("SubnodeOutlined")
+    static member SwitcherOutlined = Icon("SwitcherOutlined")
+    static member SyncOutlined = Icon("SyncOutlined")
+    static member TableOutlined = Icon("TableOutlined")
+    static member TabletOutlined = Icon("TabletOutlined")
+    static member TagOutlined = Icon("TagOutlined")
+    static member TagsOutlined = Icon("TagsOutlined")
+    static member TeamOutlined = Icon("TeamOutlined")
+    static member ThunderboltOutlined = Icon("ThunderboltOutlined")
+    static member ToTopOutlined = Icon("ToTopOutlined")
+    static member ToolOutlined = Icon("ToolOutlined")
+    static member TrademarkCircleOutlined = Icon("TrademarkCircleOutlined")
+    static member TrademarkOutlined = Icon("TrademarkOutlined")
+    static member TransactionOutlined = Icon("TransactionOutlined")
+    static member TranslationOutlined = Icon("TranslationOutlined")
+    static member TrophyOutlined = Icon("TrophyOutlined")
+    static member UngroupOutlined = Icon("UngroupOutlined")
+    static member UnlockOutlined = Icon("UnlockOutlined")
+    static member UploadOutlined = Icon("UploadOutlined")
+    static member UsbOutlined = Icon("UsbOutlined")
+    static member UserAddOutlined = Icon("UserAddOutlined")
+    static member UserDeleteOutlined = Icon("UserDeleteOutlined")
+    static member UserOutlined = Icon("UserOutlined")
+    static member UserSwitchOutlined = Icon("UserSwitchOutlined")
+    static member UsergroupAddOutlined = Icon("UsergroupAddOutlined")
+    static member UsergroupDeleteOutlined = Icon("UsergroupDeleteOutlined")
+    static member VerifiedOutlined = Icon("VerifiedOutlined")
+    static member VideoCameraAddOutlined = Icon("VideoCameraAddOutlined")
+    static member VideoCameraOutlined = Icon("VideoCameraOutlined")
+    static member WalletOutlined = Icon("WalletOutlined")
+    static member WhatsAppOutlined = Icon("WhatsAppOutlined")
+    static member WifiOutlined = Icon("WifiOutlined")
+    static member WomanOutlined = Icon("WomanOutlined")
+    static member StepBackwardFilled = Icon("StepBackwardFilled")
+    static member StepForwardFilled = Icon("StepForwardFilled")
+    static member FastBackwardFilled = Icon("FastBackwardFilled")
+    static member FastForwardFilled = Icon("FastForwardFilled")
+    static member CaretUpFilled = Icon("CaretUpFilled")
+    static member CaretDownFilled = Icon("CaretDownFilled")
+    static member CaretLeftFilled = Icon("CaretLeftFilled")
+    static member CaretRightFilled = Icon("CaretRightFilled")
+    static member UpCircleFilled = Icon("UpCircleFilled")
+    static member DownCircleFilled = Icon("DownCircleFilled")
+    static member LeftCircleFilled = Icon("LeftCircleFilled")
+    static member RightCircleFilled = Icon("RightCircleFilled")
+    static member ForwardFilled = Icon("ForwardFilled")
+    static member BackwardFilled = Icon("BackwardFilled")
+    static member PlayCircleFilled = Icon("PlayCircleFilled")
+    static member UpSquareFilled = Icon("UpSquareFilled")
+    static member DownSquareFilled = Icon("DownSquareFilled")
+    static member LeftSquareFilled = Icon("LeftSquareFilled")
+    static member RightSquareFilled = Icon("RightSquareFilled")
+    static member QuestionCircleFilled = Icon("QuestionCircleFilled")
+    static member PlusCircleFilled = Icon("PlusCircleFilled")
+    static member PauseCircleFilled = Icon("PauseCircleFilled")
+    static member MinusCircleFilled = Icon("MinusCircleFilled")
+    static member PlusSquareFilled = Icon("PlusSquareFilled")
+    static member MinusSquareFilled = Icon("MinusSquareFilled")
+    static member InfoCircleFilled = Icon("InfoCircleFilled")
+    static member ExclamationCircleFilled = Icon("ExclamationCircleFilled")
+    static member CloseCircleFilled = Icon("CloseCircleFilled")
+    static member CloseSquareFilled = Icon("CloseSquareFilled")
+    static member CheckCircleFilled = Icon("CheckCircleFilled")
+    static member CheckSquareFilled = Icon("CheckSquareFilled")
+    static member ClockCircleFilled = Icon("ClockCircleFilled")
+    static member WarningFilled = Icon("WarningFilled")
+    static member StopFilled = Icon("StopFilled")
+    static member EditFilled = Icon("EditFilled")
+    static member CopyFilled = Icon("CopyFilled")
+    static member DeleteFilled = Icon("DeleteFilled")
+    static member SnippetsFilled = Icon("SnippetsFilled")
+    static member DiffFilled = Icon("DiffFilled")
+    static member HighlightFilled = Icon("HighlightFilled")
+    static member PieChartFilled = Icon("PieChartFilled")
+    static member BoxPlotFilled = Icon("BoxPlotFilled")
+    static member FundFilled = Icon("FundFilled")
+    static member SlidersFilled = Icon("SlidersFilled")
+    static member AndroidFilled = Icon("AndroidFilled")
+    static member AppleFilled = Icon("AppleFilled")
+    static member WindowsFilled = Icon("WindowsFilled")
+    static member ChromeFilled = Icon("ChromeFilled")
+    static member GithubFilled = Icon("GithubFilled")
+    static member AliwangwangFilled = Icon("AliwangwangFilled")
+    static member WeiboSquareFilled = Icon("WeiboSquareFilled")
+    static member WeiboCircleFilled = Icon("WeiboCircleFilled")
+    static member TaobaoCircleFilled = Icon("TaobaoCircleFilled")
+    static member Html5Filled = Icon("Html5Filled")
+    static member WechatFilled = Icon("WechatFilled")
+    static member YoutubeFilled = Icon("YoutubeFilled")
+    static member AlipayCircleFilled = Icon("AlipayCircleFilled")
+    static member SkypeFilled = Icon("SkypeFilled")
+    static member GitlabFilled = Icon("GitlabFilled")
+    static member LinkedinFilled = Icon("LinkedinFilled")
+    static member FacebookFilled = Icon("FacebookFilled")
+    static member CodeSandboxCircleFilled = Icon("CodeSandboxCircleFilled")
+    static member CodepenCircleFilled = Icon("CodepenCircleFilled")
+    static member SlackSquareFilled = Icon("SlackSquareFilled")
+    static member BehanceSquareFilled = Icon("BehanceSquareFilled")
+    static member DribbbleSquareFilled = Icon("DribbbleSquareFilled")
+    static member InstagramFilled = Icon("InstagramFilled")
+    static member YuqueFilled = Icon("YuqueFilled")
+    static member YahooFilled = Icon("YahooFilled")
+    static member AccountBookFilled = Icon("AccountBookFilled")
+    static member AlertFilled = Icon("AlertFilled")
+    static member AlipaySquareFilled = Icon("AlipaySquareFilled")
+    static member AmazonCircleFilled = Icon("AmazonCircleFilled")
+    static member AmazonSquareFilled = Icon("AmazonSquareFilled")
+    static member ApiFilled = Icon("ApiFilled")
+    static member AppstoreFilled = Icon("AppstoreFilled")
+    static member AudioFilled = Icon("AudioFilled")
+    static member BankFilled = Icon("BankFilled")
+    static member BehanceCircleFilled = Icon("BehanceCircleFilled")
+    static member BellFilled = Icon("BellFilled")
+    static member BookFilled = Icon("BookFilled")
+    static member BugFilled = Icon("BugFilled")
+    static member BuildFilled = Icon("BuildFilled")
+    static member BulbFilled = Icon("BulbFilled")
+    static member CalculatorFilled = Icon("CalculatorFilled")
+    static member CalendarFilled = Icon("CalendarFilled")
+    static member CameraFilled = Icon("CameraFilled")
+    static member CarFilled = Icon("CarFilled")
+    static member CarryOutFilled = Icon("CarryOutFilled")
+    static member CiCircleFilled = Icon("CiCircleFilled")
+    static member CloudFilled = Icon("CloudFilled")
+    static member CodeFilled = Icon("CodeFilled")
+    static member CodeSandboxSquareFilled = Icon("CodeSandboxSquareFilled")
+    static member CodepenSquareFilled = Icon("CodepenSquareFilled")
+    static member CompassFilled = Icon("CompassFilled")
+    static member ContactsFilled = Icon("ContactsFilled")
+    static member ContainerFilled = Icon("ContainerFilled")
+    static member ControlFilled = Icon("ControlFilled")
+    static member CopyrightCircleFilled = Icon("CopyrightCircleFilled")
+    static member CreditCardFilled = Icon("CreditCardFilled")
+    static member CrownFilled = Icon("CrownFilled")
+    static member CustomerServiceFilled = Icon("CustomerServiceFilled")
+    static member DashboardFilled = Icon("DashboardFilled")
+    static member DatabaseFilled = Icon("DatabaseFilled")
+    static member DingtalkCircleFilled = Icon("DingtalkCircleFilled")
+    static member DingtalkSquareFilled = Icon("DingtalkSquareFilled")
+    static member DislikeFilled = Icon("DislikeFilled")
+    static member DollarCircleFilled = Icon("DollarCircleFilled")
+    static member DribbbleCircleFilled = Icon("DribbbleCircleFilled")
+    static member DropboxCircleFilled = Icon("DropboxCircleFilled")
+    static member DropboxSquareFilled = Icon("DropboxSquareFilled")
+    static member EnvironmentFilled = Icon("EnvironmentFilled")
+    static member EuroCircleFilled = Icon("EuroCircleFilled")
+    static member ExperimentFilled = Icon("ExperimentFilled")
+    static member EyeFilled = Icon("EyeFilled")
+    static member EyeInvisibleFilled = Icon("EyeInvisibleFilled")
+    static member FileAddFilled = Icon("FileAddFilled")
+    static member FileExcelFilled = Icon("FileExcelFilled")
+    static member FileExclamationFilled = Icon("FileExclamationFilled")
+    static member FileFilled = Icon("FileFilled")
+    static member FileImageFilled = Icon("FileImageFilled")
+    static member FileMarkdownFilled = Icon("FileMarkdownFilled")
+    static member FilePdfFilled = Icon("FilePdfFilled")
+    static member FilePptFilled = Icon("FilePptFilled")
+    static member FileTextFilled = Icon("FileTextFilled")
+    static member FileUnknownFilled = Icon("FileUnknownFilled")
+    static member FileWordFilled = Icon("FileWordFilled")
+    static member FileZipFilled = Icon("FileZipFilled")
+    static member FilterFilled = Icon("FilterFilled")
+    static member FireFilled = Icon("FireFilled")
+    static member FlagFilled = Icon("FlagFilled")
+    static member FolderAddFilled = Icon("FolderAddFilled")
+    static member FolderFilled = Icon("FolderFilled")
+    static member FolderOpenFilled = Icon("FolderOpenFilled")
+    static member FormatPainterFilled = Icon("FormatPainterFilled")
+    static member FrownFilled = Icon("FrownFilled")
+    static member FunnelPlotFilled = Icon("FunnelPlotFilled")
+    static member GiftFilled = Icon("GiftFilled")
+    static member GoldFilled = Icon("GoldFilled")
+    static member GoldenFilled = Icon("GoldenFilled")
+    static member GoogleCircleFilled = Icon("GoogleCircleFilled")
+    static member GooglePlusCircleFilled = Icon("GooglePlusCircleFilled")
+    static member GooglePlusSquareFilled = Icon("GooglePlusSquareFilled")
+    static member GoogleSquareFilled = Icon("GoogleSquareFilled")
+    static member HddFilled = Icon("HddFilled")
+    static member HeartFilled = Icon("HeartFilled")
+    static member HomeFilled = Icon("HomeFilled")
+    static member HourglassFilled = Icon("HourglassFilled")
+    static member IdcardFilled = Icon("IdcardFilled")
+    static member IeCircleFilled = Icon("IeCircleFilled")
+    static member IeSquareFilled = Icon("IeSquareFilled")
+    static member InsuranceFilled = Icon("InsuranceFilled")
+    static member InteractionFilled = Icon("InteractionFilled")
+    static member LayoutFilled = Icon("LayoutFilled")
+    static member LikeFilled = Icon("LikeFilled")
+    static member LockFilled = Icon("LockFilled")
+    static member MacCommandFilled = Icon("MacCommandFilled")
+    static member MailFilled = Icon("MailFilled")
+    static member MedicineBoxFilled = Icon("MedicineBoxFilled")
+    static member MediumCircleFilled = Icon("MediumCircleFilled")
+    static member MediumSquareFilled = Icon("MediumSquareFilled")
+    static member MehFilled = Icon("MehFilled")
+    static member MessageFilled = Icon("MessageFilled")
+    static member MobileFilled = Icon("MobileFilled")
+    static member MoneyCollectFilled = Icon("MoneyCollectFilled")
+    static member NotificationFilled = Icon("NotificationFilled")
+    static member PayCircleFilled = Icon("PayCircleFilled")
+    static member PhoneFilled = Icon("PhoneFilled")
+    static member PictureFilled = Icon("PictureFilled")
+    static member PlaySquareFilled = Icon("PlaySquareFilled")
+    static member PoundCircleFilled = Icon("PoundCircleFilled")
+    static member PrinterFilled = Icon("PrinterFilled")
+    static member ProfileFilled = Icon("ProfileFilled")
+    static member ProjectFilled = Icon("ProjectFilled")
+    static member PropertySafetyFilled = Icon("PropertySafetyFilled")
+    static member PushpinFilled = Icon("PushpinFilled")
+    static member QqCircleFilled = Icon("QqCircleFilled")
+    static member QqSquareFilled = Icon("QqSquareFilled")
+    static member ReadFilled = Icon("ReadFilled")
+    static member ReconciliationFilled = Icon("ReconciliationFilled")
+    static member RedEnvelopeFilled = Icon("RedEnvelopeFilled")
+    static member RedditCircleFilled = Icon("RedditCircleFilled")
+    static member RedditSquareFilled = Icon("RedditSquareFilled")
+    static member RestFilled = Icon("RestFilled")
+    static member RobotFilled = Icon("RobotFilled")
+    static member RocketFilled = Icon("RocketFilled")
+    static member SafetyCertificateFilled = Icon("SafetyCertificateFilled")
+    static member SaveFilled = Icon("SaveFilled")
+    static member ScheduleFilled = Icon("ScheduleFilled")
+    static member SecurityScanFilled = Icon("SecurityScanFilled")
+    static member SettingFilled = Icon("SettingFilled")
+    static member ShopFilled = Icon("ShopFilled")
+    static member ShoppingFilled = Icon("ShoppingFilled")
+    static member SignalFilled = Icon("SignalFilled")
+    static member SketchCircleFilled = Icon("SketchCircleFilled")
+    static member SketchSquareFilled = Icon("SketchSquareFilled")
+    static member SkinFilled = Icon("SkinFilled")
+    static member SlackCircleFilled = Icon("SlackCircleFilled")
+    static member SmileFilled = Icon("SmileFilled")
+    static member SoundFilled = Icon("SoundFilled")
+    static member StarFilled = Icon("StarFilled")
+    static member SwitcherFilled = Icon("SwitcherFilled")
+    static member TabletFilled = Icon("TabletFilled")
+    static member TagFilled = Icon("TagFilled")
+    static member TagsFilled = Icon("TagsFilled")
+    static member TaobaoSquareFilled = Icon("TaobaoSquareFilled")
+    static member ThunderboltFilled = Icon("ThunderboltFilled")
+    static member ToolFilled = Icon("ToolFilled")
+    static member TrademarkCircleFilled = Icon("TrademarkCircleFilled")
+    static member TrophyFilled = Icon("TrophyFilled")
+    static member TwitterCircleFilled = Icon("TwitterCircleFilled")
+    static member TwitterSquareFilled = Icon("TwitterSquareFilled")
+    static member UnlockFilled = Icon("UnlockFilled")
+    static member UsbFilled = Icon("UsbFilled")
+    static member VideoCameraFilled = Icon("VideoCameraFilled")
+    static member WalletFilled = Icon("WalletFilled")
+    static member ZhihuCircleFilled = Icon("ZhihuCircleFilled")
+    static member ZhihuSquareFilled = Icon("ZhihuSquareFilled")
+    static member UpCircleTwoTone = Icon("UpCircleTwoTone")
+    static member DownCircleTwoTone = Icon("DownCircleTwoTone")
+    static member LeftCircleTwoTone = Icon("LeftCircleTwoTone")
+    static member RightCircleTwoTone = Icon("RightCircleTwoTone")
+    static member PlayCircleTwoTone = Icon("PlayCircleTwoTone")
+    static member UpSquareTwoTone = Icon("UpSquareTwoTone")
+    static member DownSquareTwoTone = Icon("DownSquareTwoTone")
+    static member LeftSquareTwoTone = Icon("LeftSquareTwoTone")
+    static member RightSquareTwoTone = Icon("RightSquareTwoTone")
+    static member QuestionCircleTwoTone = Icon("QuestionCircleTwoTone")
+    static member PlusCircleTwoTone = Icon("PlusCircleTwoTone")
+    static member PauseCircleTwoTone = Icon("PauseCircleTwoTone")
+    static member MinusCircleTwoTone = Icon("MinusCircleTwoTone")
+    static member PlusSquareTwoTone = Icon("PlusSquareTwoTone")
+    static member MinusSquareTwoTone = Icon("MinusSquareTwoTone")
+    static member InfoCircleTwoTone = Icon("InfoCircleTwoTone")
+    static member ExclamationCircleTwoTone = Icon("ExclamationCircleTwoTone")
+    static member CloseCircleTwoTone = Icon("CloseCircleTwoTone")
+    static member CloseSquareTwoTone = Icon("CloseSquareTwoTone")
+    static member CheckCircleTwoTone = Icon("CheckCircleTwoTone")
+    static member CheckSquareTwoTone = Icon("CheckSquareTwoTone")
+    static member ClockCircleTwoTone = Icon("ClockCircleTwoTone")
+    static member WarningTwoTone = Icon("WarningTwoTone")
+    static member StopTwoTone = Icon("StopTwoTone")
+    static member EditTwoTone = Icon("EditTwoTone")
+    static member CopyTwoTone = Icon("CopyTwoTone")
+    static member DeleteTwoTone = Icon("DeleteTwoTone")
+    static member SnippetsTwoTone = Icon("SnippetsTwoTone")
+    static member DiffTwoTone = Icon("DiffTwoTone")
+    static member HighlightTwoTone = Icon("HighlightTwoTone")
+    static member PieChartTwoTone = Icon("PieChartTwoTone")
+    static member BoxPlotTwoTone = Icon("BoxPlotTwoTone")
+    static member FundTwoTone = Icon("FundTwoTone")
+    static member SlidersTwoTone = Icon("SlidersTwoTone")
+    static member Html5TwoTone = Icon("Html5TwoTone")
+    static member AccountBookTwoTone = Icon("AccountBookTwoTone")
+    static member AlertTwoTone = Icon("AlertTwoTone")
+    static member ApiTwoTone = Icon("ApiTwoTone")
+    static member AppstoreTwoTone = Icon("AppstoreTwoTone")
+    static member AudioTwoTone = Icon("AudioTwoTone")
+    static member BankTwoTone = Icon("BankTwoTone")
+    static member BellTwoTone = Icon("BellTwoTone")
+    static member BookTwoTone = Icon("BookTwoTone")
+    static member BugTwoTone = Icon("BugTwoTone")
+    static member BuildTwoTone = Icon("BuildTwoTone")
+    static member BulbTwoTone = Icon("BulbTwoTone")
+    static member CalculatorTwoTone = Icon("CalculatorTwoTone")
+    static member CalendarTwoTone = Icon("CalendarTwoTone")
+    static member CameraTwoTone = Icon("CameraTwoTone")
+    static member CarTwoTone = Icon("CarTwoTone")
+    static member CarryOutTwoTone = Icon("CarryOutTwoTone")
+    static member CiCircleTwoTone = Icon("CiCircleTwoTone")
+    static member CiTwoTone = Icon("CiTwoTone")
+    static member CloudTwoTone = Icon("CloudTwoTone")
+    static member CodeTwoTone = Icon("CodeTwoTone")
+    static member CompassTwoTone = Icon("CompassTwoTone")
+    static member ContactsTwoTone = Icon("ContactsTwoTone")
+    static member ContainerTwoTone = Icon("ContainerTwoTone")
+    static member ControlTwoTone = Icon("ControlTwoTone")
+    static member CopyrightCircleTwoTone = Icon("CopyrightCircleTwoTone")
+    static member CopyrightTwoTone = Icon("CopyrightTwoTone")
+    static member CreditCardTwoTone = Icon("CreditCardTwoTone")
+    static member CrownTwoTone = Icon("CrownTwoTone")
+    static member CustomerServiceTwoTone = Icon("CustomerServiceTwoTone")
+    static member DashboardTwoTone = Icon("DashboardTwoTone")
+    static member DatabaseTwoTone = Icon("DatabaseTwoTone")
+    static member DislikeTwoTone = Icon("DislikeTwoTone")
+    static member DollarCircleTwoTone = Icon("DollarCircleTwoTone")
+    static member DollarTwoTone = Icon("DollarTwoTone")
+    static member EnvironmentTwoTone = Icon("EnvironmentTwoTone")
+    static member EuroCircleTwoTone = Icon("EuroCircleTwoTone")
+    static member EuroTwoTone = Icon("EuroTwoTone")
+    static member ExperimentTwoTone = Icon("ExperimentTwoTone")
+    static member EyeTwoTone = Icon("EyeTwoTone")
+    static member EyeInvisibleTwoTone = Icon("EyeInvisibleTwoTone")
+    static member FileAddTwoTone = Icon("FileAddTwoTone")
+    static member FileExcelTwoTone = Icon("FileExcelTwoTone")
+    static member FileExclamationTwoTone = Icon("FileExclamationTwoTone")
+    static member FileTwoTone = Icon("FileTwoTone")
+    static member FileImageTwoTone = Icon("FileImageTwoTone")
+    static member FileMarkdownTwoTone = Icon("FileMarkdownTwoTone")
+    static member FilePdfTwoTone = Icon("FilePdfTwoTone")
+    static member FilePptTwoTone = Icon("FilePptTwoTone")
+    static member FileTextTwoTone = Icon("FileTextTwoTone")
+    static member FileUnknownTwoTone = Icon("FileUnknownTwoTone")
+    static member FileWordTwoTone = Icon("FileWordTwoTone")
+    static member FileZipTwoTone = Icon("FileZipTwoTone")
+    static member FilterTwoTone = Icon("FilterTwoTone")
+    static member FireTwoTone = Icon("FireTwoTone")
+    static member FlagTwoTone = Icon("FlagTwoTone")
+    static member FolderAddTwoTone = Icon("FolderAddTwoTone")
+    static member FolderTwoTone = Icon("FolderTwoTone")
+    static member FolderOpenTwoTone = Icon("FolderOpenTwoTone")
+    static member FrownTwoTone = Icon("FrownTwoTone")
+    static member FunnelPlotTwoTone = Icon("FunnelPlotTwoTone")
+    static member GiftTwoTone = Icon("GiftTwoTone")
+    static member GoldTwoTone = Icon("GoldTwoTone")
+    static member HddTwoTone = Icon("HddTwoTone")
+    static member HeartTwoTone = Icon("HeartTwoTone")
+    static member HomeTwoTone = Icon("HomeTwoTone")
+    static member HourglassTwoTone = Icon("HourglassTwoTone")
+    static member IdcardTwoTone = Icon("IdcardTwoTone")
+    static member InsuranceTwoTone = Icon("InsuranceTwoTone")
+    static member InteractionTwoTone = Icon("InteractionTwoTone")
+    static member LayoutTwoTone = Icon("LayoutTwoTone")
+    static member LikeTwoTone = Icon("LikeTwoTone")
+    static member LockTwoTone = Icon("LockTwoTone")
+    static member MailTwoTone = Icon("MailTwoTone")
+    static member MedicineBoxTwoTone = Icon("MedicineBoxTwoTone")
+    static member MehTwoTone = Icon("MehTwoTone")
+    static member MessageTwoTone = Icon("MessageTwoTone")
+    static member MobileTwoTone = Icon("MobileTwoTone")
+    static member MoneyCollectTwoTone = Icon("MoneyCollectTwoTone")
+    static member NotificationTwoTone = Icon("NotificationTwoTone")
+    static member PhoneTwoTone = Icon("PhoneTwoTone")
+    static member PictureTwoTone = Icon("PictureTwoTone")
+    static member PlaySquareTwoTone = Icon("PlaySquareTwoTone")
+    static member PoundCircleTwoTone = Icon("PoundCircleTwoTone")
+    static member PrinterTwoTone = Icon("PrinterTwoTone")
+    static member ProfileTwoTone = Icon("ProfileTwoTone")
+    static member ProjectTwoTone = Icon("ProjectTwoTone")
+    static member PropertySafetyTwoTone = Icon("PropertySafetyTwoTone")
+    static member PushpinTwoTone = Icon("PushpinTwoTone")
+    static member ReconciliationTwoTone = Icon("ReconciliationTwoTone")
+    static member RedEnvelopeTwoTone = Icon("RedEnvelopeTwoTone")
+    static member RestTwoTone = Icon("RestTwoTone")
+    static member RocketTwoTone = Icon("RocketTwoTone")
+    static member SafetyCertificateTwoTone = Icon("SafetyCertificateTwoTone")
+    static member SaveTwoTone = Icon("SaveTwoTone")
+    static member ScheduleTwoTone = Icon("ScheduleTwoTone")
+    static member SecurityScanTwoTone = Icon("SecurityScanTwoTone")
+    static member SettingTwoTone = Icon("SettingTwoTone")
+    static member ShopTwoTone = Icon("ShopTwoTone")
+    static member ShoppingTwoTone = Icon("ShoppingTwoTone")
+    static member SkinTwoTone = Icon("SkinTwoTone")
+    static member SmileTwoTone = Icon("SmileTwoTone")
+    static member SoundTwoTone = Icon("SoundTwoTone")
+    static member StarTwoTone = Icon("StarTwoTone")
+    static member SwitcherTwoTone = Icon("SwitcherTwoTone")
+    static member TabletTwoTone = Icon("TabletTwoTone")
+    static member TagTwoTone = Icon("TagTwoTone")
+    static member TagsTwoTone = Icon("TagsTwoTone")
+    static member ThunderboltTwoTone = Icon("ThunderboltTwoTone")
+    static member ToolTwoTone = Icon("ToolTwoTone")
+    static member TrademarkCircleTwoTone = Icon("TrademarkCircleTwoTone")
+    static member TrophyTwoTone = Icon("TrophyTwoTone")
+    static member UnlockTwoTone = Icon("UnlockTwoTone")
+    static member UsbTwoTone = Icon("UsbTwoTone")
+    static member VideoCameraTwoTone = Icon("VideoCameraTwoTone")
+    static member WalletTwoTone = Icon("WalletTwoTone")

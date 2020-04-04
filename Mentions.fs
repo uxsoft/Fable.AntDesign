@@ -2,44 +2,29 @@ namespace Fable.AntD
 
 open Browser.Types
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
+  
+[<StringEnum; RequireQualifiedAccess>]
+type MentionsPlacement = Top | Bottom
 
-[<AutoOpen>]
-module Mentions =
-       
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntMentionsPlacementOptions = Top | Bottom
+type Mentions() =
+    inherit AntElement("Mentions")
+    member x.Autofocus with set (v: bool) = x.Attribute "autofocus" v 
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.FilterOption with set (v: (string -> obj -> bool)) = x.Attribute "filterOption" v 
+    member x.NotFoundContent with set (v: ReactElement) = x.Attribute "notFoundContent" v 
+    member x.Placement with set (v: MentionsPlacement) = x.Attribute "placement" v 
+    member x.Prefix with set (v: string array) = x.Attribute "prefix" v 
+    member x.Split with set (v: string) = x.Attribute "split" v 
+    member x.ValidateSearch with set (v: (string -> obj -> unit)) = x.Attribute "validateSearch" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+    member x.OnSelect with set (v: (obj -> string -> unit)) = x.Attribute "onSelect" v 
+    member x.OnSearch with set (v: (string -> string -> unit)) = x.Attribute "onSearch" v 
+    member x.OnFocus with set (v: (unit -> unit)) = x.Attribute "onFocus" v 
+    member x.OnBlur with set (v: (unit -> unit)) = x.Attribute "onBlur" v 
+    member x.GetPopupContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getPopupContainer" v 
     
-    [<RequireQualifiedAccess>]
-    type AntMentions =
-        | Autofocus of bool
-        | DefaultValue of string
-        | FilterOption of (string -> obj -> bool)
-        | NotFoundContent of ReactElement
-        | Placement of AntMentionsPlacementOptions
-        | Prefix of string array
-        | Split of string
-        | ValidateSearch of (string -> obj -> unit)
-        | Value of string
-        | OnChange of (string -> unit)
-        | OnSelect of (obj -> string -> unit)
-        | OnSearch of (string -> string -> unit)
-        | OnFocus of (unit -> unit)
-        | OnBlur of (unit -> unit)
-        | GetPopupContainer of (unit -> HTMLElement)
-        static member Custom (key: string, value: obj): AntMentions = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntMentions = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntMentionsOption =
-        | Value of string
-        static member Custom (key: string, value: obj): AntMentions = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntMentions = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antMentions (props: AntMentions list) (children: ReactElement list): ReactElement =
-       ofImport "Mentions" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    let inline antMentionsOption (props: AntMentionsOption list) (children: ReactElement list): ReactElement =
-       ofImport "Mentions.Option" "antd" (keyValueList CaseRules.LowerFirst props) children
+type MentionsOption() =
+    inherit AntElement("Mentions.Option")
+    member x.Value with set (v: string) = x.Attribute "value" v 

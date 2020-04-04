@@ -4,17 +4,8 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Empty =
-    
-    [<RequireQualifiedAccess>]
-    type AntEmpty  =
-        | Description of ReactElement
-        | Image of ReactElement
-        static member Custom (key: string, value: obj): AntEmpty = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntEmpty = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member ImageStyle (css: Props.CSSProp list): AntEmpty = unbox ("imageStyle", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antEmpty (props: AntEmpty list) (children: ReactElement list): ReactElement =
-       ofImport "Empty" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+type Empty() =
+    inherit AntElement("Empty")
+    member x.Description with set (v: ReactElement) = x.Attribute "description" v 
+    member x.Image with set (v: ReactElement) = x.Attribute "image" v 
+    member x.ImageStyle (css: Props.CSSProp list) = x.Attribute "imageStyle" (keyValueList CaseRules.LowerFirst css)
