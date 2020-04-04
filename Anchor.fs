@@ -1,39 +1,23 @@
 namespace Fable.AntD
 
-open Browser
 open Browser.Types
-open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Anchor =
-    [<RequireQualifiedAccess>]
-    type AntAnchor  =
-        | Affix of bool
-        | Bounds of int
-        | GetContainer of (unit -> HTMLElement)
-        | OffsetBottom of int
-        | OffsetTop of int
-        | ShowInkInFixed of bool
-        | OnClick of (Event -> obj -> unit)
-        | GetCurrentAnchor of (unit -> string)
-        | TargetOffset of int
-        | OnChange of (string -> unit)
-        static member Custom (key: string, value: obj): AntAnchor = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntAnchor = unbox ("style", keyValueList CaseRules.LowerFirst css)
-       
-    [<RequireQualifiedAccess>]
-    type AntAnchorLink  =
-        | Href of string
-        | Title of ReactElement
-        | Target of string
-        static member Custom (key: string, value: obj): AntAnchorLink = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntAnchorLink = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antAnchor (props: AntAnchor list) (children: ReactElement list): ReactElement =
-       ofImport "Anchor" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antAnchorLink (props: AntAnchorLink list) (children: ReactElement list): ReactElement =
-       ofImport "Anchor.Link" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+type Anchor() =
+    inherit AntElement("Anchor")
+    member x.Affix with set (v: bool) = x.Attribute "affix" v 
+    member x.Bounds with set (v: int) = x.Attribute "bounds" v 
+    member x.GetContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getContainer" v 
+    member x.OffsetBottom with set (v: int) = x.Attribute "offsetBottom" v 
+    member x.OffsetTop with set (v: int) = x.Attribute "offsetTop" v 
+    member x.ShowInkInFixed with set (v: bool) = x.Attribute "showInkInFixed" v 
+    member x.OnClick with set (v: (Event -> obj -> unit)) = x.Attribute "onClick" v 
+    member x.GetCurrentAnchor with set (v: (unit -> string)) = x.Attribute "getCurrentAnchor" v 
+    member x.TargetOffset with set (v: int) = x.Attribute "targetOffset" v 
+    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+   
+type AnchorLink() =
+    inherit AntElement("Anchor.Link")
+    member x.Href with set (v: string) = x.Attribute "href" v 
+    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
+    member x.Target with set (v: string) = x.Attribute "target" v 

@@ -1,7 +1,6 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
@@ -28,7 +27,7 @@ module Steps =
         | Direction of AntStepsOrientation
         | LabelPlacement of AntStepsOrientation
         | ProgressDot of bool
-        | Size of Common.Size
+        | Size of Size
         | Status of AntStepsStatus
         | Initial of int
         | OnChange of (int -> unit)

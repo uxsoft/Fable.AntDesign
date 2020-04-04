@@ -1,10 +1,8 @@
 namespace Fable.AntD
 
-open Fable.Import
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open Fable.React.Props
 
 [<AutoOpen>]
 module List =
@@ -64,7 +62,7 @@ module List =
         | RenderItem of  ('T -> ReactElement)
         static member Custom (key: string, value: obj): AntList<'T> = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntList<'T> = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member Pagination (config: AntPagination list): AntList<'T> = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
+        static member Pagination (config: Pagination list): AntList<'T> = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
 
     [<RequireQualifiedAccess>]
     type AntListItem =

@@ -3,126 +3,97 @@ namespace Fable.AntD
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open Fable.React.Props
-open Browser.Types
 open Fable.Core.JS
 
-/// import declarations for `Form` and its nested components.
-/// For more information, refer to the [official documentation](https://ant.design/components/form/)
-[<AutoOpen>]
-module Form =
+//importSideEffects "regenerator-runtime/runtime"
 
-    importSideEffects "regenerator-runtime/runtime"
+[<StringEnum>]
+[<RequireQualifiedAccess>]
+type FormValidationStatus = Success | Warning | Error | Validating
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntFormValidationStatus = Success | Warning | Error | Validating
+[<StringEnum>]
+[<RequireQualifiedAccess>]
+type FormLabelAlign = Left | Right
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntFormLabelAlign = Left | Right
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntFormRuleType = String | Number | Boolean | Method | Regexp | Integer | Float | Array | Object | Enum | Date | Url | Hex | Email | Any
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntFormLayout = Horizontal | Vertical | Inline
-    
-    type AntFormFieldData = {
-        touched: bool
-        validating: bool
-        errors: string array
-        name: string array
-        value: string
-    }
-    
-    [<RequireQualifiedAccess>]
-    type AntFormRule = 
-        | Enum of string array
-        | Len of int
-        | Max of int
-        | Message of string
-        | Min of int
-        | Pattern of string
-        | Required of bool
-        | Transform of (string -> string)
-        | Type of string
-        | Validator of (AntFormRule -> string -> Promise<string>)
-        | Whitespace of bool
-        | ValidateTrigger of string array
-    
-    [<RequireQualifiedAccess>]
-    type AntForm =
-      | Component of ReactElement
-      | Colon of bool
-      | Fields of AntFormFieldData array
-      | Form of ReactElement
-      | HideRequiredMark of bool
-      | InitialValues of obj
-      | LabelAlign of AntFormLabelAlign
-      | LabelCol of obj
-      | Layout of AntFormLayout
-      | Name of string
-      | Size of Common.Size
-      | ValidateMessages of obj
-      | WrapperCol of obj
-      | OnFinish of (string array -> unit)
-      | OnFinishFailed of (obj -> unit)
-      | OnFieldsChange of (string array -> string array -> unit)
-      | OnValuesChange of (string array -> string array -> unit)
-      static member Custom (key: string, value: obj): AntForm = unbox (key, value)
-      static member Style (css: Props.CSSProp list): AntForm = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    [<RequireQualifiedAccess>]
-    type AntFormItem =
-      | Key of string
-      | Colon of bool
-      | Dependencies of string array
-      | Extra of ReactElement
-      | HasFeedback of bool
-      | Help of ReactElement
-      | HtmlFor of string
-      | NoStyle of bool
-      | Label of ReactElement
-      | LabelAlign of AntFormLabelAlign
-      | LabelCol of obj
-      | Name of string
-      | Normalize of (string -> string -> string array -> string)
-      | Required of bool
-      | ShouldUpdate of bool 
-      | Trigger of string
-      | ValidationStatus of AntFormValidationStatus
-      | ValidateTrigger of string array
-      | ValuePropName of string
-      | WrapperCol of obj
-      static member Custom (key: string, value: obj): AntFormItem = unbox (key, value)
-      static member Style (css: Props.CSSProp list): AntFormItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
-      /// Don't forget to give the item a name otherwise it won't validate
-      static member Rules (rules: AntFormRule list list): AntFormItem = unbox ("rules", rules |> List.map (fun rule -> keyValueList CaseRules.LowerFirst rule) |> List.toArray)
+[<StringEnum>]
+[<RequireQualifiedAccess>]
+type FormRuleType = String | Number | Boolean | Method | Regexp | Integer | Float | Array | Object | Enum | Date | Url | Hex | Email | Any
 
-    [<RequireQualifiedAccess>]
-    type AntFormList =
-      | Name of string
-      static member Custom (key: string, value: obj): AntFormList = unbox (key, value)
-      static member Style (css: Props.CSSProp list): AntFormList = unbox ("style", keyValueList CaseRules.LowerFirst css)
-      
-    [<RequireQualifiedAccess>]
-    type AntFormProvider =
-      | OnFormChange of (string -> obj -> unit)
-      | OnFormFinish of (string -> obj -> unit)
-      static member Custom (key: string, value: obj): AntFormProvider = unbox (key, value)
-      static member Style (css: Props.CSSProp list): AntFormProvider = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antForm (props: AntForm list) (children: ReactElement list): ReactElement =
-       ofImport "Form" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    let inline antFormItem (props: AntFormItem list) (children: ReactElement list): ReactElement =
-       ofImport "Form.Item" "antd" (keyValueList CaseRules.LowerFirst props) children
+[<StringEnum; RequireQualifiedAccess>]
+type FormLayout = Horizontal | Vertical | Inline
 
-    let inline antFormList (props: AntFormList list) (children: ReactElement list): ReactElement =
-       ofImport "Form.List" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antFormProvider (props: AntFormProvider list) (children: ReactElement list): ReactElement =
-       ofImport "Form.Provider" "antd" (keyValueList CaseRules.LowerFirst props) children
+type FormFieldData = {
+    touched: bool
+    validating: bool
+    errors: string array
+    name: string array
+    value: string
+}
+
+[<RequireQualifiedAccess>]
+type FormRule = 
+    | Enum of string array
+    | Len of int
+    | Max of int
+    | Message of string
+    | Min of int
+    | Pattern of string
+    | Required of bool
+    | Transform of (string -> string)
+    | Type of string
+    | Validator of (FormRule -> string -> Promise<string>)
+    | Whitespace of bool
+    | ValidateTrigger of string array
+
+type Form() =
+    inherit AntElement("Form")
+    member x.Component with set (v: ReactElement) = x.Attribute "component" v 
+    member x.Colon with set (v: bool) = x.Attribute "colon" v 
+    member x.Fields with set (v: FormFieldData array) = x.Attribute "fields" v 
+    member x.Form with set (v: ReactElement) = x.Attribute "form" v 
+    member x.HideRequiredMark with set (v: bool) = x.Attribute "hideRequiredMark" v 
+    member x.InitialValues with set (v: obj) = x.Attribute "initialValues" v 
+    member x.LabelAlign with set (v: FormLabelAlign) = x.Attribute "labelAlign" v 
+    member x.LabelCol with set (v: obj) = x.Attribute "labelCol" v 
+    member x.Layout with set (v: FormLayout) = x.Attribute "layout" v 
+    member x.Name with set (v: string) = x.Attribute "name" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.ValidateMessages with set (v: obj) = x.Attribute "validateMessages" v 
+    member x.WrapperCol with set (v: obj) = x.Attribute "wrapperCol" v 
+    member x.OnFinish with set (v: (string array -> unit)) = x.Attribute "onFinish" v 
+    member x.OnFinishFailed with set (v: (obj -> unit)) = x.Attribute "onFinishFailed" v 
+    member x.OnFieldsChange with set (v: (string array -> string array -> unit)) = x.Attribute "onFieldsChange" v 
+    member x.OnValuesChange with set (v: (string array -> string array -> unit)) = x.Attribute "onValuesChange" v 
+
+type FormItem() =
+  inherit AntElement("Form.Item")
+  member x.Key with set (v: string) = x.Attribute "key" v 
+  member x.Colon with set (v: bool) = x.Attribute "colon" v 
+  member x.Dependencies with set (v: string array) = x.Attribute "dependencies" v 
+  member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
+  member x.HasFeedback with set (v: bool) = x.Attribute "hasFeedback" v 
+  member x.Help with set (v: ReactElement) = x.Attribute "help" v 
+  member x.HtmlFor with set (v: string) = x.Attribute "htmlFor" v 
+  member x.NoStyle with set (v: bool) = x.Attribute "noStyle" v 
+  member x.Label with set (v: ReactElement) = x.Attribute "label" v 
+  member x.LabelAlign with set (v: FormLabelAlign) = x.Attribute "labelAlign" v 
+  member x.LabelCol with set (v: obj) = x.Attribute "labelCol" v 
+  member x.Name with set (v: string) = x.Attribute "name" v 
+  member x.Normalize with set (v: (string -> string -> string array -> string)) = x.Attribute "normalize" v
+  member x.Required with set (v: bool) = x.Attribute "required" v 
+  member x.ShouldUpdate with set (v: bool) = x.Attribute "shouldUpdate" v  
+  member x.Trigger with set (v: string) = x.Attribute "trigger" v 
+  member x.ValidationStatus with set (v: FormValidationStatus) = x.Attribute "validationStatus" v 
+  member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
+  member x.ValuePropName with set (v: string) = x.Attribute "valuePropName" v 
+  member x.WrapperCol with set (v: obj) = x.Attribute "wrapperCol" v 
+  member x.Rules with set (rules: FormRule list list) = x.Attribute "rules" (rules |> List.map (fun rule -> keyValueList CaseRules.LowerFirst rule) |> List.toArray)
+
+type FormList() =
+  inherit AntElement("Form.List")
+  member x.Name with set (v: string) = x.Attribute "name" v
+  
+type FormProvider() =
+  inherit AntElement("Form.Provider")
+  member x.OnFormChange with set (v: (string -> obj -> unit)) = x.Attribute "onFormChange" v 
+  member x.OnFormFinish with set (v: (string -> obj -> unit)) = x.Attribute "onFormFinish" v 

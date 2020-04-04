@@ -44,7 +44,7 @@ module Radio =
         | Disabled of bool
         | Name of string
         | Options of AntRadioOption array
-        | Size of Common.Size
+        | Size of Size
         | Value of obj
         | OnChange of (Event -> unit)
         | ButtonStyle of AntRadioButtonStyle

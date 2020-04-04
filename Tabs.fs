@@ -19,7 +19,7 @@ module Tabs =
         | RenderTabBar of (obj -> obj -> ReactElement)
         | DefaultActiveKey of string
         | HideAdd of bool
-        | Size of Common.Size
+        | Size of Size
         | TabBarExtraContent of ReactElement
         | TabBarGutter of float
         | TabPosition of AntTabsPosition

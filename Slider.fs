@@ -25,7 +25,7 @@ module Slider =
         | Vertical of bool
         | OnAfterChange of (float -> unit)
         | OnChange of (float -> unit)
-        | TooltipPlacement of AntTooltipPlacement
+        | TooltipPlacement of TooltipPlacement
         | TooltipVisible of bool
         | GetTooltipPopupContainer of (unit -> ReactElement)
         static member Custom (key: string, value: obj): AntSlider = unbox (key, value)

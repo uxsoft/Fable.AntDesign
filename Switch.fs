@@ -16,7 +16,7 @@ module Switch =
         | DefaultChecked of bool
         | Disabled of bool
         | Loading of bool
-        | Size of Common.Size
+        | Size of Size
         | UnCheckedChildren of ReactElement
         | OnChange of (bool -> Event -> unit)
         | OnClick of (bool -> Event -> unit)

@@ -3,88 +3,33 @@ namespace Fable.AntD
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open Browser.Types
+open Fable.React.Props
 
-[<AutoOpen>]
-module Tooltip =
-        
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntTooltipPlacement = Top | Left | Right | Bottom | TopLeft | TopRight | BottomLeft | BottomRight | LeftTop | LeftBottom | RightTop | RightBottom
-    
-     [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntTooltipTrigger = Hover | Focus | Click | ContextMenu 
-    
-    [<RequireQualifiedAccess>]
-    type AntTooltip =
-        | ArrowPointAtCenter of bool
-        | AutoAdjustOverflow of bool
-        | DefaultVisible of bool
-        | GetPopupContainer of (unit -> ReactElement)
-        | MouseEnterDelay of float
-        | MouseLeaveDelay of float
-        | OverlayClassName of string
-        | Placement of AntTooltipPlacement
-        | Trigger of AntTooltipTrigger
-        | Visible of bool
-        | OnVisibleChange of (bool -> unit)
-        | Align of obj
-        static member Custom (key: string, value: obj): AntTooltip = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTooltip = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member OverlayStyle (css: Props.CSSProp list): AntTooltip = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>]
+type TooltipPlacement = Top | Left | Right | Bottom | TopLeft | TopRight | BottomLeft | BottomRight | LeftTop | LeftBottom | RightTop | RightBottom
 
-    [<RequireQualifiedAccess>]
-    type AntPopover =
-        | ArrowPointAtCenter of bool
-        | AutoAdjustOverflow of bool
-        | DefaultVisible of bool
-        | GetPopupContainer of (unit -> ReactElement)
-        | MouseEnterDelay of float
-        | MouseLeaveDelay of float
-        | OverlayClassName of string
-        | Placement of AntTooltipPlacement
-        | Trigger of AntTooltipTrigger
-        | Visible of bool
-        | OnVisibleChange of (bool -> unit)
-        | Align of obj
-        | Content of ReactElement
-        | Title of ReactElement
-        static member Custom (key: string, value: obj): AntPopover = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntPopover = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member OverlayStyle (css: Props.CSSProp list): AntPopover = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>]
+type TooltipTrigger = Hover | Focus | Click | ContextMenu 
 
-    [<RequireQualifiedAccess>]
-    type AntPopconfirm =
-        | ArrowPointAtCenter of bool
-        | AutoAdjustOverflow of bool
-        | DefaultVisible of bool
-        | GetPopupContainer of (unit -> ReactElement)
-        | MouseEnterDelay of float
-        | MouseLeaveDelay of float
-        | OverlayClassName of string
-        | Placement of AntTooltipPlacement
-        | Trigger of AntTooltipTrigger
-        | Visible of bool
-        | OnVisibleChange of (bool -> unit)
-        | Align of obj
-        | CancelText of string
-        | OkText of string
-        | OkType of AntButtonType
-        | Title of ReactElement
-        | OnCancel of (Event -> unit)
-        | OnConfirm of (Event -> unit)
-        | Icon of ReactElement
-        | Disabled of bool
-        static member Custom (key: string, value: obj): AntPopconfirm = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntPopconfirm = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member OverlayStyle (css: Props.CSSProp list): AntPopconfirm = unbox ("overlayStyle", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antTooltip (props: AntTooltip list) (children: ReactElement list): ReactElement =
-       ofImport "Tooltip" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Popover(?elementName: string) =
+    inherit AntElement(defaultArg elementName "Popover")
+    member x.ArrowPointAtCenter with set (v: bool) = x.Attribute "arrowPointAtCenter" v
+    member x.AutoAdjustOverflow with set (v: bool) = x.Attribute "autoAdjustOverflow" v
+    member x.DefaultVisible with set (v: bool) = x.Attribute "defaultVisible" v
+    member x.GetPopupContainer with set (v: (unit -> ReactElement)) = x.Attribute "getPopupContainer" v 
+    member x.MouseEnterDelay with set (v: float) = x.Attribute "mouseEnterDelay" v 
+    member x.MouseLeaveDelay with set (v: float) = x.Attribute "mouseLeaveDelay" v 
+    member x.OverlayClassName with set (v: string) = x.Attribute "overlayClassName" v
+    member x.OverlayStyle with set (css: CSSProp list) =  x.Attribute "overlayStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.Placement with set (v: TooltipPlacement) = x.Attribute "placement" v 
+    member x.Trigger with set (v: TooltipTrigger) = x.Attribute "trigger" v 
+    member x.Visible with set (v: bool) = x.Attribute "visible" v 
+    member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
+    member x.Align with set (v: obj) = x.Attribute "align" v 
 
-    let inline antPopover (props: AntPopover list) (children: ReactElement list): ReactElement =
-       ofImport "Popover" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antPopconfirm (props: AntPopconfirm list) (children: ReactElement list): ReactElement =
-       ofImport "Popconfirm" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Popconfirm() =
+    inherit Popover("Popconfirm")
+
+type Tooltip() =
+    inherit Popover("Tooltip")
+    member x.Title with set (v: string) = x.Attribute "title" v

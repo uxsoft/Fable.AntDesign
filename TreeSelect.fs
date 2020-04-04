@@ -39,7 +39,7 @@ module TreeSelect =
         | TreeIcon of bool
         | ShowCheckedStrategy of obj
         | ShowSearch of bool
-        | Size of Common.Size
+        | Size of Size
         | SuffixIcon of ReactElement
         | TreeCheckable of bool
         | TreeCheckStrictly of bool

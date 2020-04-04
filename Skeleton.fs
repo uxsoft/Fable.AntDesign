@@ -55,7 +55,7 @@ module Skeleton =
         static member Custom (key: string, value: obj): AntSkeletonInput = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntSkeletonInput = unbox ("style", keyValueList CaseRules.LowerFirst css)
         
-    let inline antSkeleton (props: AntAffix list) (children: ReactElement list): ReactElement =
+    let inline antSkeleton (props: Affix list) (children: ReactElement list): ReactElement =
        ofImport "Skeleton" "antd" (keyValueList CaseRules.LowerFirst props) children
     
     let inline antSkeletonAvatar (props: AntSkeletonAvatar list) (children: ReactElement list): ReactElement =

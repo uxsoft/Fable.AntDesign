@@ -1,8 +1,6 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
 
 [<AutoOpen>]
 module Notification =

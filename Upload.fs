@@ -57,6 +57,6 @@ module Upload =
         static member Custom (key: string, value: obj): AntUpload = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntUpload = unbox ("style", keyValueList CaseRules.LowerFirst css)
         
-    let inline antUpload (props: AntAffix list) (children: ReactElement list): ReactElement =
+    let inline antUpload (props: Affix list) (children: ReactElement list): ReactElement =
        ofImport "Upload" "antd" (keyValueList CaseRules.LowerFirst props) children
     

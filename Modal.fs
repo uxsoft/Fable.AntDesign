@@ -35,8 +35,8 @@ module Modal =
         static member Style (css: Props.CSSProp list): AntModal = unbox ("style", keyValueList CaseRules.LowerFirst css)
         static member BodyStyle (css: Props.CSSProp list): AntModal = unbox ("bodyStyle", keyValueList CaseRules.LowerFirst css)
         static member MaskStyle (css: Props.CSSProp list): AntModal = unbox ("maskStyle", keyValueList CaseRules.LowerFirst css)
-        static member OkButtonProps (props: AntButton list): AntModal = unbox ("okButtonProps", keyValueList CaseRules.LowerFirst props)
-        static member CancelButtonProps (props: AntButton list): AntModal = unbox ("cancelButtonProps", keyValueList CaseRules.LowerFirst props)
+        static member OkButtonProps (props: Button list): AntModal = unbox ("okButtonProps", keyValueList CaseRules.LowerFirst props)
+        static member CancelButtonProps (props: Button list): AntModal = unbox ("cancelButtonProps", keyValueList CaseRules.LowerFirst props)
 
         
     let inline antModal (props: AntModal list) (children: ReactElement list): ReactElement =

@@ -4,56 +4,38 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Card =
-    
-    type AntCardTab = {
-        key: string
-        tab: ReactElement
-    }
+type CardTab = {
+    key: string
+    tab: ReactElement
+}
 
-    [<RequireQualifiedAccess>]
-    type AntCard  =
-        | Actions of ReactElement array
-        | ActiveTabKey of string
-        | Bordered of bool
-        | Cover of ReactElement
-        | DefaultActiveTabKey of string
-        | Extra of ReactElement
-        | Hoverable of bool
-        | Loading of bool
-        | TabList of AntCardTab array
-        | TabBarExtraContent of ReactElement
-        | Size of Common.Size
-        | Title of ReactElement
-        | Type of string
-        | OnTabChange of (string -> unit)
-        static member Custom (key: string, value: obj): AntCard = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCard = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member HeadStyle (css: Props.CSSProp list): AntCard = unbox ("headStyle", keyValueList CaseRules.LowerFirst css)
-        static member BodyStyle (css: Props.CSSProp list): AntCard = unbox ("bodyStyle", keyValueList CaseRules.LowerFirst css)
+type Card() =
+    inherit AntElement("Card")
+    member x.Actions with set (v: ReactElement array) = x.Attribute "actions" v 
+    member x.ActiveTabKey with set (v: string) = x.Attribute "activeTabKey" v 
+    member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
+    member x.Cover with set (v: ReactElement) = x.Attribute "cover" v 
+    member x.DefaultActiveTabKey with set (v: string) = x.Attribute "defaultActiveTabKey" v 
+    member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
+    member x.Hoverable with set (v: bool) = x.Attribute "hoverable" v 
+    member x.Loading with set (v: bool) = x.Attribute "loading" v 
+    member x.TabList with set (v: CardTab array) = x.Attribute "tabList" v 
+    member x.TabBarExtraContent with set (v: ReactElement) = x.Attribute "tabBarExtraContent" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
+    member x.Type with set (v: string) = x.Attribute "type" v 
+    member x.OnTabChange with set (v: (string -> unit)) = x.Attribute "onTabChange" v 
+    member x.HeadStyle (css: Props.CSSProp list) = x.Attribute "headStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.BodyStyle (css: Props.CSSProp list) = x.Attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
 
-    [<RequireQualifiedAccess>]
-    type AntCardGrid  =
-        | ClassName of string
-        | Hoverable of bool
-        static member Custom (key: string, value: obj): AntCardGrid = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCardGrid = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type CardGrid() =
+    inherit AntElement("Card.Grid")
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.Hoverable with set (v: bool) = x.Attribute "hoverable" v 
 
-    [<RequireQualifiedAccess>]
-    type AntCardMeta  =
-        | Avatar of ReactElement
-        | ClassName of string
-        | Description of ReactElement
-        | Title of ReactElement
-        static member Custom (key: string, value: obj): AntCardMeta = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCardMeta = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antCard (props: AntCard list) (children: ReactElement list): ReactElement =
-       ofImport "Card" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antCardGrid (props: AntCardGrid list) (children: ReactElement list): ReactElement =
-       ofImport "Card.Grid" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antCardMeta (props: AntCardMeta list) (children: ReactElement list): ReactElement =
-       ofImport "Card.Meta" "antd" (keyValueList CaseRules.LowerFirst props) children
+type CardMeta() =
+    inherit AntElement("Card.Meta")
+    member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.Description with set (v: ReactElement) = x.Attribute "description" v 
+    member x.Title with set (v: ReactElement) = x.Attribute "title" v 

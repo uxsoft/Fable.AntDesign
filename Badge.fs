@@ -1,30 +1,19 @@
 ﻿namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Badge =
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntBadgeStatus = Success | Processing | Default | Error | Warning
+[<StringEnum; RequireQualifiedAccess>]
+type BadgeStatus = Success | Processing | Default | Error | Warning
 
-    [<RequireQualifiedAccess>]
-    type AntBadge  =
-        | Color of string
-        | Count of ReactElement
-        | Dot of bool
-        | Offset of float array
-        | OverflowCount of int
-        | ShowZero of bool
-        | Status of AntBadgeStatus
-        | Text of string
-        | Title of string
-        static member Custom (key: string, value: obj): AntBadge = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntBadge = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antBadge (props: AntBadge list) (children: ReactElement list): ReactElement =
-       ofImport "Badge" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+type Badge() =
+    inherit AntElement("Badge")
+    member x.Color with set (v: string) = x.Attribute "color" v 
+    member x.Count with set (v: ReactElement) = x.Attribute "count" v 
+    member x.Dot with set (v: bool) = x.Attribute "dot" v 
+    member x.Offset with set (v: float array) = x.Attribute "offset" v 
+    member x.OverflowCount with set (v: int) = x.Attribute "overflowCount" v 
+    member x.ShowZero with set (v: bool) = x.Attribute "showZero" v 
+    member x.Status with set (v: BadgeStatus) = x.Attribute "status" v 
+    member x.Text with set (v: string) = x.Attribute "text" v 
+    member x.Title with set (v: string) = x.Attribute "title" v

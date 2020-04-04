@@ -4,31 +4,23 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module AutoComplete =
-    
-    [<RequireQualifiedAccess>]
-    type AntAutoComplete  =
-        | AllowClear of bool
-        | AutoFocus of bool
-        | Backfill of bool
-        | DefaultActiveFirstOption of bool
-        | DefaultValue of string array
-        | Disabled of bool
-        | FilterOption of bool
-        | OptionLabelProp of string
-        | Placeholder of string
-        | OnBlur of (unit -> unit)
-        | OnChange of (string -> unit)
-        | OnFocus of (unit -> unit)
-        | OnSearch of (string -> unit)
-        | OnSelect of (string -> obj -> unit)
-        | DefaultOpen of bool
-        | Open of bool
-        | OnDropdownVisibleChange of (bool -> unit)
-        static member Custom (key: string, value: obj): AntAutoComplete = unbox (key, value)
-        static member DropdownMenuStyle (css: Props.CSSProp list): AntAutoComplete = unbox ("dropdownMenuStyle", keyValueList CaseRules.LowerFirst css)
-        static member Style (css: Props.CSSProp list): AntAutoComplete = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antAutoComplete (props: AntAutoComplete list) (children: ReactElement list): ReactElement =
-       ofImport "AutoComplete" "antd" (keyValueList CaseRules.LowerFirst props) children
+type AutoComplete() =
+    inherit AntElement("AutoComplete")
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
+    member x.Backfill with set (v: bool) = x.Attribute "backfill" v 
+    member x.DefaultActiveFirstOption with set (v: bool) = x.Attribute "defaultActiveFirstOption" v 
+    member x.DefaultValue with set (v: string array) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.FilterOption with set (v: bool) = x.Attribute "filterOption" v 
+    member x.OptionLabelProp with set (v: string) = x.Attribute "optionLabelProp" v 
+    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
+    member x.OnBlur with set (v: (unit -> unit)) = x.Attribute "onBlur" v 
+    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+    member x.OnFocus with set (v: (unit -> unit)) = x.Attribute "onFocus" v 
+    member x.OnSearch with set (v: (string -> unit)) = x.Attribute "onSearch" v 
+    member x.OnSelect with set (v: (string -> obj -> unit)) = x.Attribute "onSelect" v 
+    member x.DefaultOpen with set (v: bool) = x.Attribute "defaultOpen" v 
+    member x.Open with set (v: bool) = x.Attribute "open" v 
+    member x.OnDropdownVisibleChange with set (v: (bool -> unit)) = x.Attribute "onDropdownVisibleChange" v 
+    member x.DropdownMenuStyle with set (css: Props.CSSProp list) = x.Attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)

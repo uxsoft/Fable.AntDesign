@@ -117,7 +117,7 @@ module Table =
         static member Custom (key: string, value: obj): AntTable<'T> = unbox (key, value)
         static member Style (css: Props.CSSProp list): AntTable<'T> = unbox ("style", keyValueList CaseRules.LowerFirst css)
         static member Columns (columns: AntTableColumn<'T> list list): AntTable<'T> = unbox ("style", keyValueList CaseRules.LowerFirst columns)
-        static member Pagination (config: AntPagination list): AntTable<'T> = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
+        static member Pagination (config: Pagination list): AntTable<'T> = unbox ("pagination", keyValueList CaseRules.LowerFirst config)
         static member RowSelection (config: AntTableRowSelection<'T> list): AntTable<'T> = unbox ("rowSelection", keyValueList CaseRules.LowerFirst config)
         static member Scroll (config: AntTableScroll list): AntTable<'T> = unbox ("scroll", keyValueList CaseRules.LowerFirst config)
 

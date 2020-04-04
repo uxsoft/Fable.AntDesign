@@ -1,14 +1,9 @@
 namespace Fable.AntD
 
-open System
-open System
 open Browser.Types
-open Browser.Types
-open Fable.Import
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open Fable.React.Props
 open Fable.MomentJs
 
 [<AutoOpen>]

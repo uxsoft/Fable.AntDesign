@@ -1,27 +1,17 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Avatar =
-        
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AvatarShape = Circle | Square
-    
-    [<RequireQualifiedAccess>]
-    type AntAvatar =
-        | Icon of U2<string, ReactElement>
-        | Shape of AvatarShape
-        | Size of Size
-        | Src of string
-        | SrcSet of string
-        | Alt of string
-        | OnError of (unit -> bool)
-        static member Custom (key: string, value: obj): AntAvatar = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntAvatar = unbox ("style", keyValueList CaseRules.LowerFirst css)
+[<StringEnum;RequireQualifiedAccess>]
+type AvatarShape = Circle | Square
 
-    let inline antAvatar (props: AntAvatar list) (children: ReactElement list): ReactElement =
-       ofImport "Avatar" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Avatar() =
+    inherit AntElement("Avatar")
+    member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
+    member x.Shape with set (v: AvatarShape) = x.Attribute "shape" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Src with set (v: string) = x.Attribute "src" v 
+    member x.SrcSet with set (v: string) = x.Attribute "srcSet" v 
+    member x.Alt with set (v: string) = x.Attribute "alt" v 
+    member x.OnError with set (v: (unit -> bool)) = x.Attribute "onError" v 
