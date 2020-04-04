@@ -4,7 +4,6 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-
 [<StringEnum; RequireQualifiedAccess>] type TimelineMode  = Left | Alternate | Right
 
 [<StringEnum; RequireQualifiedAccess>] type TimelineItemPosition  = Left | Right

@@ -4,10 +4,10 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-type TreeData = {
+type TreeSelectData = {
     value: string
     title: string
-    children: TreeData array
+    children: TreeSelectData array
 }
 
 type TreeFlatData = {
@@ -40,7 +40,7 @@ type TreeSelect() =
     member x.SuffixIcon with set (v: ReactElement) = x.Attribute "suffixIcon" v 
     member x.TreeCheckable with set (v: bool) = x.Attribute "treeCheckable" v
     member x.TreeCheckStrictly with set (v: bool) = x.Attribute "treeCheckStrictly" v
-    member x.TreeData with set (v: TreeData array) = x.Attribute "treeData" v 
+    member x.TreeData with set (v: TreeSelectData array) = x.Attribute "treeData" v 
     member x.TreeDataSimpleMode with set (v: TreeFlatData array) = x.Attribute "treeDataSimpleMode" v
     member x.TreeDefaultExpandAll with set (v: bool) = x.Attribute "treeDefaultExpandAll" v
     member x.TreeDefaultExpandedKeys with set (v: string array) = x.Attribute "treeDefaultExpandedKeys" v 
@@ -50,7 +50,7 @@ type TreeSelect() =
     member x.Value with set (v: string array) = x.Attribute "value" v
     member x.OnChange with set (v: (string -> string -> obj -> unit)) = x.Attribute "onChange" v 
     member x.OnSearch with set (v: (string -> unit)) = x.Attribute "onSearch" v 
-    member x.OnSelect with set (v: (string -> TreeData -> obj -> unit)) = x.Attribute "onSelect" v 
+    member x.OnSelect with set (v: (string -> TreeSelectData -> obj -> unit)) = x.Attribute "onSelect" v 
     member x.OnTreeExpand with set (v: (string array -> unit)) = x.Attribute "onTreeExpand" v 
     member x.DropdownStyle with set (css: Props.CSSProp list) = x.Attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
 

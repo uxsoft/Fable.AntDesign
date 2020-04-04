@@ -5,7 +5,6 @@ open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
 
-
 [<StringEnum; RequireQualifiedAccess>] type TabsPosition = Top | Right | Bottom | Left
 
 [<StringEnum; RequireQualifiedAccess>] type TabsType = Line | Card | [<CompiledName("editable-card")>] EditableCard
