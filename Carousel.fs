@@ -1,36 +1,24 @@
 ﻿namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
 
-[<AutoOpen>]
-module Carousel =
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntCarouselEffect = Scrollx | Fade
+    [<StringEnum; RequireQualifiedAccess>]
+    type CarouselEffect =
+        | [<CompiledName("scrollx")>] ScrollX
+        | Fade
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntCarouselEasing = Linear
+    [<StringEnum; RequireQualifiedAccess>]
+    type CarouselEasing = Linear
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntCarouselDotPosition = Top | Bottom | Left | Right
+    [<StringEnum; RequireQualifiedAccess>]
+    type CarouselDotPosition = Top | Bottom | Left | Right
 
-    [<RequireQualifiedAccess>]
-    type AntCarousel  =
-        | AfterChange of (int -> unit)
-        | Autoplay of bool
-        | BeforeChange of (int -> int -> unit)
-        | DotPosition of AntCarouselDotPosition
-        | Dots of bool
-        | Easing of AntCarouselEasing
-        | Effect of AntCarouselEffect
-        static member Custom (key: string, value: obj): AntCarousel = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCarousel = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antCarousel (props: AntCarousel list) (children: ReactElement list): ReactElement =
-       ofImport "Carousel" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+    type AntCarousel() =
+        inherit AntElement("Carousel")
+        member x.AfterChange with set (v: (int -> unit)) = x.Attribute "afterChange" v 
+        member x.Autoplay with set (v: bool) = x.Attribute "autoplay" v 
+        member x.BeforeChange with set (v: (int -> int -> unit)) = x.Attribute "beforeChange" v 
+        member x.DotPosition with set (v: CarouselDotPosition) = x.Attribute "dotPosition" v 
+        member x.Dots with set (v: bool) = x.Attribute "dots" v 
+        member x.Easing with set (v: CarouselEasing) = x.Attribute "easing" v 
+        member x.Effect with set (v: CarouselEffect) = x.Attribute "effect" v 

@@ -11,7 +11,7 @@ type Size = Large | Default | Small
 [<StringEnum; RequireQualifiedAccess>]
 type Theme = Dark | Light
 
-type AntElement(elementName: string) =
+type AntElement(elementName: string, ?package: string) =
     let props = System.Collections.Generic.List<string * obj>()
 
     member x.Props = createObj props
@@ -20,7 +20,7 @@ type AntElement(elementName: string) =
     member x.Style with set (css: CSSProp list) = props.Add(("style", keyValueList CaseRules.LowerFirst css))
     
     member x.With (children: ReactElement list) =
-        ofImport "Button" "antd" x.Props children
+        ofImport elementName (defaultArg package "antd") x.Props children
         
     member x.Empty =
-        ofImport "Button" "antd" x.Props []
+        ofImport elementName (defaultArg package "antd") x.Props []

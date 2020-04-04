@@ -14,4 +14,4 @@ module Message =
         abstract loading: ReactElement -> int -> (unit -> unit) -> unit
     
     [<Import("message", "antd")>]
-    let antMessage : IAntMessage = jsNative
+    let Message : IAntMessage = jsNative

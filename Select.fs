@@ -2,136 +2,74 @@ namespace Fable.AntD
 
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React.Helpers
 open Fable.React
 open Browser.Types
 
-/// import declarations for `Select` and its nested components.
-/// For more information, refer to the [official documentation](https://ant.design/components/select/)
-[<AutoOpen>]
-module Select =
-    [<RequireQualifiedAccess>]
-    type AntSelectOption =
-        | Disabled of bool
-        | Key of string
-        | Title of string
-        | Value of string
-        | ClassName of string
-        static member Custom (key: string, value: obj): AntSelectOption = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntSelectOption = unbox ("style", keyValueList CaseRules.LowerFirst css)        
-    
-    [<RequireQualifiedAccess>]
-    type AntSelectGroup =
-        | Key of string
-        | Label of ReactElement
-        static member Custom (key: string, value: obj): AntSelectGroup = unbox(key, value)
-        static member Style (css: Props.CSSProp list) : AntSelectGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type SelectOption() =
+    inherit AntElement("Select.Option")
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Key with set (v: string) = x.Attribute "key" v 
+    member x.Title with set (v: string) = x.Attribute "title" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.ClassName with set (v: string) = x.Attribute "className" v        
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntSelectMode  =
-        | Multiple
-        | ComboBox
-        | [<CompiledName("tags")>] Tag
-        | Default
+type SelectOptGroup() =
+    inherit AntElement("Select.OptGroup")
+    member x.Key with set (v: string) = x.Attribute "key" v 
+    member x.Label with set (v: ReactElement) = x.Attribute "label" v 
 
-    [<RequireQualifiedAccess>]
-    type AntSelect =
-        /// Show clear button. Default = false
-        | AllowClear of bool
-        | AutoClearSearchValue of bool
-        /// Get focus by default. Default = false
-        | AutoFocus of bool
-        /// Whether active first option by default. Default = true
-        | DefaultActiveFirstOption of bool
-        /// Initial selected option.
-        | DefaultValue of string
-        /// Whether disabled select. Default = false
-        | Disabled of bool
-        /// className of dropdown menu
-        | DropdownClassName of string
-        /// Whether dropdown's with is same with select. Default = true
-        | DropdownMatchSelectWidth of bool
-        | DropDownRender of (ReactElement -> obj -> ReactElement)
-        /// If true, filter options by input, if function, filter options against it.
-        /// The function will receive two arguments, inputValue and option,
-        /// if the function returns true, the option will be included in the filtered set;
-        /// Otherwise, it will be excluded. Default = true
-        | FilterOption of (string -> string -> bool)
-        /// Value of action option by default
-        | FirstActiveValue of string array
-        /// Parent Node which the selector should be rendered to. Default to body.
-        /// When position issues happen, try to modify it into scrollable content and position it relative.
-        /// [Example](https://codesandbox.io/s/4j168r7jw0)
-        | GetPopupContainer of (ReactElement -> HTMLElement)
-        /// whether to embed label in value, turn the format of value
-        /// from `string` to `{key: string, label: ReactNode}`. Default: false
-        | LabelInValue of bool
-        /// Max tag count to show
-        | MaxTagCount of int
-        | MaxTagTextLength of int
-        /// Placeholder for not showing tags. Can be a replacement node or
-        /// a compensation function that works on omitted values
-        | MaxTagPlaceholder of (string array -> ReactElement)
-        /// Set mode of Select (Support after 2.9)
-        | Mode of AntSelectMode
-        /// Specify content to show when no result matches.
-        /// Default: 'Not Found'
-        | NotFoundContent of string
-        /// Which prop value of option will be used for filter if filterOption is true
-        | OptionFilterProp of string
-        | OptionLabelProp of string
-        /// Placeholder of select
-        | Placeholder of ReactElement
-        /// Whether to show the drop-down arrow
-        | ShowArrow of bool
-        /// Whether show search input in single mode.
-        | ShowSearch of bool
-        /// Size of Select input
-        | Size of Size
-        | SuffixIcon of ReactElement
-        | RemoveIcon of ReactElement
-        | ClearIcon of ReactElement
-        | MenuItemSelectedIcon of ReactElement
-        /// Separator used to tokenize on tag/multiple mode
-        | TokenSeparators of string array
-        /// Current selected option.
-        | Value of string
-        /// Called when blur
-        | OnBlur of (Event -> unit)
-        /// Called when select an option or input value change, or value of input
-        /// is changed in combobox mode
-        | OnChange of (string array -> unit)
-        /// Called when a option is deselected, the params are option's value (or key).
-        /// only called for multiple or tags, effective in multiple or tags mode only.
-        | OnDeselect of (string -> unit)
-        /// Called when focus
-        | OnFocus of (Event -> unit)
-        /// Called when key pressed
-        | OnInputKeyDown of (KeyboardEvent -> unit)
-        /// Called when mouse enter
-        | OnMouseEnter of (MouseEvent -> unit)
-        /// Called when mouse leave
-        | OnMouseLeave of (MouseEvent -> unit)
-        /// Called when dropdown scrolls
-        | OnPopupScroll of (Event -> unit)
-        /// Callback function that is fired when input changed.
-        | OnSearch of (string -> unit)
-        | OnSelect of (string -> unit)
-        | DefaultOpen of bool
-        | Open of bool
-        | OnDropdownVisibleChange of (bool -> unit)
-        | Loading of bool
-        static member Custom (key: string, value: obj): AntSelect = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntSelect = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member DropdownStyle (css: Props.CSSProp list): AntSelect = unbox ("dropdownStyle", keyValueList CaseRules.LowerFirst css)
-        static member DropdownMenuStyle (css: Props.CSSProp list): AntSelect = unbox ("dropdownMenuStyle", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>]
+type SelectMode  =
+    | Multiple
+    | ComboBox
+    | [<CompiledName("tags")>] Tag
+    | Default
 
-    let inline antSelect (props: AntSelect list) (children: ReactElement list): ReactElement =
-        ofImport "Select" "antd" (keyValueList CaseRules.LowerFirst props) children
-        
-    let inline antSelectOption (props: AntSelectOption list) (children: ReactElement list): ReactElement =
-       ofImport "Select.Option" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antSelectGroup (props: AntSelectGroup list) (children: ReactElement list): ReactElement =
-        ofImport "Select.OptGroup" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Select() =
+    inherit AntElement("Select")
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.AutoClearSearchValue with set (v: bool) = x.Attribute "autoClearSearchValue" v 
+    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
+    member x.DefaultActiveFirstOption with set (v: bool) = x.Attribute "defaultActiveFirstOption" v 
+    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.DropdownClassName with set (v: string) = x.Attribute "dropdownClassName" v 
+    member x.DropdownMatchSelectWidth with set (v: bool) = x.Attribute "dropdownMatchSelectWidth" v 
+    member x.DropDownRender with set (v: (ReactElement -> obj -> ReactElement)) = x.Attribute "dropDownRender" v 
+    member x.FilterOption with set (v: (string -> string -> bool)) = x.Attribute "filterOption" v 
+    member x.FirstActiveValue with set (v: string array) = x.Attribute "firstActiveValue" v 
+    member x.GetPopupContainer with set (v: (ReactElement -> HTMLElement)) = x.Attribute "getPopupContainer" v 
+    member x.LabelInValue with set (v: bool) = x.Attribute "labelInValue" v 
+    member x.MaxTagCount with set (v: int) = x.Attribute "maxTagCount" v 
+    member x.MaxTagTextLength with set (v: int) = x.Attribute "maxTagTextLength" v 
+    member x.MaxTagPlaceholder with set (v: (string array -> ReactElement)) = x.Attribute "maxTagPlaceholder" v 
+    member x.Mode with set (v: SelectMode) = x.Attribute "mode" v 
+    member x.NotFoundContent with set (v: string) = x.Attribute "notFoundContent" v 
+    member x.OptionFilterProp with set (v: string) = x.Attribute "optionFilterProp" v 
+    member x.OptionLabelProp with set (v: string) = x.Attribute "optionLabelProp" v 
+    member x.Placeholder with set (v: ReactElement) = x.Attribute "placeholder" v 
+    member x.ShowArrow with set (v: bool) = x.Attribute "showArrow" v 
+    member x.ShowSearch with set (v: bool) = x.Attribute "showSearch" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.SuffixIcon with set (v: ReactElement) = x.Attribute "suffixIcon" v 
+    member x.RemoveIcon with set (v: ReactElement) = x.Attribute "removeIcon" v 
+    member x.ClearIcon with set (v: ReactElement) = x.Attribute "clearIcon" v 
+    member x.MenuItemSelectedIcon with set (v: ReactElement) = x.Attribute "menuItemSelectedIcon" v 
+    member x.TokenSeparators with set (v: string array) = x.Attribute "tokenSeparators" v 
+    member x.Value with set (v: string) = x.Attribute "value" v 
+    member x.OnBlur with set (v: (Event -> unit)) = x.Attribute "onBlur" v 
+    member x.OnChange with set (v: (string array -> unit)) = x.Attribute "onChange" v 
+    member x.OnDeselect with set (v: (string -> unit)) = x.Attribute "onDeselect" v 
+    member x.OnFocus with set (v: (Event -> unit)) = x.Attribute "onFocus" v 
+    member x.OnInputKeyDown with set (v: (KeyboardEvent -> unit)) = x.Attribute "onInputKeyDown" v 
+    member x.OnMouseEnter with set (v: (MouseEvent -> unit)) = x.Attribute "onMouseEnter" v 
+    member x.OnMouseLeave with set (v: (MouseEvent -> unit)) = x.Attribute "onMouseLeave" v 
+    member x.OnPopupScroll with set (v: (Event -> unit)) = x.Attribute "onPopupScroll" v 
+    member x.OnSearch with set (v: (string -> unit)) = x.Attribute "onSearch" v 
+    member x.OnSelect with set (v: (string -> unit)) = x.Attribute "onSelect" v 
+    member x.DefaultOpen with set (v: bool) = x.Attribute "defaultOpen" v 
+    member x.Open with set (v: bool) = x.Attribute "open" v 
+    member x.OnDropdownVisibleChange with set (v: (bool -> unit)) = x.Attribute "onDropdownVisibleChange" v 
+    member x.Loading with set (v: bool) = x.Attribute "loading" v 
+    member x.DropdownStyle (css: Props.CSSProp list) = x.Attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.DropdownMenuStyle (css: Props.CSSProp list) = x.Attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)

@@ -2,60 +2,34 @@ namespace Fable.AntD
 
 open Browser.Types
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
+  
+type RadioOption = {
+    label: string
+    value: string
+    disabled: bool
+}
 
-[<AutoOpen>]
-module Radio =
-        
-    type AntRadioOption = {
-        label: string
-        value: string
-        disabled: bool
-    }
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntRadioButtonStyle = Outline | Solid
-    
-    [<RequireQualifiedAccess>]
-    type AntRadio =
-        | AutoFocus of bool
-        | Checked of bool
-        | DefaultChecked of bool
-        | Disabled of bool
-        | Value of obj
-        static member Custom (key: string, value: obj): AntRadio = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRadio = unbox ("style", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>]
+type RadioButtonStyle = Outline | Solid
 
-    [<RequireQualifiedAccess>]
-    type AntRadioButton =
-        | AutoFocus of bool
-        | Checked of bool
-        | DefaultChecked of bool
-        | Disabled of bool
-        | Value of obj
-        static member Custom (key: string, value: obj): AntRadioButton = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRadioButton = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntRadioGroup =
-        | DefaultValue of obj
-        | Disabled of bool
-        | Name of string
-        | Options of AntRadioOption array
-        | Size of Size
-        | Value of obj
-        | OnChange of (Event -> unit)
-        | ButtonStyle of AntRadioButtonStyle
-        static member Custom (key: string, value: obj): AntRadioGroup = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRadioGroup = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antRadio (props: AntRadio list) (children: ReactElement list): ReactElement =
-       ofImport "Radio" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Radio(?name: string) =
+    inherit AntElement(defaultArg name "Radio")
+    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
+    member x.Checked with set (v: bool) = x.Attribute "checked" v 
+    member x.DefaultChecked with set (v: bool) = x.Attribute "defaultChecked" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Value with set (v: obj) = x.Attribute "value" v 
 
-    let inline antRadioButton (props: AntRadioButton list) (children: ReactElement list): ReactElement =
-       ofImport "Radio.Button" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antRadioGroup (props: AntRadioGroup list) (children: ReactElement list): ReactElement =
-       ofImport "Radio.Group" "antd" (keyValueList CaseRules.LowerFirst props) children
+type RadioButton() =
+    inherit Radio("Radio.Button")
+
+type RadioGroup() =
+    inherit AntElement("Radio.Group")
+    member x.DefaultValue with set (v: obj) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Name with set (v: string) = x.Attribute "name" v 
+    member x.Options with set (v: RadioOption array) = x.Attribute "options" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Value with set (v: obj) = x.Attribute "value" v 
+    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+    member x.ButtonStyle with set (v: RadioButtonStyle) = x.Attribute "buttonStyle" v 

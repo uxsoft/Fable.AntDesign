@@ -1,45 +1,19 @@
 namespace Fable.AntD
 
-open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
 open Browser.Types
 
-/// import declarations for `InputNumber` and its nested components.
-/// For more information, refer to the [official documentation](https://ant.design/components/input-number/)
-[<AutoOpen>]
-module InputNumber =
-    
-    [<RequireQualifiedAccess>]   
-    type AntInputNumber  =
-        /// get focus when component mounted
-        | AutoFocus of bool
-        /// initial value	
-        | DefaultValue of float
-        /// disable the input	
-        | Disabled of bool
-        /// Specifies the format of the value presented
-        | Formatter of (float -> string)
-        /// max value
-        | Max of float
-        /// min value	
-        | Min of float
-        /// Specifies the value extracted from formatter
-        | Parser of (string -> float)
-        /// precision of input value
-        | Precision of float
-        /// width of input box
-        | Size of Size
-        /// The number to which the current value is increased or decreased. 
-        /// It can be an integer or decimal.
-        | Step of float
-        /// current value
-        | Value of float
-        /// The callback triggered when the value is changed.
-        | OnChange of (float -> unit)
-        | OnPressEnter of (Event -> unit)
-        static member Custom (key: string, value: obj): AntInputNumber = unbox(key, value)
-        static member Style (css: Props.CSSProp list): AntInputNumber = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-     let inline antInputNumber (props: AntInputNumber list) (children: ReactElement list): ReactElement =
-       ofImport "InputNumber" "antd" (keyValueList CaseRules.LowerFirst props) children
+type AntInputNumber() =
+    inherit AntElement("InputNumber")
+    member x.AutoFocus with set (v: bool) = x.Attribute "disabled" v 
+    member x.DefaultValue with set (v: float) = x.Attribute "disabled" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Formatter with set (v: (float -> string)) = x.Attribute "disabled" v 
+    member x.Max with set (v: float) = x.Attribute "disabled" v 
+    member x.Min with set (v: float) = x.Attribute "disabled" v 
+    member x.Parser with set (v: (string -> float)) = x.Attribute "disabled" v 
+    member x.Precision with set (v: float) = x.Attribute "disabled" v 
+    member x.Size with set (v: Size) = x.Attribute "disabled" v 
+    member x.Step with set (v: float) = x.Attribute "disabled" v 
+    member x.Value with set (v: float) = x.Attribute "disabled" v 
+    member x.OnChange with set (v: (float -> unit)) = x.Attribute "disabled" v 
+    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "disabled" v 

@@ -5,27 +5,20 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Rate =
-    [<RequireQualifiedAccess>]
-    type AntRate =
-        | AllowClear of bool
-        | AllowHalf of bool
-        | AutoFocus of bool
-        | Character of ReactElement
-        | ClassName of string
-        | Count of int
-        | DefaultValue of float
-        | Disabled of bool
-        | Tooltips of string array
-        | Value of float
-        | OnBlur of (unit -> unit)
-        | OnChange of (float -> unit)
-        | OnFocus of (unit -> unit)
-        | OnHoverChange of (float -> unit)
-        | OnKeyDown of (Event -> unit)
-        static member Custom (key: string, value: obj): AntRate = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRate = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antRate (props: AntRate list) (children: ReactElement list): ReactElement =
-       ofImport "Rate" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Rate() =
+    inherit AntElement("Rate")
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.AllowHalf with set (v: bool) = x.Attribute "allowHalf" v 
+    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
+    member x.Character with set (v: ReactElement) = x.Attribute "character" v 
+    member x.ClassName with set (v: string) = x.Attribute "className" v 
+    member x.Count with set (v: int) = x.Attribute "count" v 
+    member x.DefaultValue with set (v: float) = x.Attribute "defaultValue" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Tooltips with set (v: string array) = x.Attribute "tooltips" v 
+    member x.Value with set (v: float) = x.Attribute "value" v 
+    member x.OnBlur with set (v: (unit -> unit)) = x.Attribute "onBlur" v 
+    member x.OnChange with set (v: (float -> unit)) = x.Attribute "onChange" v 
+    member x.OnFocus with set (v: (unit -> unit)) = x.Attribute "onFocus" v 
+    member x.OnHoverChange with set (v: (float -> unit)) = x.Attribute "onHoverChange" v 
+    member x.OnKeyDown with set (v: (Event -> unit)) = x.Attribute "onKeyDown" v 

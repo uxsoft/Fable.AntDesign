@@ -1,47 +1,30 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
 
-[<AutoOpen>]
-module Grid =
+[<StringEnum; RequireQualifiedAccess>]
+type RowAlign = Top | Middle | Bottom
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntRowAlign = Top | Middle | Bottom
+[<StringEnum; RequireQualifiedAccess>]
+type RowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
 
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntRowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
-    
-    [<RequireQualifiedAccess>]
-    type AntRow =
-        | Align of AntRowAlign /// the vertical alignment of the flex layout
-        | Gutter of int /// spacing between grids, could be a number or a object like { xs: 8, sm: 16, md: 24} number/object
-        | Justify of AntRowJustify /// horizontal arrangement of the flex layout: start end center space-around space-between
-        static member Custom (key: string, value: obj): AntRow = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntRow = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type Row() =
+    inherit AntElement("Row")
+    member x.Align with set (v: RowAlign) = x.Attribute "align" v 
+    member x.Gutter with set (v: int) = x.Attribute "gutter" v  
+    member x.Justify with set (v: RowJustify) = x.Attribute "justify" v 
 
-    [<RequireQualifiedAccess>]
-    type AntColumn =
-      | Flex of string
-      | Offset of int
-      | Order of int
-      | Pull of int
-      | Push of int
-      | Span of int
-      | Xs of int
-      | Sm of int
-      | Md of int
-      | Lg of int
-      | Xl of int
-      | Xxl of int
-      static member Custom (key: string, value: obj): AntColumn = unbox (key, value)
-      static member Style (css: Props.CSSProp list): AntColumn = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antRow (props: AntRow list) (children: ReactElement list): ReactElement =
-        ofImport "Row" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antColumn (props: AntColumn list) (children: ReactElement list): ReactElement =
-        ofImport "Col" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Column() =
+    inherit AntElement("Col")
+    member x.Flex with set (v: string) = x.Attribute "flex" v 
+    member x.Offset with set (v: int) = x.Attribute "offset" v 
+    member x.Order with set (v: int) = x.Attribute "order" v 
+    member x.Pull with set (v: int) = x.Attribute "pull" v 
+    member x.Push with set (v: int) = x.Attribute "push" v 
+    member x.Span with set (v: int) = x.Attribute "span" v 
+    member x.Xs with set (v: int) = x.Attribute "xs" v 
+    member x.Sm with set (v: int) = x.Attribute "sm" v 
+    member x.Md with set (v: int) = x.Attribute "md" v 
+    member x.Lg with set (v: int) = x.Attribute "lg" v 
+    member x.Xl with set (v: int) = x.Attribute "xl" v 
+    member x.Xxl with set (v: int) = x.Attribute "xxl" v 

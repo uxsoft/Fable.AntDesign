@@ -1,40 +1,23 @@
 ﻿namespace Fable.AntD
 
-open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Collapse =
-    
-    [<RequireQualifiedAccess>]
-    type AntCollapse  =
-        | ActiveKey of string array
-        | DefaultActiveKey of string array
-        | Bordered of bool
-        | Accordion of bool
-        | OnChange of (unit -> unit)
-        | ExpandIcon of (obj -> ReactElement)
-        | ExpandIconPosition of string
-        | DestroyInactivePanel of bool
-        static member Custom (key: string, value: obj): AntCollapse = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCollapse = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntCollapsePanel  =
-        | Disabled of bool
-        | ForceRender of bool
-        | Header of ReactElement
-        | Key of string
-        | ShowArrow of bool
-        | Extra of ReactElement
-        static member Custom (key: string, value: obj): AntCollapsePanel = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntCollapsePanel = unbox ("style", keyValueList CaseRules.LowerFirst css)
+    type Collapse() =
+        inherit AntElement("Collapse")
+        member x.ActiveKey with set (v: string array) = x.Attribute "activeKey" v 
+        member x.DefaultActiveKey with set (v: string array) = x.Attribute "defaultActiveKey" v 
+        member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
+        member x.Accordion with set (v: bool) = x.Attribute "accordion" v 
+        member x.OnChange with set (v: (unit -> unit)) = x.Attribute "onChange" v 
+        member x.ExpandIcon with set (v: (obj -> ReactElement)) = x.Attribute "expandIcon" v 
+        member x.ExpandIconPosition with set (v: string) = x.Attribute "expandIconPosition" v 
+        member x.DestroyInactivePanel with set (v: bool) = x.Attribute "destroyInactivePanel" v 
 
-    let inline antCollapse (props: AntCollapse list) (children: ReactElement list): ReactElement =
-       ofImport "Collapse" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-
-    let inline antCollapsePanel (props: AntCollapsePanel list) (children: ReactElement list): ReactElement =
-       ofImport "Collapse.Panel" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+    type CollapsePanel() =
+        inherit AntElement("Collapse.Panel")
+        member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+        member x.ForceRender with set (v: bool) = x.Attribute "forceRender" v 
+        member x.Header with set (v: ReactElement) = x.Attribute "header" v 
+        member x.Key with set (v: string) = x.Attribute "key" v 
+        member x.ShowArrow with set (v: bool) = x.Attribute "showArrow" v 
+        member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 

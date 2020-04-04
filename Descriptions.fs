@@ -1,36 +1,21 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Description =
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type DescriptionsLayoutOptions = Horizontal | Vertical
-    
-    [<RequireQualifiedAccess>]
-    type AntDescriptions =
-        | Title of ReactElement
-        | Bordered of bool
-        | Column of int
-        | Size of Size
-        | Layout of DescriptionsLayoutOptions
-        | Colon of bool
-        static member Custom (key: string, value: obj): AntDescriptions = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntDescriptions = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntDescriptionsItem =
-        | Label of ReactElement
-        | Span of int
-        static member Custom (key: string, value: obj): AntDescriptionsItem = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntDescriptionsItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>]
+type DescriptionsLayoutOptions = Horizontal | Vertical
 
-    let inline antDescriptions (props: AntDescriptions list) (children: ReactElement list): ReactElement =
-       ofImport "Descriptions" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antDescriptionsItem (props: AntDescriptionsItem list) (children: ReactElement list): ReactElement =
-       ofImport "Descriptions.Item" "antd" (keyValueList CaseRules.LowerFirst props) children
+type Descriptions() =
+    inherit AntElement("Descriptions")
+    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
+    member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
+    member x.Column with set (v: int) = x.Attribute "column" v 
+    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Layout with set (v: DescriptionsLayoutOptions) = x.Attribute "layout" v 
+    member x.Colon with set (v: bool) = x.Attribute "colon" v 
+    
+type DescriptionsItem() =
+    inherit AntElement("Descriptions.Item")
+    member x.Label with set (v: ReactElement) = x.Attribute "label" v 
+    member x.Span with set (v: int) = x.Attribute "span" v 
