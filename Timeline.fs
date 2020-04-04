@@ -4,33 +4,20 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-[<AutoOpen>]
-module Timeline =
-    
-    [<StringEnum; RequireQualifiedAccess>] type AntTimelineMode  = Left | Alternate | Right
 
-    [<StringEnum; RequireQualifiedAccess>] type AntTimelineItemPosition  = Left | Right
-    
-    [<RequireQualifiedAccess>]
-    type AntTimeline  =
-        | Pending of bool
-        | PendingDot of ReactElement
-        | Reverse of bool
-        | Mode of AntTimelineMode 
-        static member Custom (key: string, value: obj): AntTimeline = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTimeline = unbox ("style", keyValueList CaseRules.LowerFirst css)
+[<StringEnum; RequireQualifiedAccess>] type TimelineMode  = Left | Alternate | Right
 
-    [<RequireQualifiedAccess>]
-    type AntTimelineItem  =
-        | Color of string
-        | Dot of ReactElement
-        | Position of AntTimelineItemPosition
-        static member Custom (key: string, value: obj): AntTimelineItem = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTimelineItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antTimeline (props: AntTimeline list) (children: ReactElement list): ReactElement =
-       ofImport "Timeline" "antd" (keyValueList CaseRules.LowerFirst props) children
+[<StringEnum; RequireQualifiedAccess>] type TimelineItemPosition  = Left | Right
 
-    let inline antTimelineItem (props: AntTimelineItem list) (children: ReactElement list): ReactElement =
-       ofImport "Timeline.Item" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
+type Timeline()  =
+  inherit AntElement("Timeline")
+  member x.Pending with set (v: bool) = x.Attribute "pending" v
+  member x.PendingDot with set (v: ReactElement) = x.Attribute "pendingDot" v 
+  member x.Reverse with set (v: bool) = x.Attribute "reverse" v
+  member x.Mode with set (v: TimelineMode) = x.Attribute "mode" v  
+
+type TimelineItem()  =
+  inherit AntElement("Timeline.Item")
+  member x.Color with set (v: string) = x.Attribute "color" v 
+  member x.Dot with set (v: ReactElement) = x.Attribute "dot" v 
+  member x.Position with set (v: TimelineItemPosition) = x.Attribute "position" v 

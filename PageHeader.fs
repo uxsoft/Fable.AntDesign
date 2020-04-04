@@ -1,27 +1,17 @@
 namespace Fable.AntD
 
-open Fable.Core
-open Fable.Core.JsInterop
+
 open Fable.React
 
-[<AutoOpen>]
-module PageHeader =
-    
-    [<RequireQualifiedAccess>]
-    type AntPageHeader =
-        | Title of ReactElement
-        | SubTitle of ReactElement
-        | Ghost of bool
-        | Avatar of ReactElement 
-        | BackIcon of ReactElement
-        | [<CompiledName("tags")>] TagList of ReactElement list
-        | Extra of ReactElement
-        | Breadcrumb of ReactElement
-        | Footer of ReactElement
-        | OnBack of (unit -> unit)
-        static member Custom (key: string, value: obj): AntPageHeader = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntPageHeader = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antPageHeader (props: AntPageHeader list) (children: ReactElement list): ReactElement =
-       ofImport "PageHeader" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
+    type PageHeader() =
+        inherit AntElement("PageHeader")
+        member x.Title with set (v: ReactElement) = x.Attribute "title" v
+        member x.SubTitle with set (v: ReactElement) = x.Attribute "subTitle" v
+        member x.Ghost with set (v: bool) = x.Attribute "ghost" v
+        member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v
+        member x.BackIcon with set (v: ReactElement) = x.Attribute "backIcon" v
+        member x.Tags with set (v: ReactElement list) = x.Attribute "tags" v
+        member x.Extra with set (v: ReactElement) = x.Attribute "extra" v
+        member x.Breadcrumb with set (v: ReactElement) = x.Attribute "breadcrumb" v
+        member x.Footer with set (v: ReactElement) = x.Attribute "footer" v
+        member x.OnBack with set (v: (unit -> unit)) = x.Attribute "onBack" v 

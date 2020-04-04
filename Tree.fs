@@ -1,120 +1,100 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
+      
+[<StringEnum; RequireQualifiedAccess>] type DirectoryTreeExpandAction = Click | DoubleClick
 
-[<AutoOpen>]
-module Tree =
-        
-    [<StringEnum; RequireQualifiedAccess>] type AntDirectoryTreeExpandAction = Click | DoubleClick
+type TreeData = {
+    key: string
+    title: string
+    children: TreeData array
+    disabled: bool
+    selectable: bool
+}
 
-    type AntTreeData = {
-        key: string
-        title: string
-        children: AntTreeData array
-        disabled: bool
-        selectable: bool
-    }
-    
-    [<RequireQualifiedAccess>]
-    type AntTree =
-        | AutoExpandParent of bool
-        | BlockNode of bool
-        | Checkable of bool
-        | CheckedKeys of string array
-        | CheckStrictly of bool
-        | DefaultCheckedKeys of string array
-        | DefaultExpandAll of bool
-        | DefaultExpandedKeys of string array
-        | DefaultExpandParent of bool
-        | DefaultSelectedKeys of string array
-        | Disabled of bool
-        | Draggable of bool
-        | ExpandedKeys of string array
-        | FilterTreeNode of (obj -> bool)
-        | LoadData of (obj -> unit)
-        | LoadedKeys of string array
-        | Multiple of bool
-        | Selectable of bool
-        | SelectedKeys of string array
-        | ShowIcon of bool
-        | SwitcherIcon of ReactElement
-        | ShowLIne of bool
-        | OnCheck of (string array -> obj -> unit)
-        | OnDragEnd of (obj -> unit)
-        | OnDragEnter of (obj -> unit)
-        | OnDragLeave of (obj -> unit)
-        | OnDragOver of (obj -> unit)
-        | OnDragStart of (obj -> unit)
-        | OnDrop of (obj -> unit)
-        | OnExpand of (string array -> obj -> unit)
-        | OnLoad of (string array -> obj -> unit)
-        | OnRightClick of (obj -> unit)
-        | OnSelect of (string array -> obj -> unit)
-        | TreeData of AntTreeData array
-        static member Custom (key: string, value: obj): AntTree = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTree = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type Tree() =
+    inherit AntElement("Tree")
+    member x.AutoExpandParent with set (v: bool) = x.Attribute "autoExpandParent" v
+    member x.BlockNode with set (v: bool) = x.Attribute "blockNode" v
+    member x.Checkable with set (v: bool) = x.Attribute "checkable" v
+    member x.CheckedKeys with set (v: string array) = x.Attribute "checkedKeys" v 
+    member x.CheckStrictly with set (v: bool) = x.Attribute "checkStrictly" v
+    member x.DefaultCheckedKeys with set (v: string array) = x.Attribute "defaultCheckedKeys" v 
+    member x.DefaultExpandAll with set (v: bool) = x.Attribute "defaultExpandAll" v
+    member x.DefaultExpandedKeys with set (v: string array) = x.Attribute "defaultExpandedKeys" v
+    member x.DefaultExpandParent with set (v: bool) = x.Attribute "defaultExpandParent" v
+    member x.DefaultSelectedKeys with set (v: string array) = x.Attribute "defaultSelectedKeys" v
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v
+    member x.Draggable with set (v: bool) = x.Attribute "draggable" v
+    member x.ExpandedKeys with set (v: string array) = x.Attribute "expandedKeys" v
+    member x.FilterTreeNode with set (v: (obj -> bool)) = x.Attribute "filterTreeNode" v 
+    member x.LoadData with set (v: (obj -> unit)) = x.Attribute "loadData" v 
+    member x.LoadedKeys with set (v: string array) = x.Attribute "loadedKeys" v 
+    member x.Multiple with set (v: bool) = x.Attribute "multiple" v
+    member x.Selectable with set (v: bool) = x.Attribute "selectable" v
+    member x.SelectedKeys with set (v: string array) = x.Attribute "selectedKeys" v
+    member x.ShowIcon with set (v: bool) = x.Attribute "showIcon" v
+    member x.SwitcherIcon with set (v: ReactElement) = x.Attribute "switcherIcon" v 
+    member x.ShowLIne with set (v: bool) = x.Attribute "showLIne" v
+    member x.OnCheck with set (v: (string array -> obj -> unit)) = x.Attribute "onCheck" v 
+    member x.OnDragEnd with set (v: (obj -> unit)) = x.Attribute "onDragEnd" v 
+    member x.OnDragEnter with set (v: (obj -> unit)) = x.Attribute "onDragEnter" v
+    member x.OnDragLeave with set (v: (obj -> unit)) = x.Attribute "onDragLeave" v
+    member x.OnDragOver with set (v: (obj -> unit)) = x.Attribute "onDragOver" v
+    member x.OnDragStart with set (v: (obj -> unit)) = x.Attribute "onDragStart" v
+    member x.OnDrop with set (v: (obj -> unit)) = x.Attribute "onDrop" v
+    member x.OnExpand with set (v:  (string array -> obj -> unit)) = x.Attribute "onExpand" v
+    member x.OnLoad with set (v: (string array -> obj -> unit)) = x.Attribute "onLoad" v
+    member x.OnRightClick with set (v: (obj -> unit)) = x.Attribute "onRightClick" v
+    member x.OnSelect with set (v: (string array -> obj -> unit)) = x.Attribute "onSelect" v 
+    member x.TreeData with set (v: TreeData array) = x.Attribute "treeData" v 
 
-    [<RequireQualifiedAccess>]
-    type AntDirectoryTree =
-        | AutoExpandParent of bool
-        | BlockNode of bool
-        | Checkable of bool
-        | CheckedKeys of string array
-        | CheckStrictly of bool
-        | DefaultCheckedKeys of string array
-        | DefaultExpandAll of bool
-        | DefaultExpandedKeys of string array
-        | DefaultExpandParent of bool
-        | DefaultSelectedKeys of string array
-        | Disabled of bool
-        | Draggable of bool
-        | ExpandedKeys of string array
-        | FilterTreeNode of (obj -> bool)
-        | LoadData of (obj -> unit)
-        | LoadedKeys of string array
-        | Multiple of bool
-        | Selectable of bool
-        | SelectedKeys of string array
-        | ShowIcon of bool
-        | SwitcherIcon of ReactElement
-        | ShowLIne of bool
-        | OnCheck of (string array -> obj -> unit)
-        | OnDragEnd of (obj -> unit)
-        | OnDragEnter of (obj -> unit)
-        | OnDragLeave of (obj -> unit)
-        | OnDragOver of (obj -> unit)
-        | OnDragStart of (obj -> unit)
-        | OnDrop of (obj -> unit)
-        | OnExpand of (string array -> obj -> unit)
-        | OnLoad of (string array -> obj -> unit)
-        | OnRightClick of (obj -> unit)
-        | OnSelect of (string array -> obj -> unit)
-        | TreeData of AntTreeData array
+type DirectoryTree() =
+    inherit AntElement("Tree.DirectoryTree")
+    member x.AutoExpandParent with set (v: bool) = x.Attribute "autoExpandParent" v
+    member x.BlockNode with set (v: bool) = x.Attribute "blockNode" v
+    member x.Checkable with set (v: bool) = x.Attribute "checkable" v
+    member x.CheckedKeys with set (v: string array) = x.Attribute "checkedKeys" v 
+    member x.CheckStrictly with set (v: bool) = x.Attribute "checkStrictly" v
+    member x.DefaultCheckedKeys with set (v: string array) = x.Attribute "defaultCheckedKeys" v
+    member x.DefaultExpandAll with set (v: bool) = x.Attribute "defaultExpandAll" v
+    member x.DefaultExpandedKeys with set (v: string array) = x.Attribute "defaultExpandedKeys" v
+    member x.DefaultExpandParent with set (v: bool) = x.Attribute "defaultExpandParent" v
+    member x.DefaultSelectedKeys with set (v: string array) = x.Attribute "defaultSelectedKeys" v
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v
+    member x.Draggable with set (v: bool) = x.Attribute "draggable" v
+    member x.ExpandedKeys with set (v: string array) = x.Attribute "expandedKeys" v
+    member x.FilterTreeNode with set (v: (obj -> bool)) = x.Attribute "filterTreeNode" v 
+    member x.LoadData with set (v: (obj -> unit)) = x.Attribute "loadData" v 
+    member x.LoadedKeys with set (v: string array) = x.Attribute "loadedKeys" v 
+    member x.Multiple with set (v: bool) = x.Attribute "multiple" v
+    member x.Selectable with set (v: bool) = x.Attribute "selectable" v
+    member x.SelectedKeys with set (v: string array) = x.Attribute "selectedKeys" v
+    member x.ShowIcon with set (v: bool) = x.Attribute "showIcon" v
+    member x.SwitcherIcon with set (v: ReactElement) = x.Attribute "switcherIcon" v 
+    member x.ShowLIne with set (v: bool) = x.Attribute "showLIne" v
+    member x.OnCheck with set (v: (string array -> obj -> unit)) = x.Attribute "onCheck" v 
+    member x.OnDragEnd with set (v: (obj -> unit)) = x.Attribute "onDragEnd" v 
+    member x.OnDragEnter with set (v: (obj -> unit)) = x.Attribute "onDragEnter" v
+    member x.OnDragLeave with set (v: (obj -> unit)) = x.Attribute "onDragLeave" v
+    member x.OnDragOver with set (v: (obj -> unit)) = x.Attribute "onDragOver" v
+    member x.OnDragStart with set (v: (obj -> unit)) = x.Attribute "onDragStart" v
+    member x.OnDrop with set (v: (obj -> unit)) = x.Attribute "onDrop" v
+    member x.OnExpand with set (v: (string array -> obj -> unit)) = x.Attribute "onExpand" v 
+    member x.OnLoad with set (v: (string array -> obj -> unit)) = x.Attribute "onLoad" v
+    member x.OnRightClick with set (v: (obj -> unit)) = x.Attribute "onRightClick" v
+    member x.OnSelect with set (v: (string array -> obj -> unit)) = x.Attribute "onSelect" v
+    member x.TreeData with set (v: TreeData array) = x.Attribute "treeData" v 
+    member x.ExpandAction with set (v: DirectoryTreeExpandAction) = x.Attribute "expandAction" v 
 
-        | ExpandAction of AntDirectoryTreeExpandAction
-        static member Custom (key: string, value: obj): AntDirectoryTree = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntDirectoryTree = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntTreeNode =
-        | Checkable of bool
-        | DisableCheckbox of bool
-        | Disabled of bool
-        | Icon of ReactElement
-        | IsLeaf of bool
-        | Key of string
-        | Selectable of bool
-        | Title of ReactElement
-        static member Custom (key: string, value: obj): AntTreeNode = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTreeNode = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    let inline antTree (props: AntTree list) (children: ReactElement list): ReactElement =
-       ofImport "Tree" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antDirectoryTree (props: AntDirectoryTree list) (children: ReactElement list): ReactElement =
-       ofImport "Tree.DirectoryTree" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antTreeNode (props: AntTreeNode list) (children: ReactElement list): ReactElement =
-       ofImport "Tree.TreeNode" "antd" (keyValueList CaseRules.LowerFirst props) children
+type TreeNode() =
+    inherit AntElement("Tree.TreeNode")
+    member x.Checkable with set (v: bool) = x.Attribute "checkable" v
+    member x.DisableCheckbox with set (v: bool) = x.Attribute "disableCheckbox" v
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v
+    member x.Icon with set (v: ReactElement) = x.Attribute "icon" v 
+    member x.IsLeaf with set (v: bool) = x.Attribute "isLeaf" v
+    member x.Key with set (v: string) = x.Attribute "key" v 
+    member x.Selectable with set (v: bool) = x.Attribute "selectable" v
+    member x.Title with set (v: ReactElement) = x.Attribute "title" v

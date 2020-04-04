@@ -1,74 +1,38 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
-
-[<AutoOpen>]
-module Skeleton =
+    [<StringEnum; RequireQualifiedAccess>] type SkeletonShape = Circle | Square
     
-    [<StringEnum; RequireQualifiedAccess>] type AntSkeletonShape = Circle | Square
-    
-    [<RequireQualifiedAccess>]
-    type AntSkeleton =
-        | Active of bool
-        | Avatar of bool
-        | Loading of bool
-        | Paragraph of bool
-        | Title of bool
-        static member Custom (key: string, value: obj): AntSkeleton = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeleton = unbox ("style", keyValueList CaseRules.LowerFirst css)
+    type Skeleton() =
+        inherit AntElement("Skeleton")
+        member x.Active with set (v: bool) = x.Attribute "active" v
+        member x.Avatar with set (v: bool) = x.Attribute "avatar" v
+        member x.Loading with set (v: bool) = x.Attribute "loading" v
+        member x.Paragraph with set (v: bool) = x.Attribute "paragraph" v
+        member x.Title with set (v: bool) = x.Attribute "title" v
 
-    [<RequireQualifiedAccess>]
-    type AntSkeletonAvatar =
-        | Active of bool
-        | Size of Size
-        | Shape of AntSkeletonShape
-        static member Custom (key: string, value: obj): AntSkeletonAvatar = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeletonAvatar = unbox ("style", keyValueList CaseRules.LowerFirst css)
+    type SkeletonAvatar() =
+        inherit AntElement("Skeleton.Avatar")
+        member x.Active with set (v: bool) = x.Attribute "active" v
+        member x.Size with set (v: Size) = x.Attribute "size" v
+        member x.Shape with set (v: SkeletonShape) = x.Attribute "shape" v   
+ 
+    type SkeletonTitle() =
+        inherit AntElement("Skeleton.Title")
+        member x.Width with set (v: string) = x.Attribute "width" v
 
-    [<RequireQualifiedAccess>]
-    type AntSkeletonTitle =
-        | Width of string
-        static member Custom (key: string, value: obj): AntSkeletonTitle = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeletonTitle = unbox ("style", keyValueList CaseRules.LowerFirst css)
+    type SkeletonParagraph() =
+        inherit AntElement("Skeleton.Paragraph")
+        member x.Rows with set (v: int) = x.Attribute "rows" v
+        member x.Width with set (v: string) = x.Attribute "width" v
 
-    [<RequireQualifiedAccess>]
-    type AntSkeletonParagraph =
-        | Rows of int
-        | Width of string
-        static member Custom (key: string, value: obj): AntSkeletonParagraph = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeletonParagraph = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntSkeletonButton =
-        | Active of bool
-        | Size of Size
-        | Shape of AntSkeletonShape
-        static member Custom (key: string, value: obj): AntSkeletonButton = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeletonButton = unbox ("style", keyValueList CaseRules.LowerFirst css)
-
-    [<RequireQualifiedAccess>]
-    type AntSkeletonInput =
-        | Active of bool
-        | Size of Size
-        static member Custom (key: string, value: obj): AntSkeletonInput = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSkeletonInput = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antSkeleton (props: Affix list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton" "antd" (keyValueList CaseRules.LowerFirst props) children
-    
-    let inline antSkeletonAvatar (props: AntSkeletonAvatar list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton.Avatar" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antSkeletonTitle (props: AntSkeletonTitle list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton.Title" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antSkeletonParagraph (props: AntSkeletonParagraph list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton.Paragraph" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antSkeletonButton (props: AntSkeletonButton list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton.Button" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antSkeletonInput (props: AntSkeletonInput list) (children: ReactElement list): ReactElement =
-       ofImport "Skeleton.Input" "antd" (keyValueList CaseRules.LowerFirst props) children
+    type SkeletonButton() =
+        inherit AntElement("Skeleton.Button")
+        member x.Active with set (v: bool) = x.Attribute "active" v
+        member x.Size with set (v: Size) = x.Attribute "size" v
+        member x.Shape with set (v: SkeletonShape) = x.Attribute "shape" v
+ 
+    type SkeletonInput() =
+        inherit AntElement("Skeleton.Input")
+        member x.Active with set (v: bool) = x.Attribute "active" v
+        member x.Size with set (v: Size) = x.Attribute "size" v

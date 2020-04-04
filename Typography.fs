@@ -1,71 +1,49 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
-open Fable.React
+[<StringEnum; RequireQualifiedAccess>]
+type TypographyType = Secondary | Warning | Danger
 
-[<AutoOpen>]
-module Typography =
-    
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type TypographyType = Secondary | Warning | Danger
-    
-    [<RequireQualifiedAccess>]
-    type AntText =
-        | Code of bool
-        | Copyable of bool
-        | Delete of bool
-        | Disabled of bool
-        | Editable of bool
-        | Ellipsis of bool
-        | Mark of bool
-        | Underline of bool
-        | OnChange of (string -> unit)
-        | Strong of bool
-        | Type of TypographyType
-        static member Custom (key: string, value: obj): AntText = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntText = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntTitle =
-        | Code of bool
-        | Copyable of bool
-        | Delete of bool
-        | Disabled of bool
-        | Editable of bool
-        | Ellipsis of bool
-        | Level of int
-        | Mark of bool
-        | Underline of bool
-        | OnChange of (string -> unit)
-        | Strong of bool
-        | Type of TypographyType
-        static member Custom (key: string, value: obj): AntTitle = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTitle = unbox ("style", keyValueList CaseRules.LowerFirst css)
+type Text () =
+    inherit AntElement("Typography.Text")
+    member x.Code with set (v: bool) = x.Attribute "code" v 
+    member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
+    member x.Delete with set (v: bool) = x.Attribute "delete" v 
+    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+    member x.Editable with set (v: bool) = x.Attribute "editable" v 
+    member x.Ellipsis with set (v: bool) = x.Attribute "ellipsis" v 
+    member x.Mark with set (v: bool) = x.Attribute "mark" v 
+    member x.Underline with set (v: bool) = x.Attribute "underline" v 
+    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+    member x.Strong with set (v: bool) = x.Attribute "strong" v 
+    member x.Type with set (v: TypographyType) = x.Attribute "type" v 
 
-    [<RequireQualifiedAccess>]
-    type AntParagraph =
-        | Code of bool
-        | Copyable of bool
-        | Delete of bool
-        | Disabled of bool
-        | Editable of bool
-        | Ellipsis of bool
-        | Mark of bool
-        | Underline of bool
-        | OnChange of (string -> unit)
-        | Strong of bool
-        | Type of TypographyType
-        static member Custom (key: string, value: obj): AntParagraph = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntParagraph = unbox ("style", keyValueList CaseRules.LowerFirst css)
-    
-    let inline antText (props: AntText list) (children: ReactElement list): ReactElement =
-       ofImport "Typography.Text" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antTitle (props: AntTitle list) (children: ReactElement list): ReactElement =
-       ofImport "Typography.Title" "antd" (keyValueList CaseRules.LowerFirst props) children
-       
-    let inline antParagraph (props: AntParagraph list) (children: ReactElement list): ReactElement =
-       ofImport "Typography.Paragraph" "antd" (keyValueList CaseRules.LowerFirst props) children
-      
+type Title () =
+   inherit AntElement("Typography.Title")
+   member x.Code with set (v: bool) = x.Attribute "code" v 
+   member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
+   member x.Delete with set (v: bool) = x.Attribute "delete" v 
+   member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+   member x.Editable with set (v: bool) = x.Attribute "editable" v 
+   member x.Ellipsis with set (v: bool) = x.Attribute "ellipsis" v 
+   member x.Level with set (v: int) = x.Attribute "level" v 
+   member x.Mark with set (v: bool) = x.Attribute "mark" v 
+   member x.Underline with set (v: bool) = x.Attribute "underline" v 
+   member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+   member x.Strong with set (v: bool) = x.Attribute "strong" v 
+   member x.Type with set (v: TypographyType) = x.Attribute "type" v 
+
+type Paragraph () =
+   inherit AntElement("Typography.Paragraph")
+   member x.Code with set (v: bool) = x.Attribute "code" v 
+   member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
+   member x.Delete with set (v: bool) = x.Attribute "delete" v 
+   member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
+   member x.Editable with set (v: bool) = x.Attribute "editable" v 
+   member x.Ellipsis with set (v: bool) = x.Attribute "ellipsis" v 
+   member x.Level with set (v: int) = x.Attribute "level" v 
+   member x.Mark with set (v: bool) = x.Attribute "mark" v 
+   member x.Underline with set (v: bool) = x.Attribute "underline" v 
+   member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+   member x.Strong with set (v: bool) = x.Attribute "strong" v 
+   member x.Type with set (v: TypographyType) = x.Attribute "type" v 

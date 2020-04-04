@@ -3,52 +3,35 @@ namespace Fable.AntD
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-
-[<AutoOpen>]
-module Steps =
+ 
+    [<StringEnum; RequireQualifiedAccess>]
+    type StepsType = Default | Navigation
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntStepsType = Default | Navigation
+    [<StringEnum; RequireQualifiedAccess>]
+    type StepsOrientation = Horizontal | Vertical
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntStepsOrientation = Horizontal | Vertical
+    [<StringEnum; RequireQualifiedAccess>]
+    type StepsStatus = Process | Wait | Error | Finish
     
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntStepsStatus = Process | Wait | Error | Finish
-    
-    [<RequireQualifiedAccess>]
-    type AntSteps  =
-        | ClassName of string
-        | Type of AntStepsType
-        | Current of int
-        | Direction of AntStepsOrientation
-        | LabelPlacement of AntStepsOrientation
-        | ProgressDot of bool
-        | Size of Size
-        | Status of AntStepsStatus
-        | Initial of int
-        | OnChange of (int -> unit)
-        static member Custom (key: string, value: obj): AntSteps = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntSteps = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    [<RequireQualifiedAccess>]
-    type AntStepsItem  =
-        | Description of ReactElement
-        | Icon of ReactElement
-        | Status of AntStepsStatus
-        | Title of ReactElement
-        | SubTitle of ReactElement
-        | Disabled of bool
-        
-        static member Custom (key: string, value: obj): AntStepsItem = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntStepsItem = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        
-    let inline antSteps (props: AntSteps list) (children: ReactElement list): ReactElement =
-       ofImport "Steps" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-        
-    let inline antStepsItem (props: AntStepsItem list) (children: ReactElement list): ReactElement =
-       ofImport "Steps.Step" "antd" (keyValueList CaseRules.LowerFirst props) children
+ 
+    type Steps()  =
+        inherit AntElement("Steps")
+        member x.ClassName with set (v: string) = x.Attribute "className" v
+        member x.Type with set (v: StepsType) = x.Attribute "type" v
+        member x.Current with set (v: int) = x.Attribute "current" v
+        member x.Direction with set (v: StepsOrientation) = x.Attribute "direction" v
+        member x.LabelPlacement with set (v: StepsOrientation  ) = x.Attribute "labelPlacement" v
+        member x.ProgressDot with set (v: bool) = x.Attribute "progressDot" v
+        member x.Size with set (v: Size) = x.Attribute "size" v
+        member x.Status with set (v: StepsStatus) = x.Attribute "status" v
+        member x.Initial with set (v: int) = x.Attribute "initial" v
+        member x.OnChange with set (v: (int -> unit)) = x.Attribute "onChange" v
+  
+    type StepsItem()  =
+        inherit AntElement("Steps.Step")
+        member x.Description with set (v: ReactElement) = x.Attribute "description" v
+        member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
+        member x.Status with set (v: StepsStatus) = x.Attribute "status" v
+        member x.Title with set (v: ReactElement) = x.Attribute "title" v
+        member x.SubTitle with set (v: ReactElement) = x.Attribute "subTitle" v
+        member x.Disabled with set (v: bool) = x.Attribute "disabled" v

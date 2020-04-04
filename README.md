@@ -11,8 +11,8 @@ In Styles.scss
 
 In package.json
 ```
-        "antd": "^4.0.0-rc.0",
-        "@ant-design/icons": "^4.0.0-alpha.19 ",
+        "antd": "^4.0.0",
+        "@ant-design/icons": "^4.0.0",
         "regenerator-runtime": "^0.13.3"
 ```
 Usage:

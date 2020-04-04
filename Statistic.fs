@@ -5,38 +5,25 @@ open Fable.Core.JsInterop
 open Fable.React
 open Fable.MomentJs
 
-[<AutoOpen>]
-module Statistic =
-    
-    [<RequireQualifiedAccess>]
-    type AntStatistic  =
-        | DecimalSeparator of string
-        | Formatter of (string -> ReactElement)
-        | GroupSeparator of string
-        | Precision of int
-        | Prefix of ReactElement
-        | Suffix of ReactElement
-        | Title of ReactElement
-        | Value of string
-        static member Custom (key: string, value: obj): AntStatistic = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntStatistic = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member ValueStyle (css: Props.CSSProp list): AntStatistic = unbox ("valueStyle", keyValueList CaseRules.LowerFirst css)
+    type Statistic()  =
+        inherit AntElement("Statistic")
+        member x.DecimalSeparator with set (v: string  ) = x.Attribute "decimalSeparator" v
+        member x.Formatter with set (v: (string -> ReactElement)) = x.Attribute "formatter" v
+        member x.GroupSeparator with set (v: string) = x.Attribute "groupSeparator" v
+        member x.Precision with set (v: int) = x.Attribute "precision" v
+        member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v
+        member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v
+        member x.Title with set (v: ReactElement) = x.Attribute "title" v
+        member x.Value with set (v: string) = x.Attribute "value" v
+        member x.ValueStyle (css: Props.CSSProp list) = x.Attribute "valueStyle" (keyValueList CaseRules.LowerFirst css)
 
-    [<RequireQualifiedAccess>]
-    type AntStatisticCountdown  =
-        | Format of string
-        | OnFinish of (unit -> unit)
-        | Prefix of ReactElement
-        | Suffix of ReactElement
-        | Title of ReactElement
-        | Value of U2<float, Moment>
-        static member Custom (key: string, value: obj): AntStatisticCountdown = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntStatisticCountdown = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member ValueStyle (css: Props.CSSProp list): AntStatisticCountdown = unbox ("valueStyle", keyValueList CaseRules.LowerFirst css)
-
-        
-    let inline antStatistic (props: AntStatistic list) (children: ReactElement list): ReactElement =
-       ofImport "Statistic" "antd" (keyValueList CaseRules.LowerFirst props) children
-
-    let inline antStatisticCountdown (props: AntStatisticCountdown list) (children: ReactElement list): ReactElement =
-       ofImport "Statistic.Countdown" "antd" (keyValueList CaseRules.LowerFirst props) children
+    type StatisticCountdown()  =
+        inherit AntElement("Statistic.Countdown")
+        member x.Format with set (v: string) = x.Attribute "format" v
+        member x.OnFinish with set (v: (unit -> unit)) = x.Attribute "onFinish" v
+        member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v
+        member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v
+        member x.Title with set (v: ReactElement) = x.Attribute "title" v
+        member x.Value with set (v: U2<float, Moment> ) = x.Attribute "value" v
+        member x.ValueStyle (css: Props.CSSProp list) = x.Attribute "valueStyle" (keyValueList CaseRules.LowerFirst css)
+ 

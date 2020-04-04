@@ -4,50 +4,41 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
+  
+    [<StringEnum; RequireQualifiedAccess>]
+    type TransferDirection = Left | Right
 
-[<AutoOpen>]
-module Transfer =
-        
-    [<StringEnum>]
-    [<RequireQualifiedAccess>]
-    type AntTransferDirection = Left | Right
-
-    type AntTransferLocale = {
+    type TransferLocale = {
         itemUnit: string
         itemsUnit: string
         searchPlaceholder: string
         notFoundContent: ReactElement
     }
     
-    type AntTransferData = {
+    type TransferData = {
         key: string
         title: string
         description: string option
         disabled: bool
     }
     
-    [<RequireQualifiedAccess>]
-    type AntTransfer =
-        | ClassName of string
-        | DataSource of AntTransferData array
-        | Disabled of bool
-        | FilterOption of (string -> obj -> bool)
-        | Footer of (obj -> ReactElement)
-        | ListStyle of (obj -> obj)
-        | Locale of AntTransferLocale
-        | Operations of string array
-        | Render of (AntTransferData -> ReactElement)
-        | ShowSearch of bool
-        | ShowSelectAll of bool
-        | TargetKeys of string array
-        | Titles of ReactElement array
-        | OnChange of (string array -> AntTransferDirection -> string array -> unit)
-        | OnScroll of (AntTransferDirection -> Event)
-        | OnSearch of (AntTransferDirection -> string -> unit)
-        | OnSelectChange of (string array -> string array -> unit)
-        static member Custom (key: string, value: obj): AntTransfer = unbox (key, value)
-        static member Style (css: Props.CSSProp list): AntTransfer = unbox ("style", keyValueList CaseRules.LowerFirst css)
-        static member OperationsStyle (css: Props.CSSProp list): AntTransfer = unbox ("operationsStyle", keyValueList CaseRules.LowerFirst css)
-
-    let inline antTransfer (props: AntTransfer list) (children: ReactElement list): ReactElement =
-       ofImport "Transfer" "antd" (keyValueList CaseRules.LowerFirst props) children
+   type Transfer() =
+    inherit AntElement("Transfer")
+    member x.ClassName with set (v: string) = x.Attribute "ClassName" v
+    member x.DataSource with set (v: TransferData array) = x.Attribute "DataSource" v
+    member x.Disabled with set (v: bool) = x.Attribute "Disabled" v
+    member x.FilterOption with set (v: (string->obj->bool)) = x.Attribute "FilterOption" v
+    member x.Footer with set (v: (obj->ReactElement)) = x.Attribute "Footer" v
+    member x.ListStyle with set (v: (obj->obj)) = x.Attribute "ListStyle" v
+    member x.Locale with set (v: TransferLocale) = x.Attribute "Locale" v
+    member x.Operations with set (v: string array) = x.Attribute "Operations" v
+    member x.Render with set (v: (TransferData->ReactElement)) = x.Attribute "Render" v
+    member x.ShowSearch with set (v: bool) = x.Attribute "ShowSearch" v
+    member x.ShowSelectAll with set (v: bool) = x.Attribute "ShowSelectAll" v
+    member x.TargetKeys with set (v: string array) = x.Attribute "TargetKeys" v
+    member x.Titles with set (v: ReactElement array) = x.Attribute "Titles" v
+    member x.OnChange with set (v: (string array->TransferDirection->string array->unit)) = x.Attribute "OnChange" v
+    member x.OnScroll with set (v: (TransferDirection->Event)) = x.Attribute "OnScroll" v
+    member x.OnSearch with set (v: (TransferDirection->string->unit)) = x.Attribute "OnSearch" v
+    member x.OnSelectChange with set (v: (string array->string array->unit)) = x.Attribute "OnSelectChange" v
+    member x.OperationsStyle with set (css: Props.CSSProp list) = x.Attribute "operationsStyle" ("operationsStyle", keyValueList CaseRules.LowerFirst css)
