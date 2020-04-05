@@ -11,7 +11,7 @@ type Size = Large | Default | Small
 [<StringEnum; RequireQualifiedAccess>]
 type Theme = Dark | Light
 
-type AntElement(partialImport: obj -> ReactElement list -> ReactElement) =
+type AntElement(partialImport: obj -> ReactElement seq -> ReactElement) =
     let props = System.Collections.Generic.List<string * obj>()
 
     member x.Props = createObj props
