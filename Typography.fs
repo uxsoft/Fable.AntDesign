@@ -21,6 +21,7 @@ type Text (?name: string) =
 
 type Title () =
    inherit Text("Typography.Title")
+   member x.Level with set (v: int) = x.Attribute "level" v 
 
 type Paragraph () =
    inherit Text("Typography.Paragraph")
