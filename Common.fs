@@ -15,12 +15,16 @@ type AntElement(elementName: string, ?package: string) =
     let props = System.Collections.Generic.List<string * obj>()
 
     member x.Props = createObj props
-    
-    member x.Attribute name value = props.Add((name, unbox value))
-    member x.Style with set (css: CSSProp list) = props.Add(("style", keyValueList CaseRules.LowerFirst css))
+    member internal x.Attribute name value = props.Add((name, unbox value))
     
     member x.With (children: ReactElement list) =
         ofImport elementName (defaultArg package "antd") x.Props children
         
     member x.Empty =
         ofImport elementName (defaultArg package "antd") x.Props []
+        
+    // Common Attributes
+    member x.Custom with set (t: string * obj) = props.Add(t)
+    member x.Style with set (css: CSSProp list) = props.Add(("style", keyValueList CaseRules.LowerFirst css))
+    member x.Id with set (v: string) = x.Attribute "id" v
+    member x.Key with set (v: string) = x.Attribute "key" v
