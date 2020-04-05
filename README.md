@@ -20,44 +20,47 @@ Usage:
 ```fsharp
 open Fable.AntD
 
-antContent [ ] [
-    antPageHeader [ AntPageHeader.Title (str "Login")
-                    AntPageHeader.SubTitle (str "Please log-in to enter.") ] []
-    
-    antForm [ AntForm.Style [ MaxWidth "320px"; Margin "0 auto" ] ] [
-        antFormItem [] [
-            antInput [ AntInput.Prefix (antIconUserOutlined grayedOut [])
-                       AntInput.OnChange (fun e -> dispatch (ChangedEmail e.Value))
-                       AntInput.Type "email"
-                       AntInput.Placeholder "Email" ] []
-        ]
-        antFormItem [] [
-            antPassword [ AntPassword.Prefix (antIconLockOutlined grayedOut [])
-                          AntPassword.OnChange (fun e -> dispatch (ChangedPassword (base64 e.Value)))
-                          AntPassword.Placeholder "Password" ] []
-        ]
-        antFormItem [] [
-            if not (String.IsNullOrWhiteSpace(model.ErrorMessage)) then
-                antText [ AntText.Type TypographyType.Danger ] [ str model.ErrorMessage ]
-                
-            antButton [ AntButton.Type AntButtonType.Primary
-                        AntButton.Loading model.IsProcessing
-                        AntButton.OnClick (fun _ -> dispatch Submit)
-                        AntButton.Style [ Width "100%" ]] [ str "Login" ]
-            div [] [
-                a [ Href "#"
-                    Class "btn hover-underline"
-                    OnClick (fun _ -> escalate (NavigateTo RegistrationPage)) ]
-                    [ str "Register" ]
-                a [ Href "#"
-                    Class "btn hover-underline"
-                    Style [ Float FloatOptions.Right ]
-                    OnClick (fun _ -> escalate (NavigateTo ForgotPasswordPage)) ]
-                    [ str "Forgot password?" ]
+Content().With [
+        PageHeader(Title = (str "Login"),
+                   SubTitle = (str "Please log-in to enter.")).Empty
+        
+        Form(OnFinish = (fun _ -> dispatch Submit),
+             Style = [ Props.MaxWidth "320px"; Props.Margin "0 auto" ]).With [
+            FormItem(Name = "login-email",
+                     Custom = ("key", unbox "login-email"),
+                     Rules = [ FormRule(Type = "email", Message = "This isn't a valid email")
+                               FormRule(Required = true, Message = "This field is mandatory")]).With [
+                Input(Prefix = (Icon(Icon.UserOutlined, Style = grayedOut).Empty),
+                      OnChange = (fun e -> dispatch (ChangedEmail e.Value)),
+                      Placeholder = "Email").Empty
+            ]
+            FormItem(Name = "login-password",
+                     Key =  "login-password",
+                     Rules = [ FormRule(Required = true, Message = "This field is mandatory") ]).With [
+                Password(Prefix = (Icon(Icon.LockOutlined, Style = grayedOut).Empty),
+                         OnChange = (fun e -> dispatch (ChangedPassword (base64 e.Value))),
+                         Placeholder = "Password").Empty
+            ]
+            FormItem(Key = "login-submit").With [
+                if not (System.String.IsNullOrWhiteSpace model.ErrorMessage) then
+                    AntD.Text(Type = TypographyType.Danger).With [ str model.ErrorMessage ]
+                    
+                Button(Type = ButtonType.Primary,
+                       Loading = model.IsProcessing,
+                       HtmlType = "submit",
+                       Style = [ Props.CSSProp.Width "100%" ]).With [ str "Login" ]
+            ]
+            FormItem(Key = "login-links").With [
+                Button(Type = ButtonType.Link,
+                       OnClick = (fun _ -> escalate (NavigateTo RegistrationPage))).With
+                       [ str "Register" ]
+                Button(Type = ButtonType.Link,
+                       Style = [ Props.Float Props.FloatOptions.Right ],
+                       OnClick = (fun _ -> escalate (NavigateTo ForgotPasswordPage))).With
+                       [ str "Forgot password?" ]
             ]
         ]
     ]
-]
 
 ```
 
