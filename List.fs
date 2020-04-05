@@ -54,7 +54,7 @@ type List<'T>() =
     member x.Split with set (v: bool) = x.Attribute "split" v 
     member x.DataSource with set (v: ('T array)) = x.Attribute "dataSource" v 
     member x.RenderItem with set (v: ('T -> ReactElement)) = x.Attribute "renderItem" v  
-    member x.Pagination (pagination: Pagination) = x.Attribute "pagination" pagination.Props
+    member x.Pagination with set (pagination: Pagination) = x.Attribute "pagination" pagination.Props
 
 type ListItem() =
     inherit AntElement("List.Item")
