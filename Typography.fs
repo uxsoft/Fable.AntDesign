@@ -1,12 +1,13 @@
 namespace Fable.AntD
 
 open Fable.Core
+open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>]
 type TypographyType = Secondary | Warning | Danger
 
-type Text (?name: string) =
-    inherit AntElement(defaultArg name "Typography.Text")
+type Text (?partialImport) =
+    inherit AntElement(defaultArg partialImport (ofImport "Typography.Text" "antd"))
     member x.Code with set (v: bool) = x.Attribute "code" v 
     member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
     member x.Delete with set (v: bool) = x.Attribute "delete" v 
@@ -20,8 +21,8 @@ type Text (?name: string) =
     member x.Type with set (v: TypographyType) = x.Attribute "type" v 
 
 type Title () =
-   inherit Text("Typography.Title")
+   inherit Text(ofImport "Typography.Title" "antd")
    member x.Level with set (v: int) = x.Attribute "level" v 
 
 type Paragraph () =
-   inherit Text("Typography.Paragraph")
+   inherit Text(ofImport "Typography.Paragraph" "antd")

@@ -11,17 +11,17 @@ type Size = Large | Default | Small
 [<StringEnum; RequireQualifiedAccess>]
 type Theme = Dark | Light
 
-type AntElement(elementName: string, ?package: string) =
+type AntElement(partialImport: obj -> ReactElement list -> ReactElement) =
     let props = System.Collections.Generic.List<string * obj>()
 
     member x.Props = createObj props
     member internal x.Attribute name value = props.Add((name, unbox value))
     
     member x.With (children: ReactElement list) =
-        ofImport elementName (defaultArg package "antd") x.Props children
+        partialImport x.Props children
         
     member x.Empty =
-        ofImport elementName (defaultArg package "antd") x.Props []
+        partialImport x.Props []
         
     // Common Attributes
     member x.Custom with set (t: string * obj) = props.Add(t)

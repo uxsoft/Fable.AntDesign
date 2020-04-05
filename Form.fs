@@ -47,7 +47,7 @@ type FormRule() =
     member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
 
 type Form() =
-    inherit AntElement("Form")
+    inherit AntElement(ofImport "Form" "antd")
     member x.Component with set (v: ReactElement) = x.Attribute "component" v 
     member x.Colon with set (v: bool) = x.Attribute "colon" v 
     member x.Fields with set (v: FormFieldData array) = x.Attribute "fields" v 
@@ -67,7 +67,7 @@ type Form() =
     member x.OnValuesChange with set (v: (string array -> string array -> unit)) = x.Attribute "onValuesChange" v 
 
 type FormItem() =
-  inherit AntElement("Form.Item")
+  inherit AntElement(ofImport "Form.Item" "antd")
   member x.Key with set (v: string) = x.Attribute "key" v 
   member x.Colon with set (v: bool) = x.Attribute "colon" v 
   member x.Dependencies with set (v: string array) = x.Attribute "dependencies" v 
@@ -91,10 +91,10 @@ type FormItem() =
   member x.Rules with set (rules: FormRule list) = x.Attribute "rules" (rules |> List.map (fun rule -> rule.Build()) |> List.toArray)
 
 type FormList() =
-  inherit AntElement("Form.List")
+  inherit AntElement(ofImport "Form.List" "antd")
   member x.Name with set (v: string) = x.Attribute "name" v
   
 type FormProvider() =
-  inherit AntElement("Form.Provider")
+  inherit AntElement(ofImport "Form.Provider" "antd")
   member x.OnFormChange with set (v: (string -> obj -> unit)) = x.Attribute "onFormChange" v 
   member x.OnFormFinish with set (v: (string -> obj -> unit)) = x.Attribute "onFormFinish" v 

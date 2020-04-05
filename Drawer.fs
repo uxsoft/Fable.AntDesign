@@ -8,7 +8,7 @@ open Browser.Types
 [<StringEnum; RequireQualifiedAccess>] type DrawerPlacement = Top | Right | Bottom | Left
 
 type Drawer() =
-    inherit AntElement("Drawer")
+    inherit AntElement(ofImport "Drawer" "antd")
     member x.Closable with set (v: bool) = x.Attribute "closable" v 
     member x.DestroyOnClose with set (v: bool) = x.Attribute "destroyOnClose" v 
     member x.GetContainer with set (v: (unit -> ReactElement)) = x.Attribute "getContainer" v 

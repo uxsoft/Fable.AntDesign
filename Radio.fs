@@ -2,6 +2,7 @@ namespace Fable.AntD
 
 open Browser.Types
 open Fable.Core
+open Fable.React
   
 type RadioOption = {
     label: string
@@ -12,8 +13,8 @@ type RadioOption = {
 [<StringEnum; RequireQualifiedAccess>]
 type RadioButtonStyle = Outline | Solid
 
-type Radio(?name: string) =
-    inherit AntElement(defaultArg name "Radio")
+type Radio(?partialImport) =
+    inherit AntElement(defaultArg partialImport (ofImport "Radio" "antd"))
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
     member x.Checked with set (v: bool) = x.Attribute "checked" v 
     member x.DefaultChecked with set (v: bool) = x.Attribute "defaultChecked" v 
@@ -21,10 +22,10 @@ type Radio(?name: string) =
     member x.Value with set (v: obj) = x.Attribute "value" v 
 
 type RadioButton() =
-    inherit Radio("Radio.Button")
+    inherit Radio(ofImport "Radio.Button" "antd")
 
 type RadioGroup() =
-    inherit AntElement("Radio.Group")
+    inherit AntElement(ofImport "Radio.Group" "antd")
     member x.DefaultValue with set (v: obj) = x.Attribute "defaultValue" v 
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Name with set (v: string) = x.Attribute "name" v 

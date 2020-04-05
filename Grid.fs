@@ -1,6 +1,7 @@
 namespace Fable.AntD
 
 open Fable.Core
+open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>]
 type RowAlign = Top | Middle | Bottom
@@ -9,13 +10,13 @@ type RowAlign = Top | Middle | Bottom
 type RowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
 
 type Row() =
-    inherit AntElement("Row")
+    inherit AntElement(ofImport "Row" "antd")
     member x.Align with set (v: RowAlign) = x.Attribute "align" v 
     member x.Gutter with set (v: int) = x.Attribute "gutter" v  
     member x.Justify with set (v: RowJustify) = x.Attribute "justify" v 
 
 type Column() =
-    inherit AntElement("Col")
+    inherit AntElement(ofImport "Col" "antd")
     member x.Flex with set (v: string) = x.Attribute "flex" v 
     member x.Offset with set (v: int) = x.Attribute "offset" v 
     member x.Order with set (v: int) = x.Attribute "order" v 

@@ -6,7 +6,7 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>] type ResultStatus = Success | Error | Info | Warning | [<CompiledName("404")>] NotFound | [<CompiledName("403")>] Forbidden | [<CompiledName("500")>] InternalServerError 
 
 type Result() =
-    inherit AntElement("Result")
+    inherit AntElement(ofImport "Result" "antd")
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 
     member x.SubTitle with set (v: ReactElement) = x.Attribute "subTitle" v 
     member x.Status with set (v: ResultStatus) = x.Attribute "status" v 

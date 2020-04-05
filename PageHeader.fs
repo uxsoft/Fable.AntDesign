@@ -1,10 +1,9 @@
 namespace Fable.AntD
 
-
 open Fable.React
 
 type PageHeader() =
-    inherit AntElement("PageHeader")
+    inherit AntElement(ofImport "PageHeader" "antd")
     member x.Title with set (v: ReactElement) = x.Attribute "title" v
     member x.SubTitle with set (v: ReactElement) = x.Attribute "subTitle" v
     member x.Ghost with set (v: bool) = x.Attribute "ghost" v

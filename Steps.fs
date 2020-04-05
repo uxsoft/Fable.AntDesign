@@ -15,7 +15,7 @@ type StepsStatus = Process | Wait | Error | Finish
 
 
 type Steps()  =
-    inherit AntElement("Steps")
+    inherit AntElement(ofImport "Steps" "antd")
     member x.ClassName with set (v: string) = x.Attribute "className" v
     member x.Type with set (v: StepsType) = x.Attribute "type" v
     member x.Current with set (v: int) = x.Attribute "current" v
@@ -28,7 +28,7 @@ type Steps()  =
     member x.OnChange with set (v: (int -> unit)) = x.Attribute "onChange" v
 
 type StepsItem()  =
-    inherit AntElement("Steps.Step")
+    inherit AntElement(ofImport "Steps.Step" "antd")
     member x.Description with set (v: ReactElement) = x.Attribute "description" v
     member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
     member x.Status with set (v: StepsStatus) = x.Attribute "status" v

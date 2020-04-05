@@ -1,6 +1,7 @@
 namespace Fable.AntD
 
 open Fable.Core
+open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>] type ProgressType = Line | Circle | Dashboard
 [<StringEnum; RequireQualifiedAccess>] type ProgressStatus = Success | Exception | Normal | Active
@@ -8,7 +9,7 @@ open Fable.Core
 [<StringEnum; RequireQualifiedAccess>] type ProgressPosition = Top | Left | Bottom | Right
 
 type Progress()  =
-    inherit AntElement("Progress")
+    inherit AntElement(ofImport "Progress" "antd")
     member x.Type with set (v: ProgressType) = x.Attribute "type" v
     member x.Format with set (v: (int -> string)) = x.Attribute "format" v
     member x.Percent with set (v: int) = x.Attribute "percent" v

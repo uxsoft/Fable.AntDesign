@@ -3,7 +3,7 @@ namespace Fable.AntD
 open Fable.React
 
 type Spin()  =
-    inherit AntElement("Spin")
+    inherit AntElement(ofImport "Spin" "antd")
     member x.Delay with set (v: int) = x.Attribute "delay" v
     member x.Indicator with set (v: ReactElement) = x.Attribute "indicator" v
     member x.Size with set (v: Size) = x.Attribute "size" v

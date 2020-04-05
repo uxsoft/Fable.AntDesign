@@ -32,7 +32,7 @@ type CascaderOption = {
 }
 
 type AntCascader() =
-    inherit AntElement("Cascader")
+    inherit AntElement(ofImport "Cascader" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
     member x.ChangeOnSelect with set (v: bool) = x.Attribute "changeOnSelect" v 

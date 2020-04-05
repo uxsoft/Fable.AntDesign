@@ -7,7 +7,7 @@ open Fable.React
 type AvatarShape = Circle | Square
 
 type Avatar() =
-    inherit AntElement("Avatar")
+    inherit AntElement(ofImport "Avatar" "antd")
     member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
     member x.Shape with set (v: AvatarShape) = x.Attribute "shape" v 
     member x.Size with set (v: Size) = x.Attribute "size" v 

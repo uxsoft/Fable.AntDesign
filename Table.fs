@@ -20,7 +20,7 @@ type TableEventHandlers = {
 }
 
 type TableRowSelection<'T>() =
-    inherit AntElement("Table")
+    inherit AntElement(ofImport "Table" "antd")
     member x.ColumnWidth with set (v: int)= x.Attribute "columnWidth" v
     member x.ColumnTitle with set (v: ReactElement  )= x.Attribute "columnTitle" v
     member x.Fixed with set (v: bool  )= x.Attribute "fixed" v
@@ -46,7 +46,7 @@ type AntTableSelection =
     | OnSelect of (string array)
 
 type AntTableColumn<'T>() =
-    inherit AntElement("Table.Column")
+    inherit AntElement(ofImport "Table.Column" "antd")
     member x.Align with set (v: TableColumnAlign)= x.Attribute "align" v
     member x.Ellipsis with set (v: bool )= x.Attribute "ellipsis" v
     member x.ClassName with set (v: string )= x.Attribute "className" v
@@ -79,7 +79,7 @@ type TableColumnGroup =
     | Title of ReactElement
 
 type AntTable<'T>()  =
-    inherit AntElement("Table.ColumnGroup")
+    inherit AntElement(ofImport "Table.ColumnGroup" "antd")
     member x.TableLayout with set (v: TableLayout)= x.Attribute "tableLayout" v
     member x.Bordered with set (v: bool)= x.Attribute "bordered" v
     member x.ChildrenColumnName with set (v: string array)= x.Attribute "childrenColumnName" v

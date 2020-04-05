@@ -12,7 +12,7 @@ type DropdownPlacement = BottomLeft | BottomCenter | BottomRight | TopLeft | Top
 type DropdownTrigger = Click | Hover | ContextMenu
 
 type Dropdown() =
-    inherit AntElement("Dropdown")
+    inherit AntElement(ofImport "Dropdown" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.GetPopupContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getPopupContainer" v 
     member x.Overlay with set (v: ReactElement) = x.Attribute "overlay" v 
@@ -24,7 +24,7 @@ type Dropdown() =
     member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
     
 type DropdownButton() =
-    inherit AntElement("Dropdown.Button")
+    inherit AntElement(ofImport "Dropdown.Button" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v
     member x.Icon with set (v: bool) = x.Attribute "icon" v
     member x.Overlay with set (v: ReactElement) = x.Attribute "disabled" v 

@@ -4,7 +4,7 @@ open Browser.Types
 open Fable.React
 
 type Switch() =
-    inherit AntElement("Switch")
+    inherit AntElement(ofImport "Switch" "antd")
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v
     member x.Checked with set (v: bool) = x.Attribute "checked" v
     member x.CheckedChildren with set (v: ReactElement) = x.Attribute "checkedChildren" v

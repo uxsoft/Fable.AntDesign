@@ -41,7 +41,7 @@ type ListGridType = {
 type ListSize = Small | Default | Large
 
 type List<'T>() =
-    inherit AntElement("List")
+    inherit AntElement(ofImport "List" "antd")
     member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
     member x.Footer with set (v: ReactElement) = x.Attribute "footer" v 
     member x.Grid with set (v: ListGridType) = x.Attribute "grid" v 
@@ -57,13 +57,13 @@ type List<'T>() =
     member x.Pagination with set (pagination: Pagination) = x.Attribute "pagination" pagination.Props
 
 type ListItem() =
-    inherit AntElement("List.Item")
+    inherit AntElement(ofImport "List.Item" "antd")
     member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
     member x.Actions with set (v: ReactElement[]) = x.Attribute "actions" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
 
 type ListItemMeta() =
-    inherit AntElement("List.Item.Meta")
+    inherit AntElement(ofImport "List.Item.Meta" "antd")
     member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
     member x.Description with set (v: ReactElement) = x.Attribute "description" v 
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 

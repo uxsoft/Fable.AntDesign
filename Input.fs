@@ -4,7 +4,7 @@ open Browser.Types
 open Fable.React
 
 type Input() =
-    inherit AntElement("Input")
+    inherit AntElement(ofImport "Input" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
@@ -25,7 +25,7 @@ type Input() =
 type AutoSizeType = { minRows: int option; maxRows: int option }
 
 type TextArea() =
-    inherit AntElement("Input.TextArea")
+    inherit AntElement(ofImport "Input.TextArea" "antd")
     member x.AutoSize with set (v: bool) = x.Attribute "autoSize" v
     member x.AutoSizeType with set (v: AutoSizeType) = x.Attribute "autoSize" v
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
@@ -34,7 +34,7 @@ type TextArea() =
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
    
 type Search() =
-    inherit AntElement("Input.Search")
+    inherit AntElement(ofImport "Input.Search" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
@@ -57,12 +57,12 @@ type Search() =
     member x.OnSearch with set (v: (string * Event -> unit)) = x.Attribute "onSearch" v 
 
 type InputGroup() =
-    inherit AntElement("Input.Group")
+    inherit AntElement(ofImport "Input.Group" "antd")
     member x.Compact with set (v: bool) = x.Attribute "compact" v 
     member x.Size with set (v: Size) = x.Attribute "size" v 
 
 type Password() =
-    inherit AntElement("Input.Password")
+    inherit AntElement(ofImport "Input.Password" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 

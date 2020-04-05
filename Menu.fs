@@ -27,7 +27,7 @@ type ClickParam  = {
 }
 
 type Menu() =
-    inherit AntElement("Menu")
+    inherit AntElement(ofImport "Menu" "antd")
     member x.DefaultOpenKeys with set (v: string[]) = x.Attribute "defaultOpenKeys" v 
     member x.DefaultSelectedKeys with set (v: string[]) = x.Attribute "defaultSelectedKeys" v 
     member x.ForceSubMenuRender with set (v: bool) = x.Attribute "forceSubMenuRender" v 
@@ -50,17 +50,17 @@ type Menu() =
 type TitleClickEvent = { key: string; domEvent: Browser.Types.DocumentEvent }
 
 type MenuItem() =
-    inherit AntElement("Menu.Item")
+    inherit AntElement(ofImport "Menu.Item" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 
     member x.OnClick with set (v: (unit -> unit)) = x.Attribute "onClick" v 
     
 type MenuDivider() =
-    inherit AntElement("Menu.Divider")
+    inherit AntElement(ofImport "Menu.Divider" "antd")
 
 type MenuSubMenu() =
-    inherit AntElement("Menu.SubMenu")
+    inherit AntElement(ofImport "Menu.SubMenu" "antd")
     member x.PopupClassName with set (v: string) = x.Attribute "popupClassName" v 
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
@@ -68,5 +68,5 @@ type MenuSubMenu() =
     member x.OnTitleClick with set (v: TitleClickEvent) = x.Attribute "onTitleClick" v 
     
 type MenuItemGroup() =
-    inherit AntElement("Menu.ItemGroup")
+    inherit AntElement(ofImport "Menu.ItemGroup" "antd")
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 

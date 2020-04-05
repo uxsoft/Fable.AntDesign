@@ -8,7 +8,7 @@ open Fable.React
 type MentionsPlacement = Top | Bottom
 
 type Mentions() =
-    inherit AntElement("Mentions")
+    inherit AntElement(ofImport "Mentions" "antd")
     member x.Autofocus with set (v: bool) = x.Attribute "autofocus" v 
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
     member x.FilterOption with set (v: (string -> obj -> bool)) = x.Attribute "filterOption" v 
@@ -26,5 +26,5 @@ type Mentions() =
     member x.GetPopupContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getPopupContainer" v 
     
 type MentionsOption() =
-    inherit AntElement("Mentions.Option")
+    inherit AntElement(ofImport "Mentions.Option" "antd")
     member x.Value with set (v: string) = x.Attribute "value" v 

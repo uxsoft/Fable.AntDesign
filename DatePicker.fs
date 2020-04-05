@@ -12,8 +12,8 @@ type DatePickerMode = Time | Date | Month | Year | Decade
 [<StringEnum; RequireQualifiedAccess>]
 type DatePickerPicker = Date | Week | Month | Year
 
-type DatePickerBase(name) =
-    inherit AntElement(name)
+type DatePickerBase(partialImport) =
+    inherit AntElement(partialImport)
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
     member x.ClassName with set (v: string) = x.Attribute "className" v 
@@ -36,7 +36,7 @@ type DatePickerBase(name) =
     member x.InputReadOnly with set (v: bool) = x.Attribute "inputReadOnly" v
     
 type DatePicker() =
-    inherit DatePickerBase("DatePicker")
+    inherit DatePickerBase(ofImport "DatePicker" "antd")
     member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
     member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
     member x.DisabledTime with set (v: (Moment -> bool)) = x.Attribute "disabledTime" v 
@@ -49,7 +49,7 @@ type DatePicker() =
     member x.OnOk with set (v: (unit -> unit)) = x.Attribute "onOk" v
 
 type YearPicker() =
-    inherit DatePickerBase("DatePicker.YearPicker")
+    inherit DatePickerBase(ofImport "DatePicker.YearPicker" "antd")
     member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
     member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
     member x.Format with set (v: string) = x.Attribute "format" v 
@@ -58,7 +58,7 @@ type YearPicker() =
     member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
 
 type MonthPicker() =
-    inherit DatePickerBase("DatePicker.MonthPicker")
+    inherit DatePickerBase(ofImport "DatePicker.MonthPicker" "antd")
     member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
     member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
     member x.Format with set (v: string) = x.Attribute "format" v 
@@ -68,7 +68,7 @@ type MonthPicker() =
     member x.OnChange with set (v: (Moment -> string -> unit)) = x.Attribute "onChange" v 
 
 type WeekPicker() =
-    inherit DatePickerBase("DatePicker.WeekPicker")
+    inherit DatePickerBase(ofImport "DatePicker.WeekPicker" "antd")
     member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 
     member x.DefaultPickerValue with set (v: Moment) = x.Attribute "defaultPickerValue" v 
     member x.Format with set (v: string) = x.Attribute "format" v 
@@ -77,7 +77,7 @@ type WeekPicker() =
     member x.RenderExtraFooter with set (v: (DatePickerMode -> ReactElement)) = x.Attribute "renderExtraFooter" v 
 
 type RangePicker() =
-    inherit DatePickerBase("DatePicker.RangePicker")
+    inherit DatePickerBase(ofImport "DatePicker.RangePicker" "antd")
     member x.AllowEmpty with set (v: bool array) = x.Attribute "allowEmpty" v 
     member x.DefaultValue with set (v: Moment array) = x.Attribute "defaultValue" v 
     member x.DefaultPickerValue with set (v: Moment array) = x.Attribute "defaultPickerValue" v 

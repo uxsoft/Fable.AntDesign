@@ -13,8 +13,8 @@ type TreeData = {
     selectable: bool
 }
 
-type Tree(?importName: string) =
-    inherit AntElement(defaultArg importName "Tree")
+type Tree(?partialImport) =
+    inherit AntElement(defaultArg partialImport (ofImport "Tree" "antd"))
     member x.AutoExpandParent with set (v: bool) = x.Attribute "autoExpandParent" v
     member x.BlockNode with set (v: bool) = x.Attribute "blockNode" v
     member x.Checkable with set (v: bool) = x.Attribute "checkable" v
@@ -51,11 +51,11 @@ type Tree(?importName: string) =
     member x.TreeData with set (v: TreeData array) = x.Attribute "treeData" v 
 
 type DirectoryTree() =
-    inherit Tree("Tree.DirectoryTree") 
+    inherit Tree(ofImport "Tree.DirectoryTree" "antd") 
     member x.ExpandAction with set (v: DirectoryTreeExpandAction) = x.Attribute "expandAction" v 
 
 type TreeNode() =
-    inherit AntElement("Tree.TreeNode")
+    inherit AntElement(ofImport "Tree.TreeNode" "antd")
     member x.Checkable with set (v: bool) = x.Attribute "checkable" v
     member x.DisableCheckbox with set (v: bool) = x.Attribute "disableCheckbox" v
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v

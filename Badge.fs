@@ -7,7 +7,7 @@ open Fable.React
 type BadgeStatus = Success | Processing | Default | Error | Warning
 
 type Badge() =
-    inherit AntElement("Badge")
+    inherit AntElement(ofImport "Badge" "antd")
     member x.Color with set (v: string) = x.Attribute "color" v 
     member x.Count with set (v: ReactElement) = x.Attribute "count" v 
     member x.Dot with set (v: bool) = x.Attribute "dot" v 

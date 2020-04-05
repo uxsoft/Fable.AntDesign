@@ -6,7 +6,7 @@ open Fable.React
 open Browser.Types
 
 type SelectOption() =
-    inherit AntElement("Select.Option")
+    inherit AntElement(ofImport "Select.Option" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
     member x.Title with set (v: string) = x.Attribute "title" v 
@@ -14,7 +14,7 @@ type SelectOption() =
     member x.ClassName with set (v: string) = x.Attribute "className" v        
 
 type SelectOptGroup() =
-    inherit AntElement("Select.OptGroup")
+    inherit AntElement(ofImport "Select.OptGroup" "antd")
     member x.Key with set (v: string) = x.Attribute "key" v 
     member x.Label with set (v: ReactElement) = x.Attribute "label" v 
 
@@ -26,7 +26,7 @@ type SelectMode  =
     | Default
 
 type Select() =
-    inherit AntElement("Select")
+    inherit AntElement(ofImport "Select" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AutoClearSearchValue with set (v: bool) = x.Attribute "autoClearSearchValue" v 
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 

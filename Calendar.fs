@@ -9,7 +9,7 @@ type CalendarMode = Month | Year
 
 [<RequireQualifiedAccess>]
 type Calendar() =
-    inherit AntElement("Calendar")
+    inherit AntElement(ofImport "Calendar" "antd")
     member x.DateCellRender with set (v: (Moment -> ReactElement)) = x.Attribute "dateCellRender" v 
     member x.DateFullCellRender with set (v: (Moment -> ReactElement)) = x.Attribute "dateFullCellRender" v 
     member x.DefaultValue with set (v: Moment) = x.Attribute "defaultValue" v 

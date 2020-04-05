@@ -6,7 +6,7 @@ open Fable.Core.JsInterop
 open Fable.React
 
 type Rate() =
-    inherit AntElement("Rate")
+    inherit AntElement(ofImport "Rate" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AllowHalf with set (v: bool) = x.Attribute "allowHalf" v 
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 

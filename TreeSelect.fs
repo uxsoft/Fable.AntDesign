@@ -17,7 +17,7 @@ type TreeFlatData = {
 }
 
 type TreeSelect() =
-    inherit AntElement("TreeSelect")
+    inherit AntElement(ofImport "TreeSelect" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v
     member x.AutoClearSearchValue with set (v: bool) = x.Attribute "autoClearSearchValue" v
     member x.DefaultValue with set (v: string array) = x.Attribute "defaultValue" v 
@@ -55,7 +55,7 @@ type TreeSelect() =
     member x.DropdownStyle with set (css: Props.CSSProp list) = x.Attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
 
 type TreeSelectNode() =
-    inherit AntElement("TreeSelect.TreeNode")
+    inherit AntElement(ofImport "TreeSelect.TreeNode" "antd")
     member x.Selectable with set (v: bool) = x.Attribute "selectable" v
     member x.Checkable with set (v: bool) = x.Attribute "checkable" v
     member x.DisableCheckbox with set (v: bool) = x.Attribute "disableCheckbox" v

@@ -1,9 +1,10 @@
 namespace Fable.AntD
 
 open Browser.Types
+open Fable.React
 
 type Checkbox() =
-    inherit AntElement("Checkbox")
+    inherit AntElement(ofImport "Checkbox" "antd")
     member x.Autofocus with set (v: bool) = x.Attribute "autofocus" v 
     member x.Checked with set (v: bool) = x.Attribute "checked" v 
     member x.DefaultChecked with set (v: bool) = x.Attribute "defaultChecked" v 
@@ -12,7 +13,7 @@ type Checkbox() =
     member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
 
 type CheckboxGroup() =
-    inherit AntElement("Checkbox.Group")
+    inherit AntElement(ofImport "Checkbox.Group" "antd")
     member x.DefaultValue with set (v: string array) = x.Attribute "defaultValue" v 
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v  
     member x.Name with set (v: string) = x.Attribute "name" v 

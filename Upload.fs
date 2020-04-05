@@ -23,7 +23,7 @@ type UploadFile = {
 }
 
 type Upload() =
-    inherit AntElement("Upload")
+    inherit AntElement(ofImport "Upload" "antd")
     member x.Accept with set (v: string) = x.Attribute "accept" v 
     member x.Action with set (v: string) = x.Attribute "action" v 
     member x.Method with set (v: string) = x.Attribute "method" v 

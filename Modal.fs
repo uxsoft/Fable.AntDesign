@@ -6,7 +6,7 @@ open Fable.React
 open Browser.Types
 
 type Modal() =
-    inherit AntElement("Modal")
+    inherit AntElement(ofImport "Modal" "antd")
     member x.AfterClose with set (v: (unit -> unit)) = x.Attribute "afterClose" v 
     member x.CancelText with set (v: ReactElement) = x.Attribute "cancelText" v 
     member x.Centered with set (v: bool) = x.Attribute "centered" v 

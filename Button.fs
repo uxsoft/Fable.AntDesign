@@ -18,7 +18,7 @@ type ButtonShape =
     | Round
 
 type Button() =
-    inherit AntElement("Button")
+    inherit AntElement(ofImport "Button" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v
     member x.Ghost with set (v: bool) = x.Attribute "ghost" v
     member x.Href with set (v: string) = x.Attribute "href" v
@@ -34,4 +34,4 @@ type Button() =
     member x.Danger with set (v: bool) = x.Attribute "danger" v
 
 type ButtonGroup() =
-    inherit AntElement("Button.Group")
+    inherit AntElement(ofImport "Button.Group" "antd")

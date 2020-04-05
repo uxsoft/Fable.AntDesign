@@ -17,7 +17,7 @@ type PaginationSize =
     | Default
     
 type Pagination() =
-    inherit AntElement("Pagination")
+    inherit AntElement(ofImport "Pagination" "antd")
     member x.Current with set (v: int) = x.Attribute "current" v 
     member x.DefaultCurrent with set (v: int) = x.Attribute "defaultCurrent" v 
     member x.DefaultPageSize with set (v: int) = x.Attribute "defaultPageSize" v 

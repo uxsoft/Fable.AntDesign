@@ -10,7 +10,7 @@ type CardTab = {
 }
 
 type Card() =
-    inherit AntElement("Card")
+    inherit AntElement(ofImport "Card" "antd")
     member x.Actions with set (v: ReactElement array) = x.Attribute "actions" v 
     member x.ActiveTabKey with set (v: string) = x.Attribute "activeTabKey" v 
     member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
@@ -29,12 +29,12 @@ type Card() =
     member x.BodyStyle (css: Props.CSSProp list) = x.Attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
 
 type CardGrid() =
-    inherit AntElement("Card.Grid")
+    inherit AntElement(ofImport "Card.Grid" "antd")
     member x.ClassName with set (v: string) = x.Attribute "className" v 
     member x.Hoverable with set (v: bool) = x.Attribute "hoverable" v 
 
 type CardMeta() =
-    inherit AntElement("Card.Meta")
+    inherit AntElement(ofImport "Card.Meta" "antd")
     member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
     member x.ClassName with set (v: string) = x.Attribute "className" v 
     member x.Description with set (v: ReactElement) = x.Attribute "description" v 

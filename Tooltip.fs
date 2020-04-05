@@ -11,8 +11,8 @@ type TooltipPlacement = Top | Left | Right | Bottom | TopLeft | TopRight | Botto
 [<StringEnum; RequireQualifiedAccess>]
 type TooltipTrigger = Hover | Focus | Click | ContextMenu 
 
-type Popover(?elementName: string) =
-    inherit AntElement(defaultArg elementName "Popover")
+type Popover(?partialImport) =
+    inherit AntElement(defaultArg partialImport (ofImport "Popover" "antd"))
     member x.ArrowPointAtCenter with set (v: bool) = x.Attribute "arrowPointAtCenter" v
     member x.AutoAdjustOverflow with set (v: bool) = x.Attribute "autoAdjustOverflow" v
     member x.DefaultVisible with set (v: bool) = x.Attribute "defaultVisible" v
@@ -28,8 +28,8 @@ type Popover(?elementName: string) =
     member x.Align with set (v: obj) = x.Attribute "align" v 
 
 type Popconfirm() =
-    inherit Popover("Popconfirm")
+    inherit Popover(ofImport "Popconfirm" "antd")
 
 type Tooltip() =
-    inherit Popover("Tooltip")
+    inherit Popover(ofImport "Tooltip" "antd")
     member x.Title with set (v: string) = x.Attribute "title" v

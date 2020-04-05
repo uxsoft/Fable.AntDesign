@@ -5,25 +5,25 @@ open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
   
-    [<StringEnum; RequireQualifiedAccess>]
-    type TransferDirection = Left | Right
+[<StringEnum; RequireQualifiedAccess>]
+type TransferDirection = Left | Right
 
-    type TransferLocale = {
-        itemUnit: string
-        itemsUnit: string
-        searchPlaceholder: string
-        notFoundContent: ReactElement
-    }
-    
-    type TransferData = {
-        key: string
-        title: string
-        description: string option
-        disabled: bool
-    }
-    
-   type Transfer() =
-    inherit AntElement("Transfer")
+type TransferLocale = {
+    itemUnit: string
+    itemsUnit: string
+    searchPlaceholder: string
+    notFoundContent: ReactElement
+}
+
+type TransferData = {
+    key: string
+    title: string
+    description: string option
+    disabled: bool
+}
+
+type Transfer() =
+    inherit AntElement(ofImport "Transfer" "antd")
     member x.ClassName with set (v: string) = x.Attribute "ClassName" v
     member x.DataSource with set (v: TransferData array) = x.Attribute "DataSource" v
     member x.Disabled with set (v: bool) = x.Attribute "Disabled" v
