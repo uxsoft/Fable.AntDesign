@@ -7,16 +7,13 @@ open Fable.Core.JS
 
 //importSideEffects "regenerator-runtime/runtime"
 
-[<StringEnum>]
-[<RequireQualifiedAccess>]
+[<StringEnum; RequireQualifiedAccess>]
 type FormValidationStatus = Success | Warning | Error | Validating
 
-[<StringEnum>]
-[<RequireQualifiedAccess>]
+[<StringEnum; RequireQualifiedAccess>]
 type FormLabelAlign = Left | Right
 
-[<StringEnum>]
-[<RequireQualifiedAccess>]
+[<StringEnum; RequireQualifiedAccess>]
 type FormRuleType = String | Number | Boolean | Method | Regexp | Integer | Float | Array | Object | Enum | Date | Url | Hex | Email | Any
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -30,20 +27,24 @@ type FormFieldData = {
     value: string
 }
 
-[<RequireQualifiedAccess>]
-type FormRule = 
-    | Enum of string array
-    | Len of int
-    | Max of int
-    | Message of string
-    | Min of int
-    | Pattern of string
-    | Required of bool
-    | Transform of (string -> string)
-    | Type of string
-    | Validator of (FormRule -> string -> Promise<string>)
-    | Whitespace of bool
-    | ValidateTrigger of string array
+type FormRule() =
+    let props = System.Collections.Generic.List<string * obj>()
+
+    member x.Rule = createObj props
+    member internal x.Attribute name value = props.Add((name, unbox value))
+     
+    member x.Enum with set (v: string array) = x.Attribute "enum" v 
+    member x.Len with set (v: int) = x.Attribute "len" v 
+    member x.Max with set (v: int) = x.Attribute "max" v 
+    member x.Message with set (v: string) = x.Attribute "message" v 
+    member x.Min with set (v: int) = x.Attribute "min" v 
+    member x.Pattern with set (v: string) = x.Attribute "pattern" v 
+    member x.Required with set (v: bool) = x.Attribute "required" v 
+    member x.Transform with set (v: (string -> string)) = x.Attribute "transform" v 
+    member x.Type with set (v: string) = x.Attribute "type" v 
+    member x.Validator with set (v: (FormRule -> string -> Promise<string>)) = x.Attribute "validator" v 
+    member x.Whitespace with set (v: bool) = x.Attribute "whitespace" v 
+    member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
 
 type Form() =
     inherit AntElement("Form")
