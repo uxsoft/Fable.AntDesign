@@ -61,7 +61,7 @@ type InputGroup() =
     member x.Compact with set (v: bool) = x.Attribute "compact" v 
     member x.Size with set (v: Size) = x.Attribute "size" v 
 
-type AntPassword() =
+type Password() =
     inherit AntElement("Input.Password")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 

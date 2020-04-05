@@ -30,7 +30,7 @@ type FormFieldData = {
 type FormRule() =
     let props = System.Collections.Generic.List<string * obj>()
 
-    member x.Rule = createObj props
+    member internal x.Build() = createObj props
     member internal x.Attribute name value = props.Add((name, unbox value))
      
     member x.Enum with set (v: string array) = x.Attribute "enum" v 
@@ -88,7 +88,7 @@ type FormItem() =
   member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
   member x.ValuePropName with set (v: string) = x.Attribute "valuePropName" v 
   member x.WrapperCol with set (v: obj) = x.Attribute "wrapperCol" v 
-  member x.Rules with set (rules: FormRule list list) = x.Attribute "rules" (rules |> List.map (fun rule -> keyValueList CaseRules.LowerFirst rule) |> List.toArray)
+  member x.Rules with set (rules: FormRule list) = x.Attribute "rules" (rules |> List.map (fun rule -> rule.Build()) |> List.toArray)
 
 type FormList() =
   inherit AntElement("Form.List")
