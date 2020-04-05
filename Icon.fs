@@ -2,6 +2,8 @@ namespace Fable.AntD
    
 type Icon(name) =
     inherit AntElement(name, "@ant-design/icons")
+    member x.Name = name
+    
     member x.Spin with set (v: bool) = x.Attribute "spin" v 
     member x.Rotate with set (v: float) = x.Attribute "rotate" v 
     member x.TwoToneColor with set (v: string) = x.Attribute "twoToneColor" v 
