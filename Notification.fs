@@ -3,7 +3,7 @@ namespace Fable.AntD
 open Fable.Core
 
 [<AutoOpen>]
-module Notification =
+module AntNotification =
     
     type IAntNotification =
         abstract success: obj -> unit

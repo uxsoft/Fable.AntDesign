@@ -9,13 +9,13 @@ type RowAlign = Top | Middle | Bottom
 [<StringEnum; RequireQualifiedAccess>]
 type RowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
 
-type Row() =
+type AntRow() =
     inherit AntElement(ofImport "Row" "antd")
     member x.Align with set (v: RowAlign) = x.Attribute "align" v 
     member x.Gutter with set (v: int) = x.Attribute "gutter" v  
     member x.Justify with set (v: RowJustify) = x.Attribute "justify" v 
 
-type Column() =
+type AntColumn() =
     inherit AntElement(ofImport "Col" "antd")
     member x.Flex with set (v: string) = x.Attribute "flex" v 
     member x.Offset with set (v: int) = x.Attribute "offset" v 

@@ -26,7 +26,7 @@ type ClickParam  = {
     domEvent: DocumentEvent // any ?
 }
 
-type Menu() =
+type AntMenu() =
     inherit AntElement(ofImport "Menu" "antd")
     member x.DefaultOpenKeys with set (v: string[]) = x.Attribute "defaultOpenKeys" v 
     member x.DefaultSelectedKeys with set (v: string[]) = x.Attribute "defaultSelectedKeys" v 
@@ -49,17 +49,17 @@ type Menu() =
 
 type TitleClickEvent = { key: string; domEvent: Browser.Types.DocumentEvent }
 
-type MenuItem() =
+type AntMenuItem() =
     inherit AntElement(ofImport "Menu.Item" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 
     member x.OnClick with set (v: (unit -> unit)) = x.Attribute "onClick" v 
     
-type MenuDivider() =
+type AntMenuDivider() =
     inherit AntElement(ofImport "Menu.Divider" "antd")
 
-type MenuSubMenu() =
+type AntMenuSubMenu() =
     inherit AntElement(ofImport "Menu.SubMenu" "antd")
     member x.PopupClassName with set (v: string) = x.Attribute "popupClassName" v 
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
@@ -67,6 +67,6 @@ type MenuSubMenu() =
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 
     member x.OnTitleClick with set (v: TitleClickEvent) = x.Attribute "onTitleClick" v 
     
-type MenuItemGroup() =
+type AntMenuItemGroup() =
     inherit AntElement(ofImport "Menu.ItemGroup" "antd")
     member x.Title with set (v: ReactElement) = x.Attribute "title" v 

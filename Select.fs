@@ -5,7 +5,7 @@ open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
 
-type SelectOption() =
+type AntSelectOption() =
     inherit AntElement(ofImport "Select.Option" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
@@ -13,7 +13,7 @@ type SelectOption() =
     member x.Value with set (v: string) = x.Attribute "value" v 
     member x.ClassName with set (v: string) = x.Attribute "className" v        
 
-type SelectOptGroup() =
+type AntSelectOptGroup() =
     inherit AntElement(ofImport "Select.OptGroup" "antd")
     member x.Key with set (v: string) = x.Attribute "key" v 
     member x.Label with set (v: ReactElement) = x.Attribute "label" v 
@@ -25,7 +25,7 @@ type SelectMode  =
     | [<CompiledName("tags")>] Tag
     | Default
 
-type Select() =
+type AntSelect() =
     inherit AntElement(ofImport "Select" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AutoClearSearchValue with set (v: bool) = x.Attribute "autoClearSearchValue" v 

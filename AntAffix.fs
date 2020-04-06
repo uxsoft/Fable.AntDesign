@@ -2,7 +2,7 @@ namespace Fable.AntD
 
 open Fable.React
 
-type Affix() =
+type AntAffix() =
     inherit AntElement(ofImport "Affix" "antd")
     member x.OffsetBottom with set (v: float) = x.Attribute "offsetBottom" v 
     member x.OffsetTop with set (v: float) = x.Attribute "offsetTop" v 

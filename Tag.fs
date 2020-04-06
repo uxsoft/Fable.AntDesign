@@ -2,7 +2,7 @@ namespace Fable.AntD
 
 open Fable.React
 
-type Tag(?partialImport) =
+type AntTag(?partialImport) =
   inherit AntElement(defaultArg partialImport (ofImport "Tag" "antd"))
   member x.AfterClose with set (v: (unit -> unit)) = x.Attribute "afterClose" v 
   member x.Closeable with set (v: bool) = x.Attribute "closeable" v
@@ -10,7 +10,7 @@ type Tag(?partialImport) =
   member x.OnClose with set (v: (obj -> unit)) = x.Attribute "onClose" v 
   member x.Visible with set (v: bool) = x.Attribute "visible" v
   
-type CheckableTag() =
-  inherit Tag(ofImport "Tag.CheckableTag" "antd")
+type AntCheckableTag() =
+  inherit AntTag(ofImport "Tag.CheckableTag" "antd")
   member x.Checked with set (v: bool) = x.Attribute "checked" v 
   member x.OnChange with set (v: (bool -> unit)) = x.Attribute "onChange" v 

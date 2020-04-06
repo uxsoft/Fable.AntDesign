@@ -22,7 +22,7 @@ type TransferData = {
     disabled: bool
 }
 
-type Transfer() =
+type AntTransfer() =
     inherit AntElement(ofImport "Transfer" "antd")
     member x.ClassName with set (v: string) = x.Attribute "ClassName" v
     member x.DataSource with set (v: TransferData array) = x.Attribute "DataSource" v

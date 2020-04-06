@@ -3,7 +3,7 @@ namespace Fable.AntD
 open Browser.Types
 open Fable.React
 
-type Input() =
+type AntInput() =
     inherit AntElement(ofImport "Input" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
@@ -24,7 +24,7 @@ type Input() =
 
 type AutoSizeType = { minRows: int option; maxRows: int option }
 
-type TextArea() =
+type AntTextArea() =
     inherit AntElement(ofImport "Input.TextArea" "antd")
     member x.AutoSize with set (v: bool) = x.Attribute "autoSize" v
     member x.AutoSizeType with set (v: AutoSizeType) = x.Attribute "autoSize" v
@@ -33,7 +33,7 @@ type TextArea() =
     member x.OnPressEnter with set (v: (KeyboardEvent -> unit)) = x.Attribute "onPressEnter" v 
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
    
-type Search() =
+type AntSearch() =
     inherit AntElement(ofImport "Input.Search" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
@@ -56,12 +56,12 @@ type Search() =
     member x.Loading with set (v: bool) = x.Attribute "loading" v 
     member x.OnSearch with set (v: (string * Event -> unit)) = x.Attribute "onSearch" v 
 
-type InputGroup() =
+type AntInputGroup() =
     inherit AntElement(ofImport "Input.Group" "antd")
     member x.Compact with set (v: bool) = x.Attribute "compact" v 
     member x.Size with set (v: Size) = x.Attribute "size" v 
 
-type Password() =
+type AntPassword() =
     inherit AntElement(ofImport "Input.Password" "antd")
     member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
     member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 

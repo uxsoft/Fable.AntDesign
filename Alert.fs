@@ -6,7 +6,7 @@ open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>] type AlertType = Success | Info | Warning | Error
 
-type Alert()  =
+type AntAlert()  =
     inherit AntElement(ofImport "Alert" "antd")
     member x.AfterClose with set (v: (unit -> unit)) = x.Attribute "afterClose" v 
     member x.Banner with set (v: bool) = x.Attribute "banner" v 

@@ -5,7 +5,7 @@ open Fable.React
 
 [<StringEnum; RequireQualifiedAccess>] type SkeletonShape = Circle | Square
 
-type Skeleton() =
+type AntSkeleton() =
     inherit AntElement(ofImport "Skeleton" "antd")
     member x.Active with set (v: bool) = x.Attribute "active" v
     member x.Avatar with set (v: bool) = x.Attribute "avatar" v
@@ -13,28 +13,28 @@ type Skeleton() =
     member x.Paragraph with set (v: bool) = x.Attribute "paragraph" v
     member x.Title with set (v: bool) = x.Attribute "title" v
 
-type SkeletonAvatar() =
+type AntSkeletonAvatar() =
     inherit AntElement(ofImport "Skeleton.Avatar" "antd")
     member x.Active with set (v: bool) = x.Attribute "active" v
     member x.Size with set (v: Size) = x.Attribute "size" v
     member x.Shape with set (v: SkeletonShape) = x.Attribute "shape" v   
 
-type SkeletonTitle() =
+type AntSkeletonTitle() =
     inherit AntElement(ofImport "Skeleton.Title" "antd")
     member x.Width with set (v: string) = x.Attribute "width" v
 
-type SkeletonParagraph() =
+type AntSkeletonParagraph() =
     inherit AntElement(ofImport "Skeleton.Paragraph" "antd")
     member x.Rows with set (v: int) = x.Attribute "rows" v
     member x.Width with set (v: string) = x.Attribute "width" v
 
-type SkeletonButton() =
+type AntSkeletonButton() =
     inherit AntElement(ofImport "Skeleton.Button" "antd")
     member x.Active with set (v: bool) = x.Attribute "active" v
     member x.Size with set (v: Size) = x.Attribute "size" v
     member x.Shape with set (v: SkeletonShape) = x.Attribute "shape" v
 
-type SkeletonInput() =
+type AntSkeletonInput() =
     inherit AntElement(ofImport "Skeleton.Input" "antd")
     member x.Active with set (v: bool) = x.Attribute "active" v
     member x.Size with set (v: Size) = x.Attribute "size" v

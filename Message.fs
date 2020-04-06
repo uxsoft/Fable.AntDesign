@@ -4,7 +4,7 @@ open Fable.Core
 open Fable.React
 
 [<AutoOpen>]
-module Message =
+module AntMessage =
     
     type IAntMessage =
         abstract success: ReactElement -> int -> (unit -> unit) -> unit

@@ -3,7 +3,7 @@
 open Fable.React
 open Fable.MomentJs
 
-type TimePicker () =
+type AntTimePicker () =
     inherit AntElement(ofImport "TimePicker" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 

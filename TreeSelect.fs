@@ -16,7 +16,7 @@ type TreeFlatData = {
     rootPId: string
 }
 
-type TreeSelect() =
+type AntTreeSelect() =
     inherit AntElement(ofImport "TreeSelect" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v
     member x.AutoClearSearchValue with set (v: bool) = x.Attribute "autoClearSearchValue" v
@@ -54,7 +54,7 @@ type TreeSelect() =
     member x.OnTreeExpand with set (v: (string array -> unit)) = x.Attribute "onTreeExpand" v 
     member x.DropdownStyle with set (css: Props.CSSProp list) = x.Attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
 
-type TreeSelectNode() =
+type AntTreeSelectNode() =
     inherit AntElement(ofImport "TreeSelect.TreeNode" "antd")
     member x.Selectable with set (v: bool) = x.Attribute "selectable" v
     member x.Checkable with set (v: bool) = x.Attribute "checkable" v

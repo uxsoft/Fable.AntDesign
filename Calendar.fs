@@ -7,8 +7,7 @@ open Fable.MomentJs
 [<StringEnum; RequireQualifiedAccess>]
 type CalendarMode = Month | Year
 
-[<RequireQualifiedAccess>]
-type Calendar() =
+type AntCalendar() =
     inherit AntElement(ofImport "Calendar" "antd")
     member x.DateCellRender with set (v: (Moment -> ReactElement)) = x.Attribute "dateCellRender" v 
     member x.DateFullCellRender with set (v: (Moment -> ReactElement)) = x.Attribute "dateFullCellRender" v 

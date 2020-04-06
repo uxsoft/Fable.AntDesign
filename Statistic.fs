@@ -5,7 +5,7 @@ open Fable.Core.JsInterop
 open Fable.React
 open Fable.MomentJs
 
-type Statistic()  =
+type AntStatistic()  =
     inherit AntElement(ofImport "Statistic" "antd")
     member x.DecimalSeparator with set (v: string  ) = x.Attribute "decimalSeparator" v
     member x.Formatter with set (v: (string -> ReactElement)) = x.Attribute "formatter" v
@@ -17,7 +17,7 @@ type Statistic()  =
     member x.Value with set (v: string) = x.Attribute "value" v
     member x.ValueStyle (css: Props.CSSProp list) = x.Attribute "valueStyle" (keyValueList CaseRules.LowerFirst css)
 
-type StatisticCountdown()  =
+type AntStatisticCountdown()  =
     inherit AntElement(ofImport "Statistic.Countdown" "antd")
     member x.Format with set (v: string) = x.Attribute "format" v
     member x.OnFinish with set (v: (unit -> unit)) = x.Attribute "onFinish" v

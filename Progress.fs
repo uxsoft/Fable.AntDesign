@@ -8,7 +8,7 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>] type ProgressLinecap = Round | Square
 [<StringEnum; RequireQualifiedAccess>] type ProgressPosition = Top | Left | Bottom | Right
 
-type Progress()  =
+type AntProgress()  =
     inherit AntElement(ofImport "Progress" "antd")
     member x.Type with set (v: ProgressType) = x.Attribute "type" v
     member x.Format with set (v: (int -> string)) = x.Attribute "format" v

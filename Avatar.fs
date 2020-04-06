@@ -6,7 +6,7 @@ open Fable.React
 [<StringEnum;RequireQualifiedAccess>]
 type AvatarShape = Circle | Square
 
-type Avatar() =
+type AntAvatar() =
     inherit AntElement(ofImport "Avatar" "antd")
     member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
     member x.Shape with set (v: AvatarShape) = x.Attribute "shape" v 

@@ -5,7 +5,7 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-type Rate() =
+type AntRate() =
     inherit AntElement(ofImport "Rate" "antd")
     member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
     member x.AllowHalf with set (v: bool) = x.Attribute "allowHalf" v 

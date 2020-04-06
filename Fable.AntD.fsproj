@@ -15,7 +15,7 @@
     <Compile Include="Tooltip.fs" />
     <Compile Include="Pagination.fs" />
     <Compile Include="Form.fs" />
-    <Compile Include="Affix.fs" />
+    <Compile Include="AntAffix.fs" />
     <Compile Include="Anchor.fs" />
     <Compile Include="Alert.fs" />
     <Compile Include="AutoComplete.fs" />

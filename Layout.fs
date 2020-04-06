@@ -4,18 +4,18 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-type Layout() =
+type AntLayout() =
     inherit AntElement(ofImport "Layout" "antd")
     member x.ClassName with set (v: string) = x.Attribute "className" v 
     member x.HasSider with set (v: bool) = x.Attribute "hasSider" v 
 
-type Header() =
+type AntHeader() =
     inherit AntElement(ofImport "Layout.Header" "antd")
     
-type Content() =
+type AntContent() =
     inherit AntElement(ofImport "Layout.Content" "antd")
 
-type Footer() =
+type AntFooter() =
     inherit AntElement(ofImport "Layout.Footer" "antd")
 
 [<StringEnum; RequireQualifiedAccess>]
@@ -32,7 +32,7 @@ type CollapseType =
     | [<CompiledName("clickTrigger")>] ClickTrigger
     | [<CompiledName("responsive")>] Responsive
     
-type Sider() =
+type AntSider() =
     inherit AntElement(ofImport "Layout.Sider" "antd")
     member x.Breakpoint with set (v: SiderBreakpoint) = x.Attribute "breakpoint" v 
     member x.ClassName with set (v: string) = x.Attribute "className" v 

@@ -6,7 +6,7 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>]
 type TypographyType = Secondary | Warning | Danger
 
-type Text (?partialImport) =
+type AntText (?partialImport) =
     inherit AntElement(defaultArg partialImport (ofImport "Typography.Text" "antd"))
     member x.Code with set (v: bool) = x.Attribute "code" v 
     member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
@@ -20,9 +20,9 @@ type Text (?partialImport) =
     member x.Strong with set (v: bool) = x.Attribute "strong" v 
     member x.Type with set (v: TypographyType) = x.Attribute "type" v 
 
-type Title () =
-   inherit Text(ofImport "Typography.Title" "antd")
+type AntTitle() =
+   inherit AntText(ofImport "Typography.Title" "antd")
    member x.Level with set (v: int) = x.Attribute "level" v 
 
-type Paragraph () =
-   inherit Text(ofImport "Typography.Paragraph" "antd")
+type AntParagraph() =
+   inherit AntText(ofImport "Typography.Paragraph" "antd")

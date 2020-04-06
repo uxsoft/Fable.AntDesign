@@ -22,7 +22,7 @@ type UploadFile = {
     url: string option
 }
 
-type Upload() =
+type AntUpload() =
     inherit AntElement(ofImport "Upload" "antd")
     member x.Accept with set (v: string) = x.Attribute "accept" v 
     member x.Action with set (v: string) = x.Attribute "action" v 

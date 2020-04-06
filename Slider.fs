@@ -4,7 +4,7 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-type Slider() =
+type AntSlider() =
     inherit AntElement(ofImport "Avatar" "antd")
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v
     member x.DefaultValue with set (v: U2<float, float array>) = x.Attribute "defaultValue" v

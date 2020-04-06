@@ -9,7 +9,7 @@ open Browser.Types
 
 [<StringEnum; RequireQualifiedAccess>] type TabsType = Line | Card | [<CompiledName("editable-card")>] EditableCard
 
-type Tabs()  =
+type AntTabs()  =
   inherit AntElement(ofImport "Tabs" "antd")
   member x.ActiveKey with set (v: string) = x.Attribute "activeKey" v 
   member x.Animated with set (v: bool) = x.Attribute "animated" v
@@ -28,7 +28,7 @@ type Tabs()  =
   member x.OnTabClick with set (v: (string -> Event -> unit)) = x.Attribute "onTabClick" v 
   member x.TabBarStyle (css: Props.CSSProp list) = x.Attribute "tabBarStyle" (keyValueList CaseRules.LowerFirst css)
 
-type TabsPane()  =
+type AntTabsPane()  =
   inherit AntElement(ofImport "Tabs.TabPane" "antd")
   member x.ForceRender with set (v: bool) = x.Attribute "forceRender" v
   member x.Key with set (v: string) = x.Attribute "key" v 

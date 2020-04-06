@@ -19,41 +19,42 @@ type TableEventHandlers = {
     onMouseLeave: (Event -> unit) option
 }
 
-type TableRowSelection<'T>() =
+type AntTableRowSelection<'T>() =
     inherit AntElement(ofImport "Table" "antd")
     member x.ColumnWidth with set (v: int)= x.Attribute "columnWidth" v
     member x.ColumnTitle with set (v: ReactElement  )= x.Attribute "columnTitle" v
     member x.Fixed with set (v: bool  )= x.Attribute "fixed" v
     member x.GetCheckboxProps with set (v: ('T -> obj))= x.Attribute "getCheckboxProps" v
-    member x.HideDefaultSelections with set (v: bool  )= x.Attribute "hideDefaultSelections" v
-    member x.SelectedRowKeys with set (v: string array )= x.Attribute "selectedRowKeys" v
-    member x.Selections with set (v: (obj array) )= x.Attribute "selections" v
-    member x.Type with set (v: TableRowSelectionType  )= x.Attribute "type" v
-    member x.OnChange with set (v: (string array -> 'T array -> unit)    ) = x.Attribute "onChange" v
-    member x.OnSelect with set (v: ('T -> bool -> 'T array -> Event -> unit) ) = x.Attribute "onSelect" v
-    member x.OnSelectAll with set (v: (bool -> 'T array -> 'T array -> unit)  ) = x.Attribute "onSelectAll" v
+    member x.HideDefaultSelections with set (v: bool)= x.Attribute "hideDefaultSelections" v
+    member x.SelectedRowKeys with set (v: string array)= x.Attribute "selectedRowKeys" v
+    member x.Selections with set (v: (obj array))= x.Attribute "selections" v
+    member x.Type with set (v: TableRowSelectionType)= x.Attribute "type" v
+    member x.OnChange with set (v: (string array -> 'T array -> unit)) = x.Attribute "onChange" v
+    member x.OnSelect with set (v: ('T -> bool -> 'T array -> Event -> unit)) = x.Attribute "onSelect" v
+    member x.OnSelectAll with set (v: (bool -> 'T array -> 'T array -> unit)) = x.Attribute "onSelectAll" v
     member x.OnSelectInvert with set (v: ('T array) )= x.Attribute "onSelectInvert" v
 
+[<RequireQualifiedAccess>]
 type TableScroll =
     | X of U2<int, bool>
     | Y of U2<int, bool>
     | ScrollToFirstRowOnChange
 
 [<RequireQualifiedAccess>]
-type AntTableSelection =
+type TableSelection =
     | Key of string
     | Text of ReactElement
     | OnSelect of (string array)
 
 type AntTableColumn<'T>() =
     inherit AntElement(ofImport "Table.Column" "antd")
-    member x.Align with set (v: TableColumnAlign)= x.Attribute "align" v
-    member x.Ellipsis with set (v: bool )= x.Attribute "ellipsis" v
-    member x.ClassName with set (v: string )= x.Attribute "className" v
-    member x.ColSpan with set (v: int  )= x.Attribute "colSpan" v
-    member x.DataIndex with set (v: string  )= x.Attribute "dataIndex" v
-    member x.DefaultFilteredValue with set (v: string array )= x.Attribute "defaultFilteredValue" v
-    member x.DefaultSortOrder with set (v: TableColumnSortOrder  )= x.Attribute "defaultSortOrder" v
+    member x.Align with set (v: TableColumnAlign) = x.Attribute "align" v
+    member x.Ellipsis with set (v: bool) = x.Attribute "ellipsis" v
+    member x.ClassName with set (v: string) = x.Attribute "className" v
+    member x.ColSpan with set (v: int) = x.Attribute "colSpan" v
+    member x.DataIndex with set (v: string) = x.Attribute "dataIndex" v
+    member x.DefaultFilteredValue with set (v: string array ) = x.Attribute "defaultFilteredValue" v
+    member x.DefaultSortOrder with set (v: TableColumnSortOrder) = x.Attribute "defaultSortOrder" v
     member x.FilterDropdown with set (v: ReactElement  )= x.Attribute "filterDropdown" v
     member x.FilterDropdownVisible with set (v: bool  )= x.Attribute "filterDropdownVisible" v
     member x.Filtered with set (v: bool  )= x.Attribute "filtered" v
@@ -107,6 +108,6 @@ type AntTable<'T>()  =
     member x.OnRow with set (v: ('T -> int -> TableEventHandlers)) = x.Attribute "onRow" v
     member x.GetPopupContainer with set (v: (ReactElement -> HTMLElement))= x.Attribute "getPopupContainer" v
     member x.Columns (columns: AntTableColumn<'T> list list) = x.Attribute "columns" (keyValueList CaseRules.LowerFirst columns)
-    member x.Pagination (config: Pagination list) = x.Attribute "pagination" (keyValueList CaseRules.LowerFirst config)
-    member x.RowSelection (config: TableRowSelection<'T> list) = x.Attribute "rowSelection" (keyValueList CaseRules.LowerFirst config)
+    member x.Pagination (config: AntPagination list) = x.Attribute "pagination" (keyValueList CaseRules.LowerFirst config)
+    member x.RowSelection (config: AntTableRowSelection<'T>) = x.Attribute "rowSelection" config.Props
     member x.Scroll (config: TableScroll list) = x.Attribute "scroll" (keyValueList CaseRules.LowerFirst config)

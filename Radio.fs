@@ -13,7 +13,7 @@ type RadioOption = {
 [<StringEnum; RequireQualifiedAccess>]
 type RadioButtonStyle = Outline | Solid
 
-type Radio(?partialImport) =
+type AntRadio(?partialImport) =
     inherit AntElement(defaultArg partialImport (ofImport "Radio" "antd"))
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
     member x.Checked with set (v: bool) = x.Attribute "checked" v 
@@ -21,10 +21,10 @@ type Radio(?partialImport) =
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.Value with set (v: obj) = x.Attribute "value" v 
 
-type RadioButton() =
-    inherit Radio(ofImport "Radio.Button" "antd")
+type AntRadioButton() =
+    inherit AntRadio(ofImport "Radio.Button" "antd")
 
-type RadioGroup() =
+type AntRadioGroup() =
     inherit AntElement(ofImport "Radio.Group" "antd")
     member x.DefaultValue with set (v: obj) = x.Attribute "defaultValue" v 
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 

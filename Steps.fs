@@ -14,7 +14,7 @@ type StepsOrientation = Horizontal | Vertical
 type StepsStatus = Process | Wait | Error | Finish
 
 
-type Steps()  =
+type AntSteps()  =
     inherit AntElement(ofImport "Steps" "antd")
     member x.ClassName with set (v: string) = x.Attribute "className" v
     member x.Type with set (v: StepsType) = x.Attribute "type" v
@@ -27,7 +27,7 @@ type Steps()  =
     member x.Initial with set (v: int) = x.Attribute "initial" v
     member x.OnChange with set (v: (int -> unit)) = x.Attribute "onChange" v
 
-type StepsItem()  =
+type AntStepsItem()  =
     inherit AntElement(ofImport "Steps.Step" "antd")
     member x.Description with set (v: ReactElement) = x.Attribute "description" v
     member x.Icon with set (v: ReactElement) = x.Attribute "icon" v

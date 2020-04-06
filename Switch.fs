@@ -3,7 +3,7 @@ namespace Fable.AntD
 open Browser.Types
 open Fable.React
 
-type Switch() =
+type AntSwitch() =
     inherit AntElement(ofImport "Switch" "antd")
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v
     member x.Checked with set (v: bool) = x.Attribute "checked" v

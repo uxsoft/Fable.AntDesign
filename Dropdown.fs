@@ -11,7 +11,7 @@ type DropdownPlacement = BottomLeft | BottomCenter | BottomRight | TopLeft | Top
 [<StringEnum; RequireQualifiedAccess>]
 type DropdownTrigger = Click | Hover | ContextMenu
 
-type Dropdown() =
+type AntDropdown() =
     inherit AntElement(ofImport "Dropdown" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
     member x.GetPopupContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getPopupContainer" v 
@@ -23,7 +23,7 @@ type Dropdown() =
     member x.Visible with set (v: bool) = x.Attribute "visible" v 
     member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
     
-type DropdownButton() =
+type AntDropdownButton() =
     inherit AntElement(ofImport "Dropdown.Button" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v
     member x.Icon with set (v: bool) = x.Attribute "icon" v

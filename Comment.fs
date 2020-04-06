@@ -2,7 +2,7 @@
 
 open Fable.React
 
-type Comment() =
+type AntComment() =
     inherit AntElement(ofImport "Comment" "antd")
     member x.Actions with set (v: ReactElement array) = x.Attribute "actions" v 
     member x.Author with set (v: ReactElement) = x.Attribute "author" v 

@@ -2,7 +2,7 @@
 
 open Fable.React
 
-    type Collapse() =
+    type AntCollapse() =
         inherit AntElement(ofImport "Collapse" "antd")
         member x.ActiveKey with set (v: string array) = x.Attribute "activeKey" v 
         member x.DefaultActiveKey with set (v: string array) = x.Attribute "defaultActiveKey" v 
@@ -13,7 +13,7 @@ open Fable.React
         member x.ExpandIconPosition with set (v: string) = x.Attribute "expandIconPosition" v 
         member x.DestroyInactivePanel with set (v: bool) = x.Attribute "destroyInactivePanel" v 
 
-    type CollapsePanel() =
+    type AntCollapsePanel() =
         inherit AntElement(ofImport "Collapse.Panel" "antd")
         member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
         member x.ForceRender with set (v: bool) = x.Attribute "forceRender" v 

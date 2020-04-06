@@ -6,7 +6,7 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>]
 type BadgeStatus = Success | Processing | Default | Error | Warning
 
-type Badge() =
+type AntBadge() =
     inherit AntElement(ofImport "Badge" "antd")
     member x.Color with set (v: string) = x.Attribute "color" v 
     member x.Count with set (v: ReactElement) = x.Attribute "count" v 

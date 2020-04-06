@@ -40,7 +40,7 @@ type ListGridType = {
 [<StringEnum; RequireQualifiedAccess>]
 type ListSize = Small | Default | Large
 
-type List<'T>() =
+type AntList<'T>() =
     inherit AntElement(ofImport "List" "antd")
     member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
     member x.Footer with set (v: ReactElement) = x.Attribute "footer" v 
@@ -54,15 +54,15 @@ type List<'T>() =
     member x.Split with set (v: bool) = x.Attribute "split" v 
     member x.DataSource with set (v: ('T array)) = x.Attribute "dataSource" v 
     member x.RenderItem with set (v: ('T -> ReactElement)) = x.Attribute "renderItem" v  
-    member x.Pagination with set (pagination: Pagination) = x.Attribute "pagination" pagination.Props
+    member x.Pagination with set (pagination: AntPagination) = x.Attribute "pagination" pagination.Props
 
-type ListItem() =
+type AntListItem() =
     inherit AntElement(ofImport "List.Item" "antd")
     member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
     member x.Actions with set (v: ReactElement[]) = x.Attribute "actions" v 
     member x.Key with set (v: string) = x.Attribute "key" v 
 
-type ListItemMeta() =
+type AntListItemMeta() =
     inherit AntElement(ofImport "List.Item.Meta" "antd")
     member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
     member x.Description with set (v: ReactElement) = x.Attribute "description" v 

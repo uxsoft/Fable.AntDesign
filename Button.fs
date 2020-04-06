@@ -17,7 +17,7 @@ type ButtonShape =
     | Circle
     | Round
 
-type Button() =
+type AntButton() =
     inherit AntElement(ofImport "Button" "antd")
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v
     member x.Ghost with set (v: bool) = x.Attribute "ghost" v
@@ -33,5 +33,5 @@ type Button() =
     member x.Block with set (v: bool) = x.Attribute "block" v
     member x.Danger with set (v: bool) = x.Attribute "danger" v
 
-type ButtonGroup() =
+type AntButtonGroup() =
     inherit AntElement(ofImport "Button.Group" "antd")

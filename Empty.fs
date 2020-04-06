@@ -4,7 +4,7 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
 
-type Empty() =
+type AntEmpty() =
     inherit AntElement(ofImport "Empty" "antd")
     member x.Description with set (v: ReactElement) = x.Attribute "description" v 
     member x.Image with set (v: ReactElement) = x.Attribute "image" v 

@@ -27,7 +27,7 @@ type FormFieldData = {
     value: string
 }
 
-type FormRule() =
+type AntFormRule() =
     let props = System.Collections.Generic.List<string * obj>()
 
     member internal x.Build() = createObj props
@@ -42,11 +42,11 @@ type FormRule() =
     member x.Required with set (v: bool) = x.Attribute "required" v 
     member x.Transform with set (v: (string -> string)) = x.Attribute "transform" v 
     member x.Type with set (v: string) = x.Attribute "type" v 
-    member x.Validator with set (v: (FormRule -> string -> Promise<string>)) = x.Attribute "validator" v 
+    member x.Validator with set (v: (AntFormRule -> string -> Promise<string>)) = x.Attribute "validator" v 
     member x.Whitespace with set (v: bool) = x.Attribute "whitespace" v 
     member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
 
-type Form() =
+type AntForm() =
     inherit AntElement(ofImport "Form" "antd")
     member x.Component with set (v: ReactElement) = x.Attribute "component" v 
     member x.Colon with set (v: bool) = x.Attribute "colon" v 
@@ -66,7 +66,7 @@ type Form() =
     member x.OnFieldsChange with set (v: (string array -> string array -> unit)) = x.Attribute "onFieldsChange" v 
     member x.OnValuesChange with set (v: (string array -> string array -> unit)) = x.Attribute "onValuesChange" v 
 
-type FormItem() =
+type AntFormItem() =
   inherit AntElement(ofImport "Form.Item" "antd")
   member x.Key with set (v: string) = x.Attribute "key" v 
   member x.Colon with set (v: bool) = x.Attribute "colon" v 
@@ -88,13 +88,13 @@ type FormItem() =
   member x.ValidateTrigger with set (v: string array) = x.Attribute "validateTrigger" v 
   member x.ValuePropName with set (v: string) = x.Attribute "valuePropName" v 
   member x.WrapperCol with set (v: obj) = x.Attribute "wrapperCol" v 
-  member x.Rules with set (rules: FormRule list) = x.Attribute "rules" (rules |> List.map (fun rule -> rule.Build()) |> List.toArray)
+  member x.Rules with set (rules: AntFormRule list) = x.Attribute "rules" (rules |> List.map (fun rule -> rule.Build()) |> List.toArray)
 
-type FormList() =
+type AntFormList() =
   inherit AntElement(ofImport "Form.List" "antd")
   member x.Name with set (v: string) = x.Attribute "name" v
   
-type FormProvider() =
+type AntFormProvider() =
   inherit AntElement(ofImport "Form.Provider" "antd")
   member x.OnFormChange with set (v: (string -> obj -> unit)) = x.Attribute "onFormChange" v 
   member x.OnFormFinish with set (v: (string -> obj -> unit)) = x.Attribute "onFormFinish" v 

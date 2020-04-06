@@ -5,7 +5,7 @@ open Fable.Core.JsInterop
 open Fable.React
 open Browser.Types
 
-type Modal() =
+type AntModal() =
     inherit AntElement(ofImport "Modal" "antd")
     member x.AfterClose with set (v: (unit -> unit)) = x.Attribute "afterClose" v 
     member x.CancelText with set (v: ReactElement) = x.Attribute "cancelText" v 
@@ -30,5 +30,5 @@ type Modal() =
     member x.OnOk with set (v: (Event -> unit)) = x.Attribute "onOk" v 
     member x.BodyStyle (css: Props.CSSProp list) = x.Attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
     member x.MaskStyle (css: Props.CSSProp list) = x.Attribute "maskStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.OkButtonProps (props: Button list) = x.Attribute "okButtonProps" (keyValueList CaseRules.LowerFirst props)
-    member x.CancelButtonProps (props: Button list) = x.Attribute "cancelButtonProps" (keyValueList CaseRules.LowerFirst props)
+    member x.OkButtonProps (props: AntButton list) = x.Attribute "okButtonProps" (keyValueList CaseRules.LowerFirst props)
+    member x.CancelButtonProps (props: AntButton list) = x.Attribute "cancelButtonProps" (keyValueList CaseRules.LowerFirst props)

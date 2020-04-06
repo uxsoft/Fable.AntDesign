@@ -8,7 +8,7 @@ type ConfigProviderCsp = { nonce: string }
 type ConfigProviderPageHeader = { ghost: bool }
 [<StringEnum; RequireQualifiedAccess>] type ConfigProviderDirection = Rtl | Ltr
 
-type ConfigProvider() =
+type AntConfigProvider() =
     inherit AntElement(ofImport "ConfigProvider" "antd")
     member x.AutoInsertSpaceInButton with set (v: bool) = x.Attribute "autoInsertSpaceInButton" v 
     member x.ComponentSize with set (v: Size) = x.Attribute "componentSize" v 
@@ -19,4 +19,4 @@ type ConfigProvider() =
     member x.PrefixCls with set (v: string) = x.Attribute "prefixCls" v 
     member x.PageHeader with set (v: ConfigProviderPageHeader) = x.Attribute "pageHeader" v 
     member x.Direction with set (v: ConfigProviderDirection) = x.Attribute "direction" v 
-    member x.Form with set (form: Form) = x.Attribute "form" form.Props
+    member x.Form with set (form: AntForm) = x.Attribute "form" form.Props

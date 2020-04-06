@@ -2,7 +2,7 @@ namespace Fable.AntD
    
 open Fable.React
    
-type Icon(icon) =
+type AntIcon(icon) =
     inherit AntElement(icon)
     
     member x.Spin with set (v: bool) = x.Attribute "spin" v 
