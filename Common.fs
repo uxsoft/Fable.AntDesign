@@ -12,10 +12,10 @@ type Size = Large | Default | Small
 type Theme = Dark | Light
 
 type AntElement(partialImport: obj -> ReactElement seq -> ReactElement) =
-    let props = System.Collections.Generic.List<string * obj>()
+    let mutable props = []
 
     member x.Props = createObj props
-    member internal x.Attribute name value = props.Add((name, unbox value))
+    member internal x.Attribute name value = props <- props @ [name ==> value]
     
     member x.With (children: ReactElement list) =
         partialImport x.Props children
@@ -24,7 +24,7 @@ type AntElement(partialImport: obj -> ReactElement seq -> ReactElement) =
         partialImport x.Props []
         
     // Common Attributes
-    member x.Custom with set (t: string * obj) = props.Add(t)
-    member x.Style with set (css: CSSProp list) = props.Add(("style", keyValueList CaseRules.LowerFirst css))
+    member x.Custom with set (v: string * obj) = match v with (name, value) -> x.Attribute name value
+    member x.Style with set (css: CSSProp list) = x.Attribute "style" (keyValueList CaseRules.LowerFirst css)
     member x.Id with set (v: string) = x.Attribute "id" v
     member x.Key with set (v: string) = x.Attribute "key" v
