@@ -7,7 +7,7 @@ open Fable.React
 type AntSlider() =
     inherit AntElement(ofImport "Avatar" "antd")
     member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v
-    member x.DefaultValue with set (v: U2<float, float array>) = x.Attribute "defaultValue" v
+    member x.DefaultValue with set (v: float array) = x.Attribute "defaultValue" v
     member x.Disabled with set (v: bool) = x.Attribute "disabled" v
     member x.Dots with set (v: bool) = x.Attribute "dots" v
     member x.Included with set (v: bool) = x.Attribute "included" v
