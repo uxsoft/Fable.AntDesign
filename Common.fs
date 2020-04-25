@@ -17,6 +17,9 @@ type AntElement(partialImport: obj -> ReactElement seq -> ReactElement) =
     member x.Props = createObj props
     member internal x.Attribute name value = props <- props @ [name ==> value]
     
+    member x.Item
+        with get(children: ReactElement list) = partialImport x.Props children
+    
     member x.With (children: ReactElement list) =
         partialImport x.Props children
         
