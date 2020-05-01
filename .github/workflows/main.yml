@@ -1,11 +1,12 @@
-name: Bump version
+name: Publish to Nuget
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
       with:
