@@ -10,58 +10,77 @@ In Styles.scss
 ```
 
 In package.json
-```
-        "antd": "^4.0.0",
-        "@ant-design/icons": "^4.0.0",
-        "regenerator-runtime": "^0.13.3"
+```json
+{
+  "dependencies": {
+    "antd": "^4.0.0",
+    "@ant-design/icons": "^4.0.0"
+  }
+}
 ```
 Usage:
 
 ```fsharp
 open Fable.AntD
 
-Content().With [
-        PageHeader(Title = (str "Login"),
-                   SubTitle = (str "Please log-in to enter.")).Empty
+AntContent().[[
+        AntPageHeader(
+            Title = (str "Login"),
+            SubTitle = (str "Please log-in to enter.")).[[]]
         
-        Form(OnFinish = (fun _ -> dispatch Submit),
-             Style = [ Props.MaxWidth "320px"; Props.Margin "0 auto" ]).With [
-            FormItem(Name = "login-email",
-                     Custom = ("key", unbox "login-email"),
-                     Rules = [ FormRule(Type = "email", Message = "This isn't a valid email")
-                               FormRule(Required = true, Message = "This field is mandatory")]).With [
-                Input(Prefix = (Icon(Icon.UserOutlined, Style = grayedOut).Empty),
-                      OnChange = (fun e -> dispatch (ChangedEmail e.Value)),
-                      Placeholder = "Email").Empty
-            ]
-            FormItem(Name = "login-password",
-                     Key =  "login-password",
-                     Rules = [ FormRule(Required = true, Message = "This field is mandatory") ]).With [
-                Password(Prefix = (Icon(Icon.LockOutlined, Style = grayedOut).Empty),
-                         OnChange = (fun e -> dispatch (ChangedPassword (base64 e.Value))),
-                         Placeholder = "Password").Empty
-            ]
-            FormItem(Key = "login-submit").With [
-                if not (System.String.IsNullOrWhiteSpace model.ErrorMessage) then
-                    AntD.Text(Type = TypographyType.Danger).With [ str model.ErrorMessage ]
-                    
-                Button(Type = ButtonType.Primary,
-                       Loading = model.IsProcessing,
-                       HtmlType = "submit",
-                       Style = [ Props.CSSProp.Width "100%" ]).With [ str "Login" ]
-            ]
-            FormItem(Key = "login-links").With [
-                Button(Type = ButtonType.Link,
-                       OnClick = (fun _ -> escalate (NavigateTo RegistrationPage))).With
-                       [ str "Register" ]
-                Button(Type = ButtonType.Link,
-                       Style = [ Props.Float Props.FloatOptions.Right ],
-                       OnClick = (fun _ -> escalate (NavigateTo ForgotPasswordPage))).With
-                       [ str "Forgot password?" ]
-            ]
-        ]
-    ]
-
+        AntForm(
+            OnFinish = (fun _ -> handleSubmit ctx |> Async.StartImmediate),
+            Style = [ Props.MaxWidth "320px"; Props.Margin "0 auto" ]).[[
+            AntFormItem(
+                Name = "login-email",
+                Custom = ("key", unbox "login-email"),
+                Rules = [ AntFormRule(Type = "email", Message = "This isn't a valid email")
+                          AntFormRule(Required = true, Message = "This field is mandatory")]).[[
+                AntInput(
+                    Prefix = (AntIcon(AntIcon.MailOutlined, Style = grayedOut).[[]]),
+                    OnChange = (fun e -> setModel (fun s -> { s with Email = e.Value })),
+                    Placeholder = "Email").[[]]
+            ]]
+            AntFormItem(
+                Name = "login-password",
+                Key =  "login-password",
+                Rules = [ AntFormRule(Required = true, Message = "This field is mandatory") ]).[[
+                AntPassword(
+                    Prefix = (AntIcon(AntIcon.LockOutlined, Style = grayedOut).Empty),
+                    OnChange = (fun e -> setModel (fun s -> { s with Password = base64 e.Value })),
+                    Placeholder = "Password").[[]]
+            ]]
+            AntFormItem(
+                Key = "login-submit").[[
+                match model.Error with
+                | None -> ()
+                | Some error ->
+                    div [ Class "fn-error-message" ] [
+                        AntText(Type = TypographyType.Danger).[[
+                           renderErrorMessage error
+                        ]]
+                    ]
+                
+                AntButton(
+                    Type = ButtonType.Primary,
+                    Loading = model.IsProcessing,
+                    HtmlType = "submit",
+                    Style = [ Props.CSSProp.Width "100%" ]).With [ str "Login" ]
+            ]]
+            AntFormItem(Key = "login-links").[[
+                AntButton(
+                    Type = ButtonType.Link,
+                    OnClick = (fun _ -> ctx.navigate RegistrationPage)).[[
+                    str "Register"
+                ]]
+                AntButton(Type = ButtonType.Link,
+                    Style = [ Props.Float Props.FloatOptions.Right ],
+                    OnClick = (fun _ -> ctx.navigate ForgotPasswordPage)).[[
+                    str "Forgot password?"
+                ]]
+            ]]
+        ]]
+    ]]
 ```
 
 FAQ:
