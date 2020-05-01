@@ -12,14 +12,19 @@ jobs:
       with:
         fetch-depth: 0
           
-    - name: Nerdbank.GitVersioning
-      id: nbgv
-      uses: AArnott/nbgv@v0.3
-    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.201
+          
+    - name: Nerdbank.GitVersioning
+      id: nbgv
+      uses: AArnott/nbgv@v0.3
+    
+    - name: Set version in project file
+      uses: roryprimrose/set-vs-sdk-project-version@v1.0.3
+      with:
+        version: ${{ steps.nbgv.outputs.Version }}
       
     - name: Install dependencies
       run: dotnet restore
