@@ -99,7 +99,7 @@ type AntSelect() =
     member x.TokenSeparators
         with set (v: string array) = x.Attribute "tokenSeparators" v
     member x.Value
-        with set (v: string) = x.Attribute "value" v
+        with set (v: string array) = x.Attribute "value" v
     member x.OnBlur
         with set (v: Event -> unit) = x.Attribute "onBlur" v
     member x.OnChange

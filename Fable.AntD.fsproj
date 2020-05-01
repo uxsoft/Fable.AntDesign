@@ -14,8 +14,9 @@
     <Compile Include="Button.fs" />
     <Compile Include="Tooltip.fs" />
     <Compile Include="Pagination.fs" />
+    <Compile Include="Grid.fs" />
     <Compile Include="Form.fs" />
-    <Compile Include="AntAffix.fs" />
+    <Compile Include="Affix.fs" />
     <Compile Include="Anchor.fs" />
     <Compile Include="Alert.fs" />
     <Compile Include="AutoComplete.fs" />
@@ -37,7 +38,6 @@
     <Compile Include="Drawer.fs" />
     <Compile Include="Dropdown.fs" />
     <Compile Include="Empty.fs" />
-    <Compile Include="Grid.fs" />
     <Compile Include="Icon.fs" />
     <Compile Include="Input.fs" />
     <Compile Include="InputNumber.fs" />

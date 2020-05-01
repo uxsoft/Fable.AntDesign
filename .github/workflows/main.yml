@@ -1,17 +1,33 @@
-name: Bump version
+name: Publish to Nuget
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
       with:
         fetch-depth: 0
           
     - name: Nerdbank.GitVersioning
+      id: nbgv
       uses: AArnott/nbgv@v0.3
     
-    - run: echo 'NuGetPackageVersion ${{ steps.nbgv.outputs.NuGetPackageVersion }}'
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.201
+      
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Publish NuGet
+      uses: rohith/publish-nuget@v2.4.0
+      with:
+        PROJECT_FILE_PATH: ./Fable.AntD.fsproj
+        VERSION_STATIC: ${{ steps.nbgv.outputs.Version }}
+        TAG_COMMIT: true
+        NUGET_KEY: ${{ secrets.NUGET_KEY }}

@@ -115,6 +115,23 @@ type AntYearPicker() =
             let uncurried = System.Func<Moment, string, unit> v
             x.Attribute "onChange" uncurried
 
+type AntQuarterPicker() =
+    inherit AntDatePickerBase(ofImport "DatePicker.QuarterPicker" "antd")
+    member x.DefaultValue
+        with set (v: Moment) = x.Attribute "defaultValue" v
+    member x.DefaultPickerValue
+        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+    member x.Format
+        with set (v: string) = x.Attribute "format" v
+    member x.RenderExtraFooter
+        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+    member x.Value
+        with set (v: Moment) = x.Attribute "value" v
+    member x.OnChange
+        with set (v: Moment -> string -> unit) =
+            let uncurried = System.Func<Moment, string, unit> v
+            x.Attribute "onChange" uncurried
+
 type AntMonthPicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.MonthPicker" "antd")
     member x.DefaultValue

@@ -100,7 +100,7 @@ type AntForm() =
     member x.LabelAlign
         with set (v: FormLabelAlign) = x.Attribute "labelAlign" v
     member x.LabelCol
-        with set (v: obj) = x.Attribute "labelCol" v
+        with set (v: AntColumn) = x.Attribute "labelCol" v.Props
     member x.Layout
         with set (v: FormLayout) = x.Attribute "layout" v
     member x.Name
@@ -110,7 +110,7 @@ type AntForm() =
     member x.ValidateMessages
         with set (v: obj) = x.Attribute "validateMessages" v
     member x.WrapperCol
-        with set (v: obj) = x.Attribute "wrapperCol" v
+        with set (v: AntColumn) = x.Attribute "wrapperCol" v.Props
     member x.OnFinish
         with set (v: string array -> unit) = x.Attribute "onFinish" v
     member x.OnFinishFailed
