@@ -12,4 +12,4 @@ jobs:
     - name: Nerdbank.GitVersioning
       uses: AArnott/nbgv@v0.3
     
-    - run: echo 'SemVer2: ${{ steps.nbgv.outputs.NuGetPackageVersion }}'
+    - run: echo 'NuGetPackageVersion ${{ steps.nbgv.outputs.NuGetPackageVersion }}'
