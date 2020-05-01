@@ -31,3 +31,4 @@ jobs:
         VERSION_STATIC: ${{ steps.nbgv.outputs.Version }}
         TAG_COMMIT: true
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        INCLUDE_SYMBOLS: false
