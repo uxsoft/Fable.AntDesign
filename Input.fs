@@ -31,7 +31,10 @@ type AntTextArea() =
     member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
     member x.Value with set (v: string) = x.Attribute "value" v 
     member x.OnPressEnter with set (v: (KeyboardEvent -> unit)) = x.Attribute "onPressEnter" v 
-    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
+    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v
+    
+    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+
    
 type AntSearch() =
     inherit AntElement(ofImport "Input.Search" "antd")
