@@ -23,11 +23,15 @@
     <Compile Include="Avatar.fs" />
     <Compile Include="Badge.fs" />
     <Compile Include="BackToTop.fs" />
+    <Compile Include="Dropdown.fs" />
     <Compile Include="Breadcrumb.fs" />
     <Compile Include="Calendar.fs" />
     <Compile Include="Cascader.fs" />
+    <Compile Include="Tabs.fs" />
     <Compile Include="Card.fs" />
     <Compile Include="Comment.fs" />
+    <Compile Include="Space.fs" />
+    <Compile Include="Input.fs" />
     <Compile Include="ConfigProvider.fs" />
     <Compile Include="Collapse.fs" />
     <Compile Include="Carousel.fs" />
@@ -36,10 +40,8 @@
     <Compile Include="Descriptions.fs" />
     <Compile Include="Divider.fs" />
     <Compile Include="Drawer.fs" />
-    <Compile Include="Dropdown.fs" />
     <Compile Include="Empty.fs" />
     <Compile Include="Icon.fs" />
-    <Compile Include="Input.fs" />
     <Compile Include="InputNumber.fs" />
     <Compile Include="Layout.fs" />
     <Compile Include="List.fs" />
@@ -60,7 +62,6 @@
     <Compile Include="Skeleton.fs" />
     <Compile Include="Spin.fs" />
     <Compile Include="Steps.fs" />
-    <Compile Include="Tabs.fs" />
     <Compile Include="Tag.fs" />
     <Compile Include="Table.fs" />
     <Compile Include="Timeline.fs" />
@@ -88,6 +89,6 @@
     <PackageReference Include="Fable.Core" Version="3.1.4" />
     <PackageReference Include="Fable.MomentJs" Version="1.20200112.4" />
     <PackageReference Include="Fable.React" Version="5.3.5" />
-    <PackageReference Include="FSharp.Core" Version="4.7.0" />
+    <PackageReference Include="FSharp.Core" Version="4.7.1" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 
 type AntSlider() =
@@ -24,4 +24,4 @@ type AntSlider() =
     member x.onChange (v: (float -> unit)) = x.attribute "onChange" v
     member x.tooltipPlacement (v: TooltipPlacement) = x.attribute "tooltipPlacement" v
     member x.tooltipVisible (v: bool) = x.attribute "tooltipVisible" v
-    member x.getTooltipPopupContainer (v: (unit -> ReactElement)) = x.attribute "getTooltipPopupContainer" v
+    member x.getTooltipPopupContainer (v: (unit -> HTMLElement)) = x.attribute "getTooltipPopupContainer" v

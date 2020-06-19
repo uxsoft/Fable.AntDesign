@@ -5,8 +5,14 @@ open Fable.Core.JsInterop
 open Fable.React
 open System
 
+type AntAutoCompleteOption = {
+    label: ReactElement
+    value: string
+}
+
 type AntAutoComplete() =
     inherit AntElement<AntAutoComplete>(ofImport "AutoComplete" "antd")
+    member x.options (v: AntAutoCompleteOption array) = x.attribute "options" v
     member x.allowClear (v: bool) = x.attribute "allowClear" v
     member x.autoFocus (v: bool) = x.attribute "autoFocus" v
     member x.backfill (v: bool) = x.attribute "backfill" v
@@ -25,3 +31,4 @@ type AntAutoComplete() =
     member x.isOpen (v: bool) = x.attribute "open" v
     member x.onDropdownVisibleChange (v: bool -> unit) = x.attribute "onDropdownVisibleChange" v
     member x.dropdownMenuStyle (css: Props.CSSProp list) = x.attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.notFoundContent (v: string) = x.attribute "notFoundContent" v

@@ -19,4 +19,5 @@ type AntTimelineItem()  =
   inherit AntElement<AntTimelineItem>(ofImport "Timeline.Item" "antd")
   member x.color (v: string) = x.attribute "color" v 
   member x.dot (v: ReactElement) = x.attribute "dot" v 
-  member x.position (v: TimelineItemPosition) = x.attribute "position" v 
+  member x.position (v: TimelineItemPosition) = x.attribute "position" v
+  member x.label (v: ReactElement) = x.attribute "label" v 

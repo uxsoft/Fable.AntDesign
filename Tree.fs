@@ -41,6 +41,8 @@ type AntTreeBase<'T when 'T :> AntElement<'T>>(partialImport) =
     member x.showIcon (v: bool) = x.attribute "showIcon" v
     member x.switcherIcon (v: ReactElement) = x.attribute "switcherIcon" v
     member x.showLine (v: bool) = x.attribute "showLIne" v
+    member x.treeData (v: TreeData array) = x.attribute "treeData" v
+    member x.virtual (v: bool) = x.attribute "virtual" v
     member x.onCheck (v: Func<string array, obj, unit>) = x.attribute "onCheck" v
     member x.onDragEnd (v: obj -> unit) = x.attribute "onDragEnd" v
     member x.onDragEnter (v: obj -> unit) = x.attribute "onDragEnter" v
@@ -52,7 +54,6 @@ type AntTreeBase<'T when 'T :> AntElement<'T>>(partialImport) =
     member x.onLoad (v: Func<string array, obj, unit>) = x.attribute "onLoad" v
     member x.onRightClick (v: obj -> unit) = x.attribute "onRightClick" v
     member x.onSelect (v: Func<string array, obj, unit>) = x.attribute "onSelect" v
-    member x.treeData (v: TreeData array) = x.attribute "treeData" v
 
 type AntTree() =
     inherit AntTreeBase<AntTree>(ofImport "Tree" "antd")
@@ -68,6 +69,5 @@ type AntTreeNode() =
     member x.disabled (v: bool) = x.attribute "disabled" v
     member x.icon (v: ReactElement) = x.attribute "icon" v
     member x.isLeaf (v: bool) = x.attribute "isLeaf" v
-    member x.key (v: string) = x.attribute "key" v
     member x.selectable (v: bool) = x.attribute "selectable" v
     member x.title (v: ReactElement) = x.attribute "title" v

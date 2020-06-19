@@ -22,6 +22,7 @@ type AntTypographyBase<'T when 'T :> AntElement<'T>>(partialImport) =
 
 type AntText() =
     inherit AntTypographyBase<AntText>(ofImport "Typography.Text" "antd")
+    member x.keyboard (v: bool) = x.attribute "keyboard" v 
 
 type AntTitle() =
    inherit AntTypographyBase<AntTitle>(ofImport "Typography.Title" "antd")

@@ -11,4 +11,5 @@ type AntDivider() =
     member x.className (v: string) = x.attribute "className" v 
     member x.dashed (v: bool) = x.attribute "dashed" v 
     member x.orientation (v: DividerOrientation) = x.attribute "orientation" v 
-    member x.dividerType (v: DividerType) = x.attribute "type" v 
+    member x.dividerType (v: DividerType) = x.attribute "type" v
+    member x.plain (v: bool) = x.attribute "plain" v
