@@ -8,14 +8,14 @@ type DescriptionsLayoutOptions = Horizontal | Vertical
 
 type AntDescriptions() =
     inherit AntElement(ofImport "Descriptions" "antd")
-    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
-    member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
-    member x.Column with set (v: int) = x.Attribute "column" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
-    member x.Layout with set (v: DescriptionsLayoutOptions) = x.Attribute "layout" v 
-    member x.Colon with set (v: bool) = x.Attribute "colon" v 
+    member x.Title (v: ReactElement) = x.attribute "title" v 
+    member x.Bordered (v: bool) = x.attribute "bordered" v 
+    member x.Column (v: int) = x.attribute "column" v 
+    member x.Size (v: Size) = x.attribute "size" v 
+    member x.Layout (v: DescriptionsLayoutOptions) = x.attribute "layout" v 
+    member x.Colon (v: bool) = x.attribute "colon" v 
     
 type AntDescriptionsItem() =
     inherit AntElement(ofImport "Descriptions.Item" "antd")
-    member x.Label with set (v: ReactElement) = x.Attribute "label" v 
-    member x.Span with set (v: int) = x.Attribute "span" v 
+    member x.Label (v: ReactElement) = x.attribute "label" v 
+    member x.Span (v: int) = x.attribute "span" v 

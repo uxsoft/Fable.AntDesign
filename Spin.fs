@@ -4,10 +4,10 @@ open Fable.React
 
 type AntSpin()  =
     inherit AntElement(ofImport "Spin" "antd")
-    member x.Delay with set (v: int) = x.Attribute "delay" v
-    member x.Indicator with set (v: ReactElement) = x.Attribute "indicator" v
-    member x.Size with set (v: Size) = x.Attribute "size" v
-    member x.Spinning with set (v: bool) = x.Attribute "spinning" v
-    member x.Tip with set (v: string) = x.Attribute "tip" v
-    member x.WrapperClassName with set (v: string ) = x.Attribute "wrapperClassName" v
+    member x.Delay (v: int) = x.attribute "delay" v
+    member x.Indicator (v: ReactElement) = x.attribute "indicator" v
+    member x.Size (v: Size) = x.attribute "size" v
+    member x.Spinning (v: bool) = x.attribute "spinning" v
+    member x.Tip (v: string) = x.attribute "tip" v
+    member x.WrapperClassName (v: string ) = x.attribute "wrapperClassName" v
     

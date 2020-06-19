@@ -11,23 +11,28 @@ type Size = Large | Default | Small
 [<StringEnum; RequireQualifiedAccess>]
 type Theme = Dark | Light
 
-type AntElement(partialImport: obj -> ReactElement seq -> ReactElement) =
+type AntObject<'T when 'T :> AntObject<'T>>() = 
     let mutable props = []
 
-    member x.Props = createObj props
-    member internal x.Attribute name value = props <- props @ [name ==> value]
+    member x.JSON = createObj props
+    member internal x.attribute name value =
+        props <- props @ [name ==> value]
+        x :?> 'T
+        
+type AntElement<'T when 'T :> AntElement<'T>> (partialImport: obj -> ReactElement seq -> ReactElement) =
+    inherit AntObject<'T>()
     
     member x.Item
-        with get(children: ReactElement list) = partialImport x.Props children
+        with get(children: ReactElement list) = partialImport x.JSON children
     
-    member x.With (children: ReactElement list) =
-        partialImport x.Props children
+    member x.children (children: ReactElement list) =
+        partialImport x.JSON children
         
-    member x.Empty =
-        partialImport x.Props []
+    member x.build () =
+        partialImport x.JSON []
         
     // Common Attributes
-    member x.Custom with set (v: string * obj) = match v with (name, value) -> x.Attribute name value
-    member x.Style with set (css: CSSProp list) = x.Attribute "style" (keyValueList CaseRules.LowerFirst css)
-    member x.Id with set (v: string) = x.Attribute "id" v
-    member x.Key with set (v: string) = x.Attribute "key" v
+    member x.set (v: string * obj) = match v with (name, value) -> x.attribute name value
+    member x.style (css: CSSProp list) = x.attribute "style" (keyValueList CaseRules.LowerFirst css)
+    member x.id (v: string) = x.attribute "id" v
+    member x.key (v: string) = x.attribute "key" v

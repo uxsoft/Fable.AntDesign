@@ -15,22 +15,22 @@ type RadioButtonStyle = Outline | Solid
 
 type AntRadio(?partialImport) =
     inherit AntElement(defaultArg partialImport (ofImport "Radio" "antd"))
-    member x.AutoFocus with set (v: bool) = x.Attribute "autoFocus" v 
-    member x.Checked with set (v: bool) = x.Attribute "checked" v 
-    member x.DefaultChecked with set (v: bool) = x.Attribute "defaultChecked" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Value with set (v: obj) = x.Attribute "value" v 
+    member x.AutoFocus (v: bool) = x.attribute "autoFocus" v 
+    member x.Checked (v: bool) = x.attribute "checked" v 
+    member x.DefaultChecked (v: bool) = x.attribute "defaultChecked" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Value (v: obj) = x.attribute "value" v 
 
 type AntRadioButton() =
     inherit AntRadio(ofImport "Radio.Button" "antd")
 
 type AntRadioGroup() =
     inherit AntElement(ofImport "Radio.Group" "antd")
-    member x.DefaultValue with set (v: obj) = x.Attribute "defaultValue" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Name with set (v: string) = x.Attribute "name" v 
-    member x.Options with set (v: RadioOption array) = x.Attribute "options" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
-    member x.Value with set (v: obj) = x.Attribute "value" v 
-    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
-    member x.ButtonStyle with set (v: RadioButtonStyle) = x.Attribute "buttonStyle" v 
+    member x.DefaultValue (v: obj) = x.attribute "defaultValue" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Name (v: string) = x.attribute "name" v 
+    member x.Options (v: RadioOption array) = x.attribute "options" v 
+    member x.Size (v: Size) = x.attribute "size" v 
+    member x.Value (v: obj) = x.attribute "value" v 
+    member x.OnChange (v: (Event -> unit)) = x.attribute "onChange" v 
+    member x.ButtonStyle (v: RadioButtonStyle) = x.attribute "buttonStyle" v 

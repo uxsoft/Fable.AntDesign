@@ -7,14 +7,14 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>] type AlertType = Success | Info | Warning | Error
 
 type AntAlert()  =
-    inherit AntElement(ofImport "Alert" "antd")
-    member x.AfterClose with set (v: (unit -> unit)) = x.Attribute "afterClose" v 
-    member x.Banner with set (v: bool) = x.Attribute "banner" v 
-    member x.Closable with set (v: bool) = x.Attribute "closable" v 
-    member x.CloseText with set (v: ReactElement) = x.Attribute "closeText" v 
-    member x.Description with set (v: ReactElement) = x.Attribute "description" v 
-    member x.Icon with set (v: ReactElement) = x.Attribute "icon" v 
-    member x.Message with set (v: ReactElement) = x.Attribute "message" v 
-    member x.ShowIcon with set (v: bool) = x.Attribute "showIcon" v 
-    member x.Type with set (v: AlertType) = x.Attribute "type" v 
-    member x.OnClose with set (v: (Event -> unit)) = x.Attribute "onClose" v 
+    inherit AntElement<AntAlert>(ofImport "Alert" "antd")
+    member x.afterClose (v: (unit -> unit)) = x.attribute "afterClose" v 
+    member x.banner (v: bool) = x.attribute "banner" v 
+    member x.closable (v: bool) = x.attribute "closable" v 
+    member x.closeText (v: ReactElement) = x.attribute "closeText" v 
+    member x.description (v: ReactElement) = x.attribute "description" v 
+    member x.icon (v: ReactElement) = x.attribute "icon" v 
+    member x.message (v: ReactElement) = x.attribute "message" v 
+    member x.showIcon (v: bool) = x.attribute "showIcon" v 
+    member x.alertType (v: AlertType) = x.attribute "type" v 
+    member x.onClose (v: (Event -> unit)) = x.attribute "onClose" v 

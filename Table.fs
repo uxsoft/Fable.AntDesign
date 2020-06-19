@@ -37,39 +37,39 @@ type TableEventHandlers =
 type AntTableRowSelection<'T>() =
     inherit AntElement(ofImport "Table" "antd")
     member x.ColumnWidth
-        with set (v: int) = x.Attribute "columnWidth" v
+        (v: int) = x.attribute "columnWidth" v
     member x.ColumnTitle
-        with set (v: ReactElement) = x.Attribute "columnTitle" v
+        (v: ReactElement) = x.attribute "columnTitle" v
     member x.Fixed
-        with set (v: bool) = x.Attribute "fixed" v
+        (v: bool) = x.attribute "fixed" v
     member x.GetCheckboxProps
-        with set (v: 'T -> obj) = x.Attribute "getCheckboxProps" v
+        (v: 'T -> obj) = x.attribute "getCheckboxProps" v
     member x.HideDefaultSelections
-        with set (v: bool) = x.Attribute "hideDefaultSelections" v
+        (v: bool) = x.attribute "hideDefaultSelections" v
     member x.SelectedRowKeys
-        with set (v: string array) = x.Attribute "selectedRowKeys" v
+        (v: string array) = x.attribute "selectedRowKeys" v
     member x.Selections
-        with set (v: obj array) = x.Attribute "selections" v
+        (v: obj array) = x.attribute "selections" v
     member x.Type
-        with set (v: TableRowSelectionType) = x.Attribute "type" v
+        (v: TableRowSelectionType) = x.attribute "type" v
 
     member x.OnChange
-        with set (v: string array -> 'T array -> unit) =
+        (v: string array -> 'T array -> unit) =
             let uncurried = System.Func<string array, 'T array, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
     member x.OnSelect
-        with set (v: 'T -> bool -> 'T array -> Event -> unit) =
+        (v: 'T -> bool -> 'T array -> Event -> unit) =
             let uncurried = System.Func<'T, bool, 'T array, Event, unit> v
-            x.Attribute "onSelect" uncurried
+            x.attribute "onSelect" uncurried
 
     member x.OnSelectAll
-        with set (v: bool -> 'T array -> 'T array -> unit) =
+        (v: bool -> 'T array -> 'T array -> unit) =
             let uncurried = System.Func<bool, 'T array, 'T array, unit> v
-            x.Attribute "onSelectAll" uncurried
+            x.attribute "onSelectAll" uncurried
 
     member x.OnSelectInvert
-        with set (v: 'T array) = x.Attribute "onSelectInvert" v
+        (v: 'T array) = x.attribute "onSelectInvert" v
 
 [<RequireQualifiedAccess>]
 type TableScroll =
@@ -86,61 +86,61 @@ type TableSelection =
 type AntTableColumn<'T>() =
     inherit AntElement(ofImport "Table.Column" "antd")
     member x.Align
-        with set (v: TableColumnAlign) = x.Attribute "align" v
+        (v: TableColumnAlign) = x.attribute "align" v
     member x.Ellipsis
-        with set (v: bool) = x.Attribute "ellipsis" v
+        (v: bool) = x.attribute "ellipsis" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.ColSpan
-        with set (v: int) = x.Attribute "colSpan" v
+        (v: int) = x.attribute "colSpan" v
     member x.DataIndex
-        with set (v: string) = x.Attribute "dataIndex" v
+        (v: string) = x.attribute "dataIndex" v
     member x.DefaultFilteredValue
-        with set (v: string array) = x.Attribute "defaultFilteredValue" v
+        (v: string array) = x.attribute "defaultFilteredValue" v
     member x.DefaultSortOrder
-        with set (v: TableColumnSortOrder) = x.Attribute "defaultSortOrder" v
+        (v: TableColumnSortOrder) = x.attribute "defaultSortOrder" v
     member x.FilterDropdown
-        with set (v: ReactElement) = x.Attribute "filterDropdown" v
+        (v: ReactElement) = x.attribute "filterDropdown" v
     member x.FilterDropdownVisible
-        with set (v: bool) = x.Attribute "filterDropdownVisible" v
+        (v: bool) = x.attribute "filterDropdownVisible" v
     member x.Filtered
-        with set (v: bool) = x.Attribute "filtered" v
+        (v: bool) = x.attribute "filtered" v
     member x.FilteredValue
-        with set (v: string array) = x.Attribute "filteredValue" v
+        (v: string array) = x.attribute "filteredValue" v
     member x.FilterIcon
-        with set (v: bool -> ReactElement) = x.Attribute "filterIcon" v
+        (v: bool -> ReactElement) = x.attribute "filterIcon" v
     member x.FilterMultiple
-        with set (v: bool) = x.Attribute "filterMultiple" v
+        (v: bool) = x.attribute "filterMultiple" v
     member x.Filters
-        with set (v: obj array) = x.Attribute "filters" v
+        (v: obj array) = x.attribute "filters" v
     member x.Fixed
-        with set (v: bool) = x.Attribute "fixed" v
+        (v: bool) = x.attribute "fixed" v
     member x.Key
-        with set (v: string) = x.Attribute "key" v
+        (v: string) = x.attribute "key" v
     member x.Render
-        with set (v: ReactElement -> 'T -> int -> ReactElement) =
+        (v: ReactElement -> 'T -> int -> ReactElement) =
             let uncurried = System.Func<ReactElement, 'T, int, ReactElement> v
-            x.Attribute "render" uncurried
+            x.attribute "render" uncurried
     member x.Sorter
-        with set (v: bool) = x.Attribute "sorter" v
+        (v: bool) = x.attribute "sorter" v
     member x.SortOrder
-        with set (v: TableColumnSortOrder) = x.Attribute "sortOrder" v
+        (v: TableColumnSortOrder) = x.attribute "sortOrder" v
     member x.SortDirections
-        with set (v: TableColumnSortOrder array) = x.Attribute "sortDirections" v
+        (v: TableColumnSortOrder array) = x.attribute "sortDirections" v
     member x.Title
-        with set (v: ReactElement) = x.Attribute "title" v
+        (v: ReactElement) = x.attribute "title" v
     member x.Width
-        with set (v: string) = x.Attribute "width" v
+        (v: string) = x.attribute "width" v
     member x.OnCell
-        with set (v: 'T -> int -> TableEventHandlers) =
+        (v: 'T -> int -> TableEventHandlers) =
             let uncurried = System.Func<'T, int, TableEventHandlers> v
-            x.Attribute "onCell" uncurried
+            x.attribute "onCell" uncurried
     member x.OnFilter
-        with set (v: unit -> unit) = x.Attribute "onFilter" v
+        (v: unit -> unit) = x.attribute "onFilter" v
     member x.OnFilterDropdownVisibleChange
-        with set (v: bool -> unit) = x.Attribute "onFilterDropdownVisibleChange" v
+        (v: bool -> unit) = x.attribute "onFilterDropdownVisibleChange" v
     member x.OnHeaderCell
-        with set (v: obj -> TableEventHandlers) = x.Attribute "onHeaderCell" v
+        (v: obj -> TableEventHandlers) = x.attribute "onHeaderCell" v
 
 [<RequireQualifiedAccess>]
 type TableColumnGroup = Title of ReactElement
@@ -148,72 +148,72 @@ type TableColumnGroup = Title of ReactElement
 type AntTable<'T>() =
     inherit AntElement(ofImport "Table.ColumnGroup" "antd")
     member x.TableLayout
-        with set (v: TableLayout) = x.Attribute "tableLayout" v
+        (v: TableLayout) = x.attribute "tableLayout" v
     member x.Bordered
-        with set (v: bool) = x.Attribute "bordered" v
+        (v: bool) = x.attribute "bordered" v
     member x.ChildrenColumnName
-        with set (v: string array) = x.Attribute "childrenColumnName" v
+        (v: string array) = x.attribute "childrenColumnName" v
     member x.Components
-        with set (v: obj) = x.Attribute "components" v
+        (v: obj) = x.attribute "components" v
     member x.DataSource
-        with set (v: 'T array) = x.Attribute "dataSource" v
+        (v: 'T array) = x.attribute "dataSource" v
     member x.DefaultExpandAllRows
-        with set (v: bool) = x.Attribute "defaultExpandAllRows" v
+        (v: bool) = x.attribute "defaultExpandAllRows" v
     member x.DefaultExpandedRowKeys
-        with set (v: string array) = x.Attribute "defaultExpandedRowKeys" v
+        (v: string array) = x.attribute "defaultExpandedRowKeys" v
     member x.ExpandedRowKeys
-        with set (v: string array) = x.Attribute "expandedRowKeys" v
+        (v: string array) = x.attribute "expandedRowKeys" v
     member x.ExpandedRowRender
-        with set (v: 'T -> int -> int -> bool -> ReactElement) =
+        (v: 'T -> int -> int -> bool -> ReactElement) =
             let uncurried = System.Func<'T, int, int, bool, ReactElement> v
-            x.Attribute "expandedRowRender" uncurried
+            x.attribute "expandedRowRender" uncurried
     member x.ExpandIcon
-        with set (v: obj -> ReactElement) = x.Attribute "expandIcon" v
+        (v: obj -> ReactElement) = x.attribute "expandIcon" v
     member x.ExpandRowByClick
-        with set (v: bool) = x.Attribute "expandRowByClick" v
+        (v: bool) = x.attribute "expandRowByClick" v
     member x.Footer
-        with set (v: obj -> ReactElement) = x.Attribute "footer" v
+        (v: obj -> ReactElement) = x.attribute "footer" v
     member x.IndentSize
-        with set (v: int) = x.Attribute "indentSize" v
+        (v: int) = x.attribute "indentSize" v
     member x.Loading
-        with set (v: bool) = x.Attribute "loading" v
+        (v: bool) = x.attribute "loading" v
     member x.Locale
-        with set (v: obj) = x.Attribute "locale" v
+        (v: obj) = x.attribute "locale" v
     member x.RowClassName
-        with set (v: 'T -> int -> string) =
+        (v: 'T -> int -> string) =
             let uncurried = System.Func<'T, int, string> v
-            x.Attribute "rowClassName" uncurried
+            x.attribute "rowClassName" uncurried
     member x.RowKey
-        with set (v: 'T -> string) = x.Attribute "rowKey" v
+        (v: 'T -> string) = x.attribute "rowKey" v
     member x.ShowHeader
-        with set (v: bool) = x.Attribute "showHeader" v
+        (v: bool) = x.attribute "showHeader" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.Title
-        with set (v: obj -> ReactElement) = x.Attribute "title" v
+        (v: obj -> ReactElement) = x.attribute "title" v
     member x.OnChange
-        with set (v: obj -> obj -> obj -> obj -> unit) =
+        (v: obj -> obj -> obj -> obj -> unit) =
             let uncurried = System.Func<obj, obj, obj, obj, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
     member x.OnExpand
-        with set (v: bool -> 'T -> unit) =
+        (v: bool -> 'T -> unit) =
             let uncurried = System.Func<bool, 'T, unit> v
-            x.Attribute "onExpand" uncurried
+            x.attribute "onExpand" uncurried
     member x.OnExpandedRowsChange
-        with set (v: 'T array) = x.Attribute "onExpandedRowsChange" v
+        (v: 'T array) = x.attribute "onExpandedRowsChange" v
     member x.OnHeaderRow
-        with set (v: 'T -> int -> TableEventHandlers) =
+        (v: 'T -> int -> TableEventHandlers) =
             let uncurried = System.Func<'T, int, TableEventHandlers> v
-            x.Attribute "onHeaderRow" uncurried
+            x.attribute "onHeaderRow" uncurried
     member x.OnRow
-        with set (v: 'T -> int -> TableEventHandlers) =
+        (v: 'T -> int -> TableEventHandlers) =
             let uncurried = System.Func<'T, int, TableEventHandlers> v
-            x.Attribute "onRow" uncurried
+            x.attribute "onRow" uncurried
     member x.GetPopupContainer
-        with set (v: ReactElement -> HTMLElement) = x.Attribute "getPopupContainer" v
+        (v: ReactElement -> HTMLElement) = x.attribute "getPopupContainer" v
     member x.Columns(columns: AntTableColumn<'T> list list) =
-        x.Attribute "columns" (keyValueList CaseRules.LowerFirst columns)
+        x.attribute "columns" (keyValueList CaseRules.LowerFirst columns)
     member x.Pagination(config: AntPagination list) =
-        x.Attribute "pagination" (keyValueList CaseRules.LowerFirst config)
-    member x.RowSelection(config: AntTableRowSelection<'T>) = x.Attribute "rowSelection" config.Props
-    member x.Scroll(config: TableScroll list) = x.Attribute "scroll" (keyValueList CaseRules.LowerFirst config)
+        x.attribute "pagination" (keyValueList CaseRules.LowerFirst config)
+    member x.RowSelection(config: AntTableRowSelection<'T>) = x.attribute "rowSelection" config.Props
+    member x.Scroll(config: TableScroll list) = x.attribute "scroll" (keyValueList CaseRules.LowerFirst config)

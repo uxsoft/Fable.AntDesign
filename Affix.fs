@@ -3,8 +3,8 @@ namespace Fable.AntD
 open Fable.React
 
 type AntAffix() =
-    inherit AntElement(ofImport "Affix" "antd")
-    member x.OffsetBottom with set (v: float) = x.Attribute "offsetBottom" v 
-    member x.OffsetTop with set (v: float) = x.Attribute "offsetTop" v 
-    member x.Target with set (v: (unit -> ReactElement)) = x.Attribute "target" v 
-    member x.OnChange with set (v: (ReactElement -> unit)) = x.Attribute "onChange" v 
+    inherit AntElement<AntAffix>(ofImport "Affix" "antd")
+    member x.offsetBottom (v: float) = x.attribute "offsetBottom" v 
+    member x.offsetTop (v: float) = x.attribute "offsetTop" v 
+    member x.target (v: (unit -> ReactElement)) = x.attribute "target" v 
+    member x.onChange (v: (ReactElement -> unit)) = x.attribute "onChange" v 

@@ -4,8 +4,8 @@ open Fable.React
 
 type AntComment() =
     inherit AntElement(ofImport "Comment" "antd")
-    member x.Actions with set (v: ReactElement array) = x.Attribute "actions" v 
-    member x.Author with set (v: ReactElement) = x.Attribute "author" v 
-    member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
-    member x.Content with set (v: ReactElement) = x.Attribute "content" v 
-    member x.DateTime with set (v: ReactElement) = x.Attribute "datetime" v 
+    member x.Actions (v: ReactElement array) = x.attribute "actions" v 
+    member x.Author (v: ReactElement) = x.attribute "author" v 
+    member x.Avatar (v: ReactElement) = x.attribute "avatar" v 
+    member x.Content (v: ReactElement) = x.attribute "content" v 
+    member x.DateTime (v: ReactElement) = x.attribute "datetime" v 

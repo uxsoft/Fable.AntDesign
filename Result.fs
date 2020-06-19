@@ -7,8 +7,8 @@ open Fable.React
 
 type AntResult() =
     inherit AntElement(ofImport "Result" "antd")
-    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
-    member x.SubTitle with set (v: ReactElement) = x.Attribute "subTitle" v 
-    member x.Status with set (v: ResultStatus) = x.Attribute "status" v 
-    member x.Icon with set (v: ReactElement) = x.Attribute "icon" v 
-    member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
+    member x.Title (v: ReactElement) = x.attribute "title" v 
+    member x.SubTitle (v: ReactElement) = x.attribute "subTitle" v 
+    member x.Status (v: ResultStatus) = x.attribute "status" v 
+    member x.Icon (v: ReactElement) = x.attribute "icon" v 
+    member x.Extra (v: ReactElement) = x.attribute "extra" v 

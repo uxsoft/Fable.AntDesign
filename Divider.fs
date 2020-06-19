@@ -8,7 +8,7 @@ open Fable.React
         
 type AntDivider() =
     inherit AntElement(ofImport "Divider" "antd")
-    member x.ClassName with set (v: string) = x.Attribute "className" v 
-    member x.Dashed with set (v: bool) = x.Attribute "dashed" v 
-    member x.Orientation with set (v: DividerOrientation) = x.Attribute "orientation" v 
-    member x.Type with set (v: DividerType) = x.Attribute "type" v 
+    member x.ClassName (v: string) = x.attribute "className" v 
+    member x.Dashed (v: bool) = x.attribute "dashed" v 
+    member x.Orientation (v: DividerOrientation) = x.attribute "orientation" v 
+    member x.Type (v: DividerType) = x.attribute "type" v 

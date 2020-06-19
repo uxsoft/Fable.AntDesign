@@ -21,20 +21,20 @@ type CarouselDotPosition =
 type AntCarousel() =
     inherit AntElement(ofImport "Carousel" "antd")
     member x.AfterChange
-        with set (v: int -> unit) = x.Attribute "afterChange" v
+        (v: int -> unit) = x.attribute "afterChange" v
     member x.Autoplay
-        with set (v: bool) = x.Attribute "autoplay" v
+        (v: bool) = x.attribute "autoplay" v
 
     member x.BeforeChange
-        with set (v: int -> int -> unit) =
+        (v: int -> int -> unit) =
             let uncurried = System.Func<int, int, unit> v
-            x.Attribute "beforeChange" uncurried
+            x.attribute "beforeChange" uncurried
 
     member x.DotPosition
-        with set (v: CarouselDotPosition) = x.Attribute "dotPosition" v
+        (v: CarouselDotPosition) = x.attribute "dotPosition" v
     member x.Dots
-        with set (v: bool) = x.Attribute "dots" v
+        (v: bool) = x.attribute "dots" v
     member x.Easing
-        with set (v: CarouselEasing) = x.Attribute "easing" v
+        (v: CarouselEasing) = x.attribute "easing" v
     member x.Effect
-        with set (v: CarouselEffect) = x.Attribute "effect" v
+        (v: CarouselEffect) = x.attribute "effect" v

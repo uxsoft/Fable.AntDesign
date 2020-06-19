@@ -1,11 +1,9 @@
 namespace Fable.AntD
 
 open Fable.Core
-open Fable.Core.JsInterop
 open Fable.React
 open Fable.Core.JS
-
-//importSideEffects "regenerator-runtime/runtime"
+open System
 
 [<StringEnum; RequireQualifiedAccess>]
 type FormValidationStatus =
@@ -43,150 +41,77 @@ type FormLayout =
     | Vertical
     | Inline
 
-type FormFieldData =
-    { touched: bool
-      validating: bool
-      errors: string array
-      name: string array
-      value: string }
+type FormFieldData = {
+    touched: bool
+    validating: bool
+    errors: string array
+    name: string array
+    value: string
+}
 
 type AntFormRule() =
-    let props = System.Collections.Generic.List<string * obj>()
-
-    member internal x.Build() = createObj props
-    member internal x.Attribute name value = props.Add((name, unbox value))
-
-    member x.Enum
-        with set (v: string array) = x.Attribute "enum" v
-    member x.Len
-        with set (v: int) = x.Attribute "len" v
-    member x.Max
-        with set (v: int) = x.Attribute "max" v
-    member x.Message
-        with set (v: string) = x.Attribute "message" v
-    member x.Min
-        with set (v: int) = x.Attribute "min" v
-    member x.Pattern
-        with set (v: string) = x.Attribute "pattern" v
-    member x.Required
-        with set (v: bool) = x.Attribute "required" v
-    member x.Transform
-        with set (v: string -> string) = x.Attribute "transform" v
-    member x.Type
-        with set (v: string) = x.Attribute "type" v
-    member x.Validator
-        with set (v: AntFormRule -> string -> Promise<string>) =
-            let uncurried = System.Func<AntFormRule, string, Promise<string>> v
-            x.Attribute "validator" uncurried
-    member x.Whitespace
-        with set (v: bool) = x.Attribute "whitespace" v
-    member x.ValidateTrigger
-        with set (v: string array) = x.Attribute "validateTrigger" v
+    inherit AntObject<AntFormRule>()
+    member x.enum (v: string array) = x.attribute "enum" v
+    member x.len (v: int) = x.attribute "len" v
+    member x.max (v: int) = x.attribute "max" v
+    member x.message (v: string) = x.attribute "message" v
+    member x.min (v: int) = x.attribute "min" v
+    member x.pattern (v: string) = x.attribute "pattern" v
+    member x.required (v: bool) = x.attribute "required" v
+    member x.transform (v: string -> string) = x.attribute "transform" v
+    member x.objectType (v: string) = x.attribute "type" v
+    member x.validator (v: Func<AntFormRule, string, Promise<string>>) = x.attribute "validator" v
+    member x.whitespace (v: bool) = x.attribute "whitespace" v
+    member x.validateTrigger (v: string array) = x.attribute "validateTrigger" v
 
 type AntForm() =
-    inherit AntElement(ofImport "Form" "antd")
-    member x.Component
-        with set (v: ReactElement) = x.Attribute "component" v
-    member x.Colon
-        with set (v: bool) = x.Attribute "colon" v
-    member x.Fields
-        with set (v: FormFieldData array) = x.Attribute "fields" v
-    member x.Form
-        with set (v: ReactElement) = x.Attribute "form" v
-    member x.HideRequiredMark
-        with set (v: bool) = x.Attribute "hideRequiredMark" v
-    member x.InitialValues
-        with set (v: obj) = x.Attribute "initialValues" v
-    member x.LabelAlign
-        with set (v: FormLabelAlign) = x.Attribute "labelAlign" v
-    member x.LabelCol
-        with set (v: AntColumn) = x.Attribute "labelCol" v.Props
-    member x.Layout
-        with set (v: FormLayout) = x.Attribute "layout" v
-    member x.Name
-        with set (v: string) = x.Attribute "name" v
-    member x.Size
-        with set (v: Size) = x.Attribute "size" v
-    member x.ValidateMessages
-        with set (v: obj) = x.Attribute "validateMessages" v
-    member x.WrapperCol
-        with set (v: AntColumn) = x.Attribute "wrapperCol" v.Props
-    member x.OnFinish
-        with set (v: string array -> unit) = x.Attribute "onFinish" v
-    member x.OnFinishFailed
-        with set (v: obj -> unit) = x.Attribute "onFinishFailed" v
-    member x.OnFieldsChange
-        with set (v: string array -> string array -> unit) =
-            let uncurried = System.Func<string array, string array, unit> v
-            x.Attribute "onFieldsChange" uncurried
-    member x.OnValuesChange
-        with set (v: string array -> string array -> unit) =
-            let uncurried = System.Func<string array, string array, unit> v
-            x.Attribute "onValuesChange" uncurried
+    inherit AntElement<AntForm>(ofImport "Form" "antd")
+    member x.component (v: ReactElement) = x.attribute "component" v
+    member x.colon (v: bool) = x.attribute "colon" v
+    member x.fields (v: FormFieldData array) = x.attribute "fields" v
+    member x.form (v: ReactElement) = x.attribute "form" v
+    member x.hideRequiredMark (v: bool) = x.attribute "hideRequiredMark" v
+    member x.initialValues (v: obj) = x.attribute "initialValues" v
+    member x.labelAlign (v: FormLabelAlign) = x.attribute "labelAlign" v
+    member x.labelCol (v: AntColumn) = x.attribute "labelCol" v.JSON
+    member x.layout (v: FormLayout) = x.attribute "layout" v
+    member x.name (v: string) = x.attribute "name" v
+    member x.size (v: Size) = x.attribute "size" v
+    member x.validateMessages (v: obj) = x.attribute "validateMessages" v
+    member x.wrapperCol (v: AntColumn) = x.attribute "wrapperCol" v.JSON
+    member x.onFinish (v: string array -> unit) = x.attribute "onFinish" v
+    member x.onFinishFailed (v: obj -> unit) = x.attribute "onFinishFailed" v
+    member x.onFieldsChange (v: Func<string array, string array, unit>) = x.attribute "onFieldsChange" v
+    member x.onValuesChange (v: Func<string array, string array, unit>) = x.attribute "onValuesChange" v
 
 type AntFormItem() =
-    inherit AntElement(ofImport "Form.Item" "antd")
-    member x.Key
-        with set (v: string) = x.Attribute "key" v
-    member x.Colon
-        with set (v: bool) = x.Attribute "colon" v
-    member x.Dependencies
-        with set (v: string array) = x.Attribute "dependencies" v
-    member x.Extra
-        with set (v: ReactElement) = x.Attribute "extra" v
-    member x.HasFeedback
-        with set (v: bool) = x.Attribute "hasFeedback" v
-    member x.Help
-        with set (v: ReactElement) = x.Attribute "help" v
-    member x.HtmlFor
-        with set (v: string) = x.Attribute "htmlFor" v
-    member x.NoStyle
-        with set (v: bool) = x.Attribute "noStyle" v
-    member x.Label
-        with set (v: ReactElement) = x.Attribute "label" v
-    member x.LabelAlign
-        with set (v: FormLabelAlign) = x.Attribute "labelAlign" v
-    member x.LabelCol
-        with set (v: obj) = x.Attribute "labelCol" v
-    member x.Name
-        with set (v: string) = x.Attribute "name" v
-    member x.Normalize
-        with set (v: string -> string -> string array -> string) =
-            let uncurried = System.Func<string, string, string array, string> v
-            x.Attribute "normalize" uncurried
-    member x.Required
-        with set (v: bool) = x.Attribute "required" v
-    member x.ShouldUpdate
-        with set (v: bool) = x.Attribute "shouldUpdate" v
-    member x.Trigger
-        with set (v: string) = x.Attribute "trigger" v
-    member x.ValidationStatus
-        with set (v: FormValidationStatus) = x.Attribute "validationStatus" v
-    member x.ValidateTrigger
-        with set (v: string array) = x.Attribute "validateTrigger" v
-    member x.ValuePropName
-        with set (v: string) = x.Attribute "valuePropName" v
-    member x.WrapperCol
-        with set (v: obj) = x.Attribute "wrapperCol" v
-    member x.Rules
-        with set (rules: AntFormRule list) =
-            x.Attribute "rules"
-                (rules
-                 |> List.map (fun rule -> rule.Build())
-                 |> List.toArray)
+    inherit AntElement<AntFormItem>(ofImport "Form.Item" "antd")
+    member x.colon (v: bool) = x.attribute "colon" v
+    member x.dependencies (v: string array) = x.attribute "dependencies" v
+    member x.extra (v: ReactElement) = x.attribute "extra" v
+    member x.hasFeedback (v: bool) = x.attribute "hasFeedback" v
+    member x.help (v: ReactElement) = x.attribute "help" v
+    member x.htmlFor (v: string) = x.attribute "htmlFor" v
+    member x.noStyle (v: bool) = x.attribute "noStyle" v
+    member x.label (v: ReactElement) = x.attribute "label" v
+    member x.labelAlign (v: FormLabelAlign) = x.attribute "labelAlign" v
+    member x.labelCol (v: obj) = x.attribute "labelCol" v
+    member x.name (v: string) = x.attribute "name" v
+    member x.normalize (v: Func<string, string, string array, string>) = x.attribute "normalize" v
+    member x.required (v: bool) = x.attribute "required" v
+    member x.shouldUpdate (v: bool) = x.attribute "shouldUpdate" v
+    member x.trigger (v: string) = x.attribute "trigger" v
+    member x.validationStatus (v: FormValidationStatus) = x.attribute "validationStatus" v
+    member x.validateTrigger (v: string array) = x.attribute "validateTrigger" v
+    member x.valuePropName (v: string) = x.attribute "valuePropName" v
+    member x.wrapperCol (v: obj) = x.attribute "wrapperCol" v
+    member x.rules (rules: AntFormRule array) = x.attribute "rules" (rules |> Array.map (fun rule -> rule.JSON))
 
 type AntFormList() =
-    inherit AntElement(ofImport "Form.List" "antd")
-    member x.Name
-        with set (v: string) = x.Attribute "name" v
+    inherit AntElement<AntFormList>(ofImport "Form.List" "antd")
+    member x.name (v: string) = x.attribute "name" v
 
 type AntFormProvider() =
-    inherit AntElement(ofImport "Form.Provider" "antd")
-    member x.OnFormChange
-        with set (v: string -> obj -> unit) =
-            let uncurried = System.Func<string, obj, unit> v
-            x.Attribute "onFormChange" uncurried
-    member x.OnFormFinish
-        with set (v: string -> obj -> unit) =
-            let uncurried = System.Func<string, obj, unit> v
-            x.Attribute "onFormFinish" uncurried
+    inherit AntElement<AntFormProvider>(ofImport "Form.Provider" "antd")
+    member x.onFormChange (v: Func<string, obj, unit>) = x.attribute "onFormChange" v
+    member x.onFormFinish (v: Func<string, obj, unit>) = x.attribute "onFormFinish" v

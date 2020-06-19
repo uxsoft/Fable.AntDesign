@@ -24,37 +24,37 @@ type StepsStatus =
 type AntSteps() =
     inherit AntElement(ofImport "Steps" "antd")
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.Type
-        with set (v: StepsType) = x.Attribute "type" v
+        (v: StepsType) = x.attribute "type" v
     member x.Current
-        with set (v: int) = x.Attribute "current" v
+        (v: int) = x.attribute "current" v
     member x.Direction
-        with set (v: StepsOrientation) = x.Attribute "direction" v
+        (v: StepsOrientation) = x.attribute "direction" v
     member x.LabelPlacement
-        with set (v: StepsOrientation) = x.Attribute "labelPlacement" v
+        (v: StepsOrientation) = x.attribute "labelPlacement" v
     member x.ProgressDot
-        with set (v: bool) = x.Attribute "progressDot" v
+        (v: bool) = x.attribute "progressDot" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.Status
-        with set (v: StepsStatus) = x.Attribute "status" v
+        (v: StepsStatus) = x.attribute "status" v
     member x.Initial
-        with set (v: int) = x.Attribute "initial" v
+        (v: int) = x.attribute "initial" v
     member x.OnChange
-        with set (v: int -> unit) = x.Attribute "onChange" v
+        (v: int -> unit) = x.attribute "onChange" v
 
 type AntStepsItem() =
     inherit AntElement(ofImport "Steps.Step" "antd")
     member x.Description
-        with set (v: ReactElement) = x.Attribute "description" v
+        (v: ReactElement) = x.attribute "description" v
     member x.Icon
-        with set (v: ReactElement) = x.Attribute "icon" v
+        (v: ReactElement) = x.attribute "icon" v
     member x.Status
-        with set (v: StepsStatus) = x.Attribute "status" v
+        (v: StepsStatus) = x.attribute "status" v
     member x.Title
-        with set (v: ReactElement) = x.Attribute "title" v
+        (v: ReactElement) = x.attribute "title" v
     member x.SubTitle
-        with set (v: ReactElement) = x.Attribute "subTitle" v
+        (v: ReactElement) = x.attribute "subTitle" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v

@@ -6,6 +6,6 @@ open Fable.React
 
 type AntEmpty() =
     inherit AntElement(ofImport "Empty" "antd")
-    member x.Description with set (v: ReactElement) = x.Attribute "description" v 
-    member x.Image with set (v: ReactElement) = x.Attribute "image" v 
-    member x.ImageStyle (css: Props.CSSProp list) = x.Attribute "imageStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.Description (v: ReactElement) = x.attribute "description" v 
+    member x.Image (v: ReactElement) = x.attribute "image" v 
+    member x.ImageStyle (css: Props.CSSProp list) = x.attribute "imageStyle" (keyValueList CaseRules.LowerFirst css)

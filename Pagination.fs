@@ -2,6 +2,7 @@ namespace Fable.AntD
 
 open Fable.Core
 open Fable.React
+open System
 
 [<StringEnum; RequireQualifiedAccess>]
 type PaginationType =
@@ -17,48 +18,22 @@ type PaginationSize =
     | Default
 
 type AntPagination() =
-    inherit AntElement(ofImport "Pagination" "antd")
-    member x.Current
-        with set (v: int) = x.Attribute "current" v
-    member x.DefaultCurrent
-        with set (v: int) = x.Attribute "defaultCurrent" v
-    member x.DefaultPageSize
-        with set (v: int) = x.Attribute "defaultPageSize" v
-    member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
-    member x.HideOnSinglePage
-        with set (v: bool) = x.Attribute "hideOnSinglePage" v
-    member x.ItemRender
-        with set (v: int -> PaginationType -> ReactElement -> ReactElement) =
-            let uncurried = System.Func<int, PaginationType, ReactElement, ReactElement> v
-            x.Attribute "itemRender" uncurried
-    member x.PageSize
-        with set (v: int) = x.Attribute "pageSize" v
-    member x.PageSizeOptions
-        with set (v: string []) = x.Attribute "pageSizeOptions" v
-    member x.ShowLessItems
-        with set (v: bool) = x.Attribute "showLessItems" v
-    member x.ShowQuickJumper
-        with set (v: bool) = x.Attribute "showQuickJumper" v
-    member x.ShowSizeChanger
-        with set (v: bool) = x.Attribute "showSizeChanger" v
-    member x.ShowTitle
-        with set (v: bool) = x.Attribute "showTitle" v
-    member x.ShowTotal
-        with set (v: int -> (int * int) -> ReactElement) =
-            let uncurried = System.Func<int, int * int, ReactElement> v
-            x.Attribute "showTotal" uncurried
-    member x.Simple
-        with set (v: bool) = x.Attribute "simple" v
-    member x.Size
-        with set (v: PaginationSize) = x.Attribute "size" v
-    member x.Total
-        with set (v: int) = x.Attribute "total" v
-    member x.OnChange
-        with set (v: int -> int -> unit) =
-            let uncurried = System.Func<int, int, unit> v
-            x.Attribute "onChange" uncurried
-    member x.OnShowSizeChange
-        with set (v: int -> int -> unit) =
-            let uncurried = System.Func<int, int, unit> v        
-            x.Attribute "onShowSizeChange" uncurried
+    inherit AntElement<AntPagination>(ofImport "Pagination" "antd")
+    member x.current (v: int) = x.attribute "current" v
+    member x.defaultCurrent (v: int) = x.attribute "defaultCurrent" v
+    member x.defaultPageSize (v: int) = x.attribute "defaultPageSize" v
+    member x.disabled (v: bool) = x.attribute "disabled" v
+    member x.hideOnSinglePage (v: bool) = x.attribute "hideOnSinglePage" v
+    member x.itemRender (v: Func<int, PaginationType, ReactElement, ReactElement>) = x.attribute "itemRender" v
+    member x.pageSize (v: int) = x.attribute "pageSize" v
+    member x.pageSizeOptions (v: string []) = x.attribute "pageSizeOptions" v
+    member x.showLessItems (v: bool) = x.attribute "showLessItems" v
+    member x.showQuickJumper (v: bool) = x.attribute "showQuickJumper" v
+    member x.showSizeChanger (v: bool) = x.attribute "showSizeChanger" v
+    member x.showTitle (v: bool) = x.attribute "showTitle" v
+    member x.showTotal (v: Func<int, int * int, ReactElement>) = x.attribute "showTotal" v
+    member x.simple (v: bool) = x.attribute "simple" v
+    member x.size (v: PaginationSize) = x.attribute "size" v
+    member x.total (v: int) = x.attribute "total" v
+    member x.onChange (v: Func<int, int, unit>) = x.attribute "onChange" v
+    member x.onShowSizeChange (v: Func<int, int, unit>) = x.attribute "onShowSizeChange" v

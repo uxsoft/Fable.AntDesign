@@ -10,22 +10,22 @@ type RowAlign = Top | Middle | Bottom
 type RowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
 
 type AntRow() =
-    inherit AntElement(ofImport "Row" "antd")
-    member x.Align with set (v: RowAlign) = x.Attribute "align" v 
-    member x.Gutter with set (v: int) = x.Attribute "gutter" v  
-    member x.Justify with set (v: RowJustify) = x.Attribute "justify" v 
+    inherit AntElement<AntRow>(ofImport "Row" "antd")
+    member x.align (v: RowAlign) = x.attribute "align" v 
+    member x.gutter (v: int) = x.attribute "gutter" v  
+    member x.justify (v: RowJustify) = x.attribute "justify" v 
 
 type AntColumn() =
-    inherit AntElement(ofImport "Col" "antd")
-    member x.Flex with set (v: string) = x.Attribute "flex" v 
-    member x.Offset with set (v: int) = x.Attribute "offset" v 
-    member x.Order with set (v: int) = x.Attribute "order" v 
-    member x.Pull with set (v: int) = x.Attribute "pull" v 
-    member x.Push with set (v: int) = x.Attribute "push" v 
-    member x.Span with set (v: int) = x.Attribute "span" v 
-    member x.Xs with set (v: int) = x.Attribute "xs" v 
-    member x.Sm with set (v: int) = x.Attribute "sm" v 
-    member x.Md with set (v: int) = x.Attribute "md" v 
-    member x.Lg with set (v: int) = x.Attribute "lg" v 
-    member x.Xl with set (v: int) = x.Attribute "xl" v 
-    member x.Xxl with set (v: int) = x.Attribute "xxl" v 
+    inherit AntElement<AntColumn>(ofImport "Col" "antd")
+    member x.flex (v: string) = x.attribute "flex" v 
+    member x.offset (v: int) = x.attribute "offset" v 
+    member x.order (v: int) = x.attribute "order" v 
+    member x.pull (v: int) = x.attribute "pull" v 
+    member x.push (v: int) = x.attribute "push" v 
+    member x.span (v: int) = x.attribute "span" v 
+    member x.xs (v: int) = x.attribute "xs" v 
+    member x.sm (v: int) = x.attribute "sm" v 
+    member x.md (v: int) = x.attribute "md" v 
+    member x.lg (v: int) = x.attribute "lg" v 
+    member x.xl (v: int) = x.attribute "xl" v 
+    member x.xxl (v: int) = x.attribute "xxl" v 

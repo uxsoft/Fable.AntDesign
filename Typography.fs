@@ -8,21 +8,21 @@ type TypographyType = Secondary | Warning | Danger
 
 type AntText (?partialImport) =
     inherit AntElement(defaultArg partialImport (ofImport "Typography.Text" "antd"))
-    member x.Code with set (v: bool) = x.Attribute "code" v 
-    member x.Copyable with set (v: bool) = x.Attribute "copyable" v 
-    member x.Delete with set (v: bool) = x.Attribute "delete" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Editable with set (v: bool) = x.Attribute "editable" v 
-    member x.Ellipsis with set (v: bool) = x.Attribute "ellipsis" v 
-    member x.Mark with set (v: bool) = x.Attribute "mark" v 
-    member x.Underline with set (v: bool) = x.Attribute "underline" v 
-    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
-    member x.Strong with set (v: bool) = x.Attribute "strong" v 
-    member x.Type with set (v: TypographyType) = x.Attribute "type" v 
+    member x.Code (v: bool) = x.attribute "code" v 
+    member x.Copyable (v: bool) = x.attribute "copyable" v 
+    member x.Delete (v: bool) = x.attribute "delete" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Editable (v: bool) = x.attribute "editable" v 
+    member x.Ellipsis (v: bool) = x.attribute "ellipsis" v 
+    member x.Mark (v: bool) = x.attribute "mark" v 
+    member x.Underline (v: bool) = x.attribute "underline" v 
+    member x.OnChange (v: (string -> unit)) = x.attribute "onChange" v 
+    member x.Strong (v: bool) = x.attribute "strong" v 
+    member x.Type (v: TypographyType) = x.attribute "type" v 
 
 type AntTitle() =
    inherit AntText(ofImport "Typography.Title" "antd")
-   member x.Level with set (v: int) = x.Attribute "level" v 
+   member x.Level (v: int) = x.attribute "level" v 
 
 type AntParagraph() =
    inherit AntText(ofImport "Typography.Paragraph" "antd")

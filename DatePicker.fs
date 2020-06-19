@@ -24,181 +24,181 @@ type DatePickerPicker =
 type AntDatePickerBase(partialImport) =
     inherit AntElement(partialImport)
     member x.AllowClear
-        with set (v: bool) = x.Attribute "allowClear" v
+        (v: bool) = x.attribute "allowClear" v
     member x.AutoFocus
-        with set (v: bool) = x.Attribute "autoFocus" v
+        (v: bool) = x.attribute "autoFocus" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
 
     member x.DateRender
-        with set (v: Moment -> Moment -> ReactElement) =
+        (v: Moment -> Moment -> ReactElement) =
             let uncurried = System.Func<Moment, Moment, ReactElement> v
-            x.Attribute "dateRender" uncurried
+            x.attribute "dateRender" uncurried
 
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.DisabledDate
-        with set (v: Moment -> bool) = x.Attribute "disabledDate" v
+        (v: Moment -> bool) = x.attribute "disabledDate" v
     member x.DropdownClassName
-        with set (v: string) = x.Attribute "dropdownClassName" v
+        (v: string) = x.attribute "dropdownClassName" v
     member x.GetPopupContainer
-        with set (v: string -> HTMLElement) = x.Attribute "getPopupContainer" v
+        (v: string -> HTMLElement) = x.attribute "getPopupContainer" v
     member x.Locale
-        with set (v: obj) = x.Attribute "locale" v
+        (v: obj) = x.attribute "locale" v
     member x.Mode
-        with set (v: DatePickerMode) = x.Attribute "mode" v
+        (v: DatePickerMode) = x.attribute "mode" v
     member x.Open
-        with set (v: bool) = x.Attribute "open" v
+        (v: bool) = x.attribute "open" v
     member x.Picker
-        with set (v: DatePickerPicker) = x.Attribute "picker" v
+        (v: DatePickerPicker) = x.attribute "picker" v
     member x.Placeholder
-        with set (v: string) = x.Attribute "placeholder" v
-    member x.PopupStyle(css: Props.CSSProp list) = x.Attribute "popupStyle" (keyValueList CaseRules.LowerFirst css)
+        (v: string) = x.attribute "placeholder" v
+    member x.PopupStyle(css: Props.CSSProp list) = x.attribute "popupStyle" (keyValueList CaseRules.LowerFirst css)
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.Bordered
-        with set (v: bool) = x.Attribute "bordered" v
+        (v: bool) = x.attribute "bordered" v
     member x.SuffixIcon
-        with set (v: ReactElement) = x.Attribute "suffixIcon" v
+        (v: ReactElement) = x.attribute "suffixIcon" v
     member x.OnOpenChange
-        with set (v: bool -> unit) = x.Attribute "onOpenChange" v
+        (v: bool -> unit) = x.attribute "onOpenChange" v
 
     member x.OnPanelChange
-        with set (v: Moment -> DatePickerMode -> unit) =
+        (v: Moment -> DatePickerMode -> unit) =
             let uncurried = System.Func<Moment, DatePickerMode, unit> v
-            x.Attribute "onPanelChange" uncurried
+            x.attribute "onPanelChange" uncurried
 
     member x.InputReadOnly
-        with set (v: bool) = x.Attribute "inputReadOnly" v
+        (v: bool) = x.attribute "inputReadOnly" v
 
 type AntDatePicker() =
     inherit AntDatePickerBase(ofImport "DatePicker" "antd")
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+        (v: Moment) = x.attribute "defaultPickerValue" v
     member x.DisabledTime
-        with set (v: Moment -> bool) = x.Attribute "disabledTime" v
+        (v: Moment -> bool) = x.attribute "disabledTime" v
     member x.Format
-        with set (v: string array) = x.Attribute "format" v
+        (v: string array) = x.attribute "format" v
     member x.RenderExtraFooter
-        with set (v: DatePickerMode -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: DatePickerMode -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.ShowTime
-        with set (v: bool) = x.Attribute "showTime" v
+        (v: bool) = x.attribute "showTime" v
     member x.ShowToday
-        with set (v: bool) = x.Attribute "showToday" v
+        (v: bool) = x.attribute "showToday" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
 
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
     member x.OnOk
-        with set (v: unit -> unit) = x.Attribute "onOk" v
+        (v: unit -> unit) = x.attribute "onOk" v
 
 type AntYearPicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.YearPicker" "antd")
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+        (v: Moment) = x.attribute "defaultPickerValue" v
     member x.Format
-        with set (v: string) = x.Attribute "format" v
+        (v: string) = x.attribute "format" v
     member x.RenderExtraFooter
-        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: unit -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
 type AntQuarterPicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.QuarterPicker" "antd")
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+        (v: Moment) = x.attribute "defaultPickerValue" v
     member x.Format
-        with set (v: string) = x.Attribute "format" v
+        (v: string) = x.attribute "format" v
     member x.RenderExtraFooter
-        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: unit -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
 type AntMonthPicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.MonthPicker" "antd")
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+        (v: Moment) = x.attribute "defaultPickerValue" v
     member x.Format
-        with set (v: string) = x.Attribute "format" v
+        (v: string) = x.attribute "format" v
     member x.MonthCellContentRender
-        with set (v: string -> string -> ReactElement) =
+        (v: string -> string -> ReactElement) =
             let uncurried = System.Func<string, string, ReactElement> v
-            x.Attribute "monthCellContentRender" uncurried
+            x.attribute "monthCellContentRender" uncurried
     member x.RenderExtraFooter
-        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: unit -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
 type AntWeekPicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.WeekPicker" "antd")
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment) = x.Attribute "defaultPickerValue" v
+        (v: Moment) = x.attribute "defaultPickerValue" v
     member x.Format
-        with set (v: string) = x.Attribute "format" v
+        (v: string) = x.attribute "format" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
     member x.RenderExtraFooter
-        with set (v: DatePickerMode -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: DatePickerMode -> ReactElement) = x.attribute "renderExtraFooter" v
 
 type AntRangePicker() =
     inherit AntDatePickerBase(ofImport "DatePicker.RangePicker" "antd")
     member x.AllowEmpty
-        with set (v: bool array) = x.Attribute "allowEmpty" v
+        (v: bool array) = x.attribute "allowEmpty" v
     member x.DefaultValue
-        with set (v: Moment array) = x.Attribute "defaultValue" v
+        (v: Moment array) = x.attribute "defaultValue" v
     member x.DefaultPickerValue
-        with set (v: Moment array) = x.Attribute "defaultPickerValue" v
+        (v: Moment array) = x.attribute "defaultPickerValue" v
     member x.Disabled
-        with set (v: bool array) = x.Attribute "disabled" v
+        (v: bool array) = x.attribute "disabled" v
     member x.DisabledTime
-        with set (v: Moment array * string -> bool) = x.Attribute "disabledTime" v
+        (v: Moment array * string -> bool) = x.attribute "disabledTime" v
     member x.Format
-        with set (v: string array) = x.Attribute "Format" v
+        (v: string array) = x.attribute "Format" v
     member x.Ranges
-        with set (v: obj) = x.Attribute "ranges" v
+        (v: obj) = x.attribute "ranges" v
     member x.RenderExtraFooter
-        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: unit -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.Separator
-        with set (v: string) = x.Attribute "separator" v
+        (v: string) = x.attribute "separator" v
     member x.ShowTime
-        with set (v: bool) = x.Attribute "showTime" v
+        (v: bool) = x.attribute "showTime" v
     member x.Value
-        with set (v: Moment array) = x.Attribute "value" v
+        (v: Moment array) = x.attribute "value" v
     member x.OnCalendarChange
-        with set (v: Moment array -> string array -> unit) =
+        (v: Moment array -> string array -> unit) =
             let uncurried = System.Func<Moment array, string array, unit> v
-            x.Attribute "onCalendarChange" uncurried
+            x.attribute "onCalendarChange" uncurried
     member x.OnChange
-        with set (v: Moment array -> string array -> unit) =
+        (v: Moment array -> string array -> unit) =
             let uncurried = System.Func<Moment array, string array, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
