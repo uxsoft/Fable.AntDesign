@@ -12,6 +12,7 @@ type AntSkeleton() =
     member x.loading (v: bool) = x.attribute "loading" v
     member x.paragraph (v: bool) = x.attribute "paragraph" v
     member x.title (v: bool) = x.attribute "title" v
+    member x.round (v: bool) = x.attribute "round" v
 
 type AntSkeletonAvatar() =
     inherit AntElement<AntSkeletonAvatar>(ofImport "Skeleton.Avatar" "antd")

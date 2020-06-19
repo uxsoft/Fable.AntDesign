@@ -42,3 +42,4 @@ type AntStepsItem() =
     member x.title (v: ReactElement) = x.attribute "title" v
     member x.subTitle (v: ReactElement) = x.attribute "subTitle" v
     member x.disabled (v: bool) = x.attribute "disabled" v
+    

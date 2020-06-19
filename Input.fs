@@ -4,8 +4,8 @@ open Browser.Types
 open Fable.React
 open System
 
-type AntInput() =
-    inherit AntElement<AntInput>(ofImport "Input" "antd")
+type AntInputBase<'T when 'T :> AntElement<'T>>(partialImport) =
+    inherit AntElement<'T>(partialImport)
     member x.addonAfter (v: ReactElement) = x.attribute "addonAfter" v 
     member x.addonBefore (v: ReactElement) = x.attribute "addonBefore" v 
     member x.defaultValue (v: string) = x.attribute "defaultValue" v 
@@ -22,6 +22,9 @@ type AntInput() =
     member x.onPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
     member x.allowClear (v: bool) = x.attribute "allowClear" v 
     member x.placeholder (v: string) = x.attribute "placeholder" v 
+
+type AntInput() =
+    inherit AntInputBase<AntInput>(ofImport "Input" "antd")
 
 type AutoSizeType = { minRows: int option; maxRows: int option }
 
@@ -34,25 +37,10 @@ type AntTextArea() =
     member x.onPressEnter (v: (KeyboardEvent -> unit)) = x.attribute "onPressEnter" v 
     member x.allowClear (v: bool) = x.attribute "allowClear" v
     member x.onChange (v: (Event -> unit)) = x.attribute "onChange" v 
-   
+    member x.onResize (v: Func<{| width: float; height: float |}, unit>) = x.attribute "onResize"  v  
+
 type AntSearch() =
-    inherit AntElement<AntSearch>(ofImport "Input.Search" "antd")
-    member x.addonAfter (v: ReactElement) = x.attribute "addonAfter" v 
-    member x.addonBefore (v: ReactElement) = x.attribute "addonBefore" v 
-    member x.defaultValue (v: string) = x.attribute "defaultValue" v 
-    member x.disabled (v: bool) = x.attribute "disabled" v 
-    member x.id (v: string) = x.attribute "id" v 
-    member x.maxLength (v: int) = x.attribute "maxLength" v 
-    member x.prefix (v: ReactElement) = x.attribute "prefix" v 
-    member x.size (v: Size) = x.attribute "size" v 
-    member x.suffix (v: ReactElement) = x.attribute "suffix" v 
-    member x.htmlType (v: string) = x.attribute "type" v 
-    member x.tabIndex (v: int) = x.attribute "tabIndex" v 
-    member x.value (v: string) = x.attribute "value" v 
-    member x.onChange (v: (Event -> unit)) = x.attribute "onChange" v 
-    member x.onPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
-    member x.allowClear (v: bool) = x.attribute "allowClear" v 
-    member x.placeholder (v: string) = x.attribute "placeholder" v 
+    inherit AntInputBase<AntSearch>(ofImport "Input.Search" "antd")
     member x.enterButton (v: bool) = x.attribute "enterButton" v
     member x.showEnterButton (v: ReactElement) = x.attribute "enterButton" v
     member x.loading (v: bool) = x.attribute "loading" v 
@@ -64,21 +52,5 @@ type AntInputGroup() =
     member x.size (v: Size) = x.attribute "size" v 
 
 type AntPassword() =
-    inherit AntElement<AntPassword>(ofImport "Input.Password" "antd")
-    member x.addonAfter (v: ReactElement) = x.attribute "addonAfter" v 
-    member x.addonBefore (v: ReactElement) = x.attribute "addonBefore" v 
-    member x.defaultValue (v: string) = x.attribute "defaultValue" v 
-    member x.disabled (v: bool) = x.attribute "disabled" v 
-    member x.id (v: string) = x.attribute "id" v 
-    member x.maxLength (v: int) = x.attribute "maxLength" v 
-    member x.prefix (v: ReactElement) = x.attribute "prefix" v 
-    member x.size (v: Size) = x.attribute "size" v 
-    member x.suffix (v: ReactElement) = x.attribute "suffix" v 
-    member x.htmlType (v: string) = x.attribute "type" v 
-    member x.tabIndex (v: int) = x.attribute "tabIndex" v 
-    member x.value (v: string) = x.attribute "value" v 
-    member x.onChange (v: (Event -> unit)) = x.attribute "onChange" v 
-    member x.onPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
-    member x.allowClear (v: bool) = x.attribute "allowClear" v 
-    member x.placeholder (v: string) = x.attribute "placeholder" v     
+    inherit AntInputBase<AntPassword>(ofImport "Input.Password" "antd")
     member x.visibilityToggle (v: bool) = x.attribute "visibilityToggle" v 

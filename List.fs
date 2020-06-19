@@ -51,16 +51,16 @@ type AntList<'T>() =
     member x.loading (v: bool) = x.attribute "loading" v 
     member x.loadMore (v: ReactElement) = x.attribute "loadMore" v 
     member x.locale (v: obj) = x.attribute "locale" v 
+    member x.pagination (v: AntPagination) = x.attribute "pagination" v.JSON
+    member x.size (v: Size) = x.attribute "size" v
     member x.split (v: bool) = x.attribute "split" v 
     member x.dataSource (v: ('T array)) = x.attribute "dataSource" v 
     member x.renderItem (v: ('T -> ReactElement)) = x.attribute "renderItem" v  
-    member x.pagination (pagination: AntPagination) = x.attribute "pagination" pagination.JSON
 
 type AntListItem() =
     inherit AntElement<AntListItem>(ofImport "List.Item" "antd")
     member x.extra (v: ReactElement) = x.attribute "extra" v 
     member x.actions (v: ReactElement[]) = x.attribute "actions" v 
-    member x.key (v: string) = x.attribute "key" v 
 
 type AntListItemMeta() =
     inherit AntElement<AntListItemMeta>(ofImport "List.Item.Meta" "antd")

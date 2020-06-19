@@ -14,4 +14,5 @@ type AntAvatar() =
     member x.src (v: string) = x.attribute "src" v 
     member x.srcSet (v: string) = x.attribute "srcSet" v 
     member x.alt (v: string) = x.attribute "alt" v 
-    member x.onError (v: (unit -> bool)) = x.attribute "onError" v 
+    member x.onError (v: (unit -> bool)) = x.attribute "onError" v
+    member x.gap (v: int) = x.attribute "gap" v

@@ -29,6 +29,7 @@ type AntTabs() =
     member x.size (v: Size) = x.attribute "size" v
     member x.tabBarExtraContent (v: ReactElement) = x.attribute "tabBarExtraContent" v
     member x.tabBarGutter (v: float) = x.attribute "tabBarGutter" v
+    member x.tabBarStyle(css: Props.CSSProp list) = x.attribute "tabBarStyle" (keyValueList CaseRules.LowerFirst css)
     member x.tabPosition (v: TabsPosition) = x.attribute "tabPosition" v
     member x.tabsType (v: TabsType) = x.attribute "type" v
     member x.onChange (v: string -> unit) = x.attribute "onChange" v
@@ -36,9 +37,10 @@ type AntTabs() =
     member x.onNextClick (v: unit -> unit) = x.attribute "onNextClick" v
     member x.onPrevClick (v: unit -> unit) = x.attribute "onPrevClick" v
     member x.onTabClick (v: Func<string, Event, unit>) = x.attribute "onTabClick" v
-    member x.tabBarStyle(css: Props.CSSProp list) = x.attribute "tabBarStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.keyboard (v: bool) = x.attribute "keyboard" v
 
 type AntTabsPane() =
     inherit AntElement<AntTabsPane>(ofImport "Tabs.TabPane" "antd")
     member x.forceRender (v: bool) = x.attribute "forceRender" v
     member x.tab (v: ReactElement) = x.attribute "tab" v
+    member x.closeIcon (v: ReactElement) = x.attribute "closeIcon" v

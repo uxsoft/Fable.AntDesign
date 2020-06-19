@@ -42,6 +42,7 @@ type AntCascader() =
     inherit AntElement<AntCascader>(ofImport "Cascader" "antd")
     member x.alowClear (v: bool) = x.attribute "allowClear" v
     member x.autoFocus (v: bool) = x.attribute "autoFocus" v
+    member x.bordered (v: bool) = x.attribute "bordered" v
     member x.changeOnSelect (v: bool) = x.attribute "changeOnSelect" v
     member x.className (v: string) = x.attribute "className" v
     member x.defaultValue (v: string array) = x.attribute "defaultValue" v

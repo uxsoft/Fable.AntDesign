@@ -18,6 +18,5 @@ open Fable.React
         member x.disabled (v: bool) = x.attribute "disabled" v 
         member x.forceRender (v: bool) = x.attribute "forceRender" v 
         member x.header (v: ReactElement) = x.attribute "header" v 
-        member x.ley (v: string) = x.attribute "key" v 
         member x.showArrow (v: bool) = x.attribute "showArrow" v 
         member x.extra (v: ReactElement) = x.attribute "extra" v 

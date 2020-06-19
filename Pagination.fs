@@ -34,6 +34,7 @@ type AntPagination() =
     member x.showTotal (v: Func<int, int * int, ReactElement>) = x.attribute "showTotal" v
     member x.simple (v: bool) = x.attribute "simple" v
     member x.size (v: PaginationSize) = x.attribute "size" v
+    member x.responsive (v: bool) = x.attribute "responsive" v
     member x.total (v: int) = x.attribute "total" v
     member x.onChange (v: Func<int, int, unit>) = x.attribute "onChange" v
     member x.onShowSizeChange (v: Func<int, int, unit>) = x.attribute "onShowSizeChange" v

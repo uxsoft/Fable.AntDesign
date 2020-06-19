@@ -26,6 +26,11 @@ type SelectMode =
     | [<CompiledName("tags")>] Tag
     | Default
 
+type SelectOption = {
+    label: ReactElement
+    value: string
+}
+
 type AntSelect() =
     inherit AntElement<AntSelect>(ofImport "Select" "antd")
     member x.allowClear (v: bool) = x.attribute "allowClear" v
@@ -36,16 +41,20 @@ type AntSelect() =
     member x.disabled (v: bool) = x.attribute "disabled" v
     member x.dropdownClassName (v: string) = x.attribute "dropdownClassName" v
     member x.dropdownMatchSelectWidth (v: bool) = x.attribute "dropdownMatchSelectWidth" v
-    member x.dropDownRender (v: Func<ReactElement, obj, ReactElement>) = x.attribute "dropDownRender" v
+    member x.dropDownRender (v: Func<ReactElement, ReactElement>) = x.attribute "dropDownRender" v
+    member x.dropdownStyle(css: Props.CSSProp list) = x.attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
     member x.filterOption (v: Func<string, string, bool>) = x.attribute "filterOption" v
     member x.firstActiveValue (v: string array) = x.attribute "firstActiveValue" v
     member x.getPopupContainer (v: ReactElement -> HTMLElement) = x.attribute "getPopupContainer" v
     member x.labelInValue (v: bool) = x.attribute "labelInValue" v
+    member x.listHeight (v: int) = x.attribute "listHeight" v
     member x.maxTagCount (v: int) = x.attribute "maxTagCount" v
     member x.maxTagTextLength (v: int) = x.attribute "maxTagTextLength" v
     member x.maxTagPlaceholder (v: string array -> ReactElement) = x.attribute "maxTagPlaceholder" v
+    member x.tagRender (v: Func<SelectOption, ReactElement>) = x.attribute "tagRender" v
     member x.mode (v: SelectMode) = x.attribute "mode" v
     member x.notFoundContent (v: string) = x.attribute "notFoundContent" v
+    member x.options (v: SelectOption array) = x.attribute "options" v
     member x.optionFilterProp (v: string) = x.attribute "optionFilterProp" v
     member x.optionLabelProp (v: string) = x.attribute "optionLabelProp" v
     member x.placeholder (v: ReactElement) = x.attribute "placeholder" v
@@ -58,6 +67,7 @@ type AntSelect() =
     member x.menuItemSelectedIcon (v: ReactElement) = x.attribute "menuItemSelectedIcon" v
     member x.tokenSeparators (v: string array) = x.attribute "tokenSeparators" v
     member x.value (v: string array) = x.attribute "value" v
+    member x.virtual (v: bool) = x.attribute "virtual" v
     member x.onBlur (v: Event -> unit) = x.attribute "onBlur" v
     member x.onChange (v: string array -> unit) = x.attribute "onChange" v
     member x.onDeselect (v: string -> unit) = x.attribute "onDeselect" v
@@ -72,5 +82,4 @@ type AntSelect() =
     member x.isOpen (v: bool) = x.attribute "open" v
     member x.onDropdownVisibleChange (v: bool -> unit) = x.attribute "onDropdownVisibleChange" v
     member x.loading (v: bool) = x.attribute "loading" v
-    member x.dropdownStyle(css: Props.CSSProp list) = x.attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.dropdownMenuStyle(css: Props.CSSProp list) = x.attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.bordered (v: bool) = x.attribute "bordered" v

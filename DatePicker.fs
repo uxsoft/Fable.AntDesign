@@ -57,6 +57,7 @@ type AntDatePicker() =
     member x.value (v: Moment) = x.attribute "value" v
     member x.onChange (v: Func<Moment, string, unit>) = x.attribute "onChange" v
     member x.onOk (v: unit -> unit) = x.attribute "onOk" v
+    member x.onPanelChange (v: Func<Moment, DatePickerMode, unit>) = x.attribute "onPanelChange" v
 
 type AntYearPicker() =
     inherit AntDatePickerBase<AntYearPicker>(ofImport "DatePicker.YearPicker" "antd")
@@ -98,6 +99,7 @@ type AntWeekPicker() =
 type AntRangePicker() =
     inherit AntDatePickerBase<AntRangePicker>(ofImport "DatePicker.RangePicker" "antd")
     member x.allowEmpty (v: bool array) = x.attribute "allowEmpty" v
+    member x.dateRender (v: Func<Moment, Moment, obj, ReactElement>) = x.attribute "dateRender" v
     member x.defaultValue (v: Moment array) = x.attribute "defaultValue" v
     member x.defaultPickerValue (v: Moment array) = x.attribute "defaultPickerValue" v
     member x.disabled (v: bool array) = x.attribute "disabled" v

@@ -52,9 +52,10 @@ type TitleClickEvent = { key: string; domEvent: Browser.Types.DocumentEvent }
 type AntMenuItem() =
     inherit AntElement<AntMenuItem>(ofImport "Menu.Item" "antd")
     member x.disabled (v: bool) = x.attribute "disabled" v 
-    member x.key (v: string) = x.attribute "key" v 
     member x.title (v: ReactElement) = x.attribute "title" v 
-    member x.onClick (v: (unit -> unit)) = x.attribute "onClick" v 
+    member x.onClick (v: (unit -> unit)) = x.attribute "onClick" v
+    member x.icon (v: ReactElement) = x.attribute "icon" v
+    member x.danger (v: bool) = x.attribute "danger" v
     
 type AntMenuDivider() =
     inherit AntElement<AntMenuDivider>(ofImport "Menu.Divider" "antd")
@@ -63,8 +64,8 @@ type AntMenuSubMenu() =
     inherit AntElement<AntMenuSubMenu>(ofImport "Menu.SubMenu" "antd")
     member x.popupClassName (v: string) = x.attribute "popupClassName" v 
     member x.disabled (v: bool) = x.attribute "disabled" v 
-    member x.key (v: string) = x.attribute "key" v 
     member x.title (v: ReactElement) = x.attribute "title" v 
+    member x.icon (v: ReactElement) = x.attribute "icon" v
     member x.onTitleClick (v: TitleClickEvent) = x.attribute "onTitleClick" v 
     
 type AntMenuItemGroup() =
