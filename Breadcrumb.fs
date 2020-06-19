@@ -5,16 +5,16 @@ open Browser.Types
 
 type AntBreadcrumb() =
     inherit AntElement(ofImport "Breadcrumb" "antd")
-    member x.ItemRender with set (v: (string * string * string list * string list -> ReactElement)) = x.Attribute "itemRender" v 
-    member x.Params with set (v: obj) = x.Attribute "params" v 
-    member x.Routes with set (v: obj list) = x.Attribute "routes" v 
-    member x.Separator with set (v: ReactElement) = x.Attribute "separator" v 
+    member x.ItemRender (v: (string * string * string list * string list -> ReactElement)) = x.attribute "itemRender" v 
+    member x.Params (v: obj) = x.attribute "params" v 
+    member x.Routes (v: obj list) = x.attribute "routes" v 
+    member x.Separator (v: ReactElement) = x.attribute "separator" v 
 
 type AntBreadcrumbItem() =
     inherit AntElement(ofImport "Breadcrumb.Item" "antd")
-    member x.Href with set (v: string) = x.Attribute "href" v 
-    member x.Overlay with set (v: ReactElement) = x.Attribute "overlay" v 
-    member x.OnClick with set (v: (Event -> unit)) = x.Attribute "onClick" v 
+    member x.Href (v: string) = x.attribute "href" v 
+    member x.Overlay (v: ReactElement) = x.attribute "overlay" v 
+    member x.OnClick (v: (Event -> unit)) = x.attribute "onClick" v 
     
 type AntBreadcrumbSeparator() =
     inherit AntElement(ofImport "Breadcrumb.Separator" "antd")

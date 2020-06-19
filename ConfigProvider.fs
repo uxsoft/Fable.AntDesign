@@ -10,13 +10,13 @@ type ConfigProviderPageHeader = { ghost: bool }
 
 type AntConfigProvider() =
     inherit AntElement(ofImport "ConfigProvider" "antd")
-    member x.AutoInsertSpaceInButton with set (v: bool) = x.Attribute "autoInsertSpaceInButton" v 
-    member x.ComponentSize with set (v: Size) = x.Attribute "componentSize" v 
-    member x.Csp with set (v: ConfigProviderCsp) = x.Attribute "csp" v 
-    member x.RenderEmpty with set (v: (string -> ReactElement)) = x.Attribute "renderEmpty" v 
-    member x.GetPopupContainer with set (v: (ReactElement -> HTMLElement)) = x.Attribute "getPopupContainer" v 
-    member x.Locale with set (v: obj) = x.Attribute "locale" v 
-    member x.PrefixCls with set (v: string) = x.Attribute "prefixCls" v 
-    member x.PageHeader with set (v: ConfigProviderPageHeader) = x.Attribute "pageHeader" v 
-    member x.Direction with set (v: ConfigProviderDirection) = x.Attribute "direction" v 
-    member x.Form with set (form: AntForm) = x.Attribute "form" form.Props
+    member x.AutoInsertSpaceInButton (v: bool) = x.attribute "autoInsertSpaceInButton" v 
+    member x.ComponentSize (v: Size) = x.attribute "componentSize" v 
+    member x.Csp (v: ConfigProviderCsp) = x.attribute "csp" v 
+    member x.RenderEmpty (v: (string -> ReactElement)) = x.attribute "renderEmpty" v 
+    member x.GetPopupContainer (v: (ReactElement -> HTMLElement)) = x.attribute "getPopupContainer" v 
+    member x.Locale (v: obj) = x.attribute "locale" v 
+    member x.PrefixCls (v: string) = x.attribute "prefixCls" v 
+    member x.PageHeader (v: ConfigProviderPageHeader) = x.attribute "pageHeader" v 
+    member x.Direction (v: ConfigProviderDirection) = x.attribute "direction" v 
+    member x.Form (form: AntForm) = x.attribute "form" form.Props

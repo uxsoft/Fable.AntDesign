@@ -6,28 +6,28 @@ open Fable.React
 type AntSwitch() =
     inherit AntElement(ofImport "Switch" "antd")
     member x.AutoFocus
-        with set (v: bool) = x.Attribute "autoFocus" v
+        (v: bool) = x.attribute "autoFocus" v
     member x.Checked
-        with set (v: bool) = x.Attribute "checked" v
+        (v: bool) = x.attribute "checked" v
     member x.CheckedChildren
-        with set (v: ReactElement) = x.Attribute "checkedChildren" v
+        (v: ReactElement) = x.attribute "checkedChildren" v
     member x.DefaultChecked
-        with set (v: bool) = x.Attribute "defaultChecked" v
+        (v: bool) = x.attribute "defaultChecked" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.Loading
-        with set (v: bool) = x.Attribute "loading" v
+        (v: bool) = x.attribute "loading" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.UnCheckedChildren
-        with set (v: ReactElement) = x.Attribute "unCheckedChildren" v
+        (v: ReactElement) = x.attribute "unCheckedChildren" v
     member x.OnChange
-        with set (v: bool -> Event -> unit) =
+        (v: bool -> Event -> unit) =
             let uncurried = System.Func<bool, Event, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
     member x.OnClick
-        with set (v: bool -> Event -> unit) =
+        (v: bool -> Event -> unit) =
             let uncurried = System.Func<bool, Event, unit> v
-            x.Attribute "onClick" uncurried
+            x.attribute "onClick" uncurried
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v

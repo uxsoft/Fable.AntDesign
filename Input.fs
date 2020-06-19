@@ -5,81 +5,81 @@ open Fable.React
 
 type AntInput() =
     inherit AntElement(ofImport "Input" "antd")
-    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
-    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
-    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Id with set (v: string) = x.Attribute "id" v 
-    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
-    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
-    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
-    member x.Type with set (v: string) = x.Attribute "type" v 
-    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
-    member x.Value with set (v: string) = x.Attribute "value" v 
-    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
-    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
-    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
-    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
+    member x.AddonAfter (v: ReactElement) = x.attribute "addonAfter" v 
+    member x.AddonBefore (v: ReactElement) = x.attribute "addonBefore" v 
+    member x.DefaultValue (v: string) = x.attribute "defaultValue" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Id (v: string) = x.attribute "id" v 
+    member x.MaxLength (v: int) = x.attribute "maxLength" v 
+    member x.Prefix (v: ReactElement) = x.attribute "prefix" v 
+    member x.Size (v: Size) = x.attribute "size" v 
+    member x.Suffix (v: ReactElement) = x.attribute "suffix" v 
+    member x.Type (v: string) = x.attribute "type" v 
+    member x.TabIndex (v: int) = x.attribute "tabIndex" v 
+    member x.Value (v: string) = x.attribute "value" v 
+    member x.OnChange (v: (Event -> unit)) = x.attribute "onChange" v 
+    member x.OnPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
+    member x.AllowClear (v: bool) = x.attribute "allowClear" v 
+    member x.Placeholder (v: string) = x.attribute "placeholder" v 
 
 type AutoSizeType = { minRows: int option; maxRows: int option }
 
 type AntTextArea() =
     inherit AntElement(ofImport "Input.TextArea" "antd")
-    member x.AutoSize with set (v: bool) = x.Attribute "autoSize" v
-    member x.AutoSizeType with set (v: AutoSizeType) = x.Attribute "autoSize" v
-    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
-    member x.Value with set (v: string) = x.Attribute "value" v 
-    member x.OnPressEnter with set (v: (KeyboardEvent -> unit)) = x.Attribute "onPressEnter" v 
-    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v
+    member x.AutoSize (v: bool) = x.attribute "autoSize" v
+    member x.AutoSizeType (v: AutoSizeType) = x.attribute "autoSize" v
+    member x.DefaultValue (v: string) = x.attribute "defaultValue" v 
+    member x.Value (v: string) = x.attribute "value" v 
+    member x.OnPressEnter (v: (KeyboardEvent -> unit)) = x.attribute "onPressEnter" v 
+    member x.AllowClear (v: bool) = x.attribute "allowClear" v
     
-    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
+    member x.OnChange (v: (Event -> unit)) = x.attribute "onChange" v 
 
    
 type AntSearch() =
     inherit AntElement(ofImport "Input.Search" "antd")
-    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
-    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
-    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Id with set (v: string) = x.Attribute "id" v 
-    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
-    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
-    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
-    member x.Type with set (v: string) = x.Attribute "type" v 
-    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
-    member x.Value with set (v: string) = x.Attribute "value" v 
-    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
-    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
-    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
-    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v 
-    member x.EnterButton with set (v: bool) = x.Attribute "enterButton" v
-    member x.ShowEnterButton with set (v: ReactElement) = x.Attribute "enterButton" v
-    member x.Loading with set (v: bool) = x.Attribute "loading" v 
-    member x.OnSearch with set (v: (string * Event -> unit)) = x.Attribute "onSearch" v 
+    member x.AddonAfter (v: ReactElement) = x.attribute "addonAfter" v 
+    member x.AddonBefore (v: ReactElement) = x.attribute "addonBefore" v 
+    member x.DefaultValue (v: string) = x.attribute "defaultValue" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Id (v: string) = x.attribute "id" v 
+    member x.MaxLength (v: int) = x.attribute "maxLength" v 
+    member x.Prefix (v: ReactElement) = x.attribute "prefix" v 
+    member x.Size (v: Size) = x.attribute "size" v 
+    member x.Suffix (v: ReactElement) = x.attribute "suffix" v 
+    member x.Type (v: string) = x.attribute "type" v 
+    member x.TabIndex (v: int) = x.attribute "tabIndex" v 
+    member x.Value (v: string) = x.attribute "value" v 
+    member x.OnChange (v: (Event -> unit)) = x.attribute "onChange" v 
+    member x.OnPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
+    member x.AllowClear (v: bool) = x.attribute "allowClear" v 
+    member x.Placeholder (v: string) = x.attribute "placeholder" v 
+    member x.EnterButton (v: bool) = x.attribute "enterButton" v
+    member x.ShowEnterButton (v: ReactElement) = x.attribute "enterButton" v
+    member x.Loading (v: bool) = x.attribute "loading" v 
+    member x.OnSearch (v: (string * Event -> unit)) = x.attribute "onSearch" v 
 
 type AntInputGroup() =
     inherit AntElement(ofImport "Input.Group" "antd")
-    member x.Compact with set (v: bool) = x.Attribute "compact" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
+    member x.Compact (v: bool) = x.attribute "compact" v 
+    member x.Size (v: Size) = x.attribute "size" v 
 
 type AntPassword() =
     inherit AntElement(ofImport "Input.Password" "antd")
-    member x.AddonAfter with set (v: ReactElement) = x.Attribute "addonAfter" v 
-    member x.AddonBefore with set (v: ReactElement) = x.Attribute "addonBefore" v 
-    member x.DefaultValue with set (v: string) = x.Attribute "defaultValue" v 
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v 
-    member x.Id with set (v: string) = x.Attribute "id" v 
-    member x.MaxLength with set (v: int) = x.Attribute "maxLength" v 
-    member x.Prefix with set (v: ReactElement) = x.Attribute "prefix" v 
-    member x.Size with set (v: Size) = x.Attribute "size" v 
-    member x.Suffix with set (v: ReactElement) = x.Attribute "suffix" v 
-    member x.Type with set (v: string) = x.Attribute "type" v 
-    member x.TabIndex with set (v: int) = x.Attribute "tabIndex" v 
-    member x.Value with set (v: string) = x.Attribute "value" v 
-    member x.OnChange with set (v: (Event -> unit)) = x.Attribute "onChange" v 
-    member x.OnPressEnter with set (v: (Event -> unit)) = x.Attribute "onPressEnter" v 
-    member x.AllowClear with set (v: bool) = x.Attribute "allowClear" v 
-    member x.Placeholder with set (v: string) = x.Attribute "placeholder" v     
-    member x.VisibilityToggle with set (v: bool) = x.Attribute "visibilityToggle" v 
+    member x.AddonAfter (v: ReactElement) = x.attribute "addonAfter" v 
+    member x.AddonBefore (v: ReactElement) = x.attribute "addonBefore" v 
+    member x.DefaultValue (v: string) = x.attribute "defaultValue" v 
+    member x.Disabled (v: bool) = x.attribute "disabled" v 
+    member x.Id (v: string) = x.attribute "id" v 
+    member x.MaxLength (v: int) = x.attribute "maxLength" v 
+    member x.Prefix (v: ReactElement) = x.attribute "prefix" v 
+    member x.Size (v: Size) = x.attribute "size" v 
+    member x.Suffix (v: ReactElement) = x.attribute "suffix" v 
+    member x.Type (v: string) = x.attribute "type" v 
+    member x.TabIndex (v: int) = x.attribute "tabIndex" v 
+    member x.Value (v: string) = x.attribute "value" v 
+    member x.OnChange (v: (Event -> unit)) = x.attribute "onChange" v 
+    member x.OnPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 
+    member x.AllowClear (v: bool) = x.attribute "allowClear" v 
+    member x.Placeholder (v: string) = x.attribute "placeholder" v     
+    member x.VisibilityToggle (v: bool) = x.attribute "visibilityToggle" v 

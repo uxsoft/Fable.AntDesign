@@ -10,13 +10,13 @@ open Fable.React
 
 type AntTimeline()  =
   inherit AntElement(ofImport "Timeline" "antd")
-  member x.Pending with set (v: bool) = x.Attribute "pending" v
-  member x.PendingDot with set (v: ReactElement) = x.Attribute "pendingDot" v 
-  member x.Reverse with set (v: bool) = x.Attribute "reverse" v
-  member x.Mode with set (v: TimelineMode) = x.Attribute "mode" v  
+  member x.Pending (v: bool) = x.attribute "pending" v
+  member x.PendingDot (v: ReactElement) = x.attribute "pendingDot" v 
+  member x.Reverse (v: bool) = x.attribute "reverse" v
+  member x.Mode (v: TimelineMode) = x.attribute "mode" v  
 
 type AntTimelineItem()  =
   inherit AntElement(ofImport "Timeline.Item" "antd")
-  member x.Color with set (v: string) = x.Attribute "color" v 
-  member x.Dot with set (v: ReactElement) = x.Attribute "dot" v 
-  member x.Position with set (v: TimelineItemPosition) = x.Attribute "position" v 
+  member x.Color (v: string) = x.attribute "color" v 
+  member x.Dot (v: ReactElement) = x.attribute "dot" v 
+  member x.Position (v: TimelineItemPosition) = x.attribute "position" v 

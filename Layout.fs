@@ -7,9 +7,9 @@ open Fable.React
 type AntLayout() =
     inherit AntElement(ofImport "Layout" "antd")
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.HasSider
-        with set (v: bool) = x.Attribute "hasSider" v
+        (v: bool) = x.attribute "hasSider" v
 
 type AntHeader() =
     inherit AntElement(ofImport "Layout.Header" "antd")
@@ -37,32 +37,32 @@ type CollapseType =
 type AntSider() =
     inherit AntElement(ofImport "Layout.Sider" "antd")
     member x.Breakpoint
-        with set (v: SiderBreakpoint) = x.Attribute "breakpoint" v
+        (v: SiderBreakpoint) = x.attribute "breakpoint" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.Collapsed
-        with set (v: bool) = x.Attribute "collapsed" v
+        (v: bool) = x.attribute "collapsed" v
     member x.CollapsedWidth
-        with set (v: int) = x.Attribute "collapsedWidth" v
+        (v: int) = x.attribute "collapsedWidth" v
     member x.Collapsible
-        with set (v: bool) = x.Attribute "collapsible" v
+        (v: bool) = x.attribute "collapsible" v
     member x.DefaultCollapsed
-        with set (v: bool) = x.Attribute "defaultCollapsed" v
+        (v: bool) = x.attribute "defaultCollapsed" v
     member x.ReverseArrow
-        with set (v: bool) = x.Attribute "reverseArrow" v
+        (v: bool) = x.attribute "reverseArrow" v
     member x.Theme
-        with set (v: Theme) = x.Attribute "theme" v
+        (v: Theme) = x.attribute "theme" v
     member x.Trigger
-        with set (v: ReactElement) = x.Attribute "trigger" v
+        (v: ReactElement) = x.attribute "trigger" v
     member x.Width
-        with set (v: string) = x.Attribute "width" v
+        (v: string) = x.attribute "width" v
 
     member x.OnCollapse
-        with set (v: bool -> CollapseType -> unit) =
+        (v: bool -> CollapseType -> unit) =
             let uncurried = System.Func<bool, CollapseType, unit> v
-            x.Attribute "onCollapse" uncurried
+            x.attribute "onCollapse" uncurried
 
     member x.OnBreakpoint
-        with set (v: bool -> unit) = x.Attribute "onBreakpoint" v
+        (v: bool -> unit) = x.attribute "onBreakpoint" v
     member x.ZeroWidthTriggerStyle(css: Props.CSSProp list) =
-        x.Attribute "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)
+        x.attribute "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)

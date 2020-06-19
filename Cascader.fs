@@ -37,54 +37,54 @@ type CascaderOption =
 type AntCascader() =
     inherit AntElement(ofImport "Cascader" "antd")
     member x.AllowClear
-        with set (v: bool) = x.Attribute "allowClear" v
+        (v: bool) = x.attribute "allowClear" v
     member x.AutoFocus
-        with set (v: bool) = x.Attribute "autoFocus" v
+        (v: bool) = x.attribute "autoFocus" v
     member x.ChangeOnSelect
-        with set (v: bool) = x.Attribute "changeOnSelect" v
+        (v: bool) = x.attribute "changeOnSelect" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.DefaultValue
-        with set (v: string array) = x.Attribute "defaultValue" v
+        (v: string array) = x.attribute "defaultValue" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.DisplayRender
-        with set (v: string -> CascaderOption array -> ReactElement) =
+        (v: string -> CascaderOption array -> ReactElement) =
             let uncurried = System.Func<string, CascaderOption array, ReactElement> v
-            x.Attribute "displayRender" uncurried
+            x.attribute "displayRender" uncurried
     member x.ExpandTrigger
-        with set (v: ExpandTriggerOptions) = x.Attribute "expandTrigger" v
+        (v: ExpandTriggerOptions) = x.attribute "expandTrigger" v
     member x.FieldNames
-        with set (v: FieldNames) = x.Attribute "fieldNames" v
+        (v: FieldNames) = x.attribute "fieldNames" v
     member x.GetPopupContainer
-        with set (v: unit -> HTMLElement) = x.Attribute "getPopupContainer" v
+        (v: unit -> HTMLElement) = x.attribute "getPopupContainer" v
     member x.LoadData
-        with set (v: CascaderOption array -> unit) = x.Attribute "loadData" v
+        (v: CascaderOption array -> unit) = x.attribute "loadData" v
     member x.NotFoundContent
-        with set (v: string) = x.Attribute "notFoundContent" v
+        (v: string) = x.attribute "notFoundContent" v
     member x.Options
-        with set (v: CascaderOption array) = x.Attribute "options" v
+        (v: CascaderOption array) = x.attribute "options" v
     member x.Placeholder
-        with set (v: string) = x.Attribute "placeholder" v
+        (v: string) = x.attribute "placeholder" v
     member x.PopupClassName
-        with set (v: string) = x.Attribute "popupClassName" v
+        (v: string) = x.attribute "popupClassName" v
     member x.PopupPlacement
-        with set (v: PopupPlacementOptions) = x.Attribute "popupPlacement" v
+        (v: PopupPlacementOptions) = x.attribute "popupPlacement" v
     member x.PopupVisible
-        with set (v: bool) = x.Attribute "popupVisible" v
+        (v: bool) = x.attribute "popupVisible" v
     member x.ShowSearch
-        with set (v: bool) = x.Attribute "showSearch" v
+        (v: bool) = x.attribute "showSearch" v
     member x.ShowSearchSettings
-        with set (v: ShowSearchSettings) = x.Attribute "showSearch" v
+        (v: ShowSearchSettings) = x.attribute "showSearch" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.SuffixIcon
-        with set (v: ReactElement) = x.Attribute "suffixIcon" v
+        (v: ReactElement) = x.attribute "suffixIcon" v
     member x.Value
-        with set (v: string array) = x.Attribute "value" v
+        (v: string array) = x.attribute "value" v
     member x.OnChange
-        with set (v: string -> CascaderOption array -> unit) =
+        (v: string -> CascaderOption array -> unit) =
             let uncurried = System.Func<string, CascaderOption array, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
     member x.OnPopupVisibleChange
-        with set (v: bool -> unit) = x.Attribute "onPopupVisibleChange" v
+        (v: bool -> unit) = x.attribute "onPopupVisibleChange" v

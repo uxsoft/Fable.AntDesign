@@ -4,20 +4,20 @@ open Browser.Types
 open Fable.React
 
 type AntAnchor() =
-    inherit AntElement(ofImport "Anchor" "antd")
-    member x.Affix with set (v: bool) = x.Attribute "affix" v 
-    member x.Bounds with set (v: int) = x.Attribute "bounds" v 
-    member x.GetContainer with set (v: (unit -> HTMLElement)) = x.Attribute "getContainer" v 
-    member x.OffsetBottom with set (v: int) = x.Attribute "offsetBottom" v 
-    member x.OffsetTop with set (v: int) = x.Attribute "offsetTop" v 
-    member x.ShowInkInFixed with set (v: bool) = x.Attribute "showInkInFixed" v 
-    member x.OnClick with set (v: (Event -> obj -> unit)) = x.Attribute "onClick" v 
-    member x.GetCurrentAnchor with set (v: (unit -> string)) = x.Attribute "getCurrentAnchor" v 
-    member x.TargetOffset with set (v: int) = x.Attribute "targetOffset" v 
-    member x.OnChange with set (v: (string -> unit)) = x.Attribute "onChange" v 
+    inherit AntElement<AntAnchor>(ofImport "Anchor" "antd")
+    member x.affix (v: bool) = x.attribute "affix" v 
+    member x.bounds (v: int) = x.attribute "bounds" v 
+    member x.getContainer (v: (unit -> HTMLElement)) = x.attribute "getContainer" v 
+    member x.offsetBottom (v: int) = x.attribute "offsetBottom" v 
+    member x.offsetTop (v: int) = x.attribute "offsetTop" v 
+    member x.showInkInFixed (v: bool) = x.attribute "showInkInFixed" v 
+    member x.onClick (v: (Event -> obj -> unit)) = x.attribute "onClick" v 
+    member x.getCurrentAnchor (v: (unit -> string)) = x.attribute "getCurrentAnchor" v 
+    member x.targetOffset (v: int) = x.attribute "targetOffset" v 
+    member x.onChange (v: (string -> unit)) = x.attribute "onChange" v 
    
 type AntAnchorLink() =
-    inherit AntElement(ofImport "Anchor.Link" "antd")
-    member x.Href with set (v: string) = x.Attribute "href" v 
-    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
-    member x.Target with set (v: string) = x.Attribute "target" v 
+    inherit AntElement<AntAnchorLink>(ofImport "Anchor.Link" "antd")
+    member x.href (v: string) = x.attribute "href" v 
+    member x.title (v: ReactElement) = x.attribute "title" v 
+    member x.target (v: string) = x.attribute "target" v 

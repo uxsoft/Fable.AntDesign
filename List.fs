@@ -42,28 +42,28 @@ type ListSize = Small | Default | Large
 
 type AntList<'T>() =
     inherit AntElement(ofImport "List" "antd")
-    member x.Bordered with set (v: bool) = x.Attribute "bordered" v 
-    member x.Footer with set (v: ReactElement) = x.Attribute "footer" v 
-    member x.Grid with set (v: ListGridType) = x.Attribute "grid" v 
-    member x.Header with set (v: ReactElement) = x.Attribute "header" v 
-    member x.ItemLayout with set (v: string) = x.Attribute "itemLayout" v 
-    member x.RowKey with set (v: ('T -> string)) = x.Attribute "rowKey" v  
-    member x.Loading with set (v: bool) = x.Attribute "loading" v 
-    member x.LoadMore with set (v: ReactElement) = x.Attribute "loadMore" v 
-    member x.Locale with set (v: obj) = x.Attribute "locale" v 
-    member x.Split with set (v: bool) = x.Attribute "split" v 
-    member x.DataSource with set (v: ('T array)) = x.Attribute "dataSource" v 
-    member x.RenderItem with set (v: ('T -> ReactElement)) = x.Attribute "renderItem" v  
-    member x.Pagination with set (pagination: AntPagination) = x.Attribute "pagination" pagination.Props
+    member x.Bordered (v: bool) = x.attribute "bordered" v 
+    member x.Footer (v: ReactElement) = x.attribute "footer" v 
+    member x.Grid (v: ListGridType) = x.attribute "grid" v 
+    member x.Header (v: ReactElement) = x.attribute "header" v 
+    member x.ItemLayout (v: string) = x.attribute "itemLayout" v 
+    member x.RowKey (v: ('T -> string)) = x.attribute "rowKey" v  
+    member x.Loading (v: bool) = x.attribute "loading" v 
+    member x.LoadMore (v: ReactElement) = x.attribute "loadMore" v 
+    member x.Locale (v: obj) = x.attribute "locale" v 
+    member x.Split (v: bool) = x.attribute "split" v 
+    member x.DataSource (v: ('T array)) = x.attribute "dataSource" v 
+    member x.RenderItem (v: ('T -> ReactElement)) = x.attribute "renderItem" v  
+    member x.Pagination (pagination: AntPagination) = x.attribute "pagination" pagination.Props
 
 type AntListItem() =
     inherit AntElement(ofImport "List.Item" "antd")
-    member x.Extra with set (v: ReactElement) = x.Attribute "extra" v 
-    member x.Actions with set (v: ReactElement[]) = x.Attribute "actions" v 
-    member x.Key with set (v: string) = x.Attribute "key" v 
+    member x.Extra (v: ReactElement) = x.attribute "extra" v 
+    member x.Actions (v: ReactElement[]) = x.attribute "actions" v 
+    member x.Key (v: string) = x.attribute "key" v 
 
 type AntListItemMeta() =
     inherit AntElement(ofImport "List.Item.Meta" "antd")
-    member x.Avatar with set (v: ReactElement) = x.Attribute "avatar" v 
-    member x.Description with set (v: ReactElement) = x.Attribute "description" v 
-    member x.Title with set (v: ReactElement) = x.Attribute "title" v 
+    member x.Avatar (v: ReactElement) = x.attribute "avatar" v 
+    member x.Description (v: ReactElement) = x.attribute "description" v 
+    member x.Title (v: ReactElement) = x.attribute "title" v 

@@ -11,25 +11,28 @@ type TooltipPlacement = Top | Left | Right | Bottom | TopLeft | TopRight | Botto
 [<StringEnum; RequireQualifiedAccess>]
 type TooltipTrigger = Hover | Focus | Click | ContextMenu 
 
-type AntPopover(?partialImport) =
-    inherit AntElement(defaultArg partialImport (ofImport "Popover" "antd"))
-    member x.ArrowPointAtCenter with set (v: bool) = x.Attribute "arrowPointAtCenter" v
-    member x.AutoAdjustOverflow with set (v: bool) = x.Attribute "autoAdjustOverflow" v
-    member x.DefaultVisible with set (v: bool) = x.Attribute "defaultVisible" v
-    member x.GetPopupContainer with set (v: (unit -> ReactElement)) = x.Attribute "getPopupContainer" v 
-    member x.MouseEnterDelay with set (v: float) = x.Attribute "mouseEnterDelay" v 
-    member x.MouseLeaveDelay with set (v: float) = x.Attribute "mouseLeaveDelay" v 
-    member x.OverlayClassName with set (v: string) = x.Attribute "overlayClassName" v
-    member x.OverlayStyle with set (css: CSSProp list) =  x.Attribute "overlayStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.Placement with set (v: TooltipPlacement) = x.Attribute "placement" v 
-    member x.Trigger with set (v: TooltipTrigger) = x.Attribute "trigger" v 
-    member x.Visible with set (v: bool) = x.Attribute "visible" v 
-    member x.OnVisibleChange with set (v: (bool -> unit)) = x.Attribute "onVisibleChange" v 
-    member x.Align with set (v: obj) = x.Attribute "align" v 
+type AntPopoverBase<'T when 'T :> AntElement<'T>>(partialImport) =
+    inherit AntElement<'T>(partialImport)
+    member x.arrowPointAtCenter (v: bool) = x.attribute "arrowPointAtCenter" v
+    member x.autoAdjustOverflow (v: bool) = x.attribute "autoAdjustOverflow" v
+    member x.defaultVisible (v: bool) = x.attribute "defaultVisible" v
+    member x.getPopupContainer (v: (unit -> ReactElement)) = x.attribute "getPopupContainer" v 
+    member x.mouseEnterDelay (v: float) = x.attribute "mouseEnterDelay" v 
+    member x.mouseLeaveDelay (v: float) = x.attribute "mouseLeaveDelay" v 
+    member x.overlayClassName (v: string) = x.attribute "overlayClassName" v
+    member x.overlayStyle (css: CSSProp list) =  x.attribute "overlayStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.placement (v: TooltipPlacement) = x.attribute "placement" v 
+    member x.trigger (v: TooltipTrigger) = x.attribute "trigger" v 
+    member x.visible (v: bool) = x.attribute "visible" v 
+    member x.onVisibleChange (v: (bool -> unit)) = x.attribute "onVisibleChange" v 
+    member x.align (v: obj) = x.attribute "align" v 
+
+type AntPopover() =
+    inherit AntPopoverBase<AntPopover>(ofImport "Popover" "antd")
 
 type AntPopconfirm() =
-    inherit AntPopover(ofImport "Popconfirm" "antd")
+    inherit AntPopoverBase<AntPopconfirm>(ofImport "Popconfirm" "antd")
 
 type AntTooltip() =
-    inherit AntPopover(ofImport "Tooltip" "antd")
-    member x.Title with set (v: string) = x.Attribute "title" v
+    inherit AntPopoverBase<AntTooltip>(ofImport "Tooltip" "antd")
+    member x.Title (v: string) = x.attribute "title" v

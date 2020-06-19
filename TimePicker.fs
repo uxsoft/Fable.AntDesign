@@ -6,62 +6,62 @@ open Fable.MomentJs
 type AntTimePicker() =
     inherit AntElement(ofImport "TimePicker" "antd")
     member x.AllowClear
-        with set (v: bool) = x.Attribute "allowClear" v
+        (v: bool) = x.attribute "allowClear" v
     member x.AutoFocus
-        with set (v: bool) = x.Attribute "autoFocus" v
+        (v: bool) = x.attribute "autoFocus" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
     member x.ClearText
-        with set (v: string) = x.Attribute "clearText" v
+        (v: string) = x.attribute "clearText" v
     member x.DefaultOpenValue
-        with set (v: Moment) = x.Attribute "defaultOpenValue" v
+        (v: Moment) = x.attribute "defaultOpenValue" v
     member x.DefaultValue
-        with set (v: Moment) = x.Attribute "defaultValue" v
+        (v: Moment) = x.attribute "defaultValue" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.DisabledHours
-        with set (v: unit -> int array) = x.Attribute "disabledHours" v
+        (v: unit -> int array) = x.attribute "disabledHours" v
     member x.DisabledMinutes
-        with set (v: int -> int array) = x.Attribute "disabledMinutes" v
+        (v: int -> int array) = x.attribute "disabledMinutes" v
     member x.DisabledSeconds
-        with set (v: int -> int array) = x.Attribute "disabledSeconds" v
+        (v: int -> int array) = x.attribute "disabledSeconds" v
     member x.Format
-        with set (v: string) = x.Attribute "format" v
+        (v: string) = x.attribute "format" v
     member x.GetPopupContainer
-        with set (v: obj -> ReactElement) = x.Attribute "getPopupContainer" v
+        (v: obj -> ReactElement) = x.attribute "getPopupContainer" v
     member x.HideDisabledOptions
-        with set (v: bool) = x.Attribute "hideDisabledOptions" v
+        (v: bool) = x.attribute "hideDisabledOptions" v
     member x.HourStep
-        with set (v: int) = x.Attribute "hourStep" v
+        (v: int) = x.attribute "hourStep" v
     member x.InputReadOnly
-        with set (v: bool) = x.Attribute "inputReadOnly" v
+        (v: bool) = x.attribute "inputReadOnly" v
     member x.MinuteStep
-        with set (v: int) = x.Attribute "minuteStep" v
+        (v: int) = x.attribute "minuteStep" v
     member x.Open
-        with set (v: bool) = x.Attribute "open" v
+        (v: bool) = x.attribute "open" v
     member x.Placeholder
-        with set (v: string) = x.Attribute "placeholder" v
+        (v: string) = x.attribute "placeholder" v
     member x.PopupClassName
-        with set (v: string) = x.Attribute "popupClassName" v
+        (v: string) = x.attribute "popupClassName" v
     member x.PopupStyle
-        with set (v: obj) = x.Attribute "popupStyle" v
+        (v: obj) = x.attribute "popupStyle" v
     member x.SecondStep
-        with set (v: int) = x.Attribute "secondStep" v
+        (v: int) = x.attribute "secondStep" v
     member x.SuffixIcon
-        with set (v: ReactElement) = x.Attribute "suffixIcon" v
+        (v: ReactElement) = x.attribute "suffixIcon" v
     member x.ClearIcon
-        with set (v: ReactElement) = x.Attribute "clearIcon" v
+        (v: ReactElement) = x.attribute "clearIcon" v
     member x.Use12Hours
-        with set (v: bool) = x.Attribute "use12Hours" v
+        (v: bool) = x.attribute "use12Hours" v
     member x.RenderExtraFooter
-        with set (v: unit -> ReactElement) = x.Attribute "renderExtraFooter" v
+        (v: unit -> ReactElement) = x.attribute "renderExtraFooter" v
     member x.Value
-        with set (v: Moment) = x.Attribute "value" v
+        (v: Moment) = x.attribute "value" v
 
     member x.OnChange
-        with set (v: Moment -> string -> unit) =
+        (v: Moment -> string -> unit) =
             let uncurried = System.Func<Moment, string, unit> v
-            x.Attribute "onChange" uncurried
+            x.attribute "onChange" uncurried
 
     member x.OnOpenChange
-        with set (v: bool -> unit) = x.Attribute "onOpenChange" v
+        (v: bool -> unit) = x.attribute "onOpenChange" v

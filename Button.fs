@@ -18,20 +18,20 @@ type ButtonShape =
     | Round
 
 type AntButton() =
-    inherit AntElement(ofImport "Button" "antd")
-    member x.Disabled with set (v: bool) = x.Attribute "disabled" v
-    member x.Ghost with set (v: bool) = x.Attribute "ghost" v
-    member x.Href with set (v: string) = x.Attribute "href" v
-    member x.HtmlType with set (v: string) = x.Attribute "htmlType" v
-    member x.Icon with set (v: ReactElement) = x.Attribute "icon" v
-    member x.Loading with set (v: bool) = x.Attribute "loading" v
-    member x.Shape with set (v: ButtonShape) = x.Attribute "shape" v
-    member x.Size with set (v: Size) = x.Attribute "size" v
-    member x.Target with set (v: string) = x.Attribute "target" v
-    member x.Type with set (v: ButtonType) = x.Attribute "type" v
-    member x.OnClick with set (v: Event -> unit) = x.Attribute "onClick" v
-    member x.Block with set (v: bool) = x.Attribute "block" v
-    member x.Danger with set (v: bool) = x.Attribute "danger" v
+    inherit AntElement<AntButton>(ofImport "Button" "antd")
+    member x.Disabled (v: bool) = x.attribute "disabled" v
+    member x.Ghost (v: bool) = x.attribute "ghost" v
+    member x.Href (v: string) = x.attribute "href" v
+    member x.HtmlType (v: string) = x.attribute "htmlType" v
+    member x.Icon (v: ReactElement) = x.attribute "icon" v
+    member x.Loading (v: bool) = x.attribute "loading" v
+    member x.Shape (v: ButtonShape) = x.attribute "shape" v
+    member x.Size (v: Size) = x.attribute "size" v
+    member x.Target (v: string) = x.attribute "target" v
+    member x.Type (v: ButtonType) = x.attribute "type" v
+    member x.OnClick (v: Event -> unit) = x.attribute "onClick" v
+    member x.Block (v: bool) = x.attribute "block" v
+    member x.Danger (v: bool) = x.attribute "danger" v
 
 type AntButtonGroup() =
-    inherit AntElement(ofImport "Button.Group" "antd")
+    inherit AntElement<AntButtonGroup>(ofImport "Button.Group" "antd")

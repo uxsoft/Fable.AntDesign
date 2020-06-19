@@ -21,55 +21,55 @@ type TabsType =
 type AntTabs() =
     inherit AntElement(ofImport "Tabs" "antd")
     member x.ActiveKey
-        with set (v: string) = x.Attribute "activeKey" v
+        (v: string) = x.attribute "activeKey" v
     member x.Animated
-        with set (v: bool) = x.Attribute "animated" v
+        (v: bool) = x.attribute "animated" v
 
     member x.RenderTabBar
-        with set (v: obj -> obj -> ReactElement) =
+        (v: obj -> obj -> ReactElement) =
             let uncurried = System.Func<obj, obj, ReactElement> v
-            x.Attribute "renderTabBar" uncurried
+            x.attribute "renderTabBar" uncurried
 
     member x.DefaultActiveKey
-        with set (v: string) = x.Attribute "defaultActiveKey" v
+        (v: string) = x.attribute "defaultActiveKey" v
     member x.HideAdd
-        with set (v: bool) = x.Attribute "hideAdd" v
+        (v: bool) = x.attribute "hideAdd" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.TabBarExtraContent
-        with set (v: ReactElement) = x.Attribute "tabBarExtraContent" v
+        (v: ReactElement) = x.attribute "tabBarExtraContent" v
     member x.TabBarGutter
-        with set (v: float) = x.Attribute "tabBarGutter" v
+        (v: float) = x.attribute "tabBarGutter" v
     member x.TabPosition
-        with set (v: TabsPosition) = x.Attribute "tabPosition" v
+        (v: TabsPosition) = x.attribute "tabPosition" v
     member x.Type
-        with set (v: TabsType) = x.Attribute "type" v
+        (v: TabsType) = x.attribute "type" v
     member x.OnChange
-        with set (v: string -> unit) = x.Attribute "onChange" v
+        (v: string -> unit) = x.attribute "onChange" v
 
     member x.OnEdit
-        with set (v: string -> string -> unit) =
+        (v: string -> string -> unit) =
             let uncurried = System.Func<string, string, unit> v
-            x.Attribute "onEdit" uncurried
+            x.attribute "onEdit" uncurried
 
     member x.OnNextClick
-        with set (v: unit -> unit) = x.Attribute "onNextClick" v
+        (v: unit -> unit) = x.attribute "onNextClick" v
     member x.OnPrevClick
-        with set (v: unit -> unit) = x.Attribute "onPrevClick" v
+        (v: unit -> unit) = x.attribute "onPrevClick" v
 
     member x.OnTabClick
-        with set (v: string -> Event -> unit) =
+        (v: string -> Event -> unit) =
             let uncurried = System.Func<string, Event, unit> v
-            x.Attribute "onTabClick" uncurried
+            x.attribute "onTabClick" uncurried
 
     member x.TabBarStyle(css: Props.CSSProp list) =
-        x.Attribute "tabBarStyle" (keyValueList CaseRules.LowerFirst css)
+        x.attribute "tabBarStyle" (keyValueList CaseRules.LowerFirst css)
 
 type AntTabsPane() =
     inherit AntElement(ofImport "Tabs.TabPane" "antd")
     member x.ForceRender
-        with set (v: bool) = x.Attribute "forceRender" v
+        (v: bool) = x.attribute "forceRender" v
     member x.Key
-        with set (v: string) = x.Attribute "key" v
+        (v: string) = x.attribute "key" v
     member x.Tab
-        with set (v: ReactElement) = x.Attribute "tab" v
+        (v: ReactElement) = x.attribute "tab" v

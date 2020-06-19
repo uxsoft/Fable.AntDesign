@@ -8,22 +8,22 @@ open Browser.Types
 type AntSelectOption() =
     inherit AntElement(ofImport "Select.Option" "antd")
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.Key
-        with set (v: string) = x.Attribute "key" v
+        (v: string) = x.attribute "key" v
     member x.Title
-        with set (v: string) = x.Attribute "title" v
+        (v: string) = x.attribute "title" v
     member x.Value
-        with set (v: string) = x.Attribute "value" v
+        (v: string) = x.attribute "value" v
     member x.ClassName
-        with set (v: string) = x.Attribute "className" v
+        (v: string) = x.attribute "className" v
 
 type AntSelectOptGroup() =
     inherit AntElement(ofImport "Select.OptGroup" "antd")
     member x.Key
-        with set (v: string) = x.Attribute "key" v
+        (v: string) = x.attribute "key" v
     member x.Label
-        with set (v: ReactElement) = x.Attribute "label" v
+        (v: ReactElement) = x.attribute "label" v
 
 [<StringEnum; RequireQualifiedAccess>]
 type SelectMode =
@@ -35,100 +35,100 @@ type SelectMode =
 type AntSelect() =
     inherit AntElement(ofImport "Select" "antd")
     member x.AllowClear
-        with set (v: bool) = x.Attribute "allowClear" v
+        (v: bool) = x.attribute "allowClear" v
     member x.AutoClearSearchValue
-        with set (v: bool) = x.Attribute "autoClearSearchValue" v
+        (v: bool) = x.attribute "autoClearSearchValue" v
     member x.AutoFocus
-        with set (v: bool) = x.Attribute "autoFocus" v
+        (v: bool) = x.attribute "autoFocus" v
     member x.DefaultActiveFirstOption
-        with set (v: bool) = x.Attribute "defaultActiveFirstOption" v
+        (v: bool) = x.attribute "defaultActiveFirstOption" v
     member x.DefaultValue
-        with set (v: string) = x.Attribute "defaultValue" v
+        (v: string) = x.attribute "defaultValue" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.DropdownClassName
-        with set (v: string) = x.Attribute "dropdownClassName" v
+        (v: string) = x.attribute "dropdownClassName" v
     member x.DropdownMatchSelectWidth
-        with set (v: bool) = x.Attribute "dropdownMatchSelectWidth" v
+        (v: bool) = x.attribute "dropdownMatchSelectWidth" v
 
     member x.DropDownRender
-        with set (v: ReactElement -> obj -> ReactElement) =
+        (v: ReactElement -> obj -> ReactElement) =
             let uncurried = System.Func<ReactElement, obj, ReactElement> v
-            x.Attribute "dropDownRender" uncurried
+            x.attribute "dropDownRender" uncurried
 
     member x.FilterOption
-        with set (v: string -> string -> bool) =
+        (v: string -> string -> bool) =
             let uncurried = System.Func<string, string, bool> v
-            x.Attribute "filterOption" uncurried
+            x.attribute "filterOption" uncurried
     member x.FirstActiveValue
-        with set (v: string array) = x.Attribute "firstActiveValue" v
+        (v: string array) = x.attribute "firstActiveValue" v
     member x.GetPopupContainer
-        with set (v: ReactElement -> HTMLElement) = x.Attribute "getPopupContainer" v
+        (v: ReactElement -> HTMLElement) = x.attribute "getPopupContainer" v
     member x.LabelInValue
-        with set (v: bool) = x.Attribute "labelInValue" v
+        (v: bool) = x.attribute "labelInValue" v
     member x.MaxTagCount
-        with set (v: int) = x.Attribute "maxTagCount" v
+        (v: int) = x.attribute "maxTagCount" v
     member x.MaxTagTextLength
-        with set (v: int) = x.Attribute "maxTagTextLength" v
+        (v: int) = x.attribute "maxTagTextLength" v
     member x.MaxTagPlaceholder
-        with set (v: string array -> ReactElement) = x.Attribute "maxTagPlaceholder" v
+        (v: string array -> ReactElement) = x.attribute "maxTagPlaceholder" v
     member x.Mode
-        with set (v: SelectMode) = x.Attribute "mode" v
+        (v: SelectMode) = x.attribute "mode" v
     member x.NotFoundContent
-        with set (v: string) = x.Attribute "notFoundContent" v
+        (v: string) = x.attribute "notFoundContent" v
     member x.OptionFilterProp
-        with set (v: string) = x.Attribute "optionFilterProp" v
+        (v: string) = x.attribute "optionFilterProp" v
     member x.OptionLabelProp
-        with set (v: string) = x.Attribute "optionLabelProp" v
+        (v: string) = x.attribute "optionLabelProp" v
     member x.Placeholder
-        with set (v: ReactElement) = x.Attribute "placeholder" v
+        (v: ReactElement) = x.attribute "placeholder" v
     member x.ShowArrow
-        with set (v: bool) = x.Attribute "showArrow" v
+        (v: bool) = x.attribute "showArrow" v
     member x.ShowSearch
-        with set (v: bool) = x.Attribute "showSearch" v
+        (v: bool) = x.attribute "showSearch" v
     member x.Size
-        with set (v: Size) = x.Attribute "size" v
+        (v: Size) = x.attribute "size" v
     member x.SuffixIcon
-        with set (v: ReactElement) = x.Attribute "suffixIcon" v
+        (v: ReactElement) = x.attribute "suffixIcon" v
     member x.RemoveIcon
-        with set (v: ReactElement) = x.Attribute "removeIcon" v
+        (v: ReactElement) = x.attribute "removeIcon" v
     member x.ClearIcon
-        with set (v: ReactElement) = x.Attribute "clearIcon" v
+        (v: ReactElement) = x.attribute "clearIcon" v
     member x.MenuItemSelectedIcon
-        with set (v: ReactElement) = x.Attribute "menuItemSelectedIcon" v
+        (v: ReactElement) = x.attribute "menuItemSelectedIcon" v
     member x.TokenSeparators
-        with set (v: string array) = x.Attribute "tokenSeparators" v
+        (v: string array) = x.attribute "tokenSeparators" v
     member x.Value
-        with set (v: string array) = x.Attribute "value" v
+        (v: string array) = x.attribute "value" v
     member x.OnBlur
-        with set (v: Event -> unit) = x.Attribute "onBlur" v
+        (v: Event -> unit) = x.attribute "onBlur" v
     member x.OnChange
-        with set (v: string array -> unit) = x.Attribute "onChange" v
+        (v: string array -> unit) = x.attribute "onChange" v
     member x.OnDeselect
-        with set (v: string -> unit) = x.Attribute "onDeselect" v
+        (v: string -> unit) = x.attribute "onDeselect" v
     member x.OnFocus
-        with set (v: Event -> unit) = x.Attribute "onFocus" v
+        (v: Event -> unit) = x.attribute "onFocus" v
     member x.OnInputKeyDown
-        with set (v: KeyboardEvent -> unit) = x.Attribute "onInputKeyDown" v
+        (v: KeyboardEvent -> unit) = x.attribute "onInputKeyDown" v
     member x.OnMouseEnter
-        with set (v: MouseEvent -> unit) = x.Attribute "onMouseEnter" v
+        (v: MouseEvent -> unit) = x.attribute "onMouseEnter" v
     member x.OnMouseLeave
-        with set (v: MouseEvent -> unit) = x.Attribute "onMouseLeave" v
+        (v: MouseEvent -> unit) = x.attribute "onMouseLeave" v
     member x.OnPopupScroll
-        with set (v: Event -> unit) = x.Attribute "onPopupScroll" v
+        (v: Event -> unit) = x.attribute "onPopupScroll" v
     member x.OnSearch
-        with set (v: string -> unit) = x.Attribute "onSearch" v
+        (v: string -> unit) = x.attribute "onSearch" v
     member x.OnSelect
-        with set (v: string -> unit) = x.Attribute "onSelect" v
+        (v: string -> unit) = x.attribute "onSelect" v
     member x.DefaultOpen
-        with set (v: bool) = x.Attribute "defaultOpen" v
+        (v: bool) = x.attribute "defaultOpen" v
     member x.Open
-        with set (v: bool) = x.Attribute "open" v
+        (v: bool) = x.attribute "open" v
     member x.OnDropdownVisibleChange
-        with set (v: bool -> unit) = x.Attribute "onDropdownVisibleChange" v
+        (v: bool -> unit) = x.attribute "onDropdownVisibleChange" v
     member x.Loading
-        with set (v: bool) = x.Attribute "loading" v
+        (v: bool) = x.attribute "loading" v
     member x.DropdownStyle(css: Props.CSSProp list) =
-        x.Attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
+        x.attribute "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
     member x.DropdownMenuStyle(css: Props.CSSProp list) =
-        x.Attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)
+        x.attribute "dropdownMenuStyle" (keyValueList CaseRules.LowerFirst css)

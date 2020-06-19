@@ -31,58 +31,58 @@ type UploadFile =
 type AntUpload() =
     inherit AntElement(ofImport "Upload" "antd")
     member x.Accept
-        with set (v: string) = x.Attribute "accept" v
+        (v: string) = x.attribute "accept" v
     member x.Action
-        with set (v: string) = x.Attribute "action" v
+        (v: string) = x.attribute "action" v
     member x.Method
-        with set (v: string) = x.Attribute "method" v
+        (v: string) = x.attribute "method" v
     member x.Directory
-        with set (v: bool) = x.Attribute "directory" v
+        (v: bool) = x.attribute "directory" v
 
     member x.BeforeUpload
-        with set (v: UploadFile -> UploadFile array -> bool) =
+        (v: UploadFile -> UploadFile array -> bool) =
             let uncurried = System.Func<UploadFile, UploadFile array, bool> v
-            x.Attribute "beforeUpload" uncurried
+            x.attribute "beforeUpload" uncurried
 
     member x.CustomRequest
-        with set (v: obj -> unit) = x.Attribute "customRequest" v
+        (v: obj -> unit) = x.attribute "customRequest" v
     member x.Data
-        with set (v: UploadFile -> obj) = x.Attribute "data" v
+        (v: UploadFile -> obj) = x.attribute "data" v
     member x.DefaultFileList
-        with set (v: obj array) = x.Attribute "defaultFileList" v
+        (v: obj array) = x.attribute "defaultFileList" v
     member x.Disabled
-        with set (v: bool) = x.Attribute "disabled" v
+        (v: bool) = x.attribute "disabled" v
     member x.FileList
-        with set (v: obj array) = x.Attribute "fileList" v
+        (v: obj array) = x.attribute "fileList" v
     member x.Headers
-        with set (v: obj) = x.Attribute "headers" v
+        (v: obj) = x.attribute "headers" v
     member x.ListType
-        with set (v: UploadListType) = x.Attribute "listType" v
+        (v: UploadListType) = x.attribute "listType" v
     member x.Multiple
-        with set (v: bool) = x.Attribute "multiple" v
+        (v: bool) = x.attribute "multiple" v
     member x.Name
-        with set (v: string) = x.Attribute "name" v
+        (v: string) = x.attribute "name" v
     member x.PreviewFile
-        with set (v: UploadFile -> Promise<string>) = x.Attribute "previewFile" v
+        (v: UploadFile -> Promise<string>) = x.attribute "previewFile" v
     member x.ShowUploadList
-        with set (v: bool) = x.Attribute "showUploadList" v
+        (v: bool) = x.attribute "showUploadList" v
     member x.SupportServerRender
-        with set (v: bool) = x.Attribute "supportServerRender" v
+        (v: bool) = x.attribute "supportServerRender" v
     member x.WithCredentials
-        with set (v: bool) = x.Attribute "withCredentials" v
+        (v: bool) = x.attribute "withCredentials" v
     member x.OpenFileDialogOnClick
-        with set (v: bool) = x.Attribute "openFileDialogOnClick" v
+        (v: bool) = x.attribute "openFileDialogOnClick" v
     member x.OnChange
-        with set (v: unit -> unit) = x.Attribute "onChange" v
+        (v: unit -> unit) = x.attribute "onChange" v
     member x.OnPreview
-        with set (v: UploadFile -> unit) = x.Attribute "onPreview" v
+        (v: UploadFile -> unit) = x.attribute "onPreview" v
     member x.OnRemove
-        with set (v: UploadFile -> bool) = x.Attribute "onRemove" v
+        (v: UploadFile -> bool) = x.attribute "onRemove" v
     member x.OnDownload
-        with set (v: UploadFile -> unit) = x.Attribute "onDownload" v
+        (v: UploadFile -> unit) = x.attribute "onDownload" v
     member x.TransformFile
-        with set (v: UploadFile -> UploadFile) = x.Attribute "transformFile" v
+        (v: UploadFile -> UploadFile) = x.attribute "transformFile" v
     member x.IconRender
-        with set (v: UploadFile -> UploadListType -> ReactElement) =
+        (v: UploadFile -> UploadListType -> ReactElement) =
             let uncurried = System.Func<UploadFile, UploadListType, ReactElement> v
-            x.Attribute "iconRender" uncurried
+            x.attribute "iconRender" uncurried

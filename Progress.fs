@@ -10,15 +10,15 @@ open Fable.React
 
 type AntProgress()  =
     inherit AntElement(ofImport "Progress" "antd")
-    member x.Type with set (v: ProgressType) = x.Attribute "type" v
-    member x.Format with set (v: (int -> string)) = x.Attribute "format" v
-    member x.Percent with set (v: int) = x.Attribute "percent" v
-    member x.ShowInfo with set (v: bool) = x.Attribute "showInfo" v
-    member x.Status with set (v: ProgressStatus) = x.Attribute "status" v
-    member x.StrokeLinecap with set (v: ProgressLinecap) = x.Attribute "strokeLinecap" v
-    member x.StrokeColor with set (v: string) = x.Attribute "strokeColor" v
-    member x.SuccessPercent with set (v: int) = x.Attribute "successPercent" v
-    member x.StrokeWidth with set (v: int) = x.Attribute "strokeWidth" v
-    member x.Width with set (v: string) = x.Attribute "width" v
-    member x.GapDegree with set (v: int) = x.Attribute "gapDegree" v
-    member x.GapPosition with set (v: ProgressPosition) = x.Attribute "gapPosition" v
+    member x.Type (v: ProgressType) = x.attribute "type" v
+    member x.Format (v: (int -> string)) = x.attribute "format" v
+    member x.Percent (v: int) = x.attribute "percent" v
+    member x.ShowInfo (v: bool) = x.attribute "showInfo" v
+    member x.Status (v: ProgressStatus) = x.attribute "status" v
+    member x.StrokeLinecap (v: ProgressLinecap) = x.attribute "strokeLinecap" v
+    member x.StrokeColor (v: string) = x.attribute "strokeColor" v
+    member x.SuccessPercent (v: int) = x.attribute "successPercent" v
+    member x.StrokeWidth (v: int) = x.attribute "strokeWidth" v
+    member x.Width (v: string) = x.attribute "width" v
+    member x.GapDegree (v: int) = x.attribute "gapDegree" v
+    member x.GapPosition (v: ProgressPosition) = x.attribute "gapPosition" v

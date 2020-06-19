@@ -5,9 +5,9 @@ open Fable.React
 type AntIcon(icon) =
     inherit AntElement(icon)
     
-    member x.Spin with set (v: bool) = x.Attribute "spin" v 
-    member x.Rotate with set (v: float) = x.Attribute "rotate" v 
-    member x.TwoToneColor with set (v: string) = x.Attribute "twoToneColor" v 
+    member x.Spin (v: bool) = x.attribute "spin" v 
+    member x.Rotate (v: float) = x.attribute "rotate" v 
+    member x.TwoToneColor (v: string) = x.attribute "twoToneColor" v 
 
     static member ArrowUpOutlined = ofImport "ArrowUpOutlined" "@ant-design/icons"
     static member ArrowDownOutlined = ofImport "ArrowDownOutlined" "@ant-design/icons"
