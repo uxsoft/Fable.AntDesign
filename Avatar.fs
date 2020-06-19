@@ -7,11 +7,11 @@ open Fable.React
 type AvatarShape = Circle | Square
 
 type AntAvatar() =
-    inherit AntElement(ofImport "Avatar" "antd")
-    member x.Icon (v: ReactElement) = x.attribute "icon" v
-    member x.Shape (v: AvatarShape) = x.attribute "shape" v 
-    member x.Size (v: Size) = x.attribute "size" v 
-    member x.Src (v: string) = x.attribute "src" v 
-    member x.SrcSet (v: string) = x.attribute "srcSet" v 
-    member x.Alt (v: string) = x.attribute "alt" v 
-    member x.OnError (v: (unit -> bool)) = x.attribute "onError" v 
+    inherit AntElement<AntAvatar>(ofImport "Avatar" "antd")
+    member x.icon (v: ReactElement) = x.attribute "icon" v
+    member x.shape (v: AvatarShape) = x.attribute "shape" v 
+    member x.size (v: Size) = x.attribute "size" v 
+    member x.src (v: string) = x.attribute "src" v 
+    member x.srcSet (v: string) = x.attribute "srcSet" v 
+    member x.alt (v: string) = x.attribute "alt" v 
+    member x.onError (v: (unit -> bool)) = x.attribute "onError" v 

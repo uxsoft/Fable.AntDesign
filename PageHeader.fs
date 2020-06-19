@@ -3,14 +3,14 @@ namespace Fable.AntD
 open Fable.React
 
 type AntPageHeader() =
-    inherit AntElement(ofImport "PageHeader" "antd")
-    member x.Title (v: ReactElement) = x.attribute "title" v
-    member x.SubTitle (v: ReactElement) = x.attribute "subTitle" v
-    member x.Ghost (v: bool) = x.attribute "ghost" v
-    member x.Avatar (v: ReactElement) = x.attribute "avatar" v
-    member x.BackIcon (v: ReactElement) = x.attribute "backIcon" v
-    member x.Tags (v: ReactElement list) = x.attribute "tags" v
-    member x.Extra (v: ReactElement) = x.attribute "extra" v
-    member x.Breadcrumb (v: ReactElement) = x.attribute "breadcrumb" v
-    member x.Footer (v: ReactElement) = x.attribute "footer" v
-    member x.OnBack (v: (unit -> unit)) = x.attribute "onBack" v 
+    inherit AntElement<AntPageHeader>(ofImport "PageHeader" "antd")
+    member x.title (v: ReactElement) = x.attribute "title" v
+    member x.subTitle (v: ReactElement) = x.attribute "subTitle" v
+    member x.ghost (v: bool) = x.attribute "ghost" v
+    member x.avatar (v: ReactElement) = x.attribute "avatar" v
+    member x.backIcon (v: ReactElement) = x.attribute "backIcon" v
+    member x.tags (v: ReactElement list) = x.attribute "tags" v
+    member x.extra (v: ReactElement) = x.attribute "extra" v
+    member x.breadcrumb (v: ReactElement) = x.attribute "breadcrumb" v
+    member x.footer (v: ReactElement) = x.attribute "footer" v
+    member x.onBack (v: (unit -> unit)) = x.attribute "onBack" v 

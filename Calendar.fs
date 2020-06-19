@@ -8,19 +8,19 @@ open Fable.MomentJs
 type CalendarMode = Month | Year
 
 type AntCalendar() =
-    inherit AntElement(ofImport "Calendar" "antd")
-    member x.DateCellRender (v: (Moment -> ReactElement)) = x.attribute "dateCellRender" v 
-    member x.DateFullCellRender (v: (Moment -> ReactElement)) = x.attribute "dateFullCellRender" v 
-    member x.DefaultValue (v: Moment) = x.attribute "defaultValue" v 
-    member x.DisabledDate (v: (Moment -> bool)) = x.attribute "disabledDate" v 
-    member x.Fullscreen (v: bool) = x.attribute "fullscreen" v 
-    member x.Locale (v: obj) = x.attribute "locale" v 
-    member x.Mode (v: CalendarMode) = x.attribute "mode" v 
-    member x.MonthCellRender (v: (Moment -> ReactElement)) = x.attribute "monthCellRender" v 
-    member x.MonthFullCellRender (v: (Moment -> ReactElement)) = x.attribute "monthFullCellRender" v 
-    member x.ValidRange (v: Moment array) = x.attribute "validRange" v 
-    member x.Value (v: Moment) = x.attribute "value" v 
-    member x.OnPanelChange (v: (Moment -> string -> unit)) = x.attribute "onPanelChange" v 
-    member x.OnSelect (v: (Moment -> unit)) = x.attribute "onSelect" v 
-    member x.OnChange (v: (Moment -> unit)) = x.attribute "onChange" v 
-    member x.HeaderRender (v: (obj -> ReactElement)) = x.attribute "headerRender" v 
+    inherit AntElement<AntCalendar>(ofImport "Calendar" "antd")
+    member x.dateCellRender (v: (Moment -> ReactElement)) = x.attribute "dateCellRender" v 
+    member x.dateFullCellRender (v: (Moment -> ReactElement)) = x.attribute "dateFullCellRender" v 
+    member x.defaultValue (v: Moment) = x.attribute "defaultValue" v 
+    member x.disabledDate (v: (Moment -> bool)) = x.attribute "disabledDate" v 
+    member x.fullscreen (v: bool) = x.attribute "fullscreen" v 
+    member x.locale (v: obj) = x.attribute "locale" v 
+    member x.mode (v: CalendarMode) = x.attribute "mode" v 
+    member x.monthCellRender (v: (Moment -> ReactElement)) = x.attribute "monthCellRender" v 
+    member x.monthFullCellRender (v: (Moment -> ReactElement)) = x.attribute "monthFullCellRender" v 
+    member x.validRange (v: Moment array) = x.attribute "validRange" v 
+    member x.value (v: Moment) = x.attribute "value" v 
+    member x.onPanelChange (v: (Moment -> string -> unit)) = x.attribute "onPanelChange" v 
+    member x.onSelect (v: (Moment -> unit)) = x.attribute "onSelect" v 
+    member x.onChange (v: (Moment -> unit)) = x.attribute "onChange" v 
+    member x.headerRender (v: (obj -> ReactElement)) = x.attribute "headerRender" v 

@@ -8,23 +8,23 @@ open Browser.Types
 [<StringEnum; RequireQualifiedAccess>] type DrawerPlacement = Top | Right | Bottom | Left
 
 type AntDrawer() =
-    inherit AntElement(ofImport "Drawer" "antd")
-    member x.Closable (v: bool) = x.attribute "closable" v 
-    member x.DestroyOnClose (v: bool) = x.attribute "destroyOnClose" v 
-    member x.GetContainer (v: (unit -> ReactElement)) = x.attribute "getContainer" v 
-    member x.Mask (v: bool) = x.attribute "mask" v 
-    member x.MaskClosable (v: bool) = x.attribute "maskClosable" v 
-    member x.Title (v: ReactElement) = x.attribute "title" v 
-    member x.Visible (v: bool) = x.attribute "visible" v 
-    member x.Width (v: string) = x.attribute "width" v 
-    member x.Height (v: string) = x.attribute "height" v 
-    member x.ClassName (v: string) = x.attribute "className" v 
-    member x.ZIndex (v: int) = x.attribute "zIndex" v 
-    member x.Placement (v: DrawerPlacement) = x.attribute "placement" v 
-    member x.OnClose (v: (Event -> unit)) = x.attribute "onClose" v 
-    member x.AfterVisibleChange (v: (bool -> unit)) = x.attribute "afterVisibleChange" v 
-    member x.Keyboard (v: bool) = x.attribute "keyboard" v 
-    member x.MaskStyle (css: Props.CSSProp list) = x.attribute "maskStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.DrawerStyle (css: Props.CSSProp list) = x.attribute "drawerStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.HeaderStyle (css: Props.CSSProp list) = x.attribute "headerStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.BodyStyle (css: Props.CSSProp list) = x.attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
+    inherit AntElement<AntDrawer>(ofImport "Drawer" "antd")
+    member x.closable (v: bool) = x.attribute "closable" v 
+    member x.destroyOnClose (v: bool) = x.attribute "destroyOnClose" v 
+    member x.getContainer (v: (unit -> ReactElement)) = x.attribute "getContainer" v 
+    member x.mask (v: bool) = x.attribute "mask" v 
+    member x.maskClosable (v: bool) = x.attribute "maskClosable" v 
+    member x.title (v: ReactElement) = x.attribute "title" v 
+    member x.visible (v: bool) = x.attribute "visible" v 
+    member x.width (v: string) = x.attribute "width" v 
+    member x.height (v: string) = x.attribute "height" v 
+    member x.className (v: string) = x.attribute "className" v 
+    member x.zIndex (v: int) = x.attribute "zIndex" v 
+    member x.placement (v: DrawerPlacement) = x.attribute "placement" v 
+    member x.onClose (v: (Event -> unit)) = x.attribute "onClose" v 
+    member x.afterVisibleChange (v: (bool -> unit)) = x.attribute "afterVisibleChange" v 
+    member x.keyboard (v: bool) = x.attribute "keyboard" v 
+    member x.maskStyle (css: Props.CSSProp list) = x.attribute "maskStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.drawerStyle (css: Props.CSSProp list) = x.attribute "drawerStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.headerStyle (css: Props.CSSProp list) = x.attribute "headerStyle" (keyValueList CaseRules.LowerFirst css)
+    member x.bodyStyle (css: Props.CSSProp list) = x.attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
