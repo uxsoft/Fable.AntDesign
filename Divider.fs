@@ -7,8 +7,8 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>] type DividerType = Horizontal | Vertical
         
 type AntDivider() =
-    inherit AntElement(ofImport "Divider" "antd")
-    member x.ClassName (v: string) = x.attribute "className" v 
-    member x.Dashed (v: bool) = x.attribute "dashed" v 
-    member x.Orientation (v: DividerOrientation) = x.attribute "orientation" v 
-    member x.Type (v: DividerType) = x.attribute "type" v 
+    inherit AntElement<AntDivider>(ofImport "Divider" "antd")
+    member x.className (v: string) = x.attribute "className" v 
+    member x.dashed (v: bool) = x.attribute "dashed" v 
+    member x.orientation (v: DividerOrientation) = x.attribute "orientation" v 
+    member x.dividerType (v: DividerType) = x.attribute "type" v 

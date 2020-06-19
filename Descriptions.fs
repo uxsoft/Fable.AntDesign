@@ -7,15 +7,15 @@ open Fable.React
 type DescriptionsLayoutOptions = Horizontal | Vertical
 
 type AntDescriptions() =
-    inherit AntElement(ofImport "Descriptions" "antd")
-    member x.Title (v: ReactElement) = x.attribute "title" v 
-    member x.Bordered (v: bool) = x.attribute "bordered" v 
-    member x.Column (v: int) = x.attribute "column" v 
-    member x.Size (v: Size) = x.attribute "size" v 
-    member x.Layout (v: DescriptionsLayoutOptions) = x.attribute "layout" v 
-    member x.Colon (v: bool) = x.attribute "colon" v 
+    inherit AntElement<AntDescriptions>(ofImport "Descriptions" "antd")
+    member x.title (v: ReactElement) = x.attribute "title" v 
+    member x.bordered (v: bool) = x.attribute "bordered" v 
+    member x.column (v: int) = x.attribute "column" v 
+    member x.size (v: Size) = x.attribute "size" v 
+    member x.layout (v: DescriptionsLayoutOptions) = x.attribute "layout" v 
+    member x.colon (v: bool) = x.attribute "colon" v 
     
 type AntDescriptionsItem() =
-    inherit AntElement(ofImport "Descriptions.Item" "antd")
-    member x.Label (v: ReactElement) = x.attribute "label" v 
-    member x.Span (v: int) = x.attribute "span" v 
+    inherit AntElement<AntDescriptionsItem>(ofImport "Descriptions.Item" "antd")
+    member x.label (v: ReactElement) = x.attribute "label" v 
+    member x.span (v: int) = x.attribute "span" v 

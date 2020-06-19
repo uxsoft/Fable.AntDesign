@@ -4,17 +4,17 @@ open Browser.Types
 open Fable.React
 
 type AntInputNumber() =
-    inherit AntElement(ofImport "InputNumber" "antd")
-    member x.AutoFocus (v: bool) = x.attribute "disabled" v 
-    member x.DefaultValue (v: float) = x.attribute "disabled" v 
-    member x.Disabled (v: bool) = x.attribute "disabled" v 
-    member x.Formatter (v: (float -> string)) = x.attribute "disabled" v 
-    member x.Max (v: float) = x.attribute "disabled" v 
-    member x.Min (v: float) = x.attribute "disabled" v 
-    member x.Parser (v: (string -> float)) = x.attribute "disabled" v 
-    member x.Precision (v: float) = x.attribute "disabled" v 
-    member x.Size (v: Size) = x.attribute "disabled" v 
-    member x.Step (v: float) = x.attribute "disabled" v 
-    member x.Value (v: float) = x.attribute "disabled" v 
-    member x.OnChange (v: (float -> unit)) = x.attribute "disabled" v 
-    member x.OnPressEnter (v: (Event -> unit)) = x.attribute "disabled" v 
+    inherit AntElement<AntInputNumber>(ofImport "InputNumber" "antd")
+    member x.autoFocus (v: bool) = x.attribute "autoFocus" v 
+    member x.defaultValue (v: float) = x.attribute "defaultValue" v 
+    member x.disabled (v: bool) = x.attribute "disabled" v 
+    member x.formatter (v: (float -> string)) = x.attribute "formatter" v 
+    member x.max (v: float) = x.attribute "max" v 
+    member x.min (v: float) = x.attribute "min" v 
+    member x.parser (v: (string -> float)) = x.attribute "parser" v 
+    member x.precision (v: float) = x.attribute "precision" v 
+    member x.size (v: Size) = x.attribute "size" v 
+    member x.step (v: float) = x.attribute "step" v 
+    member x.value (v: float) = x.attribute "value" v 
+    member x.onChange (v: (float -> unit)) = x.attribute "onChange" v 
+    member x.onPressEnter (v: (Event -> unit)) = x.attribute "onPressEnter" v 

@@ -6,23 +6,26 @@ open Fable.React
 [<StringEnum; RequireQualifiedAccess>]
 type TypographyType = Secondary | Warning | Danger
 
-type AntText (?partialImport) =
-    inherit AntElement(defaultArg partialImport (ofImport "Typography.Text" "antd"))
-    member x.Code (v: bool) = x.attribute "code" v 
-    member x.Copyable (v: bool) = x.attribute "copyable" v 
-    member x.Delete (v: bool) = x.attribute "delete" v 
-    member x.Disabled (v: bool) = x.attribute "disabled" v 
-    member x.Editable (v: bool) = x.attribute "editable" v 
-    member x.Ellipsis (v: bool) = x.attribute "ellipsis" v 
-    member x.Mark (v: bool) = x.attribute "mark" v 
-    member x.Underline (v: bool) = x.attribute "underline" v 
-    member x.OnChange (v: (string -> unit)) = x.attribute "onChange" v 
-    member x.Strong (v: bool) = x.attribute "strong" v 
-    member x.Type (v: TypographyType) = x.attribute "type" v 
+type AntTypographyBase<'T when 'T :> AntElement<'T>>(partialImport) =
+    inherit AntElement<'T>(partialImport)
+    member x.code (v: bool) = x.attribute "code" v 
+    member x.copyable (v: bool) = x.attribute "copyable" v 
+    member x.delete (v: bool) = x.attribute "delete" v 
+    member x.disabled (v: bool) = x.attribute "disabled" v 
+    member x.editable (v: bool) = x.attribute "editable" v 
+    member x.ellipsis (v: bool) = x.attribute "ellipsis" v 
+    member x.mark (v: bool) = x.attribute "mark" v 
+    member x.underline (v: bool) = x.attribute "underline" v 
+    member x.onChange (v: (string -> unit)) = x.attribute "onChange" v 
+    member x.strong (v: bool) = x.attribute "strong" v 
+    member x.typographyType (v: TypographyType) = x.attribute "type" v 
+
+type AntText() =
+    inherit AntTypographyBase<AntText>(ofImport "Typography.Text" "antd")
 
 type AntTitle() =
-   inherit AntText(ofImport "Typography.Title" "antd")
-   member x.Level (v: int) = x.attribute "level" v 
+   inherit AntTypographyBase<AntTitle>(ofImport "Typography.Title" "antd")
+   member x.level (v: int) = x.attribute "level" v 
 
 type AntParagraph() =
-   inherit AntText(ofImport "Typography.Paragraph" "antd")
+   inherit AntTypographyBase<AntParagraph>(ofImport "Typography.Paragraph" "antd")

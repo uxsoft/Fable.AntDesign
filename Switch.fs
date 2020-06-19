@@ -2,32 +2,18 @@ namespace Fable.AntD
 
 open Browser.Types
 open Fable.React
+open System
 
 type AntSwitch() =
-    inherit AntElement(ofImport "Switch" "antd")
-    member x.AutoFocus
-        (v: bool) = x.attribute "autoFocus" v
-    member x.Checked
-        (v: bool) = x.attribute "checked" v
-    member x.CheckedChildren
-        (v: ReactElement) = x.attribute "checkedChildren" v
-    member x.DefaultChecked
-        (v: bool) = x.attribute "defaultChecked" v
-    member x.Disabled
-        (v: bool) = x.attribute "disabled" v
-    member x.Loading
-        (v: bool) = x.attribute "loading" v
-    member x.Size
-        (v: Size) = x.attribute "size" v
-    member x.UnCheckedChildren
-        (v: ReactElement) = x.attribute "unCheckedChildren" v
-    member x.OnChange
-        (v: bool -> Event -> unit) =
-            let uncurried = System.Func<bool, Event, unit> v
-            x.attribute "onChange" uncurried
-    member x.OnClick
-        (v: bool -> Event -> unit) =
-            let uncurried = System.Func<bool, Event, unit> v
-            x.attribute "onClick" uncurried
-    member x.ClassName
-        (v: string) = x.attribute "className" v
+    inherit AntElement<AntSwitch>(ofImport "Switch" "antd")
+    member x.autoFocus (v: bool) = x.attribute "autoFocus" v
+    member x.checked (v: bool) = x.attribute "checked" v
+    member x.checkedChildren (v: ReactElement) = x.attribute "checkedChildren" v
+    member x.defaultChecked (v: bool) = x.attribute "defaultChecked" v
+    member x.disabled (v: bool) = x.attribute "disabled" v
+    member x.loading (v: bool) = x.attribute "loading" v
+    member x.size (v: Size) = x.attribute "size" v
+    member x.unCheckedChildren (v: ReactElement) = x.attribute "unCheckedChildren" v
+    member x.onChange (v: Func<bool, Event, unit>) = x.attribute "onChange" v
+    member x.onClick (v: Func<bool, Event, unit>) = x.attribute "onClick" v
+    member x.className (v: string) = x.attribute "className" v

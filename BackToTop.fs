@@ -4,7 +4,7 @@ open Browser.Types
 open Fable.React
 
 type AntBackTop() =
-    inherit AntElement(ofImport "BackTop" "antd")
-    member x.Target (v: (unit -> HTMLElement)) = x.attribute "target" v 
-    member x.VisibilityHeight (v: int) = x.attribute "visibilityHeight" v 
-    member x.OnClick (v: (unit -> unit)) = x.attribute "onClick" v 
+    inherit AntElement<AntBackTop>(ofImport "BackTop" "antd")
+    member x.target (v: (unit -> HTMLElement)) = x.attribute "target" v 
+    member x.visibilityHeight (v: int) = x.attribute "visibilityHeight" v 
+    member x.onClick (v: (unit -> unit)) = x.attribute "onClick" v 
