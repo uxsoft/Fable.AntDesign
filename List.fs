@@ -15,27 +15,16 @@ type ColumnCount =
     | [<CompiledName("12")>] Twelve
     | [<CompiledName("24")>] TwentyFour
 
-[<StringEnum; RequireQualifiedAccess>]
-type ColumnType = 
-    | Gutter 
-    | Column
-    | Xs 
-    | Sm 
-    | Md 
-    | Lg 
-    | Xl 
-    | Xxl
-
-type ListGridType = {
-  gutter: int option
-  column: ColumnCount option
-  xs: ColumnCount option
-  sm: ColumnCount option
-  md: ColumnCount option
-  lg: ColumnCount option
-  xl: ColumnCount option
-  xxl: ColumnCount option
-}
+type AntListGrid() =
+  inherit AntObject<AntListGrid>()
+  member x.gutter (v: int ) = x.attribute "gutter" v
+  member x.column (v: ColumnCount) = x.attribute "column" v
+  member x.xs (v: ColumnCount) = x.attribute "xs" v
+  member x.sm (v: ColumnCount) = x.attribute "sm" v
+  member x.md (v: ColumnCount) = x.attribute "md" v
+  member x.lg (v: ColumnCount) = x.attribute "lg" v
+  member x.xl (v: ColumnCount) = x.attribute "xl" v
+  member x.xxl (v: ColumnCount) = x.attribute "xxl" v
 
 [<StringEnum; RequireQualifiedAccess>]
 type ListSize = Small | Default | Large
@@ -44,7 +33,7 @@ type AntList<'T>() =
     inherit AntElement<AntList<'T>>(ofImport "List" "antd")
     member x.bordered (v: bool) = x.attribute "bordered" v 
     member x.footer (v: ReactElement) = x.attribute "footer" v 
-    member x.grid (v: ListGridType) = x.attribute "grid" v 
+    member x.grid (v: AntListGrid) = x.attribute "grid" v.JSON 
     member x.header (v: ReactElement) = x.attribute "header" v 
     member x.itemLayout (v: string) = x.attribute "itemLayout" v 
     member x.rowKey (v: ('T -> string)) = x.attribute "rowKey" v  
