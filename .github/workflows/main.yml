@@ -19,7 +19,7 @@ jobs:
           
     - name: Nerdbank.GitVersioning
       id: nbgv
-      uses: AArnott/nbgv@v0.3
+      uses: AArnott/nbgv@v0.3.1
     
     - name: Set version in project file
       uses: roryprimrose/set-vs-sdk-project-version@v1.0.3
