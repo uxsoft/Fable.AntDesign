@@ -30,7 +30,7 @@ jobs:
       run: dotnet restore
 
     - name: Publish NuGet
-      uses: rohith/publish-nuget@v2.4.0
+      uses: rohith/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: ./Fable.AntD.fsproj
         VERSION_STATIC: ${{ steps.nbgv.outputs.Version }}
