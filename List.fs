@@ -16,15 +16,15 @@ type ColumnCount =
     | [<CompiledName("24")>] TwentyFour
 
 type AntListGrid() =
-  inherit AntObject<AntListGrid>()
-  member x.gutter (v: int ) = x.attribute "gutter" v
-  member x.column (v: ColumnCount) = x.attribute "column" v
-  member x.xs (v: ColumnCount) = x.attribute "xs" v
-  member x.sm (v: ColumnCount) = x.attribute "sm" v
-  member x.md (v: ColumnCount) = x.attribute "md" v
-  member x.lg (v: ColumnCount) = x.attribute "lg" v
-  member x.xl (v: ColumnCount) = x.attribute "xl" v
-  member x.xxl (v: ColumnCount) = x.attribute "xxl" v
+    inherit AntObject<AntListGrid>()
+    member x.gutter (v: int ) = x.attribute "gutter" v
+    member x.column (v: ColumnCount) = x.attribute "column" v
+    member x.xs (v: ColumnCount) = x.attribute "xs" v
+    member x.sm (v: ColumnCount) = x.attribute "sm" v
+    member x.md (v: ColumnCount) = x.attribute "md" v
+    member x.lg (v: ColumnCount) = x.attribute "lg" v
+    member x.xl (v: ColumnCount) = x.attribute "xl" v
+    member x.xxl (v: ColumnCount) = x.attribute "xxl" v
 
 [<StringEnum; RequireQualifiedAccess>]
 type ListSize = Small | Default | Large

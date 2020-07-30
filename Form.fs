@@ -49,8 +49,13 @@ type FormFieldData = {
     value: string
 }
 
-type AntFormRule() =
+type AntFormRule(?msg: string) as this =
     inherit AntObject<AntFormRule>()
+    do
+        match msg with
+        | Some txt -> this.message txt |> ignore
+        | None -> ()
+    
     member x.enum (v: string array) = x.attribute "enum" v
     member x.len (v: int) = x.attribute "len" v
     member x.max (v: int) = x.attribute "max" v
@@ -59,7 +64,7 @@ type AntFormRule() =
     member x.pattern (v: string) = x.attribute "pattern" v
     member x.required (v: bool) = x.attribute "required" v
     member x.transform (v: string -> string) = x.attribute "transform" v
-    member x.objectType (v: string) = x.attribute "type" v
+    member x.ruleType (v: FormRuleType) = x.attribute "type" v
     member x.validator (v: Func<AntFormRule, string, Promise<string>>) = x.attribute "validator" v
     member x.whitespace (v: bool) = x.attribute "whitespace" v
     member x.validateTrigger (v: string array) = x.attribute "validateTrigger" v
