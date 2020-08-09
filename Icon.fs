@@ -1,13 +1,15 @@
 namespace Fable.AntD
    
 open Fable.React
+open Browser.Types
    
 type AntIcon(icon) =
     inherit AntElement<AntIcon>(icon)
     
     member x.spin (v: bool) = x.attribute "spin" v 
     member x.rotate (v: float) = x.attribute "rotate" v 
-    member x.twoToneColor (v: string) = x.attribute "twoToneColor" v 
+    member x.twoToneColor (v: string) = x.attribute "twoToneColor" v
+    member x.onClick (v: Event -> unit) = x.attribute "onClick" v
 
     static member ArrowUpOutlined = ofImport "ArrowUpOutlined" "@ant-design/icons"
     static member ArrowDownOutlined = ofImport "ArrowDownOutlined" "@ant-design/icons"

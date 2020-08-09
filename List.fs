@@ -17,7 +17,7 @@ type ColumnCount =
 
 type AntListGrid() =
     inherit AntObject<AntListGrid>()
-    member x.gutter (v: int ) = x.attribute "gutter" v
+    member x.gutter (v: int) = x.attribute "gutter" v
     member x.column (v: ColumnCount) = x.attribute "column" v
     member x.xs (v: ColumnCount) = x.attribute "xs" v
     member x.sm (v: ColumnCount) = x.attribute "sm" v
