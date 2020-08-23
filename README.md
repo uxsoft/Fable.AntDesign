@@ -1,6 +1,6 @@
 ﻿# Fable.AntD
 
-Ant Design for Fable f#
+Ant Design for Fable F#
 
 To include the package:
 
@@ -23,61 +23,70 @@ Usage:
 ```fsharp
 open Fable.AntD
 
-AntContent().[[
-        AntPageHeader(
-            Title = (str "Login"),
-            SubTitle = (str "Please log-in to enter.")).[[]]
+    AntContent()
+        .[[
+        AntPageHeader()
+            .title(str "Login")
+            .subTitle(str "Please log-in to enter.")
+            .[[]]
         
-        AntForm(
-            OnFinish = (fun _ -> handleSubmit ctx |> Async.StartImmediate),
-            Style = [ Props.MaxWidth "320px"; Props.Margin "0 auto" ]).[[
-            AntFormItem(
-                Name = "login-email",
-                Custom = ("key", unbox "login-email"),
-                Rules = [ AntFormRule(Type = "email", Message = "This isn't a valid email")
-                          AntFormRule(Required = true, Message = "This field is mandatory")]).[[
-                AntInput(
-                    Prefix = (AntIcon(AntIcon.MailOutlined, Style = grayedOut).[[]]),
-                    OnChange = (fun e -> setModel (fun s -> { s with Email = e.Value })),
-                    Placeholder = "Email").[[]]
+        AntForm()
+            .onFinish(fun _ -> handleSubmit ctx |> Async.StartImmediate)
+            .style([ Props.MaxWidth "320px"; Props.Margin "0 auto" ])
+            .[[
+            AntFormItem()
+                .name("login-email")
+                .key("login-email")
+                .rules([|
+                    AntFormRule("This isn't a valid email").ruleType(FormRuleType.Email)
+                    AntFormRule("This field is mandatory").required(true) |])
+                .[[
+                AntInput()
+                    .prefix(AntIcon(AntIcon.MailOutlined).style(grayedOut).[[]])
+                    .onChange(fun e -> setModel (fun s -> { s with Email = e.Value }))
+                    .placeholder("Email")
+                    .[[]]
             ]]
-            AntFormItem(
-                Name = "login-password",
-                Key =  "login-password",
-                Rules = [ AntFormRule(Required = true, Message = "This field is mandatory") ]).[[
-                AntPassword(
-                    Prefix = (AntIcon(AntIcon.LockOutlined, Style = grayedOut).Empty),
-                    OnChange = (fun e -> setModel (fun s -> { s with Password = base64 e.Value })),
-                    Placeholder = "Password").[[]]
+            AntFormItem()
+                .name("login-password")
+                .key("login-password")
+                .rules([| AntFormRule().required(true).message("This field is mandatory") |])
+                .[[
+                AntPassword()
+                    .prefix(AntIcon(AntIcon.LockOutlined).style(grayedOut).[[]])
+                    .onChange(fun e -> setModel (fun s -> { s with Password = base64 e.Value }))
+                    .placeholder("Password")
+                    .[[]]
             ]]
-            AntFormItem(
-                Key = "login-submit").[[
+            AntFormItem()
+                .key("login-submit")
+                .[[
                 match model.Error with
                 | None -> ()
                 | Some error ->
                     div [ Class "fn-error-message" ] [
-                        AntText(Type = TypographyType.Danger).[[
-                           renderErrorMessage error
-                        ]]
+                        AntText()
+                            .typographyType(TypographyType.Danger)
+                            .[[ renderErrorMessage error ]]
                     ]
-                
-                AntButton(
-                    Type = ButtonType.Primary,
-                    Loading = model.IsProcessing,
-                    HtmlType = "submit",
-                    Style = [ Props.CSSProp.Width "100%" ]).With [ str "Login" ]
+                AntButton()
+                    .buttonType(ButtonType.Primary)
+                    .loading(model.IsProcessing)
+                    .htmlType(ButtonHtmlType.Submit)
+                    .style([ Props.CSSProp.Width "100%" ]).[[ str "Login" ]]
             ]]
-            AntFormItem(Key = "login-links").[[
-                AntButton(
-                    Type = ButtonType.Link,
-                    OnClick = (fun _ -> ctx.navigate RegistrationPage)).[[
-                    str "Register"
-                ]]
-                AntButton(Type = ButtonType.Link,
-                    Style = [ Props.Float Props.FloatOptions.Right ],
-                    OnClick = (fun _ -> ctx.navigate ForgotPasswordPage)).[[
-                    str "Forgot password?"
-                ]]
+            AntFormItem()
+                .key("login-links")
+                .[[
+                AntButton()
+                    .buttonType(ButtonType.Link)
+                    .onClick(fun _ -> ctx.navigate RegistrationPage)
+                    .[[ str "Register" ]]
+                AntButton()
+                    .buttonType(ButtonType.Link)
+                    .style([ Float FloatOptions.Right ])
+                    .onClick(fun _ -> ctx.navigate ForgotPasswordPage)
+                    .[[ str "Forgot password?" ]]
             ]]
         ]]
     ]]
