@@ -32,7 +32,7 @@ jobs:
     - name: Publish NuGet
       uses: rohith/publish-nuget@v2.5.5
       with:
-        PROJECT_FILE_PATH: ./Fable.AntD.fsproj
+        PROJECT_FILE_PATH: ./src/Fable.AntD.fsproj
         VERSION_STATIC: ${{ steps.nbgv.outputs.Version }}
         TAG_COMMIT: true
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
