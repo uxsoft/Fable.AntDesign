@@ -9,7 +9,6 @@
     <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="README.md" />
     <Compile Include="Common.fs" />
     <Compile Include="Button.fs" />
     <Compile Include="Tooltip.fs" />
@@ -42,6 +41,7 @@
     <Compile Include="Drawer.fs" />
     <Compile Include="Empty.fs" />
     <Compile Include="Icon.fs" />
+    <Compile Include="Image.fs" />
     <Compile Include="InputNumber.fs" />
     <Compile Include="Layout.fs" />
     <Compile Include="List.fs" />
@@ -83,6 +83,7 @@
       <Pack>True</Pack>
       <PackagePath>fable\</PackagePath>
     </Content>
+    <Content Remove="obj\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.1" />
@@ -90,5 +91,8 @@
     <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
     <PackageReference Include="Fable.React" Version="6.2.0" />
     <PackageReference Include="FSharp.Core" Version="4.7.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="obj\**" />
   </ItemGroup>
 </Project>
