@@ -1,13 +1,18 @@
 ﻿# Fable.AntD
 
-Ant Design for Fable F#
+Ant Design bindings for Fable F#
 
-To include the package:
+<img src="https://buildstats.info/nuget/Fable.AntD" alt="badge"/>
 
-In Styles.scss
-```sass
-@import "../../node_modules/antd/dist/antd.css";
-```
+## Usage
+
+### Dependencies
+
+#### Include the bindings from NuGet:
+
+`dotnet package add Fable.AntD`
+
+#### Include the Ant Design React libraries from NPM
 
 In package.json
 ```json
@@ -18,7 +23,14 @@ In package.json
   }
 }
 ```
-Usage:
+#### Reference the styles
+
+In style.scss:
+```sass
+@import "../../node_modules/antd/dist/antd.css";
+```
+
+### Example 
 
 ```fsharp
 open Fable.AntD
