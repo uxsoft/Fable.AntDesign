@@ -8,6 +8,21 @@ open Fable.Core.JsInterop
 
 [<AutoOpen>]
 module AntNotification =
+    type IAntNotification =
+        abstract success: obj -> unit
+        abstract error: obj -> unit
+        abstract info: obj -> unit
+        abstract warning: obj -> unit
+        abstract ``open``: obj -> unit
+        abstract close: string -> unit
+        abstract destroy: unit -> unit
+    
+    [<Import("notification", "antd")>]
+    let notification : IAntNotification = jsNative
+    
+    [<RequireQualifiedAccess>]
+    type NotificationType = | Success | Error | Info | Warning | Default
+    
     [<StringEnum; RequireQualifiedAccess>]
     type NotificationPlacement =
         | TopLeft | TopRight | BottomLeft | BottomRight
@@ -32,15 +47,10 @@ module AntNotification =
         member x.style (css: CSSProp list) = x.attribute "style" (keyValueList CaseRules.LowerFirst css)
         member x.top (v: int) = x.attribute "top" v
         
-    
-    type IAntNotification =
-        abstract success: obj -> unit
-        abstract error: obj -> unit
-        abstract info: obj -> unit
-        abstract warning: obj -> unit
-        abstract ``open``: obj -> unit
-        abstract close: string -> unit
-        abstract destroy: unit -> unit
-    
-    [<Import("notification", "antd")>]
-    let notification : IAntNotification = jsNative
+        member x.show (messageType: NotificationType) =
+            match messageType with
+            | NotificationType.Success -> notification.success x.JSON
+            | NotificationType.Error -> notification.error x.JSON
+            | NotificationType.Info -> notification.info x.JSON
+            | NotificationType.Warning -> notification.warning x.JSON
+            | NotificationType.Default -> notification.``open`` x.JSON
