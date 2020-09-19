@@ -16,7 +16,7 @@ type SpaceDirection =
     | Horizontal
 
 type AntSpace() =
-    inherit AntElement<AntButton>(ofImport "Space" "antd")
+    inherit AntElement<AntSpace>(ofImport "Space" "antd")
     member x.align (v: SpaceAlign) = x.attribute "align" v
     member x.direction (v: SpaceDirection) = x.attribute "direction" v
     member x.size (v: Size) = x.attribute "size" v
