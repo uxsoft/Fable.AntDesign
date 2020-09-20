@@ -12,7 +12,7 @@ type MentionsPlacement =
 
 type Mentions() =
     inherit AntElement<Mentions>(ofImport "Mentions" "antd")
-    member x.autofocus (v: bool) = x.attribute "autofocus" v
+    member x.autofocus (?v: bool) = x.attribute "autofocus" (Option.defaultValue true v)
     member x.defaultValue (v: string) = x.attribute "defaultValue" v
     member x.filterOption (v: Func<string, obj, bool>) = x.attribute "filterOption" v
     member x.notFoundContent (v: ReactElement) = x.attribute "notFoundContent" v

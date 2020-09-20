@@ -9,7 +9,7 @@ type DescriptionsLayoutOptions = Horizontal | Vertical
 type AntDescriptions() =
     inherit AntElement<AntDescriptions>(ofImport "Descriptions" "antd")
     member x.title (v: ReactElement) = x.attribute "title" v 
-    member x.bordered (v: bool) = x.attribute "bordered" v 
+    member x.bordered (?v: bool) = x.attribute "bordered" (Option.defaultValue true v) 
     member x.column (v: int) = x.attribute "column" v 
     member x.size (v: Size) = x.attribute "size" v 
     member x.layout (v: DescriptionsLayoutOptions) = x.attribute "layout" v 

@@ -15,9 +15,9 @@ type TooltipTrigger = Hover | Focus | Click | ContextMenu
 
 type AntTooltipBase<'T when 'T :> AntElement<'T>>(partialImport) =
     inherit AntElement<'T>(partialImport)
-    member x.arrowPointAtCenter (v: bool) = x.attribute "arrowPointAtCenter" v
-    member x.autoAdjustOverflow (v: bool) = x.attribute "autoAdjustOverflow" v
-    member x.defaultVisible (v: bool) = x.attribute "defaultVisible" v
+    member x.arrowPointAtCenter (?v: bool) = x.attribute "arrowPointAtCenter" (Option.defaultValue true v)
+    member x.autoAdjustOverflow (?v: bool) = x.attribute "autoAdjustOverflow" (Option.defaultValue true v)
+    member x.defaultVisible (?v: bool) = x.attribute "defaultVisible" (Option.defaultValue true v)
     member x.color (v: string) = x.attribute "color" v
     member x.getPopupContainer (v: (unit -> HTMLElement)) = x.attribute "getPopupContainer" v 
     member x.mouseEnterDelay (v: float) = x.attribute "mouseEnterDelay" v 
@@ -26,7 +26,7 @@ type AntTooltipBase<'T when 'T :> AntElement<'T>>(partialImport) =
     member x.overlayStyle (css: CSSProp list) =  x.attribute "overlayStyle" (keyValueList CaseRules.LowerFirst css)
     member x.placement (v: TooltipPlacement) = x.attribute "placement" v 
     member x.trigger (v: TooltipTrigger) = x.attribute "trigger" v 
-    member x.visible (v: bool) = x.attribute "visible" v 
+    member x.visible (?v: bool) = x.attribute "visible" (Option.defaultValue true v) 
     member x.onVisibleChange (v: (bool -> unit)) = x.attribute "onVisibleChange" v 
     member x.align (v: obj) = x.attribute "align" v
     member x.destroyTooltipOnHide (v: bool) = x.attribute "destroyTooltipOnHide" v

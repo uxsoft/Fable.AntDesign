@@ -7,16 +7,16 @@ open Fable.React
 
 type AntSkeleton() =
     inherit AntElement<AntSkeleton>(ofImport "Skeleton" "antd")
-    member x.active (v: bool) = x.attribute "active" v
-    member x.avatar (v: bool) = x.attribute "avatar" v
-    member x.loading (v: bool) = x.attribute "loading" v
-    member x.paragraph (v: bool) = x.attribute "paragraph" v
-    member x.title (v: bool) = x.attribute "title" v
-    member x.round (v: bool) = x.attribute "round" v
+    member x.active (?v: bool) = x.attribute "active" (Option.defaultValue true v)
+    member x.avatar (?v: bool) = x.attribute "avatar" (Option.defaultValue true v)
+    member x.loading (?v: bool) = x.attribute "loading" (Option.defaultValue true v)
+    member x.paragraph (?v: bool) = x.attribute "paragraph" (Option.defaultValue true v)
+    member x.title (?v: bool) = x.attribute "title" (Option.defaultValue true v)
+    member x.round (?v: bool) = x.attribute "round" (Option.defaultValue true v)
 
 type AntSkeletonAvatar() =
     inherit AntElement<AntSkeletonAvatar>(ofImport "Skeleton.Avatar" "antd")
-    member x.active (v: bool) = x.attribute "active" v
+    member x.active (?v: bool) = x.attribute "active" (Option.defaultValue true v)
     member x.size (v: Size) = x.attribute "size" v
     member x.shape (v: SkeletonShape) = x.attribute "shape" v   
 
@@ -31,11 +31,11 @@ type AntSkeletonParagraph() =
 
 type AntSkeletonButton() =
     inherit AntElement<AntSkeletonButton>(ofImport "Skeleton.Button" "antd")
-    member x.active (v: bool) = x.attribute "active" v
+    member x.active (?v: bool) = x.attribute "active" (Option.defaultValue true v)
     member x.size (v: Size) = x.attribute "size" v
     member x.shape (v: SkeletonShape) = x.attribute "shape" v
 
 type AntSkeletonInput() =
     inherit AntElement<AntSkeletonInput>(ofImport "Skeleton.Input" "antd")
-    member x.active (v: bool) = x.attribute "active" v
+    member x.active (?v: bool) = x.attribute "active" (Option.defaultValue true v)
     member x.size (v: Size) = x.attribute "size" v

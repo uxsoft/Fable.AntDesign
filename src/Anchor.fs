@@ -5,7 +5,7 @@ open Fable.React
 
 type AntAnchor() =
     inherit AntElement<AntAnchor>(ofImport "Anchor" "antd")
-    member x.affix (v: bool) = x.attribute "affix" v 
+    member x.affix (?v: bool) = x.attribute "affix" (Option.defaultValue true v) 
     member x.bounds (v: int) = x.attribute "bounds" v 
     member x.getContainer (v: (unit -> HTMLElement)) = x.attribute "getContainer" v 
     member x.offsetBottom (v: int) = x.attribute "offsetBottom" v 

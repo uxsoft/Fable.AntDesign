@@ -5,9 +5,9 @@ open Fable.React
 
 type AntInputNumber() =
     inherit AntElement<AntInputNumber>(ofImport "InputNumber" "antd")
-    member x.autoFocus (v: bool) = x.attribute "autoFocus" v 
+    member x.autoFocus (?v: bool) = x.attribute "autoFocus" (Option.defaultValue true v) 
     member x.defaultValue (v: float) = x.attribute "defaultValue" v 
-    member x.disabled (v: bool) = x.attribute "disabled" v 
+    member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v) 
     member x.formatter (v: (float -> string)) = x.attribute "formatter" v 
     member x.max (v: float) = x.attribute "max" v 
     member x.min (v: float) = x.attribute "min" v 

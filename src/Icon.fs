@@ -6,7 +6,7 @@ open Browser.Types
 type AntIcon(icon) =
     inherit AntElement<AntIcon>(icon)
     
-    member x.spin (v: bool) = x.attribute "spin" v 
+    member x.spin (?v: bool) = x.attribute "spin" (Option.defaultValue true v) 
     member x.rotate (v: float) = x.attribute "rotate" v 
     member x.twoToneColor (v: string) = x.attribute "twoToneColor" v
     member x.onClick (v: Event -> unit) = x.attribute "onClick" v

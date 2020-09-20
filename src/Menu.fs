@@ -30,13 +30,13 @@ type AntMenu() =
     inherit AntElement<AntMenu>(ofImport "Menu" "antd")
     member x.defaultOpenKeys (v: string[]) = x.attribute "defaultOpenKeys" v 
     member x.defaultSelectedKeys (v: string[]) = x.attribute "defaultSelectedKeys" v 
-    member x.forceSubMenuRender (v: bool) = x.attribute "forceSubMenuRender" v 
-    member x.inlineCollapsed (v: bool) = x.attribute "inlineCollapsed" v 
+    member x.forceSubMenuRender (?v: bool) = x.attribute "forceSubMenuRender" (Option.defaultValue true v) 
+    member x.inlineCollapsed (?v: bool) = x.attribute "inlineCollapsed" (Option.defaultValue true v) 
     member x.inlineIndent (v: int) = x.attribute "inlineIndent" v 
     member x.mode (v: MenuMode) = x.attribute "mode" v 
     member x.multiple (v: bool) = x.attribute "multiple" v 
     member x.openKeys (v: string[]) = x.attribute "openKeys" v 
-    member x.selectable (v: bool) = x.attribute "selectable" v 
+    member x.selectable (?v: bool) = x.attribute "selectable" (Option.defaultValue true v) 
     member x.selectedKeys (v: string[]) = x.attribute "selectedKeys" v 
     member x.subMenuCloseDelay (v: float) = x.attribute "subMenuCloseDelay" v 
     member x.subMenuOpenDelay (v: float) = x.attribute "subMenuOpenDelay" v 
@@ -51,11 +51,11 @@ type TitleClickEvent = { key: string; domEvent: Browser.Types.DocumentEvent }
 
 type AntMenuItem() =
     inherit AntElement<AntMenuItem>(ofImport "Menu.Item" "antd")
-    member x.disabled (v: bool) = x.attribute "disabled" v 
+    member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v) 
     member x.title (v: ReactElement) = x.attribute "title" v 
     member x.onClick (v: (unit -> unit)) = x.attribute "onClick" v
     member x.icon (v: ReactElement) = x.attribute "icon" v
-    member x.danger (v: bool) = x.attribute "danger" v
+    member x.danger (?v: bool) = x.attribute "danger" (Option.defaultValue true v)
     
 type AntMenuDivider() =
     inherit AntElement<AntMenuDivider>(ofImport "Menu.Divider" "antd")
@@ -63,7 +63,7 @@ type AntMenuDivider() =
 type AntMenuSubMenu() =
     inherit AntElement<AntMenuSubMenu>(ofImport "Menu.SubMenu" "antd")
     member x.popupClassName (v: string) = x.attribute "popupClassName" v 
-    member x.disabled (v: bool) = x.attribute "disabled" v 
+    member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v) 
     member x.title (v: ReactElement) = x.attribute "title" v 
     member x.icon (v: ReactElement) = x.attribute "icon" v
     member x.onTitleClick (v: TitleClickEvent) = x.attribute "onTitleClick" v 

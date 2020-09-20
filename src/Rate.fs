@@ -7,9 +7,9 @@ open Fable.React
 
 type AntRate() =
     inherit AntElement<AntRate>(ofImport "Rate" "antd")
-    member x.allowClear (v: bool) = x.attribute "allowClear" v 
-    member x.allowHalf (v: bool) = x.attribute "allowHalf" v 
-    member x.autoFocus (v: bool) = x.attribute "autoFocus" v 
+    member x.allowClear (?v: bool) = x.attribute "allowClear" (Option.defaultValue true v)
+    member x.allowHalf (?v: bool) = x.attribute "allowHalf" (Option.defaultValue true v)
+    member x.autoFocus (?v: bool) = x.attribute "autoFocus" (Option.defaultValue true v)
     member x.character (v: ReactElement) = x.attribute "character" v 
     member x.className (v: string) = x.attribute "className" v 
     member x.count (v: int) = x.attribute "count" v 

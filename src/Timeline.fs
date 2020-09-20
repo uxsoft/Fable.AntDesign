@@ -10,9 +10,9 @@ open Fable.React
 
 type AntTimeline()  =
   inherit AntElement<AntTimeline>(ofImport "Timeline" "antd")
-  member x.pending (v: bool) = x.attribute "pending" v
+  member x.pending (?v: bool) = x.attribute "pending" (Option.defaultValue true v)
   member x.pendingDot (v: ReactElement) = x.attribute "pendingDot" v 
-  member x.reverse (v: bool) = x.attribute "reverse" v
+  member x.reverse (?v: bool) = x.attribute "reverse" (Option.defaultValue true v)
   member x.mode (v: TimelineMode) = x.attribute "mode" v  
 
 type AntTimelineItem()  =

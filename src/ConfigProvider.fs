@@ -10,7 +10,7 @@ open System
 
 type AntConfigProvider() =
     inherit AntElement<AntConfigProvider>(ofImport "ConfigProvider" "antd")
-    member x.autoInsertSpaceInButton (v: bool) = x.attribute "autoInsertSpaceInButton" v 
+    member x.autoInsertSpaceInButton (?v: bool) = x.attribute "autoInsertSpaceInButton" (Option.defaultValue true v) 
     member x.componentSize (v: Size) = x.attribute "componentSize" v 
     member x.csp (v: {| nonce: string |}) = x.attribute "csp" v
     member x.form (v: AntForm) = x.attribute "form" v.JSON
@@ -23,5 +23,5 @@ type AntConfigProvider() =
     member x.pageHeader (v: {| ghost: bool |}) = x.attribute "pageHeader" v 
     member x.direction (v: ConfigProviderDirection) = x.attribute "direction" v 
     member x.space (v: Size) = x.attribute "space" v
-    member x.virtual (v: bool) = x.attribute "virtual" v
+    member x.virtual (?v: bool) = x.attribute "virtual" (Option.defaultValue true v)
     member x.dropdownMatchSelectWidth (v: int) = x.attribute "dropdownMatchSelectWidth" v

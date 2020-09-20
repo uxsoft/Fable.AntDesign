@@ -28,7 +28,7 @@ type AntSteps() =
     member x.current (v: int) = x.attribute "current" v
     member x.direction (v: StepsOrientation) = x.attribute "direction" v
     member x.labelPlacement (v: StepsOrientation) = x.attribute "labelPlacement" v
-    member x.progressDot (v: bool) = x.attribute "progressDot" v
+    member x.progressDot (?v: bool) = x.attribute "progressDot" (Option.defaultValue true v)
     member x.size (v: Size) = x.attribute "size" v
     member x.status (v: StepsStatus) = x.attribute "status" v
     member x.initial (v: int) = x.attribute "initial" v
@@ -41,5 +41,5 @@ type AntStepsItem() =
     member x.status (v: StepsStatus) = x.attribute "status" v
     member x.title (v: ReactElement) = x.attribute "title" v
     member x.subTitle (v: ReactElement) = x.attribute "subTitle" v
-    member x.disabled (v: bool) = x.attribute "disabled" v
+    member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v)
     

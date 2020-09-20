@@ -72,10 +72,10 @@ type AntFormRule(?msg: string) as this =
 type AntForm() =
     inherit AntElement<AntForm>(ofImport "Form" "antd")
     member x.component (v: ReactElement) = x.attribute "component" v
-    member x.colon (v: bool) = x.attribute "colon" v
+    member x.colon (?v: bool) = x.attribute "colon" (Option.defaultValue true v)
     member x.fields (v: FormFieldData array) = x.attribute "fields" v
     member x.form (v: ReactElement) = x.attribute "form" v
-    member x.hideRequiredMark (v: bool) = x.attribute "hideRequiredMark" v
+    member x.hideRequiredMark (?v: bool) = x.attribute "hideRequiredMark" (Option.defaultValue true v)
     member x.initialValues (v: obj) = x.attribute "initialValues" v
     member x.labelAlign (v: FormLabelAlign) = x.attribute "labelAlign" v
     member x.labelCol (v: AntColumn) = x.attribute "labelCol" v.JSON
@@ -92,7 +92,7 @@ type AntForm() =
 
 type AntFormItem() =
     inherit AntElement<AntFormItem>(ofImport "Form.Item" "antd")
-    member x.colon (v: bool) = x.attribute "colon" v
+    member x.colon (?v: bool) = x.attribute "colon" (Option.defaultValue true v)
     member x.dependencies (v: string array) = x.attribute "dependencies" v
     member x.extra (v: ReactElement) = x.attribute "extra" v
     member x.getValueFromEvent (v: Func<obj array, obj>) = x.attribute "getValueFromEvent" v
@@ -107,7 +107,7 @@ type AntFormItem() =
     member x.labelCol (v: AntColumn) = x.attribute "labelCol" v.JSON
     member x.name (v: string) = x.attribute "name" v
     member x.normalize (v: Func<string, string, string array, string>) = x.attribute "normalize" v
-    member x.required (v: bool) = x.attribute "required" v
+    member x.required (?v: bool) = x.attribute "required" (Option.defaultValue true v)
     member x.rules (rules: AntFormRule array) = x.attribute "rules" (rules |> Array.map (fun rule -> rule.JSON))
     member x.shouldUpdate (v: Func<string, string, bool>) = x.attribute "shouldUpdate" v
     member x.trigger (v: string) = x.attribute "trigger" v

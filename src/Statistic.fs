@@ -7,7 +7,7 @@ open Fable.MomentJs
 
 type AntStatistic()  =
     inherit AntElement<AntStatistic>(ofImport "Statistic" "antd")
-    member x.decimalSeparator (v: string  ) = x.attribute "decimalSeparator" v
+    member x.decimalSeparator (v: string) = x.attribute "decimalSeparator" v
     member x.formatter (v: (string -> ReactElement)) = x.attribute "formatter" v
     member x.groupSeparator (v: string) = x.attribute "groupSeparator" v
     member x.precision (v: int) = x.attribute "precision" v

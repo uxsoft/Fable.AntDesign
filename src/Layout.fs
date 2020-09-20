@@ -37,11 +37,11 @@ type AntSider() =
     inherit AntElement<AntSider>(ofImport "Layout.Sider" "antd")
     member x.breakpoint (v: SiderBreakpoint) = x.attribute "breakpoint" v
     member x.className (v: string) = x.attribute "className" v
-    member x.collapsed (v: bool) = x.attribute "collapsed" v
+    member x.collapsed (?v: bool) = x.attribute "collapsed" (Option.defaultValue true v)
     member x.collapsedWidth (v: int) = x.attribute "collapsedWidth" v
-    member x.collapsible (v: bool) = x.attribute "collapsible" v
-    member x.defaultCollapsed (v: bool) = x.attribute "defaultCollapsed" v
-    member x.reverseArrow (v: bool) = x.attribute "reverseArrow" v
+    member x.collapsible (?v: bool) = x.attribute "collapsible" (Option.defaultValue true v)
+    member x.defaultCollapsed (?v: bool) = x.attribute "defaultCollapsed" (Option.defaultValue true v)
+    member x.reverseArrow (?v: bool) = x.attribute "reverseArrow" (Option.defaultValue true v)
     member x.theme (v: Theme) = x.attribute "theme" v
     member x.trigger (v: ReactElement) = x.attribute "trigger" v
     member x.width (v: string) = x.attribute "width" v

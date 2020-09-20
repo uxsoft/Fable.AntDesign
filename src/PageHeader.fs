@@ -6,7 +6,7 @@ type AntPageHeader() =
     inherit AntElement<AntPageHeader>(ofImport "PageHeader" "antd")
     member x.title (v: ReactElement) = x.attribute "title" v
     member x.subTitle (v: ReactElement) = x.attribute "subTitle" v
-    member x.ghost (v: bool) = x.attribute "ghost" v
+    member x.ghost (?v: bool) = x.attribute "ghost" (Option.defaultValue true v)
     member x.avatar (v: ReactElement) = x.attribute "avatar" v
     member x.backIcon (v: ReactElement) = x.attribute "backIcon" v
     member x.tags (v: ReactElement list) = x.attribute "tags" v

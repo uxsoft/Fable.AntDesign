@@ -18,12 +18,12 @@ type AntCard() =
     member x.activeTabKey (v: string) = x.attribute "activeTabKey" v 
     member x.headStyle (css: Props.CSSProp list) = x.attribute "headStyle" (keyValueList CaseRules.LowerFirst css)
     member x.bodyStyle (css: Props.CSSProp list) = x.attribute "bodyStyle" (keyValueList CaseRules.LowerFirst css)
-    member x.bordered (v: bool) = x.attribute "bordered" v 
+    member x.bordered (?v: bool) = x.attribute "bordered" (Option.defaultValue true v) 
     member x.cover (v: ReactElement) = x.attribute "cover" v 
     member x.defaultActiveTabKey (v: string) = x.attribute "defaultActiveTabKey" v 
     member x.extra (v: ReactElement) = x.attribute "extra" v 
-    member x.hoverable (v: bool) = x.attribute "hoverable" v 
-    member x.loading (v: bool) = x.attribute "loading" v 
+    member x.hoverable (?v: bool) = x.attribute "hoverable" (Option.defaultValue true v) 
+    member x.loading (?v: bool) = x.attribute "loading" (Option.defaultValue true v) 
     member x.tabList (v: CardTab array) = x.attribute "tabList" v 
     member x.tabBarExtraContent (v: ReactElement) = x.attribute "tabBarExtraContent" v 
     member x.size (v: Size) = x.attribute "size" v 
@@ -35,7 +35,7 @@ type AntCard() =
 type AntCardGrid() =
     inherit AntElement<AntCardGrid>(ofImport "Card.Grid" "antd")
     member x.className (v: string) = x.attribute "className" v 
-    member x.hoverable (v: bool) = x.attribute "hoverable" v 
+    member x.hoverable (?v: bool) = x.attribute "hoverable" (Option.defaultValue true v) 
 
 type AntCardMeta() =
     inherit AntElement<AntCardMeta>(ofImport "Card.Meta" "antd")

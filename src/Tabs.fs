@@ -22,10 +22,10 @@ type TabsType =
 type AntTabs() =
     inherit AntElement<AntTabs>(ofImport "Tabs" "antd")
     member x.activeKey (v: string) = x.attribute "activeKey" v
-    member x.animated (v: bool) = x.attribute "animated" v
+    member x.animated (?v: bool) = x.attribute "animated" (Option.defaultValue true v)
     member x.renderTabBar (v: Func<obj, obj, ReactElement>) = x.attribute "renderTabBar" v
     member x.defaultActiveKey (v: string) = x.attribute "defaultActiveKey" v
-    member x.hideAdd (v: bool) = x.attribute "hideAdd" v
+    member x.hideAdd (?v: bool) = x.attribute "hideAdd" (Option.defaultValue true v)
     member x.size (v: Size) = x.attribute "size" v
     member x.tabBarExtraContent (v: ReactElement) = x.attribute "tabBarExtraContent" v
     member x.tabBarGutter (v: float) = x.attribute "tabBarGutter" v
@@ -37,10 +37,10 @@ type AntTabs() =
     member x.onNextClick (v: unit -> unit) = x.attribute "onNextClick" v
     member x.onPrevClick (v: unit -> unit) = x.attribute "onPrevClick" v
     member x.onTabClick (v: Func<string, Event, unit>) = x.attribute "onTabClick" v
-    member x.keyboard (v: bool) = x.attribute "keyboard" v
+    member x.keyboard (?v: bool) = x.attribute "keyboard" (Option.defaultValue true v)
 
 type AntTabsPane() =
     inherit AntElement<AntTabsPane>(ofImport "Tabs.TabPane" "antd")
-    member x.forceRender (v: bool) = x.attribute "forceRender" v
+    member x.forceRender (?v: bool) = x.attribute "forceRender" (Option.defaultValue true v)
     member x.tab (v: ReactElement) = x.attribute "tab" v
     member x.closeIcon (v: ReactElement) = x.attribute "closeIcon" v
