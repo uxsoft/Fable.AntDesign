@@ -33,7 +33,7 @@ type AntTooltipBase<'T when 'T :> AntElement<'T>>(partialImport) =
 
 type AntPopover() =
     inherit AntTooltipBase<AntPopover>(ofImport "Popover" "antd")
-    member x.content (v: ReactElement) = x.attribute "content"
+    member x.content (v: ReactElement) = x.attribute "content" v
     member x.title (v: ReactElement) = x.attribute "title" v
 
 type AntPopconfirm() =
