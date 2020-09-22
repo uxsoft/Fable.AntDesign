@@ -52,9 +52,7 @@ type FormFieldData = {
 type AntFormRule(?msg: string) as this =
     inherit AntObject<AntFormRule>()
     do
-        match msg with
-        | Some txt -> this.message txt |> ignore
-        | None -> ()
+        Option.map (fun msg -> this.message msg) |> ignore
     
     member x.enum (v: string array) = x.attribute "enum" v
     member x.len (v: int) = x.attribute "len" v
@@ -75,20 +73,22 @@ type AntForm() =
     member x.colon (?v: bool) = x.attribute "colon" (Option.defaultValue true v)
     member x.fields (v: FormFieldData array) = x.attribute "fields" v
     member x.form (v: ReactElement) = x.attribute "form" v
-    member x.hideRequiredMark (?v: bool) = x.attribute "hideRequiredMark" (Option.defaultValue true v)
     member x.initialValues (v: obj) = x.attribute "initialValues" v
     member x.labelAlign (v: FormLabelAlign) = x.attribute "labelAlign" v
     member x.labelCol (v: AntColumn) = x.attribute "labelCol" v.JSON
     member x.layout (v: FormLayout) = x.attribute "layout" v
     member x.name (v: string) = x.attribute "name" v
+    member x.preserve (?v: bool) = x.attribute "preserve" (Option.defaultValue true v)
+    member x.requiredMark (?v: bool) = x.attribute "requiredMark" (Option.defaultValue true v)
     member x.scrollToFirstError (v: bool) = x.attribute "scrollToFirstError" v
     member x.size (v: Size) = x.attribute "size" v
     member x.validateMessages (v: obj) = x.attribute "validateMessages" v
+    member x.validateTrigger (v: string) = x.attribute "validateTrigger"
     member x.wrapperCol (v: AntColumn) = x.attribute "wrapperCol" v.JSON
-    member x.onFinish (v: string array -> unit) = x.attribute "onFinish" v
+    member x.onFinish (v: obj -> unit) = x.attribute "onFinish" v
     member x.onFinishFailed (v: obj -> unit) = x.attribute "onFinishFailed" v
-    member x.onFieldsChange (v: Func<string array, string array, unit>) = x.attribute "onFieldsChange" v
-    member x.onValuesChange (v: Func<string array, string array, unit>) = x.attribute "onValuesChange" v
+    member x.onFieldsChange (v: Func<obj, obj, unit>) = x.attribute "onFieldsChange" v
+    member x.onValuesChange (v: Func<obj, obj, unit>) = x.attribute "onValuesChange" v
 
 type AntFormItem() =
     inherit AntElement<AntFormItem>(ofImport "Form.Item" "antd")
@@ -111,11 +111,12 @@ type AntFormItem() =
     member x.rules (rules: AntFormRule array) = x.attribute "rules" (rules |> Array.map (fun rule -> rule.JSON))
     member x.shouldUpdate (v: Func<string, string, bool>) = x.attribute "shouldUpdate" v
     member x.trigger (v: string) = x.attribute "trigger" v
-    member x.validateFirst (v: bool) = x.attribute "validateFirst" v
-    member x.validationStatus (v: FormValidationStatus) = x.attribute "validationStatus" v
+    member x.validateFirst (?v: bool) = x.attribute "validateFirst" (Option.defaultValue true v)
+    member x.validateStatus (v: FormValidationStatus) = x.attribute "validateStatus" v
     member x.validateTrigger (v: string array) = x.attribute "validateTrigger" v
     member x.valuePropName (v: string) = x.attribute "valuePropName" v
     member x.wrapperCol (v: AntColumn) = x.attribute "wrapperCol" v.JSON
+    member x.hidden (?v: bool) = x.attribute "hidden" (Option.defaultValue true v)
 
 type AntFormList() =
     inherit AntElement<AntFormList>(ofImport "Form.List" "antd")
