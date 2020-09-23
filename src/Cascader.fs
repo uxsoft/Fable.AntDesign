@@ -33,8 +33,8 @@ type ShowSearchSettings = {
 
 type CascaderOption = {
     value: string
-    label: ReactElement option
-    disabled: bool option
+    label: ReactElement
+    disabled: bool
     children: CascaderOption array option
 }
 
