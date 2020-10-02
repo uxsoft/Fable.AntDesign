@@ -52,7 +52,7 @@ type FormFieldData = {
 type AntFormRule(?msg: string) as this =
     inherit AntObject<AntFormRule>()
     do
-        Option.map (fun msg -> this.message msg) |> ignore
+        Option.iter (this.message >> ignore) msg
     
     member x.enum (v: string array) = x.attribute "enum" v
     member x.len (v: int) = x.attribute "len" v
@@ -60,11 +60,11 @@ type AntFormRule(?msg: string) as this =
     member x.message (v: string) = x.attribute "message" v
     member x.min (v: int) = x.attribute "min" v
     member x.pattern (v: string) = x.attribute "pattern" v
-    member x.required (v: bool) = x.attribute "required" v
+    member x.required (?v: bool) = x.attribute "required" (Option.defaultValue true v)
     member x.transform (v: string -> string) = x.attribute "transform" v
     member x.ruleType (v: FormRuleType) = x.attribute "type" v
     member x.validator (v: Func<AntFormRule, string, Promise<string>>) = x.attribute "validator" v
-    member x.whitespace (v: bool) = x.attribute "whitespace" v
+    member x.whitespace (?v: bool) = x.attribute "whitespace" (Option.defaultValue true v)
     member x.validateTrigger (v: string array) = x.attribute "validateTrigger" v
 
 type AntForm() =
