@@ -40,7 +40,7 @@ type CascaderOption = {
 
 type AntCascader() =
     inherit AntElement<AntCascader>(ofImport "Cascader" "antd")
-    member x.alowClear (?v: bool) = x.attribute "allowClear" (Option.defaultValue true v)
+    member x.allowClear (?v: bool) = x.attribute "allowClear" (Option.defaultValue true v)
     member x.autoFocus (?v: bool) = x.attribute "autoFocus" (Option.defaultValue true v)
     member x.bordered (?v: bool) = x.attribute "bordered" (Option.defaultValue true v)
     member x.changeOnSelect (?v: bool) = x.attribute "changeOnSelect" (Option.defaultValue true v)
@@ -63,5 +63,5 @@ type AntCascader() =
     member x.size (v: Size) = x.attribute "size" v
     member x.suffixIcon (v: ReactElement) = x.attribute "suffixIcon" v
     member x.value (v: string array) = x.attribute "value" v
-    member x.onChange (v: Func<string, CascaderOption array, unit>) = x.attribute "onChange" v
+    member x.onChange (v: Func<string array, CascaderOption array, unit>) = x.attribute "onChange" v
     member x.onPopupVisibleChange (v: bool -> unit) = x.attribute "onPopupVisibleChange" v

@@ -49,10 +49,10 @@ type FormFieldData = {
     value: string
 }
 
-type AntFormRule(?msg: string) as this =
+type AntFormRule(msg: string) as this =
     inherit AntObject<AntFormRule>()
     do
-        Option.iter (this.message >> ignore) msg
+        this.message msg |> ignore
     
     member x.enum (v: string array) = x.attribute "enum" v
     member x.len (v: int) = x.attribute "len" v
