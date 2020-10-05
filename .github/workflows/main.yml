@@ -22,7 +22,7 @@ jobs:
       uses: AArnott/nbgv@v0.3.1
     
     - name: Set version in project file
-      uses: roryprimrose/set-vs-sdk-project-version@v1.0.3
+      uses: roryprimrose/set-vs-sdk-project-version@v1.0.4
       with:
         version: ${{ steps.nbgv.outputs.Version }}
       
