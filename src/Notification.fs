@@ -8,7 +8,7 @@ open Fable.Core.JsInterop
 
 [<AutoOpen>]
 module AntNotification =
-    type IAntNotification =
+    type private IAntNotification =
         abstract success: obj -> unit
         abstract error: obj -> unit
         abstract info: obj -> unit
@@ -18,7 +18,7 @@ module AntNotification =
         abstract destroy: unit -> unit
     
     [<Import("notification", "antd")>]
-    let notification : IAntNotification = jsNative
+    let private notification : IAntNotification = jsNative
     
     [<RequireQualifiedAccess>]
     type NotificationType = | Success | Error | Info | Warning | Default

@@ -7,7 +7,7 @@ open Fable.Core.JsInterop
 
 [<AutoOpen>]
 module AntMessage =
-    type IAntMessage =
+    type private IAntMessage =
         abstract success: obj -> unit
         abstract error: obj -> unit
         abstract info: obj -> unit
@@ -15,7 +15,7 @@ module AntMessage =
         abstract loading: obj -> unit
     
     [<Import("message", "antd")>]
-    let message : IAntMessage = jsNative
+    let private message : IAntMessage = jsNative
     
     [<RequireQualifiedAccess>]
     type MessageType = | Success | Error | Info | Warning | Loading
