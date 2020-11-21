@@ -13,24 +13,20 @@ jobs:
         fetch-depth: 0
           
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.7.2
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.201
-          
-    - name: Nerdbank.GitVersioning
-      id: nbgv
-      uses: AArnott/nbgv@v0.3.1
+        dotnet-version: 5.0.100
     
     - name: Set version in project file
-      uses: roryprimrose/set-vs-sdk-project-version@v1.0.4
+      uses: roryprimrose/set-vs-sdk-project-version@v1
       with:
-        version: ${{ steps.nbgv.outputs.Version }}
+        version: 3.0.${{ github.run_number }}
       
     - name: Install dependencies
       run: dotnet restore
 
     - name: Publish NuGet
-      uses: rohith/publish-nuget@v2.5.5
+      uses: rohith/publish-nuget@v2
       with:
         PROJECT_FILE_PATH: ./src/Fable.AntD.fsproj
         VERSION_STATIC: ${{ steps.nbgv.outputs.Version }}
