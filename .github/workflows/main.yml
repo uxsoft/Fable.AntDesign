@@ -20,7 +20,7 @@ jobs:
     - name: Set version in project file
       uses: roryprimrose/set-vs-sdk-project-version@v1
       with:
-        version: 3.0.${{ github.run_number }}
+        version: 3.${{ github.run_number }}.0
       
     - name: Install dependencies
       run: dotnet restore
