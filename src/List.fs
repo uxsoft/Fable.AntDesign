@@ -29,22 +29,25 @@ type AntListGrid() =
 [<StringEnum; RequireQualifiedAccess>]
 type ListSize = Small | Default | Large
 
+[<StringEnum; RequireQualifiedAccess>]
+type ListItemLayout = Vertical | Horizontal
+
 type AntList<'T>() =
     inherit AntElement<AntList<'T>>(ofImport "List" "antd")
     member x.bordered (?v: bool) = x.attribute "bordered" (Option.defaultValue true v) 
+    member x.dataSource (v: ('T array)) = x.attribute "dataSource" v 
     member x.footer (v: ReactElement) = x.attribute "footer" v 
     member x.grid (v: AntListGrid) = x.attribute "grid" v.JSON 
     member x.header (v: ReactElement) = x.attribute "header" v 
-    member x.itemLayout (v: string) = x.attribute "itemLayout" v 
-    member x.rowKey (v: ('T -> string)) = x.attribute "rowKey" v  
+    member x.itemLayout (v: ListItemLayout) = x.attribute "itemLayout" v 
     member x.loading (?v: bool) = x.attribute "loading" (Option.defaultValue true v) 
     member x.loadMore (v: ReactElement) = x.attribute "loadMore" v 
     member x.locale (v: obj) = x.attribute "locale" v 
     member x.pagination (v: AntPagination) = x.attribute "pagination" v.JSON
+    member x.renderItem (v: ('T -> ReactElement)) = x.attribute "renderItem" v  
+    member x.rowKey (v: ('T -> string)) = x.attribute "rowKey" v  
     member x.size (v: Size) = x.attribute "size" v
     member x.split (?v: bool) = x.attribute "split" (Option.defaultValue true v) 
-    member x.dataSource (v: ('T array)) = x.attribute "dataSource" v 
-    member x.renderItem (v: ('T -> ReactElement)) = x.attribute "renderItem" v  
 
 type AntListItem() =
     inherit AntElement<AntListItem>(ofImport "List.Item" "antd")
