@@ -13,6 +13,7 @@ type DirectoryTreeExpandAction =
 type TreeData = {
     key: string
     title: string
+    icon: ReactElement
     children: TreeData array
     disabled: bool
     selectable: bool
