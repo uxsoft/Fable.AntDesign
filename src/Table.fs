@@ -65,7 +65,7 @@ type AntTableRowSelection<'T>() =
     inherit AntObject<AntTableRowSelection<'T>>()
     member x.columnWidth (v: int) = x.attribute "columnWidth" v
     member x.columnTitle (v: ReactElement) = x.attribute "columnTitle" v
-    member x.isFixed (?v: bool) = x.attribute "fixed" (Option.defaultValue true v)
+    member x.isFixed (v: string) = x.attribute "fixed" v
     member x.getCheckboxProps (?v: 'T -> obj) = x.attribute "getCheckboxProps" v
     member x.hideSelectAll (?v: bool) = x.attribute "hideSelectAll" (Option.defaultValue true v)
     member x.renderCell (v: Func<bool, 'T, int, ReactElement, ReactElement>) = x.attribute "renderCell" v
