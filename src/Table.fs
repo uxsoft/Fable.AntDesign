@@ -1,11 +1,10 @@
 namespace Fable.AntD
 
+open System
 open Browser.Types
-open System.Drawing
 open Fable.Core
 open Fable.Core.JsInterop
 open Fable.React
-open System
 
 [<StringEnum; RequireQualifiedAccess>]
 type TableLayout =
