@@ -1,5 +1,6 @@
 namespace Fable.AntD
 
+open Browser.Types
 open Fable.Core
 open Fable.React
 open System
@@ -15,6 +16,20 @@ type TreeData = {
     children: TreeData array
     disabled: bool
     selectable: bool
+}
+
+type TreeMouseEvent = {
+    event: Event
+    node: TreeData
+}
+
+type TreeDropEvent = {
+    event: Event
+    node: TreeData
+    dragNode: TreeData
+    dragNodesKeys: string array
+    dropPosition: int
+    dropToGap: bool
 }
 
 type AntTreeBase<'T when 'T :> AntElement<'T>>(partialImport) =
@@ -47,15 +62,15 @@ type AntTreeBase<'T when 'T :> AntElement<'T>>(partialImport) =
     member x.treeData (v: TreeData array) = x.attribute "treeData" v
     member x.isVirtual (?v: bool) = x.attribute "virtual" (Option.defaultValue true v)
     member x.onCheck (v: Func<string array, obj, unit>) = x.attribute "onCheck" v
-    member x.onDragEnd (v: obj -> unit) = x.attribute "onDragEnd" v
-    member x.onDragEnter (v: obj -> unit) = x.attribute "onDragEnter" v
-    member x.onDragLeave (v: obj -> unit) = x.attribute "onDragLeave" v
-    member x.onDragOver (v: obj -> unit) = x.attribute "onDragOver" v
-    member x.onDragStart (v: obj -> unit) = x.attribute "onDragStart" v
-    member x.onDrop (v: obj -> unit) = x.attribute "onDrop" v
+    member x.onDragEnd (v: TreeMouseEvent -> unit) = x.attribute "onDragEnd" v
+    member x.onDragEnter (v: TreeMouseEvent -> unit) = x.attribute "onDragEnter" v
+    member x.onDragLeave (v: TreeMouseEvent -> unit) = x.attribute "onDragLeave" v
+    member x.onDragOver (v: TreeMouseEvent -> unit) = x.attribute "onDragOver" v
+    member x.onDragStart (v: TreeMouseEvent -> unit) = x.attribute "onDragStart" v
+    member x.onDrop (v: TreeDropEvent -> unit) = x.attribute "onDrop" v
     member x.onExpand (v: Func<string array, obj, unit>) = x.attribute "onExpand" v
     member x.onLoad (v: Func<string array, obj, unit>) = x.attribute "onLoad" v
-    member x.onRightClick (v: obj -> unit) = x.attribute "onRightClick" v
+    member x.onRightClick (v: TreeMouseEvent -> unit) = x.attribute "onRightClick" v
     member x.onSelect (v: Func<string array, obj, unit>) = x.attribute "onSelect" v
 
 type AntTree() =
