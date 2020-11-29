@@ -18,7 +18,7 @@ type ProgressPosition = Top | Left | Bottom | Right
 
 type AntProgress()  =
     inherit AntElement<AntProgress>(ofImport "Progress" "antd")
-    member x.format (v: (Func<int, int, string>)) = x.attribute "format" v
+    member x.format (v: (Func<int, {| percent: int; strokeColor: string option |}, string>)) = x.attribute "format" v
     member x.percent (v: int) = x.attribute "percent" v
     member x.showInfo (?v: bool) = x.attribute "showInfo" (Option.defaultValue true v)
     member x.status (v: ProgressStatus) = x.attribute "status" v
