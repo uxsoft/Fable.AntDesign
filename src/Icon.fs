@@ -773,9 +773,6 @@ let AntIcons =
         WalletTwoTone = AntIcon(ofImport "WalletTwoTone" "@ant-design/icons")
     |}
 
-[<Emit("Object.keys($0)")>]
-let private keys (a: 'a) : string array = jsNative
-
 type AntIcon with
     static member FromName (name: string) =
         AntIcons.[name] :?> AntIcon
@@ -784,4 +781,4 @@ type AntIcon with
         AntIcons.[name] :?> AntIcon option
         
     static member AllIcons () =
-        keys AntIcons
+        JS.Constructors.Object.keys AntIcons
