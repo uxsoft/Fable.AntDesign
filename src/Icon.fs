@@ -1,6 +1,7 @@
 [<AutoOpen>]
 module Fable.AntD.AntIcon
    
+open Fable.Core
 open Fable.React
 open Browser.Types
 open Fable.Core.DynamicExtensions
@@ -772,6 +773,15 @@ let AntIcons =
         WalletTwoTone = AntIcon(ofImport "WalletTwoTone" "@ant-design/icons")
     |}
 
+[<Emit("Object.keys($0)")>]
+let private keys (a: 'a) : string array = jsNative
+
 type AntIcon with
     static member FromName (name: string) =
         AntIcons.[name] :?> AntIcon
+        
+    static member TryFromName (name: string) =
+        AntIcons.[name] :?> AntIcon option
+        
+    static member AllIcons () =
+        keys AntIcons

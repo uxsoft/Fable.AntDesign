@@ -22,7 +22,7 @@ type TreeData =
 
 type TreeMouseEvent<'T> =
     {
-        event: Event
+        event: MouseEvent
         node: 'T
     }
 
