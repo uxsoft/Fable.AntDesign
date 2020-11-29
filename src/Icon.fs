@@ -774,4 +774,4 @@ let AntIcons =
 
 type AntIcon with
     static member FromName (name: string) =
-        AntIcons.[name]
+        AntIcons.[name] :?> AntIcon
