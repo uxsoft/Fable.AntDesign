@@ -16,7 +16,7 @@ type RadioButtonStyle = Outline | Solid
 type AntRadio(?partialImport) =
     inherit AntElement<AntRadio>(defaultArg partialImport (ofImport "Radio" "antd"))
     member x.autoFocus (?v: bool) = x.attribute "autoFocus" (Option.defaultValue true v) 
-    member x.checked (?v: bool) = x.attribute "checked" (Option.defaultValue true v) 
+    member x.isChecked (?v: bool) = x.attribute "checked" (Option.defaultValue true v) 
     member x.defaultChecked (?v: bool) = x.attribute "defaultChecked" (Option.defaultValue true v) 
     member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v) 
     member x.value (v: obj) = x.attribute "value" v 

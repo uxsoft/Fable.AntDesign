@@ -13,7 +13,7 @@ type BreadcrumbRoute = {
 type AntBreadcrumb() =
     inherit AntElement<AntBreadcrumb>(ofImport "Breadcrumb" "antd")
     member x.itemRender (v: Func<string, string, string list, string list, ReactElement>) = x.attribute "itemRender" v 
-    member x.params (v: obj) = x.attribute "params" v 
+    member x.parameters (v: obj) = x.attribute "params" v 
     member x.routes (v: BreadcrumbRoute array) = x.attribute "routes" v 
     member x.separator (v: ReactElement) = x.attribute "separator" v 
 

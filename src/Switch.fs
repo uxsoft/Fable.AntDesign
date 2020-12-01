@@ -7,7 +7,7 @@ open System
 type AntSwitch() =
     inherit AntElement<AntSwitch>(ofImport "Switch" "antd")
     member x.autoFocus (?v: bool) = x.attribute "autoFocus" (Option.defaultValue true v)
-    member x.checked (?v: bool) = x.attribute "checked" (Option.defaultValue true v)
+    member x.isChecked (?v: bool) = x.attribute "checked" (Option.defaultValue true v)
     member x.checkedChildren (v: ReactElement) = x.attribute "checkedChildren" v
     member x.defaultChecked (?v: bool) = x.attribute "defaultChecked" (Option.defaultValue true v)
     member x.disabled (?v: bool) = x.attribute "disabled" (Option.defaultValue true v)
