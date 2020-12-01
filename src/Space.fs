@@ -20,4 +20,6 @@ type AntSpace() =
     member x.align (v: SpaceAlign) = x.attribute "align" v
     member x.direction (v: SpaceDirection) = x.attribute "direction" v
     member x.size (v: Size) = x.attribute "size" v
-    member x.sizeNumber (v: int) = x.attribute "size" v
+    member x.sizeExact (v: int) = x.attribute "size" v
+    member x.split (v: ReactElement) = x.attribute "split" v
+    member x.wrap (?v: bool) = x.attribute "wrap" (Option.defaultValue v)
