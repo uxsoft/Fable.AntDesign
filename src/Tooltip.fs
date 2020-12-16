@@ -46,8 +46,8 @@ type AntPopconfirm() =
     member x.okText (v: string) = x.attribute "okText" v
     member x.okType (v: ButtonType) = x.attribute "okType" v
     member x.title (v: ReactElement) = x.attribute "title" v
-    member x.onCancel (v: Func<unit, unit>) = x.attribute "onCancel" v
-    member x.onConfirm (v: Func<unit, unit>) = x.attribute "onConfirm" v
+    member x.onCancel (v: unit -> unit) = x.attribute "onCancel" v
+    member x.onConfirm (v: unit -> unit) = x.attribute "onConfirm" v
 
 type AntTooltip() =
     inherit AntTooltipBase<AntTooltip>(ofImport "Tooltip" "antd")
