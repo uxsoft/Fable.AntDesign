@@ -51,10 +51,10 @@ open Fable.AntD
                 .key("login-email")
                 .rules([|
                     AntFormRule("This isn't a valid email").ruleType(FormRuleType.Email)
-                    AntFormRule("This field is mandatory").required(true) |])
+                    AntFormRule("This field is mandatory").required() |])
                 .[[
                 AntInput()
-                    .prefix(AntIcon(AntIcon.MailOutlined).style(grayedOut).[[]])
+                    .prefix(AntIcons.MailOutlined.style(grayedOut).[[]])
                     .onChange(fun e -> setModel (fun s -> { s with Email = e.Value }))
                     .placeholder("Email")
                     .[[]]
@@ -62,10 +62,10 @@ open Fable.AntD
             AntFormItem()
                 .name("login-password")
                 .key("login-password")
-                .rules([| AntFormRule().required(true).message("This field is mandatory") |])
+                .rules([| AntFormRule("This field is mandatory").required() |])
                 .[[
                 AntPassword()
-                    .prefix(AntIcon(AntIcon.LockOutlined).style(grayedOut).[[]])
+                    .prefix(AntIcons.LockOutlined.style(grayedOut).[[]])
                     .onChange(fun e -> setModel (fun s -> { s with Password = base64 e.Value }))
                     .placeholder("Password")
                     .[[]]
@@ -85,7 +85,7 @@ open Fable.AntD
                     .buttonType(ButtonType.Primary)
                     .loading(model.IsProcessing)
                     .htmlType(ButtonHtmlType.Submit)
-                    .style([ Props.CSSProp.Width "100%" ]).[[ str "Login" ]]
+                    .style([ Width "100%" ]).[[ str "Login" ]]
             ]]
             AntFormItem()
                 .key("login-links")
