@@ -100,7 +100,7 @@ module AntForm =
         inherit AntElement<AntForm<'T>>(ofImport "Form" "antd")
         static member useForm = ()
         member x.colon (?v: bool) = x.attribute "colon" (Option.defaultValue true v)
-        member x.component (v: ReactElement) = x.attribute "component" v
+        member x.``component`` (v: ReactElement) = x.attribute "component" v
         member x.fields (v: FormFieldData array) = x.attribute "fields" v
         member x.form (v: IFormInstance) = x.attribute "form" v
         member x.initialValues (v: 'T) = x.attribute "initialValues" v

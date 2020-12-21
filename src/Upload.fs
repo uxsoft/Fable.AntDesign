@@ -29,13 +29,14 @@ type UploadFile = {
     xhr: XMLHttpRequest
     url: string option
     ``type``: string
+    size: int
 }
 
 type AntUploadListConfig() =
     inherit AntObject<AntUploadListConfig>()
-    member x.showPreviewIcon (v: boolean) = x.attribute "showPreviewIcon" v
-    member x.showDownloadIcon (v: boolean) = x.attribute "showDownloadIcon" v
-    member x.showRemoveIcon (v: boolean) = x.attribute "showRemoveIcon" v
+    member x.showPreviewIcon (v: bool) = x.attribute "showPreviewIcon" v
+    member x.showDownloadIcon (v: bool) = x.attribute "showDownloadIcon" v
+    member x.showRemoveIcon (v: bool) = x.attribute "showRemoveIcon" v
     member x.removeIcon (v: UploadFile -> ReactElement) = x.attribute "removeIcon" v
     member x.downloadIcon (v: UploadFile -> ReactElement) = x.attribute "downloadIcon" v
 
