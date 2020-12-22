@@ -61,3 +61,10 @@ type AntTitle() =
 type AntParagraph() =
     inherit AntTypographyBase<AntParagraph>(ofImport "Typography.Paragraph" "antd")
     member x.ellipsis (v: AntTypographyEllipsis) = x.attribute "ellipsis" v.JSON 
+
+type AntLink() =
+    inherit AntTypographyBase<AntLink>(ofImport "Typography.Link" "antd")
+    member x.keyboard (?v: bool) = x.attribute "keyboard" (Option.defaultValue true v)
+    member x.ellipsis (?v: bool) = x.attribute "ellipsis" (Option.defaultValue true v)
+    member x.href (v: string) = x.attribute "href" v
+    member x.target (v: string) = x.attribute "target" v
