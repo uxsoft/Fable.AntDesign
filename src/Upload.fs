@@ -34,9 +34,9 @@ type UploadFile = {
 
 type AntUploadListConfig() =
     inherit AntObject<AntUploadListConfig>()
-    member x.showPreviewIcon (v: bool) = x.attribute "showPreviewIcon" v
-    member x.showDownloadIcon (v: bool) = x.attribute "showDownloadIcon" v
-    member x.showRemoveIcon (v: bool) = x.attribute "showRemoveIcon" v
+    member x.showPreviewIcon (?v: bool) = x.attribute "showPreviewIcon" (Option.defaultValue true v)
+    member x.showDownloadIcon (?v: bool) = x.attribute "showDownloadIcon" (Option.defaultValue true v)
+    member x.showRemoveIcon (?v: bool) = x.attribute "showRemoveIcon" (Option.defaultValue true v)
     member x.removeIcon (v: UploadFile -> ReactElement) = x.attribute "removeIcon" v
     member x.downloadIcon (v: UploadFile -> ReactElement) = x.attribute "downloadIcon" v
 
