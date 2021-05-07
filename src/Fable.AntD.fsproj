@@ -87,10 +87,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.2" />
-    <PackageReference Include="Fable.Core" Version="3.2.2" />
+    <PackageReference Include="Fable.Core" Version="3.2.6" />
     <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
-    <PackageReference Include="Fable.React" Version="7.2.0" />
-    <PackageReference Include="FSharp.Core" Version="5.0.0" />
+    <PackageReference Include="Fable.React" Version="7.4.0" />
+    <PackageReference Include="FSharp.Core" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="obj\**" />
