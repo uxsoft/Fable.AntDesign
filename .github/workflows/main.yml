@@ -18,7 +18,7 @@ jobs:
         dotnet-version: 5.0.100
     
     - name: Set version in project file
-      uses: roryprimrose/set-vs-sdk-project-version@v1
+      uses: roryprimrose/set-vs-sdk-project-version@v1.0.4
       with:
         version: 3.${{ github.run_number }}.0
       
