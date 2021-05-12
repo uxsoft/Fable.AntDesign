@@ -26,7 +26,7 @@ jobs:
       run: dotnet restore
 
     - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
+      uses: rohith/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: ./src/Fable.AntD.fsproj
         VERSION_STATIC: 3.${{ github.run_number }}.0
