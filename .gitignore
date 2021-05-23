@@ -14,3 +14,6 @@ release.sh
 *.DotSettings.user
 deploy
 .ionide/
+public/bundle.js*
+*.fs.js
+node_modules/
