@@ -71,6 +71,13 @@
     <Compile Include="Swift\Typography.fs" />
     <Compile Include="Swift\TimePicker.fs" />
     <Compile Include="Swift\Upload.fs" />
+    <Compile Include="Builders\Common.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="*.fsproj; Builders\*.fs; Swift\*.fs">
+      <Pack>True</Pack>
+      <PackagePath>fable\</PackagePath>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include=".\icon.png">
@@ -79,16 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="*.fsproj; **\*.fs">
-      <Pack>True</Pack>
-      <PackagePath>fable\</PackagePath>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.2" />
-    <PackageReference Include="Fable.Core" Version="3.2.1" />
+    <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.3" />
+    <PackageReference Include="Fable.Core" Version="3.2.7" />
     <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
-    <PackageReference Include="Fable.React" Version="7.2.0" />
-    <PackageReference Include="FSharp.Core" Version="5.0.0" />
+    <PackageReference Include="Fable.React" Version="7.4.0" />
+    <PackageReference Include="FSharp.Core" Version="5.0.1" />
   </ItemGroup>
 </Project>

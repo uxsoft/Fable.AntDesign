@@ -27,9 +27,14 @@ let update (msg: Msg) (model: Model) =
 let view (model: Model) dispatch =
 
   div []
-      [ button [ OnClick (fun _ -> dispatch Increment) ] [ str "+" ]
+      [ button [ OnClick (fun _ -> dispatch Increment) ] [ str "+sd" ]
         div [] [ str (string model) ]
-        button [ OnClick (fun _ -> dispatch Decrement) ] [ str "-" ] ]
+        button [ OnClick (fun _ -> dispatch Decrement) ] [ str "-" ]
+        Fable.AntD.Builders.button {
+            str "asd"
+        }  
+      
+      ]
 
 // App
 Program.mkSimple init update view
