@@ -1,95 +1,104 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>uxsoft</Authors>
-    <Description>Fable bindings for Ant Design React components</Description>
-    <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Swift\Common.fs" />
-    <Compile Include="Swift\Button.fs" />
-    <Compile Include="Swift\Tooltip.fs" />
-    <Compile Include="Swift\Pagination.fs" />
-    <Compile Include="Swift\Grid.fs" />
-    <Compile Include="Swift\Form.fs" />
-    <Compile Include="Swift\Affix.fs" />
-    <Compile Include="Swift\Anchor.fs" />
-    <Compile Include="Swift\Alert.fs" />
-    <Compile Include="Swift\AutoComplete.fs" />
-    <Compile Include="Swift\Avatar.fs" />
-    <Compile Include="Swift\Badge.fs" />
-    <Compile Include="Swift\BackToTop.fs" />
-    <Compile Include="Swift\Dropdown.fs" />
-    <Compile Include="Swift\Breadcrumb.fs" />
-    <Compile Include="Swift\Calendar.fs" />
-    <Compile Include="Swift\Cascader.fs" />
-    <Compile Include="Swift\Tabs.fs" />
-    <Compile Include="Swift\Card.fs" />
-    <Compile Include="Swift\Comment.fs" />
-    <Compile Include="Swift\Space.fs" />
-    <Compile Include="Swift\Input.fs" />
-    <Compile Include="Swift\ConfigProvider.fs" />
-    <Compile Include="Swift\Collapse.fs" />
-    <Compile Include="Swift\Carousel.fs" />
-    <Compile Include="Swift\Checkbox.fs" />
-    <Compile Include="Swift\DatePicker.fs" />
-    <Compile Include="Swift\Descriptions.fs" />
-    <Compile Include="Swift\Divider.fs" />
-    <Compile Include="Swift\Drawer.fs" />
-    <Compile Include="Swift\Empty.fs" />
-    <Compile Include="Swift\Icon.fs" />
-    <Compile Include="Swift\Image.fs" />
-    <Compile Include="Swift\InputNumber.fs" />
-    <Compile Include="Swift\Layout.fs" />
-    <Compile Include="Swift\List.fs" />
-    <Compile Include="Swift\Mentions.fs" />
-    <Compile Include="Swift\Menu.fs" />
-    <Compile Include="Swift\Message.fs" />
-    <Compile Include="Swift\Modal.fs" />
-    <Compile Include="Swift\Notification.fs" />
-    <Compile Include="Swift\Radio.fs" />
-    <Compile Include="Swift\Rate.fs" />
-    <Compile Include="Swift\Result.fs" />
-    <Compile Include="Swift\Select.fs" />
-    <Compile Include="Swift\Slider.fs" />
-    <Compile Include="Swift\Statistic.fs" />
-    <Compile Include="Swift\Switch.fs" />
-    <Compile Include="Swift\PageHeader.fs" />
-    <Compile Include="Swift\Progress.fs" />
-    <Compile Include="Swift\Skeleton.fs" />
-    <Compile Include="Swift\Spin.fs" />
-    <Compile Include="Swift\Steps.fs" />
-    <Compile Include="Swift\Tag.fs" />
-    <Compile Include="Swift\Table.fs" />
-    <Compile Include="Swift\Timeline.fs" />
-    <Compile Include="Swift\Transfer.fs" />
-    <Compile Include="Swift\Tree.fs" />
-    <Compile Include="Swift\TreeSelect.fs" />
-    <Compile Include="Swift\Typography.fs" />
-    <Compile Include="Swift\TimePicker.fs" />
-    <Compile Include="Swift\Upload.fs" />
-    <Compile Include="Builders\Common.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="*.fsproj; Builders\*.fs; Swift\*.fs">
-      <Pack>True</Pack>
-      <PackagePath>fable\</PackagePath>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".\icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.3" />
-    <PackageReference Include="Fable.Core" Version="3.2.7" />
-    <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
-    <PackageReference Include="Fable.React" Version="7.4.0" />
-    <PackageReference Include="FSharp.Core" Version="5.0.1" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>uxsoft</Authors>
+        <Description>Fable bindings for Ant Design React components</Description>
+        <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Swift\Common.fs" />
+        <Compile Include="Swift\Button.fs" />
+        <Compile Include="Swift\Tooltip.fs" />
+        <Compile Include="Swift\Pagination.fs" />
+        <Compile Include="Swift\Grid.fs" />
+        <Compile Include="Swift\Form.fs" />
+        <Compile Include="Swift\Affix.fs" />
+        <Compile Include="Swift\Anchor.fs" />
+        <Compile Include="Swift\Alert.fs" />
+        <Compile Include="Swift\AutoComplete.fs" />
+        <Compile Include="Swift\Avatar.fs" />
+        <Compile Include="Swift\Badge.fs" />
+        <Compile Include="Swift\BackToTop.fs" />
+        <Compile Include="Swift\Dropdown.fs" />
+        <Compile Include="Swift\Breadcrumb.fs" />
+        <Compile Include="Swift\Calendar.fs" />
+        <Compile Include="Swift\Cascader.fs" />
+        <Compile Include="Swift\Tabs.fs" />
+        <Compile Include="Swift\Card.fs" />
+        <Compile Include="Swift\Comment.fs" />
+        <Compile Include="Swift\Space.fs" />
+        <Compile Include="Swift\Input.fs" />
+        <Compile Include="Swift\ConfigProvider.fs" />
+        <Compile Include="Swift\Collapse.fs" />
+        <Compile Include="Swift\Carousel.fs" />
+        <Compile Include="Swift\Checkbox.fs" />
+        <Compile Include="Swift\DatePicker.fs" />
+        <Compile Include="Swift\Descriptions.fs" />
+        <Compile Include="Swift\Divider.fs" />
+        <Compile Include="Swift\Drawer.fs" />
+        <Compile Include="Swift\Empty.fs" />
+        <Compile Include="Swift\Icon.fs" />
+        <Compile Include="Swift\Image.fs" />
+        <Compile Include="Swift\InputNumber.fs" />
+        <Compile Include="Swift\Layout.fs" />
+        <Compile Include="Swift\List.fs" />
+        <Compile Include="Swift\Mentions.fs" />
+        <Compile Include="Swift\Menu.fs" />
+        <Compile Include="Swift\Message.fs" />
+        <Compile Include="Swift\Modal.fs" />
+        <Compile Include="Swift\Notification.fs" />
+        <Compile Include="Swift\Radio.fs" />
+        <Compile Include="Swift\Rate.fs" />
+        <Compile Include="Swift\Result.fs" />
+        <Compile Include="Swift\Select.fs" />
+        <Compile Include="Swift\Slider.fs" />
+        <Compile Include="Swift\Statistic.fs" />
+        <Compile Include="Swift\Switch.fs" />
+        <Compile Include="Swift\PageHeader.fs" />
+        <Compile Include="Swift\Progress.fs" />
+        <Compile Include="Swift\Skeleton.fs" />
+        <Compile Include="Swift\Spin.fs" />
+        <Compile Include="Swift\Steps.fs" />
+        <Compile Include="Swift\Tag.fs" />
+        <Compile Include="Swift\Table.fs" />
+        <Compile Include="Swift\Timeline.fs" />
+        <Compile Include="Swift\Transfer.fs" />
+        <Compile Include="Swift\Tree.fs" />
+        <Compile Include="Swift\TreeSelect.fs" />
+        <Compile Include="Swift\Typography.fs" />
+        <Compile Include="Swift\TimePicker.fs" />
+        <Compile Include="Swift\Upload.fs" />
+        <Compile Include="Builders\Common.fs" />
+        <Compile Include="Builders\Button.fs" />
+        <Compile Include="Builders\Icon.fs" />
+        <Compile Include="Builders\Typography.fs" />
+        <Compile Include="Builders\Divider.fs" />
+        <Compile Include="Builders\Layout.fs" />
+        <Compile Include="Builders\Tooltip.fs" />
+        <Compile Include="Builders\Pagination.fs" />
+        
+        <Compile Include="Builders\Ant.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="*.fsproj; Builders\*.fs; Swift\*.fs">
+            <Pack>True</Pack>
+            <PackagePath>fable\</PackagePath>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include=".\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.3" />
+        <PackageReference Include="Fable.Core" Version="3.2.7" />
+        <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
+        <PackageReference Include="Fable.React" Version="7.4.0" />
+        <PackageReference Include="FSharp.Core" Version="5.0.1" />
+    </ItemGroup>
 </Project>
