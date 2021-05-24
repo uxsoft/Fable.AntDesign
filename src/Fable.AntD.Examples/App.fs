@@ -4,6 +4,7 @@ open Elmish
 open Elmish.React
 open Fable.AntD.Builders
 open Fable.AntD.Builders.Ant
+open Fable.AntD.Examples.Controls
 
 // MODEL
 
@@ -30,47 +31,9 @@ let view (model: Model) dispatch =
             str "sider"
         }
         content {
-            str (string model)
-            
-            button {
-                str "1"
-                attr "name" "plus"
-                onClick (fun _ -> dispatch Increment)
-                str "3"
-                str "4"
-                str "+"
-                if true then disabled
-                
-                
-            }
-            icon icons.AimOutlined {
-                () 
-            }
-
-            button {
-                disabled
-                str "-"
-                onClick (fun _ -> dispatch Decrement)
-            }
-            
-            text {
-                copyableWith {
-                    icon (str "S")
-                    text "[copy]"
-                }
-                copyable
-                str "Some text here"
-            }
-            divider { () }
+            ButtonPage.view model
         }
     }
-
-//  div []
-//      [ button [ OnClick (fun _ -> dispatch Increment) ] [ str "+sd" ]
-//        div [] [ str (string model) ]
-//        button [ OnClick (fun _ -> dispatch Decrement) ] [ str "-" ]
-//
-//      ]
 
 // App
 Program.mkSimple init update view

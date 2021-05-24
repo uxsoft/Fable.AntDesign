@@ -26,10 +26,6 @@ type ButtonShape =
 
 type ButtonPropsBuilder() =
     inherit ReactBuilder()
-
-    member x.Run(s: DSLElement) =
-        ofImport "Button" "antd" (createObj s.Attributes) s.Children
-
     [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
     [<CustomOperation("ghost")>] member _.ghost (x: DSLElement) = x.attr "ghost" true
     [<CustomOperation("href")>] member _.href (x: DSLElement, v: string) = x.attr "href" v
@@ -48,9 +44,7 @@ type ButtonPropsBuilder() =
 type ButtonBuilder() =
     inherit ButtonPropsBuilder()
 
-    member x.Run(s: DSLElement) =
-        ofImport "Button" "antd" (createObj s.Attributes) s.Children
-
+    member x.Run(s: DSLElement) = ofImport "Button" "antd" (createObj s.Attributes) s.Children
 
 type ButtonGroupBuilder() =
     inherit ReactBuilder()

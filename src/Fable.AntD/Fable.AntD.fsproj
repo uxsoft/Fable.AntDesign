@@ -72,13 +72,27 @@
         <Compile Include="Swift\TimePicker.fs" />
         <Compile Include="Swift\Upload.fs" />
         <Compile Include="Builders\Common.fs" />
+        <Compile Include="Builders\Html.fs" />
+        
         <Compile Include="Builders\Button.fs" />
         <Compile Include="Builders\Icon.fs" />
         <Compile Include="Builders\Typography.fs" />
+        
         <Compile Include="Builders\Divider.fs" />
+        <Compile Include="Builders\Grid.fs" />
         <Compile Include="Builders\Layout.fs" />
-        <Compile Include="Builders\Tooltip.fs" />
+        <Compile Include="Builders\Space.fs" />
+        
+        <Compile Include="Builders\Affix.fs" />
+        <Compile Include="Builders\Breadcrumb.fs" />
+        <Compile Include="Builders\Dropdown.fs" />
+        <Compile Include="Builders\Menu.fs" />
+        <Compile Include="Builders\PageHeader.fs" />
         <Compile Include="Builders\Pagination.fs" />
+        <Compile Include="Builders\Steps.fs" />
+        
+        <Compile Include="Builders\Tooltip.fs" />
+        
         
         <Compile Include="Builders\Ant.fs" />
     </ItemGroup>

@@ -51,11 +51,11 @@ type SiderBuilder() =
         ofImport "Layout.Sider" "antd" (createObj s.Attributes) s.Children
     
     [<CustomOperation("breakpoint")>] member _.breakpoint(x: DSLElement, v: SiderBreakpoint) = x.attr "breakpoint" v
-    [<CustomOperation("collapsed")>] member _.collapsed (x: DSLElement, ?v: bool) = x.attr "collapsed" (Option.defaultValue true v)
+    [<CustomOperation("collapsed")>] member _.collapsed (x: DSLElement) = x.attr "collapsed" true
     [<CustomOperation("collapsedWidth")>] member _.collapsedWidth (x: DSLElement, v: int) = x.attr "collapsedWidth" v
-    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement, ?v: bool) = x.attr "collapsible" (Option.defaultValue true v)
-    [<CustomOperation("defaultCollapsed")>] member _.defaultCollapsed (x: DSLElement, ?v: bool) = x.attr "defaultCollapsed" (Option.defaultValue true v)
-    [<CustomOperation("reverseArrow")>] member _.reverseArrow (x: DSLElement, ?v: bool) = x.attr "reverseArrow" (Option.defaultValue true v)
+    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement) = x.attr "collapsible" true
+    [<CustomOperation("defaultCollapsed")>] member _.defaultCollapsed (x: DSLElement) = x.attr "defaultCollapsed" true
+    [<CustomOperation("reverseArrow")>] member _.reverseArrow (x: DSLElement) = x.attr "reverseArrow" true
     [<CustomOperation("theme")>] member _.theme (x: DSLElement, v: Theme) = x.attr "theme" v
     [<CustomOperation("trigger")>] member _.trigger (x: DSLElement, v: ReactElement) = x.attr "trigger" v
     [<CustomOperation("width")>] member _.width (x: DSLElement, v: string) = x.attr "width" v
