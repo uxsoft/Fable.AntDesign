@@ -5,6 +5,7 @@ open Fable.AntD.Builders
 let div = Html.DomElementBuilder("div")
 let span = Html.DomElementBuilder("span")
 let fragment = Html.FragmentBuilder()
+let str = Fable.React.Helpers.str
 
 let button = Button.ButtonBuilder()
 let buttonProps = Button.ButtonPropsBuilder()
@@ -58,7 +59,62 @@ let pagination = Pagination.PaginationBuilder()
 let steps = Steps.StepsBuilder()
 let step = Steps.StepBuilder()
 
+let autoComplete = AutoComplete.AutoCompleteBuilder()
+let autoCompleteOption = AutoComplete.AutoCompleteOptionBuilder()
 
+let cascader = Cascader.CascaderBuilder()
+
+let checkbox = Checkbox.CheckboxBuilder()
+let checkboxGroup = Checkbox.CheckboxGroupBuilder()
+
+let datePicker = DatePicker.DatePickerBuilder()
+let monthPicker = DatePicker.MonthPickerBuilder()
+let weekPicker = DatePicker.WeekPickerBuilder()
+let quarterPicker = DatePicker.QuarterPickerBuilder()
+let yearPicker = DatePicker.YearPickerBuilder()
+let dateRangePicker = DatePicker.DateRangePickerBuilder()
+
+let form<'T> = Form.FormBuilder<'T>()
+let formErrorList = Form.FormErrorListBuilder()
+let formItem = Form.FormItemBuilder()
+let formList = Form.FormListBuilder()
+let formProvider = Form.FormProviderBuilder()
+let formRule = Form.FormRuleBuilder()
+
+let input = Input.InputBuilder()
+let password = Input.PasswordBuilder()
+let search = Input.SearchBuilder()
+let textArea = Input.TextAreaBuilder()
+let inputGroup = Input.InputGroupBuilder()
+
+let inputNumber = InputNumber.InputNumberBuilder()
+
+let mentions = Mentions.MentionsBuilder()
+let mention = Mentions.MentionBuilder()
+
+let radio = Radio.RadioBuilder()
+let radioButton = Radio.RadioButtonBuilder()
+let radioGroup = Radio.RadioGroupBuilder()
+
+let rate = Rate.RateBuilder()
+
+let select<'T> = Select.SelectBuilder()
+let selectOptGroup = Select.SelectOptGroupBuilder()
+let selectOption = Select.SelectOptionBuilder()
+
+let slider = Slider.SliderBuilder()
+
+let switch = Switch.SwitchBuilder()
+
+let timePicker = TimePicker.TimePickerBuilder()
+let timeRangePicker = TimePicker.TimeRangePickerBuilder()
+
+let transfer = Transfer.TransferBuilder()
+
+let treeSelect = TreeSelect.TreeSelectBuilder()
+let treeSelectNode = TreeSelect.TreeSelectNodeBuilder()
+
+let upload = Upload.UploadBuilder()
 
 let tooltip = Tooltip.TooltipBuilder()
 let popOver = Tooltip.PopoverBuilder()

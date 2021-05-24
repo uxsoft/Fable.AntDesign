@@ -4,6 +4,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controls\ButtonPage.fs" />
+    <Compile Include="Controls\IconPage.fs" />
+    <Compile Include="Controls\TypographyPage.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

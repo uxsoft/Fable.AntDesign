@@ -14,5 +14,7 @@ module.exports = {
     devServer: {
         contentBase: "./src/Fable.AntD.Examples/public",
         port: 8080,
+        hot: true,
+        inline: true
     }
 }

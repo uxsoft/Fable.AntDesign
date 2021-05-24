@@ -1,7 +1,5 @@
 namespace Fable.AntD
 
-
-
 open Fable.Core
 open Fable.React
 open Fable.Core.JS

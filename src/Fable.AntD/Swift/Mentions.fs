@@ -10,8 +10,8 @@ type MentionsPlacement =
     | Top
     | Bottom
 
-type Mentions() =
-    inherit AntElement<Mentions>(ofImport "Mentions" "antd")
+type AntMentions() =
+    inherit AntElement<AntMentions>(ofImport "Mentions" "antd")
     member x.autofocus (?v: bool) = x.attribute "autofocus" (Option.defaultValue true v)
     member x.defaultValue (v: string) = x.attribute "defaultValue" v
     member x.filterOption (v: Func<string, obj, bool>) = x.attribute "filterOption" v
@@ -28,6 +28,6 @@ type Mentions() =
     member x.onBlur (v: unit -> unit) = x.attribute "onBlur" v
     member x.getPopupContainer (v: unit -> HTMLElement) = x.attribute "getPopupContainer" v
 
-type MentionsOption() =
-    inherit AntElement<MentionsOption>(ofImport "Mentions.Option" "antd")
+type AntMentionsOption() =
+    inherit AntElement<AntMentionsOption>(ofImport "Mentions.Option" "antd")
     member x.value (v: string) = x.attribute "value" v

@@ -75,7 +75,7 @@
         <Compile Include="Builders\Html.fs" />
         
         <Compile Include="Builders\Button.fs" />
-        <Compile Include="Builders\Icon.fs" />
+        <Compile Include="Builders\Icon.fs" /> 
         <Compile Include="Builders\Typography.fs" />
         
         <Compile Include="Builders\Divider.fs" />
@@ -90,9 +90,26 @@
         <Compile Include="Builders\PageHeader.fs" />
         <Compile Include="Builders\Pagination.fs" />
         <Compile Include="Builders\Steps.fs" />
-        
+
+        <Compile Include="Builders\AutoComplete.fs" />
+        <Compile Include="Builders\Cascader.fs" />
+        <Compile Include="Builders\Checkbox.fs" />
+        <Compile Include="Builders\DatePicker.fs" />
+        <Compile Include="Builders\Form.fs" />
+        <Compile Include="Builders\Input.fs" />
+        <Compile Include="Builders\InputNumber.fs" />
+        <Compile Include="Builders\Mentions.fs" />
+        <Compile Include="Builders\Radio.fs" />
+        <Compile Include="Builders\Rate.fs" />
+        <Compile Include="Builders\Select.fs" />
+        <Compile Include="Builders\Slider.fs" />
+        <Compile Include="Builders\Switch.fs" />
+        <Compile Include="Builders\TimePicker.fs" />
+        <Compile Include="Builders\Transfer.fs" />
+        <Compile Include="Builders\TreeSelect.fs" />
+        <Compile Include="Builders\Upload.fs" />
+
         <Compile Include="Builders\Tooltip.fs" />
-        
         
         <Compile Include="Builders\Ant.fs" />
     </ItemGroup>
