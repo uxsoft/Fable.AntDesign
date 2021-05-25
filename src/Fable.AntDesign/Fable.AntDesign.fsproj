@@ -52,6 +52,15 @@
         <Compile Include="List.fs" />
         <Compile Include="Statistic.fs" />
         <Compile Include="Tooltip.fs" />
+
+        <Compile Include="Progress.fs" />
+        <Compile Include="Result.fs" />
+        <Compile Include="Skeleton.fs" />
+        <Compile Include="Spin.fs" />
+
+        <Compile Include="Anchor.fs" />
+        <Compile Include="BackTop.fs" />
+        <Compile Include="ConfigProvider.fs" />
         <Compile Include="Ant.fs" />
     </ItemGroup>
     <ItemGroup>

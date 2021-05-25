@@ -146,3 +146,23 @@ let countdown = Statistic.StatisticCountdownBuilder()
 let tooltip = Tooltip.TooltipBuilder()
 let popOver = Tooltip.PopoverBuilder()
 let popConfirm = Tooltip.PopconfirmBuilder()
+
+let progress = Progress.ProgressBuilder()
+
+let result = Result.ResultBuilder()
+
+let skeleton = Skeleton.SkeletonBuilder()
+let skeletonAvatar = Skeleton.SkeletonAvatarBuilder()
+let skeletonButton = Skeleton.SkeletonButtonBuilder()
+let skeletonInput = Skeleton.SkeletonInputBuilder()
+let skeletonParagraph = Skeleton.SkeletonParagraphBuilder()
+let skeletonTitle = Skeleton.SkeletonTitleBuilder()
+
+let spin = Spin.SpinBuilder()
+
+let anchor = Anchor.AnchorBuilder()
+let anchorLink = Anchor.AnchorLinkBuilder()
+
+let backTop = BackTop.BackTopBuilder()
+
+let configProvider = ConfigProvider.ConfigProviderBuilder()

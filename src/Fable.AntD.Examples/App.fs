@@ -3,6 +3,7 @@ module App
 open System
 open Fable.AntDesign.Ant
 open Fable.AntD.Examples.Pages
+open Fable.AntDesign.Menu
 open Fable.React.Props
 open Elmish
 open Elmish.React
@@ -29,6 +30,10 @@ let update (msg: Msg) (model: Model) =
     match msg with
     | Navigate page -> { model with Page = page }
 
+let onPageSelected dispatch (e: ClickParam) = 
+    let success, page = Enum.TryParse<Page>(e.key)
+    if success then dispatch (Navigate page)
+
 let view (model: Model) dispatch =
     layout {
         header {
@@ -40,9 +45,7 @@ let view (model: Model) dispatch =
             sider {
                 menu {
                     selectedKeys [| string model.Page |]
-                    onClick (fun e ->
-                        let success, page = Enum.TryParse<Page>(e.key)
-                        if success then dispatch (Navigate page))
+                    onClick (onPageSelected dispatch)
                     menuItemGroup {
                         title (str "General")
                         menuItem {
