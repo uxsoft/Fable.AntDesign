@@ -33,3 +33,12 @@ jobs:
         TAG_COMMIT: true
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
         INCLUDE_SYMBOLS: false
+
+    - name: Publish NuGet
+      uses: rohith/publish-nuget@v2
+      with:
+        PROJECT_FILE_PATH: ./src/Fable.AntDesign/Fable.AntDesign.fsproj
+        VERSION_STATIC: 1.${{ github.run_number }}.0
+        TAG_COMMIT: true
+        NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        INCLUDE_SYMBOLS: false
