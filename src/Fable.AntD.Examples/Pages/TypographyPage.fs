@@ -1,9 +1,10 @@
-module Fable.AntD.Examples.Controls.TypographyPage
+module Fable.AntD.Examples.Pages.TypographyPage
 
+open Fable.AntD.Examples.Components.Example
 open Fable.AntD.Builders.Ant
 
 let view model =
-    space {
+    example {
         title {
             str "Title"
         }

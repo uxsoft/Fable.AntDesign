@@ -33,12 +33,15 @@ type ReactBuilder() =
 
     member x.Yield() = x.Zero()
 
-    member _.Yield(item: DSLAttribute) =
-        Browser.Dom.console.log item
-        { Attributes = [item.Name, item.Value]; Children = [ ] }
+    member _.Yield(attr: DSLAttribute) =
+        Browser.Dom.console.log attr
+        { Attributes = [attr.Name, attr.Value]; Children = [ ] }
     
-    member _.Yield(item: ReactElement) =
-        { Attributes = []; Children = [ item ] }
+    member _.Yield(child: ReactElement) =
+        { Attributes = []; Children = [ child ] }
+        
+    member _.Yield(children: ReactElement list) =
+        { Attributes = []; Children = children }
 
     member x.Yield(_) = x.Zero()
 

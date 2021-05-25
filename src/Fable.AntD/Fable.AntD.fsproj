@@ -109,6 +109,20 @@
         <Compile Include="Builders\TreeSelect.fs" />
         <Compile Include="Builders\Upload.fs" />
 
+        <Compile Include="Builders\Avatar.fs" />
+        <Compile Include="Builders\Badge.fs" />
+        <Compile Include="Builders\Calendar.fs" />
+        <Compile Include="Builders\Card.fs" />
+        <Compile Include="Builders\Carousel.fs" />
+        <Compile Include="Builders\Collapse.fs" />
+        <Compile Include="Builders\Comment.fs" />
+        <Compile Include="Builders\Descriptions.fs" />
+        <Compile Include="Builders\Empty.fs" />
+        <Compile Include="Builders\Image.fs" />
+        <Compile Include="Builders\List.fs" />
+        <Compile Include="Builders\Statistic.fs" />
+
+
         <Compile Include="Builders\Tooltip.fs" />
         
         <Compile Include="Builders\Ant.fs" />

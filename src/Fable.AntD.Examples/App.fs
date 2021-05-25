@@ -2,7 +2,7 @@ module App
 
 open System
 open Fable.AntD.Builders.Ant
-open Fable.AntD.Examples.Controls
+open Fable.AntD.Examples.Pages
 open Fable.React.Props
 open Elmish
 open Elmish.React
@@ -12,6 +12,9 @@ type Page =
     | ButtonPage = 0
     | IconPage = 1
     | TypographyPage = 2
+    | DividerPage = 3
+    | StepsPage = 14
+    | ListPage = 42
 
 type Model = { Page: Page }
 
@@ -55,14 +58,43 @@ let view (model: Model) dispatch =
                             str "Typography"
                         }
                     }
+                    menuItemGroup {
+                        title (str "Layout")
+                        menuItem {
+                            key (string Page.DividerPage)
+                            str "Divider"
+                        }
+                    }
+                    menuItemGroup {
+                        title (str "Navigation")
+                        menuItem {
+                            key (string Page.StepsPage)
+                            str "Steps"
+                        }
+                    }
+                    menuItemGroup {
+                        title (str "Data Entry")
+                    }
+                    menuItemGroup {
+                        title (str "Data Display")
+                        menuItem {
+                            key (string Page.ListPage)
+                            str "List"
+                        }
+                    }
                 }
             }
 
             content {
+                style [ BackgroundColor "white"
+                        Padding "8px" ]
                 match model.Page with
                 | Page.ButtonPage -> ButtonPage.view model
                 | Page.IconPage -> IconPage.view model
                 | Page.TypographyPage -> TypographyPage.view model
+                | Page.DividerPage -> DividerPage.view model
+                | Page.StepsPage -> StepsPage.view model
+                | Page.ListPage -> ListPage.view model
             }
         }
     }

@@ -53,7 +53,6 @@ let menuSubMenu = Menu.MenuSubMenuBuilder()
 
 let pageHeader = PageHeader.PageHeaderBuilder()
 
-let paginationProps = Pagination.PaginationPropsBuilder()
 let pagination = Pagination.PaginationBuilder()
 
 let steps = Steps.StepsBuilder()
@@ -115,6 +114,34 @@ let treeSelect = TreeSelect.TreeSelectBuilder()
 let treeSelectNode = TreeSelect.TreeSelectNodeBuilder()
 
 let upload = Upload.UploadBuilder()
+
+let avatar = Avatar.AvatarBuilder()
+
+let badge = Badge.BadgeBuilder()
+
+let calendar = Calendar.CalendarBuilder()
+
+let card = Card.CardBuilder()
+let cardGrid = Card.CardGridBuilder()
+let cardMeta = Card.CardMetaBuilder()
+
+let carousel = Carousel.CarouselBuilder()
+
+let comment = Comment.CommentBuilder()
+
+let descriptions = Descriptions.DescriptionsBuilder()
+let description = Descriptions.DescriptionBuilder()
+
+let empty = Empty.EmptyBuilder()
+
+let list<'T> = List.ListBuilder<'T>()
+let listItem = List.ListItemBuilder()
+let listMeta = List.ListItemMetaBuilder()
+
+let statistic = Statistic.StatisticBuilder()
+let countdown = Statistic.StatisticCountdownBuilder()
+
+
 
 let tooltip = Tooltip.TooltipBuilder()
 let popOver = Tooltip.PopoverBuilder()

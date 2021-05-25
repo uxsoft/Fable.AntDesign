@@ -19,8 +19,32 @@ type PaginationSize =
     | Small
     | Default
 
-type PaginationPropsBuilder() =
+type PaginationSettings =
+    | Current of int
+    | DefaultCurrent of int
+    | DefaultPageSize of int
+    | Disabled of bool
+    | HideOnSinglePage of bool
+    | ItemRender of (int * PaginationType -> ReactElement)
+    | PageSize of int
+    | PageSizeOptions of string array
+    | Responsive of bool
+    | ShowLessItems of bool
+    | ShowQuickJumper of bool
+    | ShowSizeChanger of bool
+    | ShowTitle of bool
+    | ShowTotal of (int * int -> bool)
+    | Simple of bool
+    | Size of PaginationSize
+    | Total of int
+    | OnChange of (int * int -> unit)
+    | OnShowSizeChange of (int * int -> unit)
+    
+type PaginationBuilder() =
     inherit ReactBuilder()
+    
+    member _.Run(s: DSLElement) = ofImport "Pagination" "antd" (createObj s.Attributes) s.Children
+        
     [<CustomOperation("current")>] member _.current (x: DSLElement, v: int) = x.attr "current" v
     [<CustomOperation("defaultCurrent")>] member _.defaultCurrent (x: DSLElement, v: int) = x.attr "defaultCurrent" v
     [<CustomOperation("defaultPageSize")>] member _.defaultPageSize (x: DSLElement, v: int) = x.attr "defaultPageSize" v
@@ -41,8 +65,3 @@ type PaginationPropsBuilder() =
     [<CustomOperation("onChange")>] member _.onChange (x: DSLElement, v: Func<int, int, unit>) = x.attr "onChange" v
     [<CustomOperation("onShowSizeChange")>] member _.onShowSizeChange (x: DSLElement, v: Func<int, int, unit>) = x.attr "onShowSizeChange" v
     
-type PaginationBuilder() =
-    inherit PaginationPropsBuilder()
-    
-    member _.Run(s: DSLElement) =
-        ofImport "Pagination" "antd" (createObj s.Attributes) s.Children
