@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Common.fs" />
+        <Compile Include="Html.fs" />
+        <Compile Include="Button.fs" />
+        <Compile Include="Icon.fs" />
+        <Compile Include="Typography.fs" />
+        <Compile Include="Divider.fs" />
+        <Compile Include="Grid.fs" />
+        <Compile Include="Layout.fs" />
+        <Compile Include="Space.fs" />
+        <Compile Include="Affix.fs" />
+        <Compile Include="Breadcrumb.fs" />
+        <Compile Include="Dropdown.fs" />
+        <Compile Include="Menu.fs" />
+        <Compile Include="PageHeader.fs" />
+        <Compile Include="Pagination.fs" />
+        <Compile Include="Steps.fs" />
+        <Compile Include="AutoComplete.fs" />
+        <Compile Include="Cascader.fs" />
+        <Compile Include="Checkbox.fs" />
+        <Compile Include="DatePicker.fs" />
+        <Compile Include="Form.fs" />
+        <Compile Include="Input.fs" />
+        <Compile Include="InputNumber.fs" />
+        <Compile Include="Mentions.fs" />
+        <Compile Include="Radio.fs" />
+        <Compile Include="Rate.fs" />
+        <Compile Include="Select.fs" />
+        <Compile Include="Slider.fs" />
+        <Compile Include="Switch.fs" />
+        <Compile Include="TimePicker.fs" />
+        <Compile Include="Transfer.fs" />
+        <Compile Include="TreeSelect.fs" />
+        <Compile Include="Upload.fs" />
+        <Compile Include="Avatar.fs" />
+        <Compile Include="Badge.fs" />
+        <Compile Include="Calendar.fs" />
+        <Compile Include="Card.fs" />
+        <Compile Include="Carousel.fs" />
+        <Compile Include="Collapse.fs" />
+        <Compile Include="Comment.fs" />
+        <Compile Include="Descriptions.fs" />
+        <Compile Include="Empty.fs" />
+        <Compile Include="Image.fs" />
+        <Compile Include="List.fs" />
+        <Compile Include="Statistic.fs" />
+        <Compile Include="Tooltip.fs" />
+        <Compile Include="Ant.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="*.fsproj; **\*.fs">
+            <Pack>True</Pack>
+            <PackagePath>fable\</PackagePath>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include=".\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fable.Browser.XMLHttpRequest" Version="1.1.3" />
+        <PackageReference Include="Fable.Core" Version="3.2.7" />
+        <PackageReference Include="Fable.MomentJs" Version="2.0.4.23973" />
+        <PackageReference Include="Fable.React" Version="7.4.0" />
+        <PackageReference Include="FSharp.Core" Version="5.0.1" />
+    </ItemGroup>
+</Project>

@@ -71,64 +71,9 @@
         <Compile Include="Swift\Typography.fs" />
         <Compile Include="Swift\TimePicker.fs" />
         <Compile Include="Swift\Upload.fs" />
-        <Compile Include="Builders\Common.fs" />
-        <Compile Include="Builders\Html.fs" />
-        
-        <Compile Include="Builders\Button.fs" />
-        <Compile Include="Builders\Icon.fs" /> 
-        <Compile Include="Builders\Typography.fs" />
-        
-        <Compile Include="Builders\Divider.fs" />
-        <Compile Include="Builders\Grid.fs" />
-        <Compile Include="Builders\Layout.fs" />
-        <Compile Include="Builders\Space.fs" />
-        
-        <Compile Include="Builders\Affix.fs" />
-        <Compile Include="Builders\Breadcrumb.fs" />
-        <Compile Include="Builders\Dropdown.fs" />
-        <Compile Include="Builders\Menu.fs" />
-        <Compile Include="Builders\PageHeader.fs" />
-        <Compile Include="Builders\Pagination.fs" />
-        <Compile Include="Builders\Steps.fs" />
-
-        <Compile Include="Builders\AutoComplete.fs" />
-        <Compile Include="Builders\Cascader.fs" />
-        <Compile Include="Builders\Checkbox.fs" />
-        <Compile Include="Builders\DatePicker.fs" />
-        <Compile Include="Builders\Form.fs" />
-        <Compile Include="Builders\Input.fs" />
-        <Compile Include="Builders\InputNumber.fs" />
-        <Compile Include="Builders\Mentions.fs" />
-        <Compile Include="Builders\Radio.fs" />
-        <Compile Include="Builders\Rate.fs" />
-        <Compile Include="Builders\Select.fs" />
-        <Compile Include="Builders\Slider.fs" />
-        <Compile Include="Builders\Switch.fs" />
-        <Compile Include="Builders\TimePicker.fs" />
-        <Compile Include="Builders\Transfer.fs" />
-        <Compile Include="Builders\TreeSelect.fs" />
-        <Compile Include="Builders\Upload.fs" />
-
-        <Compile Include="Builders\Avatar.fs" />
-        <Compile Include="Builders\Badge.fs" />
-        <Compile Include="Builders\Calendar.fs" />
-        <Compile Include="Builders\Card.fs" />
-        <Compile Include="Builders\Carousel.fs" />
-        <Compile Include="Builders\Collapse.fs" />
-        <Compile Include="Builders\Comment.fs" />
-        <Compile Include="Builders\Descriptions.fs" />
-        <Compile Include="Builders\Empty.fs" />
-        <Compile Include="Builders\Image.fs" />
-        <Compile Include="Builders\List.fs" />
-        <Compile Include="Builders\Statistic.fs" />
-
-
-        <Compile Include="Builders\Tooltip.fs" />
-        
-        <Compile Include="Builders\Ant.fs" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="*.fsproj; Builders\*.fs; Swift\*.fs">
+        <Content Include="*.fsproj; **\*.fs">
             <Pack>True</Pack>
             <PackagePath>fable\</PackagePath>
         </Content>

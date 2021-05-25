@@ -1,7 +1,7 @@
 module App
 
 open System
-open Fable.AntD.Builders.Ant
+open Fable.AntDesign.Ant
 open Fable.AntD.Examples.Pages
 open Fable.React.Props
 open Elmish

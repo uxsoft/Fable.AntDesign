@@ -1,8 +1,8 @@
 module Fable.AntD.Examples.Pages.ButtonPage
 
 open Fable.AntD.Examples.Components.Example
-open Fable.AntD.Builders.Ant
-open Fable.AntD.Builders.Button
+open Fable.AntDesign.Ant
+open Fable.AntDesign.Button
 
 let view model =
     example {

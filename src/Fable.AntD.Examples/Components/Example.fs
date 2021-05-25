@@ -1,7 +1,7 @@
 module Fable.AntD.Examples.Components.Example
 
-open Fable.AntD.Builders.Common
-open Fable.AntD.Builders.Ant
+open Fable.AntDesign.Common
+open Fable.AntDesign.Ant
 open Fable.React.Props
 
 type ExampleBuilder() =

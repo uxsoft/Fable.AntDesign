@@ -1,7 +1,7 @@
 module Fable.AntD.Examples.Pages.TypographyPage
 
 open Fable.AntD.Examples.Components.Example
-open Fable.AntD.Builders.Ant
+open Fable.AntDesign.Ant
 
 let view model =
     example {
