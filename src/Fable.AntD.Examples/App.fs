@@ -16,6 +16,7 @@ type Page =
     | DividerPage = 3
     | StepsPage = 14
     | ListPage = 42
+    | NotificationPage = 55
 
 type Model = { Page: Page }
 
@@ -85,6 +86,13 @@ let view (model: Model) dispatch =
                             str "List"
                         }
                     }
+                    menuItemGroup {
+                        title (str "Feedback")
+                        menuItem {
+                            key (string Page.NotificationPage)
+                            str "Notification"
+                        }
+                    }
                 }
             }
 
@@ -98,6 +106,7 @@ let view (model: Model) dispatch =
                 | Page.DividerPage -> DividerPage.view model
                 | Page.StepsPage -> StepsPage.view model
                 | Page.ListPage -> ListPage.view model
+                | Page.NotificationPage -> NotificationPage.view model
             }
         }
     }

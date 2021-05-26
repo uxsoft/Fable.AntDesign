@@ -10,10 +10,11 @@
     <Compile Include="Pages\DividerPage.fs" />
     <Compile Include="Pages\ListPage.fs" />
     <Compile Include="Pages\StepsPage.fs" />
+    <Compile Include="Pages\NotificationPage.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Include="Fable.Core" Version="3.2.7" />
     <PackageReference Include="Fable.Elmish.HMR" Version="4.1.0" />
     <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
   </ItemGroup>

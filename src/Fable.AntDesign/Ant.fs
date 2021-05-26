@@ -8,7 +8,6 @@ let fragment = Html.FragmentBuilder()
 let str = Fable.React.Helpers.str
 
 let button = Button.ButtonBuilder()
-let buttonProps = Button.ButtonPropsBuilder()
 let buttonGroup = Button.ButtonGroupBuilder()
 
 let customIcon = Icon.IconBuilder(Icon.CustomIcon)
@@ -142,6 +141,17 @@ let statistic = Statistic.StatisticBuilder()
 let countdown = Statistic.StatisticCountdownBuilder()
 
 
+
+let alert = Alert.AlertBuilder()
+let alertErrorBoundary = Alert.AlertErrorBoundaryBuilder()
+
+let drawer = Drawer.DrawerBuilder()
+
+let message = Message.MessageBuilder()
+
+let modal = Modal.ModalBuilder()
+
+let notification = Notification.NotificationBuilder()
 
 let tooltip = Tooltip.TooltipBuilder()
 let popOver = Tooltip.PopoverBuilder()

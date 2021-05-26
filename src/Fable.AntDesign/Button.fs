@@ -24,8 +24,25 @@ type ButtonShape =
     | Circle
     | Round
 
-type ButtonPropsBuilder() =
+type ButtonProp =
+    | Disabled of bool
+    | Ghost of bool
+    | Href of string
+    | HtmlType of ButtonHtmlType
+    | Icon of ReactElement
+    | Loading of bool
+    | Shape of ButtonShape
+    | Size of Common.Size
+    | Target of string
+    | Type of ButtonType
+    | OnClick of (Browser.Types.Event -> unit)
+    | Block of bool
+    | Danger of bool
+
+type ButtonBuilder() =
     inherit ReactBuilder()
+    member x.Run(s: DSLElement) = ofImport "Button" "antd" (createObj s.Attributes) s.Children
+    
     [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
     [<CustomOperation("ghost")>] member _.ghost (x: DSLElement) = x.attr "ghost" true
     [<CustomOperation("href")>] member _.href (x: DSLElement, v: string) = x.attr "href" v
@@ -39,12 +56,6 @@ type ButtonPropsBuilder() =
     [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Browser.Types.Event -> unit) = x.attr "onClick" v
     [<CustomOperation("block")>] member _.block (x: DSLElement) = x.attr "block" true
     [<CustomOperation("danger")>] member _.danger (x: DSLElement) = x.attr "danger" true
-
-
-type ButtonBuilder() =
-    inherit ButtonPropsBuilder()
-
-    member x.Run(s: DSLElement) = ofImport "Button" "antd" (createObj s.Attributes) s.Children
 
 type ButtonGroupBuilder() =
     inherit ReactBuilder()
