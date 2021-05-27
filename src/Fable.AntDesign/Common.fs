@@ -21,8 +21,15 @@ type DSLElement =
       Children: ReactElement list }
     
     member x.attr (name: string) (value) =
-        { x with
-              Attributes = x.Attributes @ [ name, value ] }
+        { x with Attributes = x.Attributes @ [ name, value ] }
+        
+    member x.get<'t> (name: string) =
+        x.Attributes
+        |> List.tryFind (fun (k, _) -> k = name)
+        |> Option.map (fun (_, v) -> v :?> 't)
+        
+    member x.getOrDefault<'t> (name: string) (fallback: 't) =
+        x.get<'t> name |> Option.defaultValue fallback
 
 type DSLAttribute =
     { Name: string; Value: obj }
@@ -43,7 +50,7 @@ type ReactBuilder() =
     member _.Yield(children: ReactElement list) =
         { Attributes = []; Children = children }
 
-    member x.Yield(_) = x.Zero()
+    member x.Yield _ = x.Zero()
 
     member _.Combine(a: DSLElement, b: DSLElement) =
         { Attributes = a.Attributes @ b.Attributes
@@ -57,6 +64,8 @@ type ReactBuilder() =
         { Attributes = elements |> Seq.map (fun i -> i.Attributes) |> List.concat
           Children =  elements |> Seq.map (fun i -> i.Children) |> List.concat }
 
+    
+    
     // Common Attributes
     [<CustomOperation("attr")>]
     member _.attr(s: DSLElement, n: string, v) = s.attr n v

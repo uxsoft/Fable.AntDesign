@@ -11,7 +11,7 @@ let button = Button.ButtonBuilder()
 let buttonGroup = Button.ButtonGroupBuilder()
 
 let customIcon = Icon.IconBuilder(Icon.CustomIcon)
-let icon glyph = Icon.IconBuilder(glyph)
+let basicIcon glyph = Icon.IconBuilder(glyph)
 let icons = Icon.BasicIcons
 
 let text = Typography.TextBuilder()
@@ -25,7 +25,7 @@ let editableWith = Typography.EditableConfigBuilder()
 let divider = Divider.DividerBuilder()
 
 let row = Grid.RowBuilder()
-let col = Grid.ColumnBuilder()
+let col = Grid.ColBuilder()
 
 let layout = Layout.LayoutBuilder()
 let header = Layout.HeaderBuilder()
@@ -77,7 +77,6 @@ let formErrorList = Form.FormErrorListBuilder()
 let formItem = Form.FormItemBuilder()
 let formList = Form.FormListBuilder()
 let formProvider = Form.FormProviderBuilder()
-let formRule = Form.FormRuleBuilder()
 
 let input = Input.InputBuilder()
 let password = Input.PasswordBuilder()
@@ -90,9 +89,9 @@ let inputNumber = InputNumber.InputNumberBuilder()
 let mentions = Mentions.MentionsBuilder()
 let mention = Mentions.MentionBuilder()
 
-let radio = Radio.RadioBuilder()
-let radioButton = Radio.RadioButtonBuilder()
-let radioGroup = Radio.RadioGroupBuilder()
+let radio<'T> = Radio.RadioBuilder<'T>()
+let radioButton<'T> = Radio.RadioButtonBuilder<'T>()
+let radioGroup<'T> = Radio.RadioGroupBuilder<'T>()
 
 let rate = Rate.RateBuilder()
 

@@ -11,6 +11,20 @@ type RowAlign = Top | Middle | Bottom
 [<StringEnum; RequireQualifiedAccess>]
 type RowJustify =  Start | End | Center | [<CompiledName("space-around")>] SpaceAround | [<CompiledName("space-between")>] SpaceBetween
 
+type ColProp =
+    | Flex of string 
+    | Offset of int 
+    | Order of int 
+    | Pull of int 
+    | Push of int 
+    | Span of int 
+    | Xs of int 
+    | Sm of int 
+    | Md of int 
+    | Lg of int 
+    | Xl of int 
+    | Xxl of int 
+
 type RowBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Row" "antd" (createObj s.Attributes) s.Children
@@ -19,7 +33,7 @@ type RowBuilder() =
     [<CustomOperation("gutter")>] member _.gutter (x: DSLElement, v: int) = x.attr "gutter" v  
     [<CustomOperation("justify")>] member _.justify (x: DSLElement, v: RowJustify) = x.attr "justify" v 
 
-type ColumnBuilder() =
+type ColBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Col" "antd" (createObj s.Attributes) s.Children
     

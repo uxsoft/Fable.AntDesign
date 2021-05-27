@@ -13,8 +13,8 @@ type DescriptionsBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Descriptions" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("bordered")>] member _.bordered (x: DSLElement) = x.attr "bordered" true 
-    [<CustomOperation("colon")>] member _.colon (x: DSLElement) = x.attr "colon" true
+    [<CustomOperation("bordered")>] member _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
+    [<CustomOperation("colon")>] member _.colon (x: DSLElement, v: bool) = x.attr "colon" v
     [<CustomOperation("column")>] member _.column (x: DSLElement, v: int) = x.attr "column" v 
     [<CustomOperation("extra")>] member _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v
     [<CustomOperation("layout")>] member _.layout (x: DSLElement, v: DescriptionsLayout) = x.attr "layout" v 

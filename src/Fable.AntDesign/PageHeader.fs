@@ -10,7 +10,7 @@ type PageHeaderBuilder() =
 
     [<CustomOperation("title")>] member _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
     [<CustomOperation("subTitle")>] member _.subTitle (x: DSLElement, v: ReactElement) = x.attr "subTitle" v
-    [<CustomOperation("ghost")>] member _.ghost (x: DSLElement) = x.attr "ghost" true
+    [<CustomOperation("ghost")>] member _.ghost (x: DSLElement, v: bool) = x.attr "ghost" v
     [<CustomOperation("avatar")>] member _.avatar (x: DSLElement, v: ReactElement) = x.attr "avatar" v
     [<CustomOperation("backIcon")>] member _.backIcon (x: DSLElement, v: ReactElement) = x.attr "backIcon" v
     [<CustomOperation("tags")>] member _.tags (x: DSLElement, v: ReactElement list) = x.attr "tags" v

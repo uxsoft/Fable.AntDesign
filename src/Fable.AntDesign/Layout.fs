@@ -5,6 +5,7 @@ open Fable.Core
 open Fable.React
 open Fable.Core.JsInterop
 open Fable.AntDesign.Common
+open Fable.React.Props
 
 type LayoutBuilder() =
     inherit ReactBuilder()
@@ -51,14 +52,14 @@ type SiderBuilder() =
         ofImport "Layout.Sider" "antd" (createObj s.Attributes) s.Children
     
     [<CustomOperation("breakpoint")>] member _.breakpoint(x: DSLElement, v: SiderBreakpoint) = x.attr "breakpoint" v
-    [<CustomOperation("collapsed")>] member _.collapsed (x: DSLElement) = x.attr "collapsed" true
+    [<CustomOperation("collapsed")>] member _.collapsed (x: DSLElement, v: bool) = x.attr "collapsed" v
     [<CustomOperation("collapsedWidth")>] member _.collapsedWidth (x: DSLElement, v: int) = x.attr "collapsedWidth" v
-    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement) = x.attr "collapsible" true
-    [<CustomOperation("defaultCollapsed")>] member _.defaultCollapsed (x: DSLElement) = x.attr "defaultCollapsed" true
-    [<CustomOperation("reverseArrow")>] member _.reverseArrow (x: DSLElement) = x.attr "reverseArrow" true
+    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement, v: bool) = x.attr "collapsible" v
+    [<CustomOperation("defaultCollapsed")>] member _.defaultCollapsed (x: DSLElement, v: bool) = x.attr "defaultCollapsed" v
+    [<CustomOperation("reverseArrow")>] member _.reverseArrow (x: DSLElement, v: bool) = x.attr "reverseArrow" v
     [<CustomOperation("theme")>] member _.theme (x: DSLElement, v: Theme) = x.attr "theme" v
     [<CustomOperation("trigger")>] member _.trigger (x: DSLElement, v: ReactElement) = x.attr "trigger" v
     [<CustomOperation("width")>] member _.width (x: DSLElement, v: string) = x.attr "width" v
     [<CustomOperation("onCollapse")>] member _.onCollapse (x: DSLElement, v: Func<bool, CollapseType, unit>) = x.attr "onCollapse" v
     [<CustomOperation("onBreakpoint")>] member _.onBreakpoint (x: DSLElement, v: bool -> unit) = x.attr "onBreakpoint" v
-    [<CustomOperation("zeroWidthTriggerStyle")>] member _.zeroWidthTriggerStyle(x: DSLElement, css: Props.CSSProp list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)
+    [<CustomOperation("zeroWidthTriggerStyle")>] member _.zeroWidthTriggerStyle(x: DSLElement, css: CSSProp list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)

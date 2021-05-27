@@ -1,5 +1,6 @@
-module Fable.AntD.Examples.Components.Example
+module Fable.AntDesign.Examples.Components.Example
 
+open Fable.AntDesign.Button
 open Fable.AntDesign.Common
 open Fable.AntDesign.Ant
 open Fable.React.Props
@@ -7,11 +8,11 @@ open Fable.React.Props
 type ExampleBuilder() =
     inherit ReactBuilder()
     
-    let mutable sourceUrl = ""
-    
-    [<CustomOperation("sourceUrl")>] member _.SourceUrl(x: DSLElement, url: string) = sourceUrl <- url; x
+    [<CustomOperation("sourceUrl")>] member _.SourceUrl(x: DSLElement, v: string) = x.attr "sourceUrl" v
     
     member _.Run(x: DSLElement) =
+        let sourceUrl = x.getOrDefault<string> "sourceUrl" ""
+        
         div {
             style [ Border "1px solid #f0f0f0"
                     BorderRadius "2px"
@@ -29,7 +30,11 @@ type ExampleBuilder() =
                     Transition "opacity .3s"
                     BorderTop "1px dashed #f0f0f0"
                 ]
-                str $"Source: {sourceUrl}"
+                button {
+                    buttonType ButtonType.Text
+                    icon (basicIcon icons.CodeOutlined { () })
+                    href sourceUrl
+                }
             }  
         }
         

@@ -9,12 +9,12 @@ type AnchorBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Anchor" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("affix")>] member _.affix (x: DSLElement) = x.attr "affix" true
+    [<CustomOperation("affix")>] member _.affix (x: DSLElement, v: bool) = x.attr "affix" v
     [<CustomOperation("bounds")>] member _.bounds (x: DSLElement, v: int) = x.attr "bounds" v 
     [<CustomOperation("getContainer")>] member _.getContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getContainer" v 
     [<CustomOperation("offsetBottom")>] member _.offsetBottom (x: DSLElement, v: int) = x.attr "offsetBottom" v 
     [<CustomOperation("offsetTop")>] member _.offsetTop (x: DSLElement, v: int) = x.attr "offsetTop" v 
-    [<CustomOperation("showInkInFixed")>] member _.showInkInFixed (x: DSLElement) = x.attr "showInkInFixed" true
+    [<CustomOperation("showInkInFixed")>] member _.showInkInFixed (x: DSLElement, v: bool) = x.attr "showInkInFixed" v
     [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Event -> obj -> unit) = x.attr "onClick" v 
     [<CustomOperation("getCurrentAnchor")>] member _.getCurrentAnchor (x: DSLElement, v: unit -> string) = x.attr "getCurrentAnchor" v 
     [<CustomOperation("targetOffset")>] member _.targetOffset (x: DSLElement, v: int) = x.attr "targetOffset" v 

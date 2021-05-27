@@ -13,20 +13,3 @@ type CommentBuilder() =
     [<CustomOperation("avatar")>] member _.avatar (x: DSLElement, v: ReactElement) = x.attr "avatar" v 
     [<CustomOperation("content")>] member _.content (x: DSLElement, v: ReactElement) = x.attr "content" v 
     [<CustomOperation("dateTime")>] member _.dateTime (x: DSLElement, v: ReactElement) = x.attr "datetime" v
-
-// TODO CommentActionBuilder
-//    <Tooltip key="comment-basic-dislike" title="Dislike">
-//      <span onClick={dislike}>
-//        {React.createElement(action === 'disliked' ? DislikeFilled : DislikeOutlined)}
-//        <span className="comment-action">{dislikes}</span>
-//      </span>
-//    </Tooltip>,
-//.comment-action {
-//  padding-left: 8px;
-//  cursor: 'auto';
-//}
-//
-//[class*='-col-rtl'] .comment-action {
-//  padding-right: 8px;
-//  padding-left: 0;
-//}

@@ -2,38 +2,25 @@ module App
 
 open System
 open Fable.AntDesign.Ant
-open Fable.AntD.Examples.Pages
+open Fable.AntDesign.Examples.Pages
+open Fable.AntDesign.Examples.Model
 open Fable.AntDesign.Menu
+open Fable.AntDesign.Result
 open Fable.React.Props
 open Elmish
 open Elmish.React
 open Elmish.HMR
 
-type Page =
-    | ButtonPage = 0
-    | IconPage = 1
-    | TypographyPage = 2
-    | DividerPage = 3
-    | StepsPage = 14
-    | ListPage = 42
-    | NotificationPage = 55
-
-type Model = { Page: Page }
-
-type Msg =
-    | Navigate of Page
-
-let init () : Model = { Page = Page.ButtonPage }
-
-// UPDATE
-
-let update (msg: Msg) (model: Model) =
-    match msg with
-    | Navigate page -> { model with Page = page }
-
 let onPageSelected dispatch (e: ClickParam) = 
     let success, page = Enum.TryParse<Page>(e.key)
     if success then dispatch (Navigate page)
+
+let notFound =
+    result {
+        status ResultStatus.NotFound
+        title (str "Page not found")
+        subTitle (str "Try a different one!")
+    }
 
 let view (model: Model) dispatch =
     layout {
@@ -78,6 +65,10 @@ let view (model: Model) dispatch =
                     }
                     menuItemGroup {
                         title (str "Data Entry")
+                        menuItem {
+                            key (string Page.FormPage)
+                            str "Form"
+                        }
                     }
                     menuItemGroup {
                         title (str "Data Display")
@@ -107,12 +98,14 @@ let view (model: Model) dispatch =
                 | Page.StepsPage -> StepsPage.view model
                 | Page.ListPage -> ListPage.view model
                 | Page.NotificationPage -> NotificationPage.view model
+                | Page.FormPage -> FormPage.view model dispatch
+                | _ -> notFound
             }
         }
     }
 
 // App
-Program.mkSimple init update view
+Program.mkProgram init update view
 |> Program.withReactBatched "elmish-app"
 |> Program.withConsoleTrace
 |> Program.run

@@ -1,44 +1,18 @@
-﻿# Fable.AntD
+module Fable.AntDesign.Examples.Pages.FormPage
 
-Ant Design bindings for F# powered by Fable React.
-
-<img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>
-
-## Usage
-
-### Dependencies
-
-#### Include the bindings from NuGet:
-
-`dotnet package add Fable.AntDesign`
-
-#### Include the Ant Design React libraries from NPM
-
-In package.json
-```json
-{
-  "dependencies": {
-    "antd": "^4.0.0",
-    "@ant-design/icons": "^4.0.0"
-  }
-}
-```
-#### Reference the styles
-
-In style.scss:
-```sass
-@import "../../node_modules/antd/dist/antd.min.css";
-```
-
-### Example 
-
-Live: https://wonderful-pond-0cff0e203.azurestaticapps.net/
-
-```fsharp
+open Fable.AntDesign.Examples.Components.Example
+open Fable.AntDesign.Examples.Model
+open Fable.AntDesign.Button
+open Fable.AntDesign.Form
 open Fable.AntDesign.Ant
+open Fable.React.Props
+open Fable.Core.DynamicExtensions
 
-let view model dispatch =
-    content {
+
+let view (model: Model) dispatch =
+    example {
+        sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/FormPage.fs"
+
         pageHeader {
             title (str "Login")
             subTitle (str "Please log-in to enter.")
@@ -99,8 +73,3 @@ let view model dispatch =
             }
         }
     }
-```
-
-FAQ:
-- When supplying `AntFormItem.Rules`, make sure the form item has a Name otherwise the validations won't work
-- Use AntFormItem.Key to make sure the form item is recreated if switching between forms

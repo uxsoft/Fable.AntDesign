@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Fable.AntD", "src\Fable.AntD\Fable.AntD.fsproj", "{460E3F54-9083-4DD0-A6CD-0C728AB8262E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.AntDesign.Examples", "src\Fable.AntDesign.Examples\Fable.AntD.Examples.fsproj", "{46F84EF3-EFC8-439F-8BE9-43C9D151EEE5}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.AntDesign.Examples", "src\Fable.AntDesign.Examples\Fable.AntDesign.Examples.fsproj", "{46F84EF3-EFC8-439F-8BE9-43C9D151EEE5}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.AntDesign", "src\Fable.AntDesign\Fable.AntDesign.fsproj", "{91A02AA1-173D-4B79-8DDF-B1800BD6B8AF}"
 EndProject

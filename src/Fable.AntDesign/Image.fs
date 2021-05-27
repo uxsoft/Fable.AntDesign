@@ -10,11 +10,11 @@ open Fable.Core.JsInterop
 type ImagePreviewSettings =
     | Visible of bool
     | OnVisibleChange of (bool * bool -> unit)
-    | GetContainer of string // V4.8.0
-    | Src of string // V4.10.0
-    | Mask of ReactElement // V4.9.0
-    | MaskClassName of string // V4.11.0
-    | Current of int // V4.12.0 Only support PreviewGroup.
+    | GetContainer of string 
+    | Src of string 
+    | Mask of ReactElement
+    | MaskClassName of string 
+    | Current of int 
 
 type ImagePreviewGroupBuilder() =
     inherit ReactBuilder()
@@ -29,7 +29,7 @@ type ImageBuilder() =
     [<CustomOperation("fallback")>] member _.fallback (x: DSLElement, v: string) = x.attr "fallback" v 
     [<CustomOperation("height")>] member _.height (x: DSLElement, v: int) = x.attr "height" v 
     [<CustomOperation("placeholder")>] member _.placeholder (x: DSLElement, v: ReactElement) = x.attr "placeholder" v 
-    [<CustomOperation("preview")>] member _.preview (x: DSLElement) = x.attr "preview" true
+    [<CustomOperation("preview")>] member _.preview (x: DSLElement, v: bool) = x.attr "preview" v
     [<CustomOperation("previewConfig")>] member _.previewConfig (x: DSLElement, v: ImagePreviewSettings list) = x.attr "preview" (keyValueList CaseRules.LowerFirst v)
     [<CustomOperation("src")>] member _.src (x: DSLElement, v: string) = x.attr "src" v 
     [<CustomOperation("width")>] member _.width (x: DSLElement, v: int) = x.attr "width" v 

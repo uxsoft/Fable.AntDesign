@@ -9,9 +9,9 @@ type RateBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Rate" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("allowClear")>] member _.allowClear (x: DSLElement) = x.attr "allowClear" true
-    [<CustomOperation("allowHalf")>] member _.allowHalf (x: DSLElement) = x.attr "allowHalf" true
-    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement) = x.attr "autoFocus" true
+    [<CustomOperation("allowClear")>] member _.allowClear (x: DSLElement, v: bool) = x.attr "allowClear" v
+    [<CustomOperation("allowHalf")>] member _.allowHalf (x: DSLElement, v: bool) = x.attr "allowHalf" v
+    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v
     [<CustomOperation("character")>] member _.character (x: DSLElement, v: ReactElement) = x.attr "character" v 
     [<CustomOperation("className")>] member _.className (x: DSLElement, v: string) = x.attr "className" v 
     [<CustomOperation("count")>] member _.count (x: DSLElement, v: int) = x.attr "count" v 
