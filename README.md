@@ -1,20 +1,19 @@
-﻿# Fable.AntD
+# Fable.AntDesign
 
-Ant Design bindings for F# powered by Fable React.
+| __Fable.AntD__ | __SwiftUI style (class based) bindings__ | <img src="https://buildstats.info/nuget/Fable.AntD" alt="badge"/> |
+| :--- | :--- | :--- |
+| __Fable.AntDesign__ | __F# computation expression based bindings__ | <img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>  |
 
-<img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>
 
-## Usage
+### Getting Started
 
-### Dependencies
-
-#### Include the bindings from NuGet:
+- Include the bindings from NuGet:
 
 `dotnet package add Fable.AntDesign`
 
-#### Include the Ant Design React libraries from NPM
+- Include the Ant Design React libraries from NPM
 
-In package.json
+package.json:
 ```json
 {
   "dependencies": {
@@ -23,16 +22,16 @@ In package.json
   }
 }
 ```
-#### Reference the styles
+- Reference the styles
 
-In style.scss:
+style.scss:
 ```sass
 @import "../../node_modules/antd/dist/antd.min.css";
 ```
 
 ### Example 
 
-Live: https://wonderful-pond-0cff0e203.azurestaticapps.net/
+Live: [https://fable-antdesign.uxsoft.cz/](https://fable-antdesign.uxsoft.cz/)
 
 ```fsharp
 open Fable.AntDesign.Ant
@@ -101,6 +100,6 @@ let view model dispatch =
     }
 ```
 
-FAQ:
-- When supplying `AntFormItem.Rules`, make sure the form item has a Name otherwise the validations won't work
-- Use AntFormItem.Key to make sure the form item is recreated if switching between forms
+### FAQ
+- When supplying `formItem.rules`, make sure the form item has a Name otherwise the validations won't work
+- Use `formItem.key` to make sure the form item is recreated if switching between forms
