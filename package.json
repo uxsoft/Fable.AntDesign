@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "postinstall": "dotnet tool restore",
-    "dev": "dotnet fable watch src/Fable.AntD.Examples --run webpack serve"
+    "dev": "dotnet fable watch src/Fable.AntDesign.Examples --run webpack serve",
+    "build": "dotnet fable src/Fable.AntDesign.Examples --run webpack build"
   },
   "dependencies": {
     "antd": "^4.15.6",

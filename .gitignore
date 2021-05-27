@@ -3,6 +3,8 @@
 .vs/
 obj/
 bin/
+dist/
+global.json
 packages/
 paket-files/
 node_modules/
