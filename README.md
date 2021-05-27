@@ -1,8 +1,8 @@
 ﻿# Fable.AntD
 
-Ant Design bindings for Fable F#
+Ant Design bindings for F# powered by Fable React.
 
-<img src="https://buildstats.info/nuget/Fable.AntD" alt="badge"/>
+<img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>
 
 ## Usage
 
@@ -32,79 +32,75 @@ In style.scss:
 
 ### Example 
 
-```fsharp
-open Fable.AntD
+Live: https://wonderful-pond-0cff0e203.azurestaticapps.net/
 
-    AntContent()
-        .[[
-        AntPageHeader()
-            .title(str "Login")
-            .subTitle(str "Please log-in to enter.")
-            .[[]]
+```fsharp
+open Fable.AntDesign.Ant
+
+let view model dispatch =
+    content {
+        pageHeader {
+            title (str "Login")
+            subTitle (str "Please log-in to enter.")
+        }
         
-        AntForm()
-            .onFinish(fun _ -> handleSubmit ctx |> Async.StartImmediate)
-            .style([ Props.MaxWidth "320px"; Props.Margin "0 auto" ])
-            .[[
-            AntFormItem()
-                .name("login-email")
-                .key("login-email")
-                .rules([|
-                    AntFormRule("This isn't a valid email").ruleType(FormRuleType.Email)
-                    AntFormRule("This field is mandatory").required() |])
-                .[[
-                AntInput()
-                    .prefix(AntIcons.MailOutlined.style(grayedOut).[[]])
-                    .onChange(fun e -> setModel (fun s -> { s with Email = e.Value }))
-                    .placeholder("Email")
-                    .[[]]
-            ]]
-            AntFormItem()
-                .name("login-password")
-                .key("login-password")
-                .rules([| AntFormRule("This field is mandatory").required() |])
-                .[[
-                AntPassword()
-                    .prefix(AntIcons.LockOutlined.style(grayedOut).[[]])
-                    .onChange(fun e -> setModel (fun s -> { s with Password = base64 e.Value }))
-                    .placeholder("Password")
-                    .[[]]
-            ]]
-            AntFormItem()
-                .key("login-submit")
-                .[[
-                match model.Error with
-                | None -> ()
-                | Some error ->
-                    div [ Class "fn-error-message" ] [
-                        AntText()
-                            .typographyType(TypographyType.Danger)
-                            .[[ renderErrorMessage error ]]
-                    ]
-                AntButton()
-                    .buttonType(ButtonType.Primary)
-                    .loading(model.IsProcessing)
-                    .htmlType(ButtonHtmlType.Submit)
-                    .style([ Width "100%" ]).[[ str "Login" ]]
-            ]]
-            AntFormItem()
-                .key("login-links")
-                .[[
-                AntButton()
-                    .buttonType(ButtonType.Link)
-                    .onClick(fun _ -> ctx.navigate RegistrationPage)
-                    .[[ str "Register" ]]
-                AntButton()
-                    .buttonType(ButtonType.Link)
-                    .style([ Float FloatOptions.Right ])
-                    .onClick(fun _ -> ctx.navigate ForgotPasswordPage)
-                    .[[ str "Forgot password?" ]]
-            ]]
-        ]]
-    ]]
+        form {
+            style [ MaxWidth "320px"; Margin "0 auto" ]
+            onFinish (fun values -> dispatch (BeginLogin(string values.["username"], string values.["password"])))
+
+            formItem {
+                name "email"
+                key "login-email"
+                rules [
+                    [ FormRule.RuleType FormRuleType.Email 
+                      FormRule.Message "This isn't a valid email" ]
+                    [ FormRule.Required true
+                      FormRule.Message "This field is mandatory" ] ]
+                input {
+                    prefix (basicIcon icons.MailOutlined { style [ Color "lightgray" ] })
+                    placeholder "Email"
+                }
+            }
+            
+            formItem {
+                name "password"
+                key "login-password"
+                rules [
+                    [ FormRule.Required true
+                      FormRule.Message "This field is mandatory" ] ]
+                password {
+                    prefix (basicIcon icons.LockOutlined { style [ Color "lightgray" ] })
+                }
+            }
+            
+            formItem {
+                key "login-submit"
+                button {
+                    style [ Width "100%" ]
+                    buttonType ButtonType.Primary
+                    loading model.IsLoggingIn
+                    htmlType ButtonHtmlType.Submit 
+                    
+                    str "Login"
+                }
+            }
+            
+            formItem {
+                key "login-links"
+                button {
+                    buttonType ButtonType.Link
+                    str "Register"
+                }
+                button {
+                    style [ Float FloatOptions.Right ]
+                    buttonType ButtonType.Link
+                    str "Forgot password?"
+                }
+            }
+        }
+    }
 ```
 
 FAQ:
-
 - When supplying `AntFormItem.Rules`, make sure the form item has a Name otherwise the validations won't work
 - Use AntFormItem.Key to make sure the form item is recreated if switching between forms
