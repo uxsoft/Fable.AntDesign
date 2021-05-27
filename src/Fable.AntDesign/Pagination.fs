@@ -19,7 +19,7 @@ type PaginationSize =
     | Small
     | Default
 
-type PaginationSettings =
+type PaginationProp =
     | Current of int
     | DefaultCurrent of int
     | DefaultPageSize of int

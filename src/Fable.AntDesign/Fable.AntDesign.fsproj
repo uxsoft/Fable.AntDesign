@@ -51,7 +51,12 @@
         <Compile Include="Image.fs" />
         <Compile Include="List.fs" />
         <Compile Include="Statistic.fs" />
+        <Compile Include="Table.fs" />
+        <Compile Include="Tabs.fs" />
+        <Compile Include="Tag.fs" />
+        <Compile Include="Timeline.fs" />
         <Compile Include="Tooltip.fs" />
+        <Compile Include="Tree.fs" />
 
         <Compile Include="Alert.fs" />
         <Compile Include="Drawer.fs" />

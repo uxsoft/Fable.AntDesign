@@ -140,7 +140,22 @@ let listMeta = List.ListItemMetaBuilder()
 let statistic = Statistic.StatisticBuilder()
 let countdown = Statistic.StatisticCountdownBuilder()
 
+let table<'T> = Table.TableBuilder<'T>()
+let tableColumn<'T>= Table.TableColumnBuilder<'T>()
+let tableColumnGroup = Table.TableColumnGroupBuilder()
 
+let tabs = Tabs.TabsBuilder()
+let tabPane = Tabs.TabPaneBuilder()
+
+let tag = Tag.TagBuilder()
+let checkableTag = Tag.CheckableTagBuilder()
+
+let timeline = Timeline.TimelineBuilder()
+let timelineItem = Timeline.TimelineItemBuilder()
+
+let tree<'T> = Tree.TreeBuilder<'T>()
+let directoryTree<'T> = Tree.DirectoryTreeBuilder<'T>()
+let treeNode = Tree.TreeNodeBuilder()
 
 let alert = Alert.AlertBuilder()
 let alertErrorBoundary = Alert.AlertErrorBoundaryBuilder()
