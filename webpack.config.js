@@ -6,13 +6,13 @@ var path = require("path");
 
 module.exports = {
     mode: "development",
-    entry: "./src/Fable.AntD.Examples/App.fs.js",
+    entry: "./src/Fable.AntDesign.Examples/App.fs.js",
     output: {
-        path: path.join(__dirname, "./src/Fable.AntD.Examples/public"),
+        path: path.join(__dirname, "./src/Fable.AntDesign.Examples/public"),
         filename: "bundle.js",
     },
     devServer: {
-        contentBase: "./src/Fable.AntD.Examples/public",
+        contentBase: "./src/Fable.AntDesign.Examples/public",
         port: 8080,
         hot: true,
         inline: true
