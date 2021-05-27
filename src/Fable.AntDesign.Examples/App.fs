@@ -98,7 +98,7 @@ let view (model: Model) dispatch =
                 | Page.StepsPage -> StepsPage.view model
                 | Page.ListPage -> ListPage.view model
                 | Page.NotificationPage -> NotificationPage.view model
-                | Page.FormPage -> FormPage.view model
+                | Page.FormPage -> FormPage.view model dispatch
                 | _ -> notFound
             }
         }
