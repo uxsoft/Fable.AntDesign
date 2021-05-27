@@ -32,5 +32,5 @@ let update (msg: Msg) (model: Model) =
             async {
                 do! Async.Sleep 2000
                 dispatch EndLogin
-            } ]
+            } |> Async.StartImmediate ]
     | EndLogin -> { model with IsLoggingIn = false }, []
