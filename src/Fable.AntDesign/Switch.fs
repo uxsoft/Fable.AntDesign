@@ -10,12 +10,12 @@ type SwitchBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Switch" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement) = x.attr "autoFocus" true
-    [<CustomOperation("isChecked")>] member _.isChecked (x: DSLElement) = x.attr "checked" true
+    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v
+    [<CustomOperation("isChecked")>] member _.isChecked (x: DSLElement, v: bool) = x.attr "checked" v
     [<CustomOperation("checkedChildren")>] member _.checkedChildren (x: DSLElement, v: ReactElement) = x.attr "checkedChildren" v
-    [<CustomOperation("defaultChecked")>] member _.defaultChecked (x: DSLElement) = x.attr "defaultChecked" true
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
-    [<CustomOperation("loading")>] member _.loading (x: DSLElement) = x.attr "loading" true
+    [<CustomOperation("defaultChecked")>] member _.defaultChecked (x: DSLElement, v: bool) = x.attr "defaultChecked" v
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
+    [<CustomOperation("loading")>] member _.loading (x: DSLElement, v: bool) = x.attr "loading" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("unCheckedChildren")>] member _.unCheckedChildren (x: DSLElement, v: ReactElement) = x.attr "unCheckedChildren" v
     [<CustomOperation("onChange")>] member _.onChange (x: DSLElement, v: Func<bool, Event, unit>) = x.attr "onChange" v

@@ -1,6 +1,6 @@
-module Fable.AntD.Examples.Pages.TypographyPage
+module Fable.AntDesign.Examples.Pages.TypographyPage
 
-open Fable.AntD.Examples.Components.Example
+open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Ant
 
 let view model =

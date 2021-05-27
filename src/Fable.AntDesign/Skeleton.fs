@@ -11,18 +11,18 @@ type SkeletonBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Skeleton" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("active")>] member _.active (x: DSLElement) = x.attr "active" true
-    [<CustomOperation("avatar")>] member _.avatar (x: DSLElement) = x.attr "avatar" true
-    [<CustomOperation("loading")>] member _.loading (x: DSLElement) = x.attr "loading" true
-    [<CustomOperation("paragraph")>] member _.paragraph (x: DSLElement) = x.attr "paragraph" true
-    [<CustomOperation("title")>] member _.title (x: DSLElement) = x.attr "title" true
-    [<CustomOperation("round")>] member _.round (x: DSLElement) = x.attr "round" true
+    [<CustomOperation("active")>] member _.active (x: DSLElement, v: bool) = x.attr "active" v
+    [<CustomOperation("avatar")>] member _.avatar (x: DSLElement, v: bool) = x.attr "avatar" v
+    [<CustomOperation("loading")>] member _.loading (x: DSLElement, v: bool) = x.attr "loading" v
+    [<CustomOperation("paragraph")>] member _.paragraph (x: DSLElement, v: bool) = x.attr "paragraph" v
+    [<CustomOperation("title")>] member _.title (x: DSLElement, v: bool) = x.attr "title" v
+    [<CustomOperation("round")>] member _.round (x: DSLElement, v: bool) = x.attr "round" v
 
 type SkeletonAvatarBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Skeleton.Avatar" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("active")>] member _.active (x: DSLElement) = x.attr "active" true
+    [<CustomOperation("active")>] member _.active (x: DSLElement, v: bool) = x.attr "active" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("shape")>] member _.shape (x: DSLElement, v: SkeletonShape) = x.attr "shape" v   
 
@@ -43,7 +43,7 @@ type SkeletonButtonBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Skeleton.Button" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("active")>] member _.active (x: DSLElement) = x.attr "active" true
+    [<CustomOperation("active")>] member _.active (x: DSLElement, v: bool) = x.attr "active" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("shape")>] member _.shape (x: DSLElement, v: SkeletonShape) = x.attr "shape" v
 
@@ -51,5 +51,5 @@ type SkeletonInputBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Skeleton.Input" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("active")>] member _.active (x: DSLElement) = x.attr "active" true
+    [<CustomOperation("active")>] member _.active (x: DSLElement, v: bool) = x.attr "active" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v

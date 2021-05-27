@@ -13,9 +13,9 @@ type TimelineBuilder()  =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Timeline" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("pending")>] member _.pending (x: DSLElement) = x.attr "pending" true
+    [<CustomOperation("pending")>] member _.pending (x: DSLElement, v: bool) = x.attr "pending" v
     [<CustomOperation("pendingDot")>] member _.pendingDot (x: DSLElement, v: ReactElement) = x.attr "pendingDot" v 
-    [<CustomOperation("reverse")>] member _.reverse (x: DSLElement) = x.attr "reverse" true
+    [<CustomOperation("reverse")>] member _.reverse (x: DSLElement, v: bool) = x.attr "reverse" v
     [<CustomOperation("mode")>] member _.mode (x: DSLElement, v: TimelineMode) = x.attr "mode" v  
 
 type TimelineItemBuilder()  =

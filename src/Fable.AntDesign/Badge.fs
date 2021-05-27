@@ -14,10 +14,10 @@ type BadgeBuilder() =
 
     [<CustomOperation("color")>] member _.color (x: DSLElement, v: string) = x.attr "color" v 
     [<CustomOperation("count")>] member _.count (x: DSLElement, v: ReactElement) = x.attr "count" v 
-    [<CustomOperation("dot")>] member _.dot (x: DSLElement) = x.attr "dot" true
+    [<CustomOperation("dot")>] member _.dot (x: DSLElement, v: bool) = x.attr "dot" v
     [<CustomOperation("offset")>] member _.offset (x: DSLElement, v: float array) = x.attr "offset" v 
     [<CustomOperation("overflowCount")>] member _.overflowCount (x: DSLElement, v: int) = x.attr "overflowCount" v 
-    [<CustomOperation("showZero")>] member _.showZero (x: DSLElement) = x.attr "showZero" true 
+    [<CustomOperation("showZero")>] member _.showZero (x: DSLElement, v: bool) = x.attr "showZero" v 
     [<CustomOperation("status")>] member _.status (x: DSLElement, v: BadgeStatus) = x.attr "status" v 
     [<CustomOperation("text")>] member _.text (x: DSLElement, v: string) = x.attr "text" v 
     [<CustomOperation("title")>] member _.title (x: DSLElement, v: string) = x.attr "title" v

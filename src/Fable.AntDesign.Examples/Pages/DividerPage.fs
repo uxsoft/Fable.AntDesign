@@ -1,6 +1,6 @@
-module Fable.AntD.Examples.Pages.DividerPage
+module Fable.AntDesign.Examples.Pages.DividerPage
 
-open Fable.AntD.Examples.Components.Example
+open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Ant
 
 let view model =

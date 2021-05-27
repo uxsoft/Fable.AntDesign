@@ -8,11 +8,11 @@ type CommentActionBuilder() =
     inherit ReactBuilder()
     
     [<CustomOperation("title")>] member _.title(x: DSLElement, v: string) = x.attr "title" v
-    [<CustomOperation("checked")>] member _.checked(x: DSLElement) = x.attr "checked" true
+    [<CustomOperation("isChecked")>] member _.Checked(x: DSLElement, v: bool) = x.attr "isChecked" v
     [<CustomOperation("checkedIcon")>] member _.checkedIcon(x: DSLElement, v: string) = x.attr "checkedIcon" v
     [<CustomOperation("uncheckedIcon")>] member _.uncheckedIcon(x: DSLElement, v: string) = x.attr "uncheckedIcon" v
     
-    member _.Run(x: DSLElement) =
+    member _.Run(x: DSLElement, v: bool) =
         let title = x.getOrDefault "title" ""
         let checkedIcon = x.getOrDefault "checkedIcon" (span { () })
         let uncheckedIcon = x.getOrDefault "uncheckedIcon" (span { () })
@@ -51,7 +51,7 @@ type IconButton() =
     [<CustomOperation("icon")>] member _.icon(x: DSLElement, v: string) = x.attr "icon" v
     [<CustomOperation("onClick")>] member _.onClick(x: DSLElement, v: unit -> unit) = x.attr "onClick" v
 
-    member _.Run(x: DSLElement) =
+    member _.Run(x: DSLElement, v: bool) =
         span {
             ()
         }

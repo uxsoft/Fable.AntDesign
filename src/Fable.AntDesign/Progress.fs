@@ -24,7 +24,7 @@ type ProgressBuilder()  =
 
     [<CustomOperation("format")>] member _.format (x: DSLElement, v: Func<int, int, ReactElement>) = x.attr "format" v
     [<CustomOperation("percent")>] member _.percent (x: DSLElement, v: int) = x.attr "percent" v
-    [<CustomOperation("showInfo")>] member _.showInfo (x: DSLElement) = x.attr "showInfo" true
+    [<CustomOperation("showInfo")>] member _.showInfo (x: DSLElement, v: bool) = x.attr "showInfo" v
     [<CustomOperation("status")>] member _.status (x: DSLElement, v: ProgressStatus) = x.attr "status" v
     [<CustomOperation("strokeColor")>] member _.strokeColor (x: DSLElement, v: string) = x.attr "strokeColor" v
     [<CustomOperation("strokeLinecap")>] member _.strokeLinecap (x: DSLElement, v: ProgressLinecap) = x.attr "strokeLinecap" v

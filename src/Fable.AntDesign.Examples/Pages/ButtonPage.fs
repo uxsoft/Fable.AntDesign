@@ -1,6 +1,6 @@
-module Fable.AntD.Examples.Pages.ButtonPage
+module Fable.AntDesign.Examples.Pages.ButtonPage
 
-open Fable.AntD.Examples.Components.Example
+open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Ant
 open Fable.AntDesign.Button
 

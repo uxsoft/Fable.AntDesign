@@ -50,7 +50,7 @@ type ReactBuilder() =
     member _.Yield(children: ReactElement list) =
         { Attributes = []; Children = children }
 
-    member x.Yield(_) = x.Zero()
+    member x.Yield _ = x.Zero()
 
     member _.Combine(a: DSLElement, b: DSLElement) =
         { Attributes = a.Attributes @ b.Attributes
