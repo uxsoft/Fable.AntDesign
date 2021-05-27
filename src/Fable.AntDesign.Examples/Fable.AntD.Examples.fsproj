@@ -11,6 +11,7 @@
     <Compile Include="Pages\ListPage.fs" />
     <Compile Include="Pages\StepsPage.fs" />
     <Compile Include="Pages\NotificationPage.fs" />
+    <Compile Include="Pages\FormPage.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

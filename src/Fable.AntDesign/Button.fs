@@ -8,9 +8,10 @@ open Fable.Core.JsInterop
 [<StringEnum; RequireQualifiedAccess>]
 type ButtonType =
     | Primary
-    | Dashed
     | Ghost
+    | Dashed
     | Link
+    | Text
     | Default
     
 [<StringEnum; RequireQualifiedAccess>]

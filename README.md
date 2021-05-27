@@ -10,7 +10,7 @@ Ant Design bindings for Fable F#
 
 #### Include the bindings from NuGet:
 
-`dotnet package add Fable.AntD`
+`dotnet package add Fable.AntDesign`
 
 #### Include the Ant Design React libraries from NPM
 
@@ -27,7 +27,7 @@ In package.json
 
 In style.scss:
 ```sass
-@import "../../node_modules/antd/dist/antd.css";
+@import "../../node_modules/antd/dist/antd.min.css";
 ```
 
 ### Example 
