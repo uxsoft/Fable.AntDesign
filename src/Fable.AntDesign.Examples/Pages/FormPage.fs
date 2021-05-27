@@ -1,10 +1,13 @@
 module Fable.AntDesign.Examples.Pages.FormPage
 
 open Fable.AntDesign.Examples.Components.Example
+open Fable.AntDesign.Examples.Model
 open Fable.AntDesign.Button
 open Fable.AntDesign.Form
 open Fable.AntDesign.Ant
 open Fable.React.Props
+open Fable.Core.DynamicExtensions
+
 
 let view (model: Model) dispatch =
     example {
@@ -17,10 +20,10 @@ let view (model: Model) dispatch =
         
         form {
             style [ MaxWidth "320px"; Margin "0 auto" ]
-            onFinish (fun values -> ())
+            onFinish (fun values -> dispatch (BeginLogin(string values.["username"], string values.["password"])))
 
             formItem {
-                name "login-email"
+                name "email"
                 key "login-email"
                 rules [
                     [ FormRule.RuleType FormRuleType.Email 
@@ -34,7 +37,7 @@ let view (model: Model) dispatch =
             }
             
             formItem {
-                name "login-password"
+                name "password"
                 key "login-password"
                 rules [
                     [ FormRule.Required true
