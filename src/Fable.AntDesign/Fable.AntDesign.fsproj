@@ -72,6 +72,7 @@
         <Compile Include="BackTop.fs" />
         <Compile Include="ConfigProvider.fs" />
         <Compile Include="Ant.fs" />
+        <Compile Include="Composite.fs" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="*.fsproj; **\*.fs">

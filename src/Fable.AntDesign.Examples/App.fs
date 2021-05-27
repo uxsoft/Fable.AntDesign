@@ -15,6 +15,7 @@ type Page =
     | TypographyPage = 2
     | DividerPage = 3
     | StepsPage = 14
+    | FormPage = 19
     | ListPage = 42
     | NotificationPage = 55
 
@@ -78,6 +79,10 @@ let view (model: Model) dispatch =
                     }
                     menuItemGroup {
                         title (str "Data Entry")
+                        menuItem {
+                            key (string Page.FormPage)
+                            str "Form"
+                        }
                     }
                     menuItemGroup {
                         title (str "Data Display")
@@ -107,6 +112,7 @@ let view (model: Model) dispatch =
                 | Page.StepsPage -> StepsPage.view model
                 | Page.ListPage -> ListPage.view model
                 | Page.NotificationPage -> NotificationPage.view model
+                | Page.FormPage -> FormPage.view model
             }
         }
     }

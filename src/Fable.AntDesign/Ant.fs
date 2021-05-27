@@ -11,7 +11,7 @@ let button = Button.ButtonBuilder()
 let buttonGroup = Button.ButtonGroupBuilder()
 
 let customIcon = Icon.IconBuilder(Icon.CustomIcon)
-let icon glyph = Icon.IconBuilder(glyph)
+let basicIcon glyph = Icon.IconBuilder(glyph)
 let icons = Icon.BasicIcons
 
 let text = Typography.TextBuilder()
