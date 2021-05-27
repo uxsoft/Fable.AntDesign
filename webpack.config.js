@@ -5,7 +5,6 @@
 var path = require("path");
 
 module.exports = {
-    mode: "development",
     entry: "./src/Fable.AntDesign.Examples/App.fs.js",
     output: {
         path: path.join(__dirname, "./src/Fable.AntDesign.Examples/public"),
