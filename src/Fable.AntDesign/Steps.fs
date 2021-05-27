@@ -30,7 +30,7 @@ type StepsBuilder() =
     [<CustomOperation("current")>] member _.current (x: DSLElement, v: int) = x.attr "current" v
     [<CustomOperation("direction")>] member _.direction (x: DSLElement, v: StepsOrientation) = x.attr "direction" v
     [<CustomOperation("labelPlacement")>] member _.labelPlacement (x: DSLElement, v: StepsOrientation) = x.attr "labelPlacement" v
-    [<CustomOperation("progressDot")>] member _.progressDot (x: DSLElement) = x.attr "progressDot" true
+    [<CustomOperation("progressDot")>] member _.progressDot (x: DSLElement, v: bool) = x.attr "progressDot" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("status")>] member _.status (x: DSLElement, v: StepsStatus) = x.attr "status" v
     [<CustomOperation("initial")>] member _.initial (x: DSLElement, v: int) = x.attr "initial" v
@@ -45,5 +45,5 @@ type StepBuilder() =
     [<CustomOperation("status")>] member _.status (x: DSLElement, v: StepsStatus) = x.attr "status" v
     [<CustomOperation("title")>] member _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
     [<CustomOperation("subTitle")>] member _.subTitle (x: DSLElement, v: ReactElement) = x.attr "subTitle" v
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
     

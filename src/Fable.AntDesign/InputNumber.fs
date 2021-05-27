@@ -9,9 +9,9 @@ type InputNumberBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "InputNumber" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement) = x.attr "autoFocus" true 
+    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v 
     [<CustomOperation("defaultValue")>] member _.defaultValue (x: DSLElement, v: float) = x.attr "defaultValue" v 
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true 
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v 
     [<CustomOperation("formatter")>] member _.formatter (x: DSLElement, v: float -> string) = x.attr "formatter" v 
     [<CustomOperation("max")>] member _.max (x: DSLElement, v: float) = x.attr "max" v 
     [<CustomOperation("min")>] member _.min (x: DSLElement, v: float) = x.attr "min" v 

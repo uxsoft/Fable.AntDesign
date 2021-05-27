@@ -25,10 +25,10 @@ type TabsBuilder() =
     member x.Run(s: DSLElement) = ofImport "Tabs" "antd" (createObj s.Attributes) s.Children
 
     [<CustomOperation("activeKey")>] member _.activeKey (x: DSLElement, v: string) = x.attr "activeKey" v
-    [<CustomOperation("animated")>] member _.animated (x: DSLElement) = x.attr "animated" true
+    [<CustomOperation("animated")>] member _.animated (x: DSLElement, v: bool) = x.attr "animated" v
     [<CustomOperation("renderTabBar")>] member _.renderTabBar (x: DSLElement, v: Func<obj, obj, ReactElement>) = x.attr "renderTabBar" v
     [<CustomOperation("defaultActiveKey")>] member _.defaultActiveKey (x: DSLElement, v: string) = x.attr "defaultActiveKey" v
-    [<CustomOperation("hideAdd")>] member _.hideAdd (x: DSLElement) = x.attr "hideAdd" true
+    [<CustomOperation("hideAdd")>] member _.hideAdd (x: DSLElement, v: bool) = x.attr "hideAdd" v
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("tabBarExtraContent")>] member _.tabBarExtraContent (x: DSLElement, v: ReactElement) = x.attr "tabBarExtraContent" v
     [<CustomOperation("tabBarGutter")>] member _.tabBarGutter (x: DSLElement, v: float) = x.attr "tabBarGutter" v
@@ -40,12 +40,12 @@ type TabsBuilder() =
     [<CustomOperation("onNextClick")>] member _.onNextClick (x: DSLElement, v: unit -> unit) = x.attr "onNextClick" v
     [<CustomOperation("onPrevClick")>] member _.onPrevClick (x: DSLElement, v: unit -> unit) = x.attr "onPrevClick" v
     [<CustomOperation("onTabClick")>] member _.onTabClick (x: DSLElement, v: Func<string, Event, unit>) = x.attr "onTabClick" v
-    [<CustomOperation("keyboard")>] member _.keyboard (x: DSLElement) = x.attr "keyboard" true
+    [<CustomOperation("keyboard")>] member _.keyboard (x: DSLElement, v: bool) = x.attr "keyboard" v
 
 type TabPaneBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Tabs.TabPane" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("forceRender")>] member _.forceRender (x: DSLElement) = x.attr "forceRender" true
+    [<CustomOperation("forceRender")>] member _.forceRender (x: DSLElement, v: bool) = x.attr "forceRender" v
     [<CustomOperation("tab")>] member _.tab (x: DSLElement, v: ReactElement) = x.attr "tab" v
     [<CustomOperation("closeIcon")>] member _.closeIcon (x: DSLElement, v: ReactElement) = x.attr "closeIcon" v

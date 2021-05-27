@@ -28,7 +28,7 @@ type BreadcrumbItemBuilder() =
     [<CustomOperation("dropdownProps")>] member _.dropdownProps (x: DSLElement, v: obj) = x.attr "dropdownProps" v //TODO better AntDropdown props
     [<CustomOperation("href")>] member _.href (x: DSLElement, v: string) = x.attr "href" v 
     [<CustomOperation("overlay")>] member _.overlay (x: DSLElement, v: ReactElement) = x.attr "overlay" v 
-    [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: (Func<Event, unit>)) = x.attr "onClick" v 
+    [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Func<Event, unit>) = x.attr "onClick" v 
     
 type BreadcrumbSeparatorBuilder() =
     inherit ReactBuilder()

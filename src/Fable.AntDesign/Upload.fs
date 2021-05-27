@@ -37,9 +37,9 @@ type ShowUploadListBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = { Name = "showUploadList"; Value = createObj s.Attributes }
 
-    [<CustomOperation("showPreviewIcon")>] member _.showPreviewIcon (x: DSLElement) = x.attr "showPreviewIcon" true
-    [<CustomOperation("showDownloadIcon")>] member _.showDownloadIcon (x: DSLElement) = x.attr "showDownloadIcon" true
-    [<CustomOperation("showRemoveIcon")>] member _.showRemoveIcon (x: DSLElement) = x.attr "showRemoveIcon" true
+    [<CustomOperation("showPreviewIcon")>] member _.showPreviewIcon (x: DSLElement, v: bool) = x.attr "showPreviewIcon" v
+    [<CustomOperation("showDownloadIcon")>] member _.showDownloadIcon (x: DSLElement, v: bool) = x.attr "showDownloadIcon" v
+    [<CustomOperation("showRemoveIcon")>] member _.showRemoveIcon (x: DSLElement, v: bool) = x.attr "showRemoveIcon" v
     [<CustomOperation("removeIcon")>] member _.removeIcon (x: DSLElement, v: UploadFile -> ReactElement) = x.attr "removeIcon" v
     [<CustomOperation("downloadIcon")>] member _.downloadIcon (x: DSLElement, v: UploadFile -> ReactElement) = x.attr "downloadIcon" v
 
@@ -53,23 +53,26 @@ type UploadBuilder() =
     [<CustomOperation("customRequest")>] member _.customRequest (x: DSLElement, v: obj -> unit) = x.attr "customRequest" v
     [<CustomOperation("data")>] member _.data (x: DSLElement, v: UploadFile -> obj) = x.attr "data" v
     [<CustomOperation("defaultFileList")>] member _.defaultFileList (x: DSLElement, v: obj array) = x.attr "defaultFileList" v
-    [<CustomOperation("directory")>] member _.directory (x: DSLElement) = x.attr "directory" true
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
+    [<CustomOperation("directory")>] member _.directory (x: DSLElement, v: bool) = x.attr "directory" v
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
     [<CustomOperation("fileList")>] member _.fileList (x: DSLElement, v: obj array) = x.attr "fileList" v
     [<CustomOperation("headers")>] member _.headers (x: DSLElement, v: obj) = x.attr "headers" v
+    //TODO better type
     [<CustomOperation("iconRender")>] member _.iconRender (x: DSLElement, v: Func<UploadFile, UploadListType, ReactElement>) = x.attr "iconRender" v
     [<CustomOperation("isImageUrl")>] member _.isImageUrl (x: DSLElement, v: UploadFile -> bool) = x.attr "isImageUrl" v
     [<CustomOperation("itemRender")>] member _.itemRender (x: DSLElement, v: Func<ReactElement, UploadFile, UploadFile array, ReactElement>) = x.attr "itemRender" v
     [<CustomOperation("listType")>] member _.listType (x: DSLElement, v: UploadListType) = x.attr "listType" v
     [<CustomOperation("method")>] member _.method (x: DSLElement, v: string) = x.attr "method" v
-    [<CustomOperation("multiple")>] member _.multiple (x: DSLElement) = x.attr "multiple" true
+    [<CustomOperation("multiple")>] member _.multiple (x: DSLElement, v: bool) = x.attr "multiple" v
     [<CustomOperation("name")>] member _.name (x: DSLElement, v: string) = x.attr "name" v
-    [<CustomOperation("openFileDialogOnClick")>] member _.openFileDialogOnClick (x: DSLElement) = x.attr "openFileDialogOnClick" true
+    [<CustomOperation("openFileDialogOnClick")>] member _.openFileDialogOnClick (x: DSLElement, v: bool) = x.attr "openFileDialogOnClick" v
     [<CustomOperation("previewFile")>] member _.previewFile (x: DSLElement, v: UploadFile -> Promise<string>) = x.attr "previewFile" v
     [<CustomOperation("progress")>] member _.progress (x: DSLElement, v: obj) = x.attr "progress" v
-    [<CustomOperation("showUploadList")>] member _.showUploadList (x: DSLElement) = x.attr "showUploadList" true
+    //TODO better type
+    [<CustomOperation("showUploadList")>] member _.showUploadList (x: DSLElement, v: bool) = x.attr "showUploadList" v
     [<CustomOperation("showUploadListConfig")>] member _.showUploadListConfig (x: DSLElement, v: obj) = x.attr "showUploadList" v
-    [<CustomOperation("withCredentials")>] member _.withCredentials (x: DSLElement) = x.attr "withCredentials" true
+    //TODO better type
+    [<CustomOperation("withCredentials")>] member _.withCredentials (x: DSLElement, v: bool) = x.attr "withCredentials" v
     [<CustomOperation("onChange")>] member _.onChange (x: DSLElement, v: {| file: UploadFile; fileList: UploadFile array; event: Event |} -> unit) = x.attr "onChange" v
     [<CustomOperation("onDownload")>] member _.onDownload (x: DSLElement, v: UploadFile -> unit) = x.attr "onDownload" v
     [<CustomOperation("onPreview")>] member _.onPreview (x: DSLElement, v: UploadFile -> unit) = x.attr "onPreview" v

@@ -1,4 +1,4 @@
-module Fable.AntD.Examples.Components.Example
+module Fable.AntDesign.Examples.Components.Example
 
 open Fable.AntDesign.Button
 open Fable.AntDesign.Common

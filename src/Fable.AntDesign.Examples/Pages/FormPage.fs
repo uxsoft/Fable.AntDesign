@@ -1,10 +1,12 @@
-module Fable.AntD.Examples.Pages.FormPage
+module Fable.AntDesign.Examples.Pages.FormPage
 
-open Fable.AntD.Examples.Components.Example
+open Fable.AntDesign.Examples.Components.Example
+open Fable.AntDesign.Button
+open Fable.AntDesign.Form
 open Fable.AntDesign.Ant
 open Fable.React.Props
 
-let view model =
+let view (model: Model) dispatch =
     example {
         sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/FormPage.fs"
 
@@ -20,12 +22,11 @@ let view model =
             formItem {
                 name "login-email"
                 key "login-email"
-                // TODO rules
-                //                .rules([|
-//                    AntFormRule("This isn't a valid email").ruleType(FormRuleType.Email)
-//                    AntFormRule("This field is mandatory").required() |])
-//                .[[
-                
+                rules [
+                    [ FormRule.RuleType FormRuleType.Email 
+                      FormRule.Message "This isn't a valid email" ]
+                    [ FormRule.Required true
+                      FormRule.Message "This field is mandatory" ] ]
                 input {
                     prefix (basicIcon icons.MailOutlined { style [ Color "lightgray" ] })
                     placeholder "Email"
@@ -35,55 +36,37 @@ let view model =
             formItem {
                 name "login-password"
                 key "login-password"
-                //                .rules([| AntFormRule("This field is mandatory").required() |])
+                rules [
+                    [ FormRule.Required true
+                      FormRule.Message "This field is mandatory" ] ]
                 password {
                     prefix (basicIcon icons.LockOutlined { style [ Color "lightgray" ] })
                 }
             }
+            
+            formItem {
+                key "login-submit"
+                button {
+                    style [ Width "100%" ]
+                    buttonType ButtonType.Primary
+                    loading model.IsLoggingIn
+                    htmlType ButtonHtmlType.Submit 
+                    
+                    str "Login"
+                }
+            }
+            
+            formItem {
+                key "login-links"
+                button {
+                    buttonType ButtonType.Link
+                    str "Register"
+                }
+                button {
+                    style [ Float FloatOptions.Right ]
+                    buttonType ButtonType.Link
+                    str "Forgot password?"
+                }
+            }
         }
-
-
-//            AntFormItem()
-//                .name("login-password")
-//                .key("login-password")
-//                .rules([| AntFormRule("This field is mandatory").required() |])
-//                .[[
-//                AntPassword()
-//                    .prefix(AntIcons.LockOutlined.style(grayedOut).[[]])
-//                    .onChange(fun e -> setModel (fun s -> { s with Password = base64 e.Value }))
-//                    .placeholder("Password")
-//                    .[[]]
-//            ]]
-//            AntFormItem()
-//                .key("login-submit")
-//                .[[
-//                match model.Error with
-//                | None -> ()
-//                | Some error ->
-//                    div [ Class "fn-error-message" ] [
-//                        AntText()
-//                            .typographyType(TypographyType.Danger)
-//                            .[[ renderErrorMessage error ]]
-//                    ]
-//                AntButton()
-//                    .buttonType(ButtonType.Primary)
-//                    .loading(model.IsProcessing)
-//                    .htmlType(ButtonHtmlType.Submit)
-//                    .style([ Width "100%" ]).[[ str "Login" ]]
-//            ]]
-//            AntFormItem()
-//                .key("login-links")
-//                .[[
-//                AntButton()
-//                    .buttonType(ButtonType.Link)
-//                    .onClick(fun _ -> ctx.navigate RegistrationPage)
-//                    .[[ str "Register" ]]
-//                AntButton()
-//                    .buttonType(ButtonType.Link)
-//                    .style([ Float FloatOptions.Right ])
-//                    .onClick(fun _ -> ctx.navigate ForgotPasswordPage)
-//                    .[[ str "Forgot password?" ]]
-//            ]]
-//        ]]
-//    ]]
     }

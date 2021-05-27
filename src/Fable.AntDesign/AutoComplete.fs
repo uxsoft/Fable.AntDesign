@@ -22,18 +22,18 @@ type AutoCompleteBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "AutoComplete" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("allowClear")>] member _.allowClear (x: DSLElement) = x.attr "allowClear" true
-    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement) = x.attr "autoFocus" true
-    [<CustomOperation("backfill")>] member _.backfill (x: DSLElement) = x.attr "backfill" true
-    [<CustomOperation("defaultActiveFirstOption")>] member _.defaultActiveFirstOption (x: DSLElement) = x.attr "defaultActiveFirstOption" true
-    [<CustomOperation("defaultOpen")>] member _.defaultOpen (x: DSLElement) = x.attr "defaultOpen" true
+    [<CustomOperation("allowClear")>] member _.allowClear (x: DSLElement, v: bool) = x.attr "allowClear" v
+    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v
+    [<CustomOperation("backfill")>] member _.backfill (x: DSLElement, v: bool) = x.attr "backfill" v
+    [<CustomOperation("defaultActiveFirstOption")>] member _.defaultActiveFirstOption (x: DSLElement, v: bool) = x.attr "defaultActiveFirstOption" v
+    [<CustomOperation("defaultOpen")>] member _.defaultOpen (x: DSLElement, v: bool) = x.attr "defaultOpen" v
     [<CustomOperation("defaultValue")>] member _.defaultValue (x: DSLElement, v: string array) = x.attr "defaultValue" v
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
     [<CustomOperation("dropdownClassName")>] member _.dropdownClassName (x: DSLElement, v: string) = x.attr "dropdownClassName" v
-    [<CustomOperation("dropdownMatchSelectWidth")>] member _.dropdownMatchSelectWidth (x: DSLElement) = x.attr "dropdownMatchSelectWidth" true
-    [<CustomOperation("filterOption")>] member _.filterOption (x: DSLElement) = x.attr "filterOption" true
+    [<CustomOperation("dropdownMatchSelectWidth")>] member _.dropdownMatchSelectWidth (x: DSLElement, v: bool) = x.attr "dropdownMatchSelectWidth" v
+    [<CustomOperation("filterOption")>] member _.filterOption (x: DSLElement, v: bool) = x.attr "filterOption" v
     [<CustomOperation("notFoundContent")>] member _.notFoundContent (x: DSLElement, v: string) = x.attr "notFoundContent" v
-    [<CustomOperation("isOpen")>] member _.isOpen (x: DSLElement) = x.attr "open" true
+    [<CustomOperation("isOpen")>] member _.isOpen (x: DSLElement, v: bool) = x.attr "open" v
     [<CustomOperation("options")>] member _.options (x: DSLElement, v: obj array) = x.attr "options" v
     [<CustomOperation("placeholder")>] member _.placeholder (x: DSLElement, v: string) = x.attr "placeholder" v
     [<CustomOperation("value")>] member _.value (x: DSLElement, v: string) = x.attr "value" v

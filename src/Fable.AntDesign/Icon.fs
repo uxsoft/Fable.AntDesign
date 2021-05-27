@@ -17,7 +17,7 @@ type IconBuilder(partialImport: IconGlyph) =
         partialImport.PartialImport (createObj s.Attributes) s.Children
        
     [<CustomOperation("component")>] member _.Component (x: DSLElement, v: ReactElement) = x.attr "component" v 
-    [<CustomOperation("spin")>] member _.spin (x: DSLElement) = x.attr "spin" true 
+    [<CustomOperation("spin")>] member _.spin (x: DSLElement, v: bool) = x.attr "spin" v 
     [<CustomOperation("rotate")>] member _.rotate (x: DSLElement, v: float) = x.attr "rotate" v 
     [<CustomOperation("twoToneColor")>] member _.twoToneColor (x: DSLElement, v: string) = x.attr "twoToneColor" v
     [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Event -> unit) = x.attr "onClick" v

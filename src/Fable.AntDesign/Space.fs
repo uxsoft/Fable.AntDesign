@@ -26,4 +26,4 @@ type SpaceBuilder() =
     [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
     [<CustomOperation("sizeExact")>] member _.sizeExact (x: DSLElement, v: int) = x.attr "size" v
     [<CustomOperation("split")>] member _.split (x: DSLElement, v: ReactElement) = x.attr "split" v
-    [<CustomOperation("wrap")>] member _.wrap (x: DSLElement) = x.attr "wrap" true
+    [<CustomOperation("wrap")>] member _.wrap (x: DSLElement, v: bool) = x.attr "wrap" v

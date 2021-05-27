@@ -16,7 +16,7 @@ type MentionsBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Mentions" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("autofocus")>] member _.autofocus (x: DSLElement) = x.attr "autofocus" true
+    [<CustomOperation("autofocus")>] member _.autofocus (x: DSLElement, v: bool) = x.attr "autofocus" v
     [<CustomOperation("defaultValue")>] member _.defaultValue (x: DSLElement, v: string) = x.attr "defaultValue" v
     [<CustomOperation("filterOption")>] member _.filterOption (x: DSLElement, v: Func<string, obj, bool>) = x.attr "filterOption" v
     [<CustomOperation("notFoundContent")>] member _.notFoundContent (x: DSLElement, v: ReactElement) = x.attr "notFoundContent" v

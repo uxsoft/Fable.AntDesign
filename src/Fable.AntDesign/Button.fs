@@ -44,8 +44,8 @@ type ButtonBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Button" "antd" (createObj s.Attributes) s.Children
     
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement) = x.attr "disabled" true
-    [<CustomOperation("ghost")>] member _.ghost (x: DSLElement) = x.attr "ghost" true
+    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
+    [<CustomOperation("ghost")>] member _.ghost (x: DSLElement, v: bool) = x.attr "ghost" v
     [<CustomOperation("href")>] member _.href (x: DSLElement, v: string) = x.attr "href" v
     [<CustomOperation("htmlType")>] member _.htmlType (x: DSLElement, v: ButtonHtmlType) = x.attr "htmlType" v
     [<CustomOperation("icon")>] member _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
@@ -55,8 +55,8 @@ type ButtonBuilder() =
     [<CustomOperation("target")>] member _.target (x: DSLElement, v: string) = x.attr "target" v
     [<CustomOperation("buttonType")>] member _.buttonType (x: DSLElement, v: ButtonType) = x.attr "type" v
     [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Browser.Types.Event -> unit) = x.attr "onClick" v
-    [<CustomOperation("block")>] member _.block (x: DSLElement) = x.attr "block" true
-    [<CustomOperation("danger")>] member _.danger (x: DSLElement) = x.attr "danger" true
+    [<CustomOperation("block")>] member _.block (x: DSLElement, v: bool) = x.attr "block" v
+    [<CustomOperation("danger")>] member _.danger (x: DSLElement, v: bool) = x.attr "danger" v
 
 type ButtonGroupBuilder() =
     inherit ReactBuilder()

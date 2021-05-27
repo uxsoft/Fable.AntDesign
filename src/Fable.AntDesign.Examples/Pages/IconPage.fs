@@ -1,6 +1,6 @@
-module Fable.AntD.Examples.Pages.IconPage
+module Fable.AntDesign.Examples.Pages.IconPage
 
-open Fable.AntD.Examples.Components.Example
+open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Ant
 
 let view model =
