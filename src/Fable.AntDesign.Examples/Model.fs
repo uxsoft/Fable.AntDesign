@@ -16,15 +16,21 @@ type Model =
 
 type Msg =
     | Navigate of Page
-    | BeginLogin
+    | BeginLogin of string * string
     | EndLogin
 
-let init () : Model =
+let init () =
     { Page = Page.ButtonPage
-      IsLoggingIn = false }
+      IsLoggingIn = false }, []
     
 let update (msg: Msg) (model: Model) =
     match msg with
-    | Navigate page -> { model with Page = page }
-    | BeginLogin -> { model with IsLoggingIn = true }
-    | EndLogin -> { model with IsLoggingIn = false }
+    | Navigate page -> { model with Page = page }, []
+    | BeginLogin (username, password) ->
+        { model with IsLoggingIn = true },
+        [ fun dispatch ->
+            async {
+                do! Async.Sleep 2000
+                dispatch EndLogin
+            } ]
+    | EndLogin -> { model with IsLoggingIn = false }, []
