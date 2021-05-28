@@ -3,6 +3,7 @@ module App
 open System
 open Fable.AntDesign.Ant
 open Fable.AntDesign.Examples.Pages
+open Fable.AntDesign.Button
 open Fable.AntDesign.Examples.Model
 open Fable.AntDesign.Menu
 open Fable.AntDesign.Result
@@ -25,12 +26,24 @@ let notFound =
 let view (model: Model) dispatch =
     layout {
         header {
-            style [ BackgroundColor "white" ]
-            str "Welcome to Fable.AntD, Ant Design bindings for Fable"
+            style [
+                Height 66
+                BackgroundColor "white"
+                BoxShadow "0 1px 4px rgba(0, 21, 41, 0.08)" ]
+                
+            space {
+                Fable.React.Standard.img [
+                    Style [ Float FloatOptions.Left
+                            Margin "12px 0px 0px -32px"
+                            Height "40px" ]
+                    Src "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                ]
+                    
+                str "Welcome to Fable.AntDesign, Ant Design bindings for Fable"
+            } 
         }
-
         layout {
-            sider {
+            sider { 
                 menu {
                     selectedKeys [| string model.Page |]
                     onClick (onPageSelected dispatch)
@@ -77,6 +90,8 @@ let view (model: Model) dispatch =
                             str "List"
                         }
                     }
+
+                    
                     menuItemGroup {
                         title (str "Feedback")
                         menuItem {
@@ -84,9 +99,8 @@ let view (model: Model) dispatch =
                             str "Notification"
                         }
                     }
-                }
+                } 
             }
-
             content {
                 style [ BackgroundColor "white"
                         Padding "8px" ]

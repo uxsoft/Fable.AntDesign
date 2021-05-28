@@ -11,8 +11,8 @@ type ResultBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Result" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("title")>] member _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
-    [<CustomOperation("subTitle")>] member _.subTitle (x: DSLElement, v: ReactElement) = x.attr "subTitle" v 
-    [<CustomOperation("status")>] member _.status (x: DSLElement, v: ResultStatus) = x.attr "status" v 
-    [<CustomOperation("icon")>] member _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v 
-    [<CustomOperation("extra")>] member _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v 
+    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
+    [<CustomOperation("subTitle")>] member inline _.subTitle (x: DSLElement, v: ReactElement) = x.attr "subTitle" v 
+    [<CustomOperation("status")>] member inline _.status (x: DSLElement, v: ResultStatus) = x.attr "status" v 
+    [<CustomOperation("icon")>] member inline _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v 
+    [<CustomOperation("extra")>] member inline _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v 

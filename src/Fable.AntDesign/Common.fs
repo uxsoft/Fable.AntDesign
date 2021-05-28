@@ -20,46 +20,48 @@ type DSLElement =
     { Attributes: (string * obj) list
       Children: ReactElement list }
     
-    member x.attr (name: string) (value) =
+    member inline x.attr (name: string) (value) =
         { x with Attributes = x.Attributes @ [ name, value ] }
         
-    member x.get<'t> (name: string) =
+    member inline x.get<'t> (name: string) =
         x.Attributes
         |> List.tryFind (fun (k, _) -> k = name)
         |> Option.map (fun (_, v) -> v :?> 't)
         
-    member x.getOrDefault<'t> (name: string) (fallback: 't) =
+    member inline x.getOrDefault<'t> (name: string) (fallback: 't) =
         x.get<'t> name |> Option.defaultValue fallback
 
 type DSLAttribute =
     { Name: string; Value: obj }
 
 type ReactBuilder() =
-    member _.Zero() = { Attributes = []; Children = [] }
-    member _.Delay(f) = f ()
+    member inline _.Zero() = { Attributes = []; Children = [] }
+    member inline _.Delay(f) = f ()
 
-    member x.Yield() = x.Zero()
+    member inline x.Yield() = x.Zero()
 
-    member _.Yield(attr: DSLAttribute) =
-        Browser.Dom.console.log attr
+    member inline _.Yield(attr: DSLAttribute) =
         { Attributes = [attr.Name, attr.Value]; Children = [ ] }
+
+    member inline _.Yield(child: string) =
+        { Attributes = []; Children = [ str child ] }
     
-    member _.Yield(child: ReactElement) =
+    member inline _.Yield(child: ReactElement) =
         { Attributes = []; Children = [ child ] }
         
-    member _.Yield(children: ReactElement list) =
+    member inline _.Yield(children: ReactElement list) =
         { Attributes = []; Children = children }
 
-    member x.Yield _ = x.Zero()
+    member inline x.Yield _ = x.Zero()
 
-    member _.Combine(a: DSLElement, b: DSLElement) =
+    member inline _.Combine(a: DSLElement, b: DSLElement) =
         { Attributes = a.Attributes @ b.Attributes
           Children = a.Children @ b.Children }
 
-    member x.For(s: DSLElement, f) =
+    member inline x.For(s: DSLElement, f) =
         x.Combine(s, f ())
         
-    member x.For(list: 'a seq, f: 'a -> DSLElement) =
+    member inline x.For(list: 'a seq, f: 'a -> DSLElement) =
         let elements = Seq.map f list
         { Attributes = elements |> Seq.map (fun i -> i.Attributes) |> List.concat
           Children =  elements |> Seq.map (fun i -> i.Children) |> List.concat }
@@ -68,17 +70,17 @@ type ReactBuilder() =
     
     // Common Attributes
     [<CustomOperation("attr")>]
-    member _.attr(s: DSLElement, n: string, v) = s.attr n v
+    member inline _.attr(s: DSLElement, n: string, v) = s.attr n v
 
     [<CustomOperation("style")>]
-    member _.style(s: DSLElement, css: CSSProp list) =
+    member inline _.style(s: DSLElement, css: CSSProp list) =
         s.attr "style" (keyValueList CaseRules.LowerFirst css)
 
     [<CustomOperation("id")>]
-    member _.id(s: DSLElement, v: string) = s.attr "id" v
+    member inline _.id(s: DSLElement, v: string) = s.attr "id" v
 
     [<CustomOperation("key")>]
-    member _.key(s: DSLElement, v: string) = s.attr "key" v
+    member inline _.key(s: DSLElement, v: string) = s.attr "key" v
 
     [<CustomOperation("className")>]
-    member _.className(s: DSLElement, v: string) = s.attr "className" v
+    member inline _.className(s: DSLElement, v: string) = s.attr "className" v

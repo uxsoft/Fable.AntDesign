@@ -43,17 +43,17 @@ type NotificationBuilder() =
         | NotificationKind.Warning -> notification.warning json
         | _ -> notification.``open`` json
 
-    [<CustomOperation("bottom")>] member _.bottom (x: DSLElement, v: int) = x.attr "bottom" v
-    [<CustomOperation("btn")>] member _.btn (x: DSLElement, v: ReactElement) = x.attr "btn" v
-    [<CustomOperation("duration")>] member _.duration (x: DSLElement, v: float) = x.attr "duration" v
-    [<CustomOperation("getContainer")>] member _.getContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getContainer" v
-    [<CustomOperation("icon")>] member _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
-    [<CustomOperation("closeIcon")>] member _.closeIcon (x: DSLElement, v: ReactElement) = x.attr "closeIcon" v
-    [<CustomOperation("key")>] member _.key (x: DSLElement, v: string) = x.attr "key" v 
-    [<CustomOperation("onClose")>] member _.onClose (x: DSLElement, v: unit -> unit) = x.attr "onClose" v
-    [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: unit -> unit) = x.attr "onClick" v
-    [<CustomOperation("placement")>] member _.placement (x: DSLElement, v: NotificationPlacement) = x.attr "placement" v
-    [<CustomOperation("top")>] member _.top (x: DSLElement, v: int) = x.attr "top" v
-    [<CustomOperation("kind")>] member _.kind (x: DSLElement, v: NotificationKind) = x.attr "kind" v
-    [<CustomOperation("description")>] member _.description (x: DSLElement, v: string) = x.attr "description" v
-    [<CustomOperation("message")>] member _.message (x: DSLElement, v: string) = x.attr "message" v
+    [<CustomOperation("bottom")>] member inline _.bottom (x: DSLElement, v: int) = x.attr "bottom" v
+    [<CustomOperation("btn")>] member inline _.btn (x: DSLElement, v: ReactElement) = x.attr "btn" v
+    [<CustomOperation("duration")>] member inline _.duration (x: DSLElement, v: float) = x.attr "duration" v
+    [<CustomOperation("getContainer")>] member inline _.getContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getContainer" v
+    [<CustomOperation("icon")>] member inline _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
+    [<CustomOperation("closeIcon")>] member inline _.closeIcon (x: DSLElement, v: ReactElement) = x.attr "closeIcon" v
+    [<CustomOperation("key")>] member inline _.key (x: DSLElement, v: string) = x.attr "key" v 
+    [<CustomOperation("onClose")>] member inline _.onClose (x: DSLElement, v: unit -> unit) = x.attr "onClose" v
+    [<CustomOperation("onClick")>] member inline _.onClick (x: DSLElement, v: unit -> unit) = x.attr "onClick" v
+    [<CustomOperation("placement")>] member inline _.placement (x: DSLElement, v: NotificationPlacement) = x.attr "placement" v
+    [<CustomOperation("top")>] member inline _.top (x: DSLElement, v: int) = x.attr "top" v
+    [<CustomOperation("kind")>] member inline _.kind (x: DSLElement, v: NotificationKind) = x.attr "kind" v
+    [<CustomOperation("description")>] member inline _.description (x: DSLElement, v: string) = x.attr "description" v
+    [<CustomOperation("message")>] member inline _.message (x: DSLElement, v: string) = x.attr "message" v

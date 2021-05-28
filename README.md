@@ -2,12 +2,13 @@
 
 | __Fable.AntD__ | __SwiftUI style (class based) bindings__ | <img src="https://buildstats.info/nuget/Fable.AntD" alt="badge"/> |
 | :--- | :--- | :--- |
-| __Fable.AntDesign__ | __F# computation expression based bindings__ | <img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>  |
+| __Fable.AntDesign__ [EXPERIMENTAL]  | __F# computation expression based bindings__ | <img src="https://buildstats.info/nuget/Fable.AntDesign" alt="badge"/>  |
 
 
 ### Getting Started
 
 - Include the bindings from NuGet:
+
 
 `dotnet package add Fable.AntDesign`
 

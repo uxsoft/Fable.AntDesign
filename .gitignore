@@ -13,3 +13,4 @@ node_modules/
 *.fs.js
 node_modules/
 .DS_Store
+.parcel-cache/

@@ -18,35 +18,35 @@ type CardBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Card" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("actions")>] member _.actions (x: DSLElement, v: ReactElement array) = x.attr "actions" v 
-    [<CustomOperation("activeTabKey")>] member _.activeTabKey (x: DSLElement, v: string) = x.attr "activeTabKey" v 
-    [<CustomOperation("headStyle")>] member _.headStyle (x: DSLElement, css: CSSProp list) = x.attr "headStyle" (keyValueList CaseRules.LowerFirst css)
-    [<CustomOperation("bodyStyle")>] member _.bodyStyle (x: DSLElement, css: CSSProp list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
-    [<CustomOperation("bordered")>] member _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
-    [<CustomOperation("cover")>] member _.cover (x: DSLElement, v: ReactElement) = x.attr "cover" v 
-    [<CustomOperation("defaultActiveTabKey")>] member _.defaultActiveTabKey (x: DSLElement, v: string) = x.attr "defaultActiveTabKey" v 
-    [<CustomOperation("extra")>] member _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v 
-    [<CustomOperation("hoverable")>] member _.hoverable (x: DSLElement, v: bool) = x.attr "hoverable" v 
-    [<CustomOperation("loading")>] member _.loading (x: DSLElement, v: bool) = x.attr "loading" v 
-    [<CustomOperation("tabList")>] member _.tabList (x: DSLElement, v: CardTab array) = x.attr "tabList" v 
-    [<CustomOperation("tabBarExtraContent")>] member _.tabBarExtraContent (x: DSLElement, v: ReactElement) = x.attr "tabBarExtraContent" v 
-    [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v 
-    [<CustomOperation("title")>] member _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
-    [<CustomOperation("cardType")>] member _.cardType (x: DSLElement, v: CardType) = x.attr "type" v
-    [<CustomOperation("onTabChange")>] member _.onTabChange (x: DSLElement, v: (string -> unit)) = x.attr "onTabChange" v
-    [<CustomOperation("tabProps")>] member _.tabProps (x: DSLElement, v: obj) = x.attr "tabProps" v
+    [<CustomOperation("actions")>] member inline _.actions (x: DSLElement, v: ReactElement array) = x.attr "actions" v 
+    [<CustomOperation("activeTabKey")>] member inline _.activeTabKey (x: DSLElement, v: string) = x.attr "activeTabKey" v 
+    [<CustomOperation("headStyle")>] member inline _.headStyle (x: DSLElement, css: CSSProp list) = x.attr "headStyle" (keyValueList CaseRules.LowerFirst css)
+    [<CustomOperation("bodyStyle")>] member inline _.bodyStyle (x: DSLElement, css: CSSProp list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
+    [<CustomOperation("bordered")>] member inline _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
+    [<CustomOperation("cover")>] member inline _.cover (x: DSLElement, v: ReactElement) = x.attr "cover" v 
+    [<CustomOperation("defaultActiveTabKey")>] member inline _.defaultActiveTabKey (x: DSLElement, v: string) = x.attr "defaultActiveTabKey" v 
+    [<CustomOperation("extra")>] member inline _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v 
+    [<CustomOperation("hoverable")>] member inline _.hoverable (x: DSLElement, v: bool) = x.attr "hoverable" v 
+    [<CustomOperation("loading")>] member inline _.loading (x: DSLElement, v: bool) = x.attr "loading" v 
+    [<CustomOperation("tabList")>] member inline _.tabList (x: DSLElement, v: CardTab array) = x.attr "tabList" v 
+    [<CustomOperation("tabBarExtraContent")>] member inline _.tabBarExtraContent (x: DSLElement, v: ReactElement) = x.attr "tabBarExtraContent" v 
+    [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: Size) = x.attr "size" v 
+    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
+    [<CustomOperation("cardType")>] member inline _.cardType (x: DSLElement, v: CardType) = x.attr "type" v
+    [<CustomOperation("onTabChange")>] member inline _.onTabChange (x: DSLElement, v: (string -> unit)) = x.attr "onTabChange" v
+    [<CustomOperation("tabProps")>] member inline _.tabProps (x: DSLElement, v: obj) = x.attr "tabProps" v
     //TODO Better type
 
 type CardGridBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Card.Grid" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("hoverable")>] member _.hoverable (x: DSLElement, v: bool) = x.attr "hoverable" v 
+    [<CustomOperation("hoverable")>] member inline _.hoverable (x: DSLElement, v: bool) = x.attr "hoverable" v 
 
 type CardMetaBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Card.Meta" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("avatar")>] member _.avatar (x: DSLElement, v: ReactElement) = x.attr "avatar" v 
-    [<CustomOperation("description")>] member _.description (x: DSLElement, v: ReactElement) = x.attr "description" v 
-    [<CustomOperation("title")>] member _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
+    [<CustomOperation("avatar")>] member inline _.avatar (x: DSLElement, v: ReactElement) = x.attr "avatar" v 
+    [<CustomOperation("description")>] member inline _.description (x: DSLElement, v: ReactElement) = x.attr "description" v 
+    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 

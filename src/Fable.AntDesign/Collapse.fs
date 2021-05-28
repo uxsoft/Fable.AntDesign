@@ -15,24 +15,24 @@ type CollapseBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Collapse" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("accordion")>] member _.accordion (x: DSLElement, v: bool) = x.attr "accordion" v 
-    [<CustomOperation("activeKey")>] member _.activeKey (x: DSLElement, v: string array) = x.attr "activeKey" v 
-    [<CustomOperation("bordered")>] member _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
-    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement, v: CollapseCollapsible) = x.attr "collapsible" v
-    [<CustomOperation("defaultActiveKey")>] member _.defaultActiveKey (x: DSLElement, v: string array) = x.attr "defaultActiveKey" v 
-    [<CustomOperation("destroyInactivePanel")>] member _.destroyInactivePanel (x: DSLElement, v: bool) = x.attr "destroyInactivePanel" v
-    [<CustomOperation("expandIcon")>] member _.expandIcon (x: DSLElement, v: obj -> ReactElement) = x.attr "expandIcon" v 
-    [<CustomOperation("expandIconPosition")>] member _.expandIconPosition (x: DSLElement, v: CollapseExpandIconPosition) = x.attr "expandIconPosition" v 
-    [<CustomOperation("ghost")>] member _.ghost (x: DSLElement, v: bool) = x.attr "ghost" v        
-    [<CustomOperation("onChange")>] member _.onChange (x: DSLElement, v: unit -> unit) = x.attr "onChange" v
+    [<CustomOperation("accordion")>] member inline _.accordion (x: DSLElement, v: bool) = x.attr "accordion" v 
+    [<CustomOperation("activeKey")>] member inline _.activeKey (x: DSLElement, v: string array) = x.attr "activeKey" v 
+    [<CustomOperation("bordered")>] member inline _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
+    [<CustomOperation("collapsible")>] member inline _.collapsible (x: DSLElement, v: CollapseCollapsible) = x.attr "collapsible" v
+    [<CustomOperation("defaultActiveKey")>] member inline _.defaultActiveKey (x: DSLElement, v: string array) = x.attr "defaultActiveKey" v 
+    [<CustomOperation("destroyInactivePanel")>] member inline _.destroyInactivePanel (x: DSLElement, v: bool) = x.attr "destroyInactivePanel" v
+    [<CustomOperation("expandIcon")>] member inline _.expandIcon (x: DSLElement, v: obj -> ReactElement) = x.attr "expandIcon" v 
+    [<CustomOperation("expandIconPosition")>] member inline _.expandIconPosition (x: DSLElement, v: CollapseExpandIconPosition) = x.attr "expandIconPosition" v 
+    [<CustomOperation("ghost")>] member inline _.ghost (x: DSLElement, v: bool) = x.attr "ghost" v        
+    [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: unit -> unit) = x.attr "onChange" v
     
 
 type CollapsePanelBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Collapse.Panel" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement, v: CollapseCollapsible) = x.attr "collapsible" v
-    [<CustomOperation("extra")>] member _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v
-    [<CustomOperation("forceRender")>] member _.forceRender (x: DSLElement, v: bool) = x.attr "forceRender" v 
-    [<CustomOperation("header")>] member _.header (x: DSLElement, v: ReactElement) = x.attr "header" v
-    [<CustomOperation("showArrow")>] member _.showArrow (x: DSLElement, v: bool) = x.attr "showArrow" v
+    [<CustomOperation("collapsible")>] member inline _.collapsible (x: DSLElement, v: CollapseCollapsible) = x.attr "collapsible" v
+    [<CustomOperation("extra")>] member inline _.extra (x: DSLElement, v: ReactElement) = x.attr "extra" v
+    [<CustomOperation("forceRender")>] member inline _.forceRender (x: DSLElement, v: bool) = x.attr "forceRender" v 
+    [<CustomOperation("header")>] member inline _.header (x: DSLElement, v: ReactElement) = x.attr "header" v
+    [<CustomOperation("showArrow")>] member inline _.showArrow (x: DSLElement, v: bool) = x.attr "showArrow" v

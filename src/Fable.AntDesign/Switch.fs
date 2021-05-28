@@ -10,13 +10,13 @@ type SwitchBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Switch" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("autoFocus")>] member _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v
-    [<CustomOperation("isChecked")>] member _.isChecked (x: DSLElement, v: bool) = x.attr "checked" v
-    [<CustomOperation("checkedChildren")>] member _.checkedChildren (x: DSLElement, v: ReactElement) = x.attr "checkedChildren" v
-    [<CustomOperation("defaultChecked")>] member _.defaultChecked (x: DSLElement, v: bool) = x.attr "defaultChecked" v
-    [<CustomOperation("disabled")>] member _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
-    [<CustomOperation("loading")>] member _.loading (x: DSLElement, v: bool) = x.attr "loading" v
-    [<CustomOperation("size")>] member _.size (x: DSLElement, v: Size) = x.attr "size" v
-    [<CustomOperation("unCheckedChildren")>] member _.unCheckedChildren (x: DSLElement, v: ReactElement) = x.attr "unCheckedChildren" v
-    [<CustomOperation("onChange")>] member _.onChange (x: DSLElement, v: Func<bool, Event, unit>) = x.attr "onChange" v
-    [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Func<bool, Event, unit>) = x.attr "onClick" v
+    [<CustomOperation("autoFocus")>] member inline _.autoFocus (x: DSLElement, v: bool) = x.attr "autoFocus" v
+    [<CustomOperation("isChecked")>] member inline _.isChecked (x: DSLElement, v: bool) = x.attr "checked" v
+    [<CustomOperation("checkedChildren")>] member inline _.checkedChildren (x: DSLElement, v: ReactElement) = x.attr "checkedChildren" v
+    [<CustomOperation("defaultChecked")>] member inline _.defaultChecked (x: DSLElement, v: bool) = x.attr "defaultChecked" v
+    [<CustomOperation("disabled")>] member inline _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
+    [<CustomOperation("loading")>] member inline _.loading (x: DSLElement, v: bool) = x.attr "loading" v
+    [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: Size) = x.attr "size" v
+    [<CustomOperation("unCheckedChildren")>] member inline _.unCheckedChildren (x: DSLElement, v: ReactElement) = x.attr "unCheckedChildren" v
+    [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: Func<bool, Event, unit>) = x.attr "onChange" v
+    [<CustomOperation("onClick")>] member inline _.onClick (x: DSLElement, v: Func<bool, Event, unit>) = x.attr "onClick" v

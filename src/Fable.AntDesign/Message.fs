@@ -37,9 +37,9 @@ type MessageBuilder() =
         | MessageKind.Warning -> message.warning json
         | MessageKind.Loading -> message.loading json
     
-    [<CustomOperation("content")>] member _.content (x: DSLElement, v: ReactElement) = x.attr "content" v
-    [<CustomOperation("duration")>] member _.duration (x: DSLElement, v: float) = x.attr "duration" v
-    [<CustomOperation("icon")>] member _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
-    [<CustomOperation("key")>] member _.key (x: DSLElement, v: string) = x.attr "key" v 
-    [<CustomOperation("onClose")>] member _.onClose (x: DSLElement, v: unit -> unit) = x.attr "onClose" v
-    [<CustomOperation("kind")>] member _.kind (x: DSLElement, v: MessageKind) = x.attr "kind" v
+    [<CustomOperation("content")>] member inline _.content (x: DSLElement, v: ReactElement) = x.attr "content" v
+    [<CustomOperation("duration")>] member inline _.duration (x: DSLElement, v: float) = x.attr "duration" v
+    [<CustomOperation("icon")>] member inline _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
+    [<CustomOperation("key")>] member inline _.key (x: DSLElement, v: string) = x.attr "key" v 
+    [<CustomOperation("onClose")>] member inline _.onClose (x: DSLElement, v: unit -> unit) = x.attr "onClose" v
+    [<CustomOperation("kind")>] member inline _.kind (x: DSLElement, v: MessageKind) = x.attr "kind" v

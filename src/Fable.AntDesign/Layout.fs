@@ -13,7 +13,7 @@ type LayoutBuilder() =
     member _.Run(s: DSLElement) =
         ofImport "Layout" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("hasSider")>] member _.hasSider(s: DSLElement, v: bool) = s.attr "hasSider" v
+    [<CustomOperation("hasSider")>] member inline _.hasSider(s: DSLElement, v: bool) = s.attr "hasSider" v
 
 type HeaderBuilder() =
     inherit ReactBuilder()
@@ -51,15 +51,15 @@ type SiderBuilder() =
     member _.Run(s: DSLElement) =
         ofImport "Layout.Sider" "antd" (createObj s.Attributes) s.Children
     
-    [<CustomOperation("breakpoint")>] member _.breakpoint(x: DSLElement, v: SiderBreakpoint) = x.attr "breakpoint" v
-    [<CustomOperation("collapsed")>] member _.collapsed (x: DSLElement, v: bool) = x.attr "collapsed" v
-    [<CustomOperation("collapsedWidth")>] member _.collapsedWidth (x: DSLElement, v: int) = x.attr "collapsedWidth" v
-    [<CustomOperation("collapsible")>] member _.collapsible (x: DSLElement, v: bool) = x.attr "collapsible" v
-    [<CustomOperation("defaultCollapsed")>] member _.defaultCollapsed (x: DSLElement, v: bool) = x.attr "defaultCollapsed" v
-    [<CustomOperation("reverseArrow")>] member _.reverseArrow (x: DSLElement, v: bool) = x.attr "reverseArrow" v
-    [<CustomOperation("theme")>] member _.theme (x: DSLElement, v: Theme) = x.attr "theme" v
-    [<CustomOperation("trigger")>] member _.trigger (x: DSLElement, v: ReactElement) = x.attr "trigger" v
-    [<CustomOperation("width")>] member _.width (x: DSLElement, v: string) = x.attr "width" v
-    [<CustomOperation("onCollapse")>] member _.onCollapse (x: DSLElement, v: Func<bool, CollapseType, unit>) = x.attr "onCollapse" v
-    [<CustomOperation("onBreakpoint")>] member _.onBreakpoint (x: DSLElement, v: bool -> unit) = x.attr "onBreakpoint" v
-    [<CustomOperation("zeroWidthTriggerStyle")>] member _.zeroWidthTriggerStyle(x: DSLElement, css: CSSProp list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)
+    [<CustomOperation("breakpoint")>] member inline _.breakpoint(x: DSLElement, v: SiderBreakpoint) = x.attr "breakpoint" v
+    [<CustomOperation("collapsed")>] member inline _.collapsed (x: DSLElement, v: bool) = x.attr "collapsed" v
+    [<CustomOperation("collapsedWidth")>] member inline _.collapsedWidth (x: DSLElement, v: int) = x.attr "collapsedWidth" v
+    [<CustomOperation("collapsible")>] member inline _.collapsible (x: DSLElement, v: bool) = x.attr "collapsible" v
+    [<CustomOperation("defaultCollapsed")>] member inline _.defaultCollapsed (x: DSLElement, v: bool) = x.attr "defaultCollapsed" v
+    [<CustomOperation("reverseArrow")>] member inline _.reverseArrow (x: DSLElement, v: bool) = x.attr "reverseArrow" v
+    [<CustomOperation("theme")>] member inline _.theme (x: DSLElement, v: Theme) = x.attr "theme" v
+    [<CustomOperation("trigger")>] member inline _.trigger (x: DSLElement, v: ReactElement) = x.attr "trigger" v
+    [<CustomOperation("width")>] member inline _.width (x: DSLElement, v: string) = x.attr "width" v
+    [<CustomOperation("onCollapse")>] member inline _.onCollapse (x: DSLElement, v: Func<bool, CollapseType, unit>) = x.attr "onCollapse" v
+    [<CustomOperation("onBreakpoint")>] member inline _.onBreakpoint (x: DSLElement, v: bool -> unit) = x.attr "onBreakpoint" v
+    [<CustomOperation("zeroWidthTriggerStyle")>] member inline _.zeroWidthTriggerStyle(x: DSLElement, css: CSSProp list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)

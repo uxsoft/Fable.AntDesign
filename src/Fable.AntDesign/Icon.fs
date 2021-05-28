@@ -16,11 +16,11 @@ type IconBuilder(partialImport: IconGlyph) =
     member x.Run(s: DSLElement) =
         partialImport.PartialImport (createObj s.Attributes) s.Children
        
-    [<CustomOperation("component")>] member _.Component (x: DSLElement, v: ReactElement) = x.attr "component" v 
-    [<CustomOperation("spin")>] member _.spin (x: DSLElement, v: bool) = x.attr "spin" v 
-    [<CustomOperation("rotate")>] member _.rotate (x: DSLElement, v: float) = x.attr "rotate" v 
-    [<CustomOperation("twoToneColor")>] member _.twoToneColor (x: DSLElement, v: string) = x.attr "twoToneColor" v
-    [<CustomOperation("onClick")>] member _.onClick (x: DSLElement, v: Event -> unit) = x.attr "onClick" v
+    [<CustomOperation("component")>] member inline _.Component (x: DSLElement, v: ReactElement) = x.attr "component" v 
+    [<CustomOperation("spin")>] member inline _.spin (x: DSLElement, v: bool) = x.attr "spin" v 
+    [<CustomOperation("rotate")>] member inline _.rotate (x: DSLElement, v: float) = x.attr "rotate" v 
+    [<CustomOperation("twoToneColor")>] member inline _.twoToneColor (x: DSLElement, v: string) = x.attr "twoToneColor" v
+    [<CustomOperation("onClick")>] member inline _.onClick (x: DSLElement, v: Event -> unit) = x.attr "onClick" v
 
 [<Import("createFromIconfontCN", "@ant-design/icons")>]
 let createFromIconfontCN (config: {| scriptUrl: string |}) = jsNative 

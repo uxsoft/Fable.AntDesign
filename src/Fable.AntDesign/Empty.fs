@@ -9,6 +9,6 @@ type EmptyBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Empty" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("description")>] member _.description (x: DSLElement, v: ReactElement) = x.attr "description" v 
-    [<CustomOperation("image")>] member _.image (x: DSLElement, v: ReactElement) = x.attr "image" v 
-    [<CustomOperation("imageStyle")>] member _.imageStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "imageStyle" (keyValueList CaseRules.LowerFirst css)
+    [<CustomOperation("description")>] member inline _.description (x: DSLElement, v: ReactElement) = x.attr "description" v 
+    [<CustomOperation("image")>] member inline _.image (x: DSLElement, v: ReactElement) = x.attr "image" v 
+    [<CustomOperation("imageStyle")>] member inline _.imageStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "imageStyle" (keyValueList CaseRules.LowerFirst css)

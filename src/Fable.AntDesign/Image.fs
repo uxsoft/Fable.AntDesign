@@ -25,11 +25,11 @@ type ImageBuilder() =
     inherit ReactBuilder()
     member x.Run(s: DSLElement) = ofImport "Image" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("alt")>] member _.alt (x: DSLElement, v: string) = x.attr "alt" v 
-    [<CustomOperation("fallback")>] member _.fallback (x: DSLElement, v: string) = x.attr "fallback" v 
-    [<CustomOperation("height")>] member _.height (x: DSLElement, v: int) = x.attr "height" v 
-    [<CustomOperation("placeholder")>] member _.placeholder (x: DSLElement, v: ReactElement) = x.attr "placeholder" v 
-    [<CustomOperation("preview")>] member _.preview (x: DSLElement, v: bool) = x.attr "preview" v
-    [<CustomOperation("previewConfig")>] member _.previewConfig (x: DSLElement, v: ImagePreviewSettings list) = x.attr "preview" (keyValueList CaseRules.LowerFirst v)
-    [<CustomOperation("src")>] member _.src (x: DSLElement, v: string) = x.attr "src" v 
-    [<CustomOperation("width")>] member _.width (x: DSLElement, v: int) = x.attr "width" v 
+    [<CustomOperation("alt")>] member inline _.alt (x: DSLElement, v: string) = x.attr "alt" v 
+    [<CustomOperation("fallback")>] member inline _.fallback (x: DSLElement, v: string) = x.attr "fallback" v 
+    [<CustomOperation("height")>] member inline _.height (x: DSLElement, v: int) = x.attr "height" v 
+    [<CustomOperation("placeholder")>] member inline _.placeholder (x: DSLElement, v: ReactElement) = x.attr "placeholder" v 
+    [<CustomOperation("preview")>] member inline _.preview (x: DSLElement, v: bool) = x.attr "preview" v
+    [<CustomOperation("previewConfig")>] member inline _.previewConfig (x: DSLElement, v: ImagePreviewSettings list) = x.attr "preview" (keyValueList CaseRules.LowerFirst v)
+    [<CustomOperation("src")>] member inline _.src (x: DSLElement, v: string) = x.attr "src" v 
+    [<CustomOperation("width")>] member inline _.width (x: DSLElement, v: int) = x.attr "width" v 

@@ -3,7 +3,9 @@
   "scripts": {
     "postinstall": "dotnet tool restore",
     "dev": "dotnet fable watch src/Fable.AntDesign.Examples --outDir src/Fable.AntDesign.Examples/dist --run webpack serve --node-env development",
-    "build": "dotnet fable src/Fable.AntDesign.Examples --outDir src/Fable.AntDesign.Examples/dist --run webpack build --node-env production"
+    "build": "dotnet fable src/Fable.AntDesign.Examples --outDir src/Fable.AntDesign.Examples/dist --run webpack build --node-env production",
+    "pdev": "dotnet fable watch src/Fable.AntDesign.Examples --outDir src/Fable.AntDesign.Examples/dist --run parcel serve src/Fable.AntDesign.Examples/public/index.html",
+    "pbuild": "dotnet fable watch src/Fable.AntDesign.Examples --outDir src/Fable.AntDesign.Examples/dist --run parcel build src/Fable.AntDesign.Examples/public/index.html"
   },
   "dependencies": {
     "antd": "^4.15.6",
@@ -12,5 +14,8 @@
     "webpack": "^5.14.0",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1"
   }
 }

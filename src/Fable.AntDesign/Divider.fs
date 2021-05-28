@@ -12,7 +12,7 @@ type DividerBuilder() =
     inherit ReactBuilder()
     member _.Run(s: DSLElement) = ofImport "Divider" "antd" (createObj s.Attributes) s.Children
 
-    [<CustomOperation("dashed")>] member _.dashed (x: DSLElement, v: bool) = x.attr "dashed" v 
-    [<CustomOperation("orientation")>] member _.orientation (x: DSLElement, v: DividerOrientation) = x.attr "orientation" v 
-    [<CustomOperation("plain")>] member _.plain (x: DSLElement, v: bool) = x.attr "plain" v
-    [<CustomOperation("dividerType")>] member _.dividerType (x: DSLElement, v: DividerType) = x.attr "type" v
+    [<CustomOperation("dashed")>] member inline _.dashed (x: DSLElement, v: bool) = x.attr "dashed" v 
+    [<CustomOperation("orientation")>] member inline _.orientation (x: DSLElement, v: DividerOrientation) = x.attr "orientation" v 
+    [<CustomOperation("plain")>] member inline _.plain (x: DSLElement, v: bool) = x.attr "plain" v
+    [<CustomOperation("dividerType")>] member inline _.dividerType (x: DSLElement, v: DividerType) = x.attr "type" v

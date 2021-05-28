@@ -23,6 +23,7 @@
         <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
     </ItemGroup>
     <ItemGroup>
+<!--        <PackageReference Include="Fable.AntDesign" Version="3.124.0"/>-->
         <ProjectReference Include="..\Fable.AntDesign\Fable.AntDesign.fsproj" />
     </ItemGroup>
 </Project>

@@ -8,7 +8,6 @@ open Fable.AntDesign.Ant
 open Fable.React.Props
 open Fable.Core.DynamicExtensions
 
-
 let view (model: Model) dispatch =
     example {
         sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/FormPage.fs"

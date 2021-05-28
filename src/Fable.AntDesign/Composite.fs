@@ -7,10 +7,10 @@ open Fable.React.Props
 type CommentActionBuilder() =
     inherit ReactBuilder()
     
-    [<CustomOperation("title")>] member _.title(x: DSLElement, v: string) = x.attr "title" v
-    [<CustomOperation("isChecked")>] member _.Checked(x: DSLElement, v: bool) = x.attr "isChecked" v
-    [<CustomOperation("checkedIcon")>] member _.checkedIcon(x: DSLElement, v: string) = x.attr "checkedIcon" v
-    [<CustomOperation("uncheckedIcon")>] member _.uncheckedIcon(x: DSLElement, v: string) = x.attr "uncheckedIcon" v
+    [<CustomOperation("title")>] member inline _.title(x: DSLElement, v: string) = x.attr "title" v
+    [<CustomOperation("isChecked")>] member inline _.Checked(x: DSLElement, v: bool) = x.attr "isChecked" v
+    [<CustomOperation("checkedIcon")>] member inline _.checkedIcon(x: DSLElement, v: string) = x.attr "checkedIcon" v
+    [<CustomOperation("uncheckedIcon")>] member inline _.uncheckedIcon(x: DSLElement, v: string) = x.attr "uncheckedIcon" v
     
     member _.Run(x: DSLElement, v: bool) =
         let title = x.getOrDefault "title" ""
@@ -48,8 +48,8 @@ let commentAction = CommentActionBuilder()
 type IconButton() =
     inherit ReactBuilder()
         
-    [<CustomOperation("icon")>] member _.icon(x: DSLElement, v: string) = x.attr "icon" v
-    [<CustomOperation("onClick")>] member _.onClick(x: DSLElement, v: unit -> unit) = x.attr "onClick" v
+    [<CustomOperation("icon")>] member inline _.icon(x: DSLElement, v: string) = x.attr "icon" v
+    [<CustomOperation("onClick")>] member inline _.onClick(x: DSLElement, v: unit -> unit) = x.attr "onClick" v
 
     member _.Run(x: DSLElement, v: bool) =
         span {
