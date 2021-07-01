@@ -11,6 +11,9 @@ open Fable.React.Props
 open Elmish
 open Elmish.React
 open Elmish.HMR
+open Fable.Core.JsInterop
+
+importSideEffects "../../node_modules/antd/dist/antd.min.css"
 
 let onPageSelected dispatch (e: ClickParam) = 
     let success, page = Enum.TryParse<Page>(e.key)
