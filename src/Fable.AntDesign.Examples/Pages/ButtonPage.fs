@@ -1,19 +1,20 @@
 module Fable.AntDesign.Examples.Pages.ButtonPage
 
 open Fable.AntDesign.Examples.Components.Example
-open Fable.AntDesign.Ant
-open Fable.AntDesign.Button
+open Fable.Builders.AntDesign.Ant
+open Fable.Builders.AntDesign.Button
 
 let view model =
     example {
-        sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/ButtonPage.fs"
+        sourceUrl "Pages/ButtonPage.fs"
+        sourceRange (11, 19)
         space {
             button {
-                str "Button"
+                "Button"
             }
             button {
                 buttonType ButtonType.Primary
-                str "Primary Button"
+                "Primary Button"
             }
         }
     }

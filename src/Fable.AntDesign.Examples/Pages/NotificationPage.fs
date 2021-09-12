@@ -1,8 +1,8 @@
 module Fable.AntDesign.Examples.Pages.NotificationPage
 
 open Fable.AntDesign.Examples.Components.Example
-open Fable.AntDesign.Ant
-open Fable.AntDesign.Notification
+open Fable.Builders.AntDesign.Ant
+open Fable.Builders.AntDesign.Notification
 
 let onNotificationRequested k _ =
     notification {

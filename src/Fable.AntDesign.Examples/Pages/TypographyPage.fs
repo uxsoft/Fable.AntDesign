@@ -1,11 +1,13 @@
 module Fable.AntDesign.Examples.Pages.TypographyPage
 
 open Fable.AntDesign.Examples.Components.Example
-open Fable.AntDesign.Ant
+open Fable.Builders.AntDesign.Ant
 
 let view model =
     example {
-        sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/TypographyPage.fs"
+        sourceUrl "Pages/TypographyPage.fs"
+        sourceRange (11, 19)
+        
         title {
             str "Title"
         }

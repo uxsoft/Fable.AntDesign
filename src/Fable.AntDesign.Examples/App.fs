@@ -1,13 +1,13 @@
 module App
 
 open System
-open Fable.AntDesign.Ant
 open Fable.AntDesign.Examples.Pages
-open Fable.AntDesign.Button
 open Fable.AntDesign.Examples.Model
-open Fable.AntDesign.Menu
-open Fable.AntDesign.Result
-open Fable.React.Props
+open Fable.Builders.AntDesign.Ant
+open Fable.Builders.React
+open Fable.Builders.AntDesign.Menu
+open Fable.Builders.AntDesign.Result
+open Feliz
 open Elmish
 open Elmish.React
 open Elmish.HMR
@@ -27,17 +27,18 @@ let view (model: Model) dispatch =
     layout {
         header {
             style [
-                Height 66
-                BackgroundColor "white"
-                BoxShadow "0 1px 4px rgba(0, 21, 41, 0.08)" ]
+                style.height 66
+                style.backgroundColor color.white
+                style.boxShadow(0, 1, 4, "rgba(0, 21, 41, 0.08)") ]
                 
             space {
-                Fable.React.Standard.img [
-                    Style [ Float FloatOptions.Left
-                            Margin "12px 0px 0px -32px"
-                            Height "40px" ]
-                    Src "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                ]
+                Html.img {
+                    style [
+                        style.float'.left
+                        style.margin(12, 0, 0, -32)
+                        style.height 40 ]
+                    src "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                }
                     
                 str "Welcome to Fable.AntDesign, Ant Design bindings for Fable"
             } 
@@ -48,7 +49,7 @@ let view (model: Model) dispatch =
                     selectedKeys [| string model.Page |]
                     onClick (onPageSelected dispatch)
                     menuItemGroup {
-                        title (str "General")
+                        title (Html.text "General")
                         menuItem {
                             key (string Page.ButtonPage)
                             str "Button"
@@ -102,8 +103,9 @@ let view (model: Model) dispatch =
                 } 
             }
             content {
-                style [ BackgroundColor "white"
-                        Padding "8px" ]
+                style [
+                    style.backgroundColor color.white
+                    style.padding(8) ]
                 match model.Page with
                 | Page.ButtonPage -> ButtonPage.view model
                 | Page.IconPage -> IconPage.view model

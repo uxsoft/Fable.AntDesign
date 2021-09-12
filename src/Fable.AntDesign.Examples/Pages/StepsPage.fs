@@ -1,7 +1,7 @@
 module Fable.AntDesign.Examples.Pages.StepsPage
 
 open Fable.AntDesign.Examples.Components.Example
-open Fable.AntDesign.Ant
+open Fable.Builders.AntDesign.Ant
 
 let view model =
     let items = [| 1..5 |]

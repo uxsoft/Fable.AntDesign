@@ -2,11 +2,12 @@ module Fable.AntDesign.Examples.Pages.FormPage
 
 open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Examples.Model
-open Fable.AntDesign.Button
-open Fable.AntDesign.Form
-open Fable.AntDesign.Ant
+open Fable.Builders.AntDesign.Button
+open Fable.Builders.AntDesign.Form
+open Fable.Builders.AntDesign.Ant
 open Fable.React.Props
 open Fable.Core.DynamicExtensions
+open Feliz
 
 let view (model: Model) dispatch =
     example {
@@ -18,8 +19,11 @@ let view (model: Model) dispatch =
         }
         
         form {
-            style [ MaxWidth "320px"; Margin "0 auto" ]
-            onFinish (fun values -> dispatch (BeginLogin(string values.["username"], string values.["password"])))
+            style [
+                style.maxWidth 320
+                style.margin(0, length.auto) ]
+            onFinish (fun values ->
+                dispatch (BeginLogin(string values.["username"], string values.["password"])))
 
             formItem {
                 name "email"
@@ -30,7 +34,10 @@ let view (model: Model) dispatch =
                     [ FormRule.Required true
                       FormRule.Message "This field is mandatory" ] ]
                 input {
-                    prefix (basicIcon icons.MailOutlined { style [ Color "lightgray" ] })
+                    prefix (basicIcon icons.MailOutlined {
+                        style [
+                            style.color color.lightGray ]
+                    })
                     placeholder "Email"
                 }
             }
@@ -42,14 +49,18 @@ let view (model: Model) dispatch =
                     [ FormRule.Required true
                       FormRule.Message "This field is mandatory" ] ]
                 password {
-                    prefix (basicIcon icons.LockOutlined { style [ Color "lightgray" ] })
+                    prefix (basicIcon icons.LockOutlined {
+                        style [
+                            style.color color.lightGray ]
+                    })
                 }
             }
             
             formItem {
                 key "login-submit"
                 button {
-                    style [ Width "100%" ]
+                    style [
+                        style.width(length.percent(100)) ]
                     buttonType ButtonType.Primary
                     loading model.IsLoggingIn
                     htmlType ButtonHtmlType.Submit 
@@ -65,7 +76,7 @@ let view (model: Model) dispatch =
                     str "Register"
                 }
                 button {
-                    style [ Float FloatOptions.Right ]
+                    style [ style.float'.right ]
                     buttonType ButtonType.Link
                     str "Forgot password?"
                 }
