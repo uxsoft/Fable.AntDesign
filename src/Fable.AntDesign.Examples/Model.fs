@@ -1,6 +1,7 @@
 module Fable.AntDesign.Examples.Model
 
 type Page =
+    | SyntaxPage = -1
     | ButtonPage = 0
     | IconPage = 1
     | TypographyPage = 2

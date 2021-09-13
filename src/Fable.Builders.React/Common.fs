@@ -52,6 +52,9 @@ type ReactBuilder(import: obj) =
         { Attributes = []; Children = children }
 
     member inline x.Yield _ = x.Zero()
+    
+    member inline x.YieldFrom(items: ReactElement seq) =
+        { Attributes = []; Children = items |> Seq.toList }
 
     member inline _.Combine(a: DSLElement, b: DSLElement) =
         { Attributes = a.Attributes @ b.Attributes

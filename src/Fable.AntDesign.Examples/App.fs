@@ -44,12 +44,19 @@ let view (model: Model) dispatch =
             } 
         }
         layout {
-            sider { 
+            sider {
+                style [
+                    style.backgroundColor.white ]
+                
                 menu {
                     selectedKeys [| string model.Page |]
                     onClick (onPageSelected dispatch)
                     menuItemGroup {
                         title (Html.text "General")
+                        menuItem {
+                            key (string Page.SyntaxPage)
+                            str "Syntax"
+                        }
                         menuItem {
                             key (string Page.ButtonPage)
                             str "Button"
@@ -107,6 +114,7 @@ let view (model: Model) dispatch =
                     style.backgroundColor color.white
                     style.padding(8) ]
                 match model.Page with
+                | Page.SyntaxPage -> SyntaxPage.view model
                 | Page.ButtonPage -> ButtonPage.view model
                 | Page.IconPage -> IconPage.view model
                 | Page.TypographyPage -> TypographyPage.view model

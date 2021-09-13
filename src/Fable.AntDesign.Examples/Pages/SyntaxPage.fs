@@ -1,5 +1,6 @@
 module Fable.AntDesign.Examples.Pages.SyntaxPage
 
+open System
 open Fable.AntDesign.Examples.Components.Example
 open Fable.Builders.AntDesign.Ant
 open Fable.Builders.AntDesign.Button
@@ -7,21 +8,51 @@ open Fable.Builders.React.Html
 open Feliz
 
 let view model =
-    example {
-        name "Variables"
-        sourceUrl "Pages/SyntaxPage.fs"
-        
-        let state, setState = React.useState ""
-        div {
-            style [
-                style.backgroundColor.red ]
-            
-            str state
-        }
-        div {
-            str state
+    div {
+        example {
+            name "Variables"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (17, 29)
+               
+            let var = "variable value"
             div {
-                str state
+                style [
+                    style.backgroundColor.red ]
+                
+                str var
             }
+            div {
+                str var
+                div {
+                    str var
+                }
+            }
+        }
+        example {
+            name "For"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (36, 37)
+            
+            for i in 1..5 do
+                div { str $"item {i}" }
+        }
+        example {
+            name "If"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (44, 46)
+            
+            if Random().NextDouble() > 0.5 then
+                div { str "lucky" }
+            else div { str "unlucky" }
+        }
+        example {
+            name "Yield"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (52, 52)
+            
+            yield! [
+                div { str "1" }
+                div { str "2" }
+            ]
         }
     }

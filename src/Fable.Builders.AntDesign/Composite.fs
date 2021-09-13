@@ -23,7 +23,7 @@ type CommentActionBuilder() =
                 
             ]
             key ""
-            title ""
+            title (str "")
             Html.span ""
         }
         

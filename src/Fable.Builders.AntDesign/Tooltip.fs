@@ -33,12 +33,12 @@ type TooltipBaseBuilder(import) =
     [<CustomOperation("trigger")>] member inline _.trigger (x: DSLElement, v: TooltipTrigger) = x.attr "trigger" v 
     [<CustomOperation("visible")>] member inline _.visible (x: DSLElement, ?v: bool) = x.attr "visible" (Option.defaultValue true v) 
     [<CustomOperation("onVisibleChange")>] member inline _.onVisibleChange (x: DSLElement, v: (bool -> unit)) = x.attr "onVisibleChange" v 
+    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
 
 type PopOverBuilder() =
     inherit TooltipBaseBuilder(import "Popover" "antd")
 
     [<CustomOperation("content")>] member inline _.content (x: DSLElement, v: ReactElement) = x.attr "content" v
-    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
 
 type PopConfirmBuilder() =
     inherit TooltipBaseBuilder(import "Popconfirm" "antd")
@@ -53,11 +53,8 @@ type PopConfirmBuilder() =
     [<CustomOperation("okButtonProps")>] member inline _.okButtonProps (x: DSLElement, v: DSLElement) = x.attr "okButtonProps" (createObj v.Attributes)
     [<CustomOperation("okText")>] member inline _.okText (x: DSLElement, v: string) = x.attr "okText" v
     [<CustomOperation("okType")>] member inline _.okType (x: DSLElement, v: ButtonType) = x.attr "okType" v
-    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
     [<CustomOperation("onCancel")>] member inline _.onCancel (x: DSLElement, v: unit -> unit) = x.attr "onCancel" v
     [<CustomOperation("onConfirm")>] member inline _.onConfirm (x: DSLElement, v: unit -> unit) = x.attr "onConfirm" v
 
 type TooltipBuilder() =
     inherit TooltipBaseBuilder(import "Tooltip" "antd")
-
-    [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: string) = x.attr "title" v

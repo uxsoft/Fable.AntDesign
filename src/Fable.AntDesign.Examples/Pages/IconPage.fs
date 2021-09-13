@@ -5,6 +5,9 @@ open Fable.Builders.AntDesign.Ant
 
 let view model =
     example {
-        sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/IconPage.fs"
+        name "Basic Usage"
+        sourceUrl "Pages/IconPage.fs"
+        sourceRange (12, 12)
+        
         basicIcon icons.AimOutlined { () }
     }

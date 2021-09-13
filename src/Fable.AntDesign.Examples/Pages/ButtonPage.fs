@@ -6,8 +6,10 @@ open Fable.Builders.AntDesign.Button
 
 let view model =
     example {
+        name "Button Types"
         sourceUrl "Pages/ButtonPage.fs"
-        sourceRange (11, 19)
+        sourceRange (13, 21)
+        
         space {
             button {
                 "Button"
