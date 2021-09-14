@@ -4,9 +4,9 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>uxsoft</Authors>
         <Description>Fable bindings for Ant Design React components</Description>
-        <PackageProjectUrl>https://github.com/uxsoft/Fable.AntD</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/uxsoft/Fable.AntDesign</PackageProjectUrl>
         <PackageIcon>icon.png</PackageIcon>
-        <RepositoryUrl>https://github.com/uxsoft/Fable.AntD</RepositoryUrl>
+        <RepositoryUrl>https://github.com/uxsoft/Fable.AntDesign</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Swift\Common.fs" />

@@ -4,6 +4,12 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RootNamespace>Fable.Builders.React</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>uxsoft</Authors>
+        <Description>Fable computation expression based bindings for React HTML</Description>
+        <PackageProjectUrl>https://github.com/uxsoft/Fable.AntDesign</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/uxsoft/Fable.AntDesign</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
