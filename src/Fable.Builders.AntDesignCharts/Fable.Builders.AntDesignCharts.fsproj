@@ -20,6 +20,12 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
+        <None Include=".\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\Fable.Builders.React\Fable.Builders.React.fsproj" />
     </ItemGroup>
 </Project>

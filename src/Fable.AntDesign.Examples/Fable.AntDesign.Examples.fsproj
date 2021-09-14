@@ -17,6 +17,7 @@
         <Compile Include="Pages\FormPage.fs" />
         <Compile Include="Pages\SyntaxPage.fs" />
         <Compile Include="App.fs" />
+        <None Include="icon.png" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Fable.Core" Version="3.2.9" />

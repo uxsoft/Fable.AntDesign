@@ -24,6 +24,12 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
+        <None Include=".\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
       <PackageReference Include="Feliz" Version="1.52.0" />
     </ItemGroup>
 </Project>
