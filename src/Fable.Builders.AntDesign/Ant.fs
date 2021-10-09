@@ -4,186 +4,186 @@ open Fable.Builders.AntDesign
 
 let str (text: string) = Feliz.Html.text text
 
-let button = Button.ButtonBuilder()
-let buttonGroup = Button.ButtonGroupBuilder()
+let Button = Button.ButtonBuilder()
+let ButtonGroup = Fable.Builders.AntDesign.Button.ButtonGroupBuilder()
 
-let customIcon = Icon.IconBuilder(Icon.CustomIcon)
-let basicIcon glyph = Icon.IconBuilder(glyph)
-let icons = Icon.BasicIcons
+let CustomIcon = Icon.IconBuilder(Icon.CustomIcon)
+let BasicIcon glyph = Icon.IconBuilder(glyph)
+let Icons = Icon.BasicIcons
 
-let text = Typography.TextBuilder()
-let title = Typography.TitleBuilder()
-let paragraph = Typography.ParagraphBuilder()
-let link = Typography.LinkBuilder()
-let copyableWith = Typography.CopyableConfigBuilder()
-let ellipsisWith = Typography.EllipsisConfigBuilder()
-let editableWith = Typography.EditableConfigBuilder()
+let Text = Typography.TextBuilder()
+let Title = Typography.TitleBuilder()
+let Paragraph = Typography.ParagraphBuilder()
+let Link = Typography.LinkBuilder()
+let CopyableWith = Typography.CopyableConfigBuilder()
+let EllipsisWith = Typography.EllipsisConfigBuilder()
+let EditableWith = Typography.EditableConfigBuilder()
 
-let divider = Divider.DividerBuilder()
+let Divider = Divider.DividerBuilder()
 
-let row = Grid.RowBuilder()
-let col = Grid.ColBuilder()
+let Row = Grid.RowBuilder()
+let Col = Grid.ColBuilder()
 
-let layout = Layout.LayoutBuilder()
-let header = Layout.HeaderBuilder()
-let content = Layout.ContentBuilder()
-let footer = Layout.FooterBuilder()
-let sider = Layout.SiderBuilder()
+let Layout = Layout.LayoutBuilder()
+let Header = Fable.Builders.AntDesign.Layout.HeaderBuilder()
+let Content = Fable.Builders.AntDesign.Layout.ContentBuilder()
+let Footer = Fable.Builders.AntDesign.Layout.FooterBuilder()
+let Sider = Fable.Builders.AntDesign.Layout.SiderBuilder()
 
-let space = Space.SpaceBuilder()
+let Space = Space.SpaceBuilder()
 
-let affix = Affix.AffixBuilder()
+let Affix = Affix.AffixBuilder()
 
-let breadcrumb = Breadcrumb.BreadcrumbBuilder()
-let breadcrumbItem = Breadcrumb.BreadcrumbItemBuilder()
-let breadcrumbSeparator = Breadcrumb.BreadcrumbSeparatorBuilder()
+let Breadcrumb = Breadcrumb.BreadcrumbBuilder()
+let BreadcrumbItem = Fable.Builders.AntDesign.Breadcrumb.BreadcrumbItemBuilder()
+let BreadcrumbSeparator = Fable.Builders.AntDesign.Breadcrumb.BreadcrumbSeparatorBuilder()
 
-let dropdown = Dropdown.DropdownBuilder()
-let dropdownButton = Dropdown.DropdownButtonBuilder()
+let Dropdown = Dropdown.DropdownBuilder()
+let DropdownButton = Fable.Builders.AntDesign.Dropdown.DropdownButtonBuilder()
 
-let menu = Menu.MenuBuilder()
-let menuDivider = Menu.MenuDividerBuilder()
-let menuItem = Menu.MenuItemBuilder()
-let menuItemGroup = Menu.MenuItemGroupBuilder()
-let menuSubMenu = Menu.MenuSubMenuBuilder()
+let Menu = Menu.MenuBuilder()
+let MenuDivider = Fable.Builders.AntDesign.Menu.MenuDividerBuilder()
+let MenuItem = Fable.Builders.AntDesign.Menu.MenuItemBuilder()
+let MenuItemGroup = Fable.Builders.AntDesign.Menu.MenuItemGroupBuilder()
+let MenuSubMenu = Fable.Builders.AntDesign.Menu.MenuSubMenuBuilder()
 
-let pageHeader = PageHeader.PageHeaderBuilder()
+let PageHeader = PageHeader.PageHeaderBuilder()
 
-let pagination = Pagination.PaginationBuilder()
+let Pagination = Pagination.PaginationBuilder()
 
-let steps = Steps.StepsBuilder()
-let step = Steps.StepBuilder()
+let Steps = Steps.StepsBuilder()
+let Step = Fable.Builders.AntDesign.Steps.StepBuilder()
 
-let autoComplete = AutoComplete.AutoCompleteBuilder()
-let autoCompleteOption = AutoComplete.AutoCompleteOptionBuilder()
+let AutoComplete = AutoComplete.AutoCompleteBuilder()
+let AutoCompleteOption = Fable.Builders.AntDesign.AutoComplete.AutoCompleteOptionBuilder()
 
-let cascader = Cascader.CascaderBuilder()
+let Cascader = Cascader.CascaderBuilder()
 
-let checkbox = Checkbox.CheckboxBuilder()
-let checkboxGroup = Checkbox.CheckboxGroupBuilder()
+let Checkbox = Checkbox.CheckboxBuilder()
+let CheckboxGroup = Fable.Builders.AntDesign.Checkbox.CheckboxGroupBuilder()
 
-let datePicker = DatePicker.DatePickerBuilder()
-let monthPicker = DatePicker.MonthPickerBuilder()
-let weekPicker = DatePicker.WeekPickerBuilder()
-let quarterPicker = DatePicker.QuarterPickerBuilder()
-let yearPicker = DatePicker.YearPickerBuilder()
-let dateRangePicker = DatePicker.DateRangePickerBuilder()
+let DatePicker = DatePicker.DatePickerBuilder()
+let MonthPicker = Fable.Builders.AntDesign.DatePicker.MonthPickerBuilder()
+let WeekPicker = Fable.Builders.AntDesign.DatePicker.WeekPickerBuilder()
+let QuarterPicker = Fable.Builders.AntDesign.DatePicker.QuarterPickerBuilder()
+let YearPicker = Fable.Builders.AntDesign.DatePicker.YearPickerBuilder()
+let DateRangePicker = Fable.Builders.AntDesign.DatePicker.DateRangePickerBuilder()
 
-let form<'T> = Form.FormBuilder<'T>()
-let formErrorList = Form.FormErrorListBuilder()
-let formItem = Form.FormItemBuilder()
-let formList = Form.FormListBuilder()
-let formProvider = Form.FormProviderBuilder()
+let Form<'T> = Form.FormBuilder<'T>()
+let FormErrorList = Fable.Builders.AntDesign.Form.FormErrorListBuilder()
+let FormItem = Fable.Builders.AntDesign.Form.FormItemBuilder()
+let FormList = Fable.Builders.AntDesign.Form.FormListBuilder()
+let FormProvider = Fable.Builders.AntDesign.Form.FormProviderBuilder()
 
-let input = Input.InputBuilder()
-let password = Input.PasswordBuilder()
-let search = Input.SearchBuilder()
-let textArea = Input.TextAreaBuilder()
-let inputGroup = Input.InputGroupBuilder()
+let Input = Input.InputBuilder()
+let Password = Fable.Builders.AntDesign.Input.PasswordBuilder()
+let Search = Fable.Builders.AntDesign.Input.SearchBuilder()
+let TextArea = Fable.Builders.AntDesign.Input.TextAreaBuilder()
+let InputGroup = Fable.Builders.AntDesign.Input.InputGroupBuilder()
 
-let inputNumber = InputNumber.InputNumberBuilder()
+let InputNumber = InputNumber.InputNumberBuilder()
 
-let mentions = Mentions.MentionsBuilder()
-let mention = Mentions.MentionBuilder()
+let Mentions = Mentions.MentionsBuilder()
+let Mention = Fable.Builders.AntDesign.Mentions.MentionBuilder()
 
-let radio<'T> = Radio.RadioBuilder<'T>()
-let radioButton<'T> = Radio.RadioButtonBuilder<'T>()
-let radioGroup<'T> = Radio.RadioGroupBuilder<'T>()
+let Radio<'T> = Radio.RadioBuilder<'T>()
+let RadioButton<'T> = Fable.Builders.AntDesign.Radio.RadioButtonBuilder<'T>()
+let RadioGroup<'T> = Fable.Builders.AntDesign.Radio.RadioGroupBuilder<'T>()
 
-let rate = Rate.RateBuilder()
+let Rate = Rate.RateBuilder()
 
-let select<'T> = Select.SelectBuilder()
-let selectOptGroup = Select.SelectOptGroupBuilder()
-let selectOption = Select.SelectOptionBuilder()
+let Select<'T> = Select.SelectBuilder()
+let SelectOptGroup = Fable.Builders.AntDesign.Select.SelectOptGroupBuilder()
+let SelectOption = Fable.Builders.AntDesign.Select.SelectOptionBuilder()
 
-let slider = Slider.SliderBuilder()
+let Slider = Slider.SliderBuilder()
 
-let switch = Switch.SwitchBuilder()
+let Switch = Switch.SwitchBuilder()
 
-let timePicker = TimePicker.TimePickerBuilder()
-let timeRangePicker = TimePicker.TimeRangePickerBuilder()
+let TimePicker = TimePicker.TimePickerBuilder()
+let TimeRangePicker = Fable.Builders.AntDesign.TimePicker.TimeRangePickerBuilder()
 
-let transfer = Transfer.TransferBuilder()
+let Transfer = Transfer.TransferBuilder()
 
-let treeSelect = TreeSelect.TreeSelectBuilder()
-let treeSelectNode = TreeSelect.TreeSelectNodeBuilder()
+let TreeSelect = TreeSelect.TreeSelectBuilder()
+let TreeSelectNode = Fable.Builders.AntDesign.TreeSelect.TreeSelectNodeBuilder()
 
-let upload = Upload.UploadBuilder()
+let Upload = Upload.UploadBuilder()
 
-let avatar = Avatar.AvatarBuilder()
+let Avatar = Avatar.AvatarBuilder()
 
-let badge = Badge.BadgeBuilder()
+let Badge = Badge.BadgeBuilder()
 
-let calendar = Calendar.CalendarBuilder()
+let Calendar = Calendar.CalendarBuilder()
 
-let card = Card.CardBuilder()
-let cardGrid = Card.CardGridBuilder()
-let cardMeta = Card.CardMetaBuilder()
+let Card = Card.CardBuilder()
+let CardGrid = Fable.Builders.AntDesign.Card.CardGridBuilder()
+let CardMeta = Fable.Builders.AntDesign.Card.CardMetaBuilder()
 
-let carousel = Carousel.CarouselBuilder()
+let Carousel = Carousel.CarouselBuilder()
 
-let comment = Comment.CommentBuilder()
+let Comment = Comment.CommentBuilder()
 
-let descriptions = Descriptions.DescriptionsBuilder()
-let description = Descriptions.DescriptionBuilder()
+let Descriptions = Descriptions.DescriptionsBuilder()
+let Description = Fable.Builders.AntDesign.Descriptions.DescriptionBuilder()
 
-let empty = Empty.EmptyBuilder()
+let Empty = Empty.EmptyBuilder()
 
-let list<'T> = List.ListBuilder<'T>()
-let listItem = List.ListItemBuilder()
-let listMeta = List.ListItemMetaBuilder()
+let List<'T> = List.ListBuilder<'T>()
+let ListItem = Fable.Builders.AntDesign.List.ListItemBuilder()
+let ListMeta = Fable.Builders.AntDesign.List.ListItemMetaBuilder()
 
-let statistic = Statistic.StatisticBuilder()
-let countdown = Statistic.StatisticCountdownBuilder()
+let Statistic = Statistic.StatisticBuilder()
+let Countdown = Fable.Builders.AntDesign.Statistic.StatisticCountdownBuilder()
 
-let table<'T> = Table.TableBuilder<'T>()
-let tableColumn<'T>= Table.TableColumnBuilder<'T>()
-let tableColumnGroup = Table.TableColumnGroupBuilder()
+let Table<'T> = Table.TableBuilder<'T>()
+let TableColumn<'T> = Fable.Builders.AntDesign.Table.TableColumnBuilder<'T>()
+let TableColumnGroup = Fable.Builders.AntDesign.Table.TableColumnGroupBuilder()
 
-let tabs = Tabs.TabsBuilder()
-let tabPane = Tabs.TabPaneBuilder()
+let Tabs = Tabs.TabsBuilder()
+let TabPane = Fable.Builders.AntDesign.Tabs.TabPaneBuilder()
 
-let tag = Tag.TagBuilder()
-let checkableTag = Tag.CheckableTagBuilder()
+let Tag = Tag.TagBuilder()
+let CheckableTag = Fable.Builders.AntDesign.Tag.CheckableTagBuilder()
 
-let timeline = Timeline.TimelineBuilder()
-let timelineItem = Timeline.TimelineItemBuilder()
+let Timeline = Timeline.TimelineBuilder()
+let TimelineItem = Fable.Builders.AntDesign.Timeline.TimelineItemBuilder()
 
-let tree<'T> = Tree.TreeBuilder<'T>()
-let directoryTree<'T> = Tree.DirectoryTreeBuilder<'T>()
-let treeNode = Tree.TreeNodeBuilder()
+let Tree<'T> = Tree.TreeBuilder<'T>()
+let DirectoryTree<'T> = Fable.Builders.AntDesign.Tree.DirectoryTreeBuilder<'T>()
+let TreeNode = Fable.Builders.AntDesign.Tree.TreeNodeBuilder()
 
-let alert = Alert.AlertBuilder()
-let alertErrorBoundary = Alert.AlertErrorBoundaryBuilder()
+let Alert = Alert.AlertBuilder()
+let AlertErrorBoundary = Fable.Builders.AntDesign.Alert.AlertErrorBoundaryBuilder()
 
-let drawer = Drawer.DrawerBuilder()
+let Drawer = Drawer.DrawerBuilder()
 
-let message = Message.MessageBuilder()
+let Message = Message.MessageBuilder()
 
-let modal = Modal.ModalBuilder()
+let Modal = Modal.ModalBuilder()
 
-let notification = Notification.NotificationBuilder()
+let Notification = Notification.NotificationBuilder()
 
-let tooltip = Tooltip.TooltipBuilder()
-let popOver = Tooltip.PopOverBuilder()
-let popConfirm = Tooltip.PopConfirmBuilder()
+let Tooltip = Tooltip.TooltipBuilder()
+let PopOver = Fable.Builders.AntDesign.Tooltip.PopOverBuilder()
+let PopConfirm = Fable.Builders.AntDesign.Tooltip.PopConfirmBuilder()
 
-let progress = Progress.ProgressBuilder()
+let Progress = Progress.ProgressBuilder()
 
-let result = Result.ResultBuilder()
+let Result = Result.ResultBuilder()
 
-let skeleton = Skeleton.SkeletonBuilder()
-let skeletonAvatar = Skeleton.SkeletonAvatarBuilder()
-let skeletonButton = Skeleton.SkeletonButtonBuilder()
-let skeletonInput = Skeleton.SkeletonInputBuilder()
-let skeletonParagraph = Skeleton.SkeletonParagraphBuilder()
-let skeletonTitle = Skeleton.SkeletonTitleBuilder()
+let Skeleton = Skeleton.SkeletonBuilder()
+let SkeletonAvatar = Fable.Builders.AntDesign.Skeleton.SkeletonAvatarBuilder()
+let SkeletonButton = Fable.Builders.AntDesign.Skeleton.SkeletonButtonBuilder()
+let SkeletonInput = Fable.Builders.AntDesign.Skeleton.SkeletonInputBuilder()
+let SkeletonParagraph = Fable.Builders.AntDesign.Skeleton.SkeletonParagraphBuilder()
+let SkeletonTitle = Fable.Builders.AntDesign.Skeleton.SkeletonTitleBuilder()
 
-let spin = Spin.SpinBuilder()
+let Spin = Spin.SpinBuilder()
 
-let anchor = Anchor.AnchorBuilder()
-let anchorLink = Anchor.AnchorLinkBuilder()
+let Anchor = Anchor.AnchorBuilder()
+let AnchorLink = Fable.Builders.AntDesign.Anchor.AnchorLinkBuilder()
 
-let backTop = BackTop.BackTopBuilder()
+let BackTop = BackTop.BackTopBuilder()
 
-let configProvider = ConfigProvider.ConfigProviderBuilder()
+let ConfigProvider = ConfigProvider.ConfigProviderBuilder()

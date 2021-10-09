@@ -17,21 +17,21 @@ let onPageSelected dispatch (e: ClickParam) =
     if success then dispatch (Navigate page)
 
 let notFound =
-    result {
+    Result {
         status ResultStatus.NotFound
         title (str "Page not found")
         subTitle (str "Try a different one!")
     }
 
 let view (model: Model) dispatch =
-    layout {
-        header {
+    Layout {
+        Header {
             style [
                 style.height 66
                 style.backgroundColor color.white
                 style.boxShadow(0, 1, 4, "rgba(0, 21, 41, 0.08)") ]
                 
-            space {
+            Space {
                 Html.img {
                     style [
                         style.float'.left
@@ -43,73 +43,73 @@ let view (model: Model) dispatch =
                 str "Welcome to Fable.AntDesign, Ant Design bindings for Fable"
             } 
         }
-        layout {
-            sider {
+        Layout {
+            Sider {
                 style [
                     style.backgroundColor.white ]
                 
-                menu {
+                Menu {
                     selectedKeys [| string model.Page |]
                     onClick (onPageSelected dispatch)
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (Html.text "General")
-                        menuItem {
+                        MenuItem {
                             key (string Page.SyntaxPage)
                             str "Syntax"
                         }
-                        menuItem {
+                        MenuItem {
                             key (string Page.ButtonPage)
                             str "Button"
                         }
-                        menuItem {
+                        MenuItem {
                             key (string Page.IconPage)
                             str "Icon"
                         }
-                        menuItem {
+                        MenuItem {
                             key (string Page.TypographyPage)
                             str "Typography"
                         }
                     }
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (str "Layout")
-                        menuItem {
+                        MenuItem {
                             key (string Page.DividerPage)
                             str "Divider"
                         }
                     }
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (str "Navigation")
-                        menuItem {
+                        MenuItem {
                             key (string Page.StepsPage)
                             str "Steps"
                         }
                     }
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (str "Data Entry")
-                        menuItem {
+                        MenuItem {
                             key (string Page.FormPage)
                             str "Form"
                         }
                     }
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (str "Data Display")
-                        menuItem {
+                        MenuItem {
                             key (string Page.ListPage)
                             str "List"
                         }
                     }
 
                     
-                    menuItemGroup {
+                    MenuItemGroup {
                         title (str "Feedback")
-                        menuItem {
+                        MenuItem {
                             key (string Page.NotificationPage)
                             str "Notification"
                         }
                     }
                 } 
             }
-            content {
+            Content {
                 style [
                     style.backgroundColor color.white
                     style.padding(8) ]

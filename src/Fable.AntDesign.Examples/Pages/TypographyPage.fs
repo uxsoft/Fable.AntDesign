@@ -8,13 +8,13 @@ let view model =
         sourceUrl "Pages/TypographyPage.fs"
         sourceRange (11, 19)
         
-        title {
+        Title {
             str "Title"
         }
-        text {
+        Text {
             str "Text"
         }
-        paragraph {
+        Paragraph {
             str "Paragraph"
         }
     }

@@ -18,7 +18,7 @@ type CommentActionBuilder() =
         let checkedIcon = x.getOrDefault "checkedIcon" (Html.none)
         let uncheckedIcon = x.getOrDefault "uncheckedIcon" (Html.none)
         
-        tooltip {
+        Tooltip {
             style [
                 
             ]

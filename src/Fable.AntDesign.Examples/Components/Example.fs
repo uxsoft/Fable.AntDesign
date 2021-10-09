@@ -25,7 +25,7 @@ let private imageButtonStyle =
 
 [<ReactComponent>]
 let imageButton url tip inPressed =
-    tooltip {
+    Tooltip {
         title (str tip)
         
         Html.span {
@@ -41,7 +41,7 @@ let imageButton url tip inPressed =
 let imageToggleButton urlOn urlOff tip onChanged =
     let isPressed, setIsPressed = React.useState false
     
-    tooltip {
+    Tooltip {
         title (str tip)
         
         Html.span {

@@ -5,7 +5,7 @@ open Fable.Builders.AntDesign.Ant
 open Fable.Builders.AntDesign.Notification
 
 let onNotificationRequested k _ =
-    notification {
+    Notification {
         message "Success!"
         description "What just happened?"
         kind k
@@ -14,7 +14,7 @@ let onNotificationRequested k _ =
 let view model =
     example {
         sourceUrl "https://github.com/uxsoft/Fable.AntD/blob/master/src/Fable.AntDesign.Examples/Pages/NotificationPage.fs"
-        button {
+        Button {
             onClick (onNotificationRequested NotificationKind.Success)
             str "Show Success"
         }

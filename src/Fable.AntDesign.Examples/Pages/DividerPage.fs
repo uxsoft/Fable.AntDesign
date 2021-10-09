@@ -7,6 +7,6 @@ let view model =
     example {
         sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/DividerPage.fs"
         str "Before Divider"
-        divider { () }
+        Divider { () }
         str "After Divider"
     }

@@ -9,5 +9,5 @@ let view model =
         sourceUrl "Pages/IconPage.fs"
         sourceRange (12, 12)
         
-        basicIcon icons.AimOutlined { () }
+        BasicIcon Icons.AimOutlined { () }
     }

@@ -10,11 +10,11 @@ let view model =
         sourceUrl "Pages/ButtonPage.fs"
         sourceRange (13, 21)
         
-        space {
-            button {
+        Space {
+            Button {
                 "Button"
             }
-            button {
+            Button {
                 buttonType ButtonType.Primary
                 "Primary Button"
             }
