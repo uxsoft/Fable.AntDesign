@@ -38,17 +38,17 @@ Live: [https://fable-antdesign.uxsoft.cz/](https://fable-antdesign.uxsoft.cz/)
 open Fable.AntDesign.Ant
 
 let view model dispatch =
-    content {
-        pageHeader {
+    Content {
+        PageHeader {
             title (str "Login")
             subTitle (str "Please log-in to enter.")
         }
         
-        form {
+        Form {
             style [ MaxWidth "320px"; Margin "0 auto" ]
             onFinish (fun values -> dispatch (BeginLogin(string values.["username"], string values.["password"])))
 
-            formItem {
+            FormItem {
                 name "email"
                 key "login-email"
                 rules [
@@ -56,26 +56,26 @@ let view model dispatch =
                       FormRule.Message "This isn't a valid email" ]
                     [ FormRule.Required true
                       FormRule.Message "This field is mandatory" ] ]
-                input {
+                Input {
                     prefix (basicIcon icons.MailOutlined { style [ Color "lightgray" ] })
                     placeholder "Email"
                 }
             }
             
-            formItem {
+            FormItem {
                 name "password"
                 key "login-password"
                 rules [
                     [ FormRule.Required true
                       FormRule.Message "This field is mandatory" ] ]
-                password {
+                Password {
                     prefix (basicIcon icons.LockOutlined { style [ Color "lightgray" ] })
                 }
             }
             
-            formItem {
+            FormItem {
                 key "login-submit"
-                button {
+                Button {
                     style [ Width "100%" ]
                     buttonType ButtonType.Primary
                     loading model.IsLoggingIn
@@ -85,13 +85,13 @@ let view model dispatch =
                 }
             }
             
-            formItem {
+            FormItem {
                 key "login-links"
                 button {
                     buttonType ButtonType.Link
                     str "Register"
                 }
-                button {
+                Button {
                     style [ Float FloatOptions.Right ]
                     buttonType ButtonType.Link
                     str "Forgot password?"
