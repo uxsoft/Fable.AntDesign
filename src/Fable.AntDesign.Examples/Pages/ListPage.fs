@@ -8,7 +8,7 @@ open Fable.Builders.React
 
 let view model =
     Html.div {
-        example {
+        Example {
             sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/ListPage.fs"
             
             List {
@@ -18,7 +18,7 @@ let view model =
                 })
             } 
         }
-        example {
+        Example {
             sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/ListPage.fs"
             
             List {

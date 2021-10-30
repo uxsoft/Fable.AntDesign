@@ -35,7 +35,7 @@ style.scss:
 Live: [https://fable-antdesign.uxsoft.cz/](https://fable-antdesign.uxsoft.cz/)
 
 ```fsharp
-open Fable.AntDesign.Ant
+open Fable.Builders.AntDesign
 
 let view model dispatch =
     Content {
@@ -87,7 +87,7 @@ let view model dispatch =
             
             FormItem {
                 key "login-links"
-                button {
+                Button {
                     buttonType ButtonType.Link
                     str "Register"
                 }

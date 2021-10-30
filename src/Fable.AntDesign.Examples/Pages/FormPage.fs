@@ -2,14 +2,12 @@ module Fable.AntDesign.Examples.Pages.FormPage
 
 open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Examples.Model
-open Fable.Builders.AntDesign.Button
-open Fable.Builders.AntDesign.Form
-open Fable.Builders.AntDesign.Ant
+open Fable.Builders.AntDesign
 open Fable.Core.DynamicExtensions
 open Feliz
 
 let view (model: Model) dispatch =
-    example {
+    Example {
         sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/FormPage.fs"
 
         PageHeader {

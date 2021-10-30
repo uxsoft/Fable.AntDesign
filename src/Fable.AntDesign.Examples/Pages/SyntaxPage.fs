@@ -9,7 +9,7 @@ open Feliz
 
 let view model =
     div {
-        example {
+        Example {
             name "Variables"
             sourceUrl "Pages/SyntaxPage.fs"
             sourceRange (17, 29)
@@ -28,7 +28,7 @@ let view model =
                 }
             }
         }
-        example {
+        Example {
             name "For"
             sourceUrl "Pages/SyntaxPage.fs"
             sourceRange (36, 37)
@@ -36,7 +36,7 @@ let view model =
             for i in 1..5 do
                 div { str $"item {i}" }
         }
-        example {
+        Example {
             name "If"
             sourceUrl "Pages/SyntaxPage.fs"
             sourceRange (44, 46)
@@ -45,7 +45,7 @@ let view model =
                 div { str "lucky" }
             else div { str "unlucky" }
         }
-        example {
+        Example {
             name "Yield"
             sourceUrl "Pages/SyntaxPage.fs"
             sourceRange (52, 52)

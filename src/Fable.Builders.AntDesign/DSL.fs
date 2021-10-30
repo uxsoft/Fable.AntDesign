@@ -1,3 +1,4 @@
+[<Microsoft.FSharp.Core.AutoOpen>]
 module Fable.Builders.AntDesign.Ant
 
 open Fable.Builders.AntDesign

@@ -152,4 +152,4 @@ type ExampleBuilder() =
             (x.getOrDefault<string> "name" "")
             x.Children
         
-let example = ExampleBuilder()
+let Example = ExampleBuilder()

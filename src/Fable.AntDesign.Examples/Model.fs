@@ -6,10 +6,12 @@ type Page =
     | IconPage = 1
     | TypographyPage = 2
     | DividerPage = 3
+    | GridPage = 4
     | StepsPage = 14
     | FormPage = 19
     | ListPage = 42
     | NotificationPage = 55
+    | ProgressPage = 57
 
 type Model =
     { Page: Page

@@ -12,7 +12,7 @@ let onNotificationRequested k _ =
     }
 
 let view model =
-    example {
+    Example {
         sourceUrl "https://github.com/uxsoft/Fable.AntD/blob/master/src/Fable.AntDesign.Examples/Pages/NotificationPage.fs"
         Button {
             onClick (onNotificationRequested NotificationKind.Success)

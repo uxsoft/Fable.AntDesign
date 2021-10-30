@@ -4,7 +4,7 @@ open Fable.AntDesign.Examples.Components.Example
 open Fable.Builders.AntDesign.Ant
 
 let view model =
-    example {
+    Example {
         name "Basic Usage"
         sourceUrl "Pages/IconPage.fs"
         sourceRange (12, 12)

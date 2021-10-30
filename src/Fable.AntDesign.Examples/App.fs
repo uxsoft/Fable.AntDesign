@@ -76,6 +76,10 @@ let view (model: Model) dispatch =
                             key (string Page.DividerPage)
                             str "Divider"
                         }
+                        MenuItem {
+                            key (string Page.GridPage)
+                            str "Grid"
+                        }
                     }
                     MenuItemGroup {
                         title (str "Navigation")
@@ -106,6 +110,10 @@ let view (model: Model) dispatch =
                             key (string Page.NotificationPage)
                             str "Notification"
                         }
+                        MenuItem {
+                            key (string Page.ProgressPage)
+                            str "Progress"
+                        }
                     }
                 } 
             }
@@ -119,9 +127,11 @@ let view (model: Model) dispatch =
                 | Page.IconPage -> IconPage.view model
                 | Page.TypographyPage -> TypographyPage.view model
                 | Page.DividerPage -> DividerPage.view model
+                | Page.GridPage -> GridPage.view model
                 | Page.StepsPage -> StepsPage.view model
                 | Page.ListPage -> ListPage.view model
                 | Page.NotificationPage -> NotificationPage.view model
+                | Page.ProgressPage -> ProgressPage.view model
                 | Page.FormPage -> FormPage.view model dispatch
                 | _ -> notFound
             }
