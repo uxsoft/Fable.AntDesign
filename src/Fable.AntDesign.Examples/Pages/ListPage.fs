@@ -7,13 +7,13 @@ open Fable.Builders.AntDesign.Pagination
 open Fable.Builders.React
 
 let view model =
-    Html.div {
+    div {
         Example {
             sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/ListPage.fs"
             
             List {
                 dataSource [| 1..5 |]
-                renderItem (fun item -> Html.div {
+                renderItem (fun item -> div {
                     str (string item)
                 })
             } 

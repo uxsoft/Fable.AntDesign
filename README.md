@@ -19,7 +19,8 @@ package.json:
 {
   "dependencies": {
     "antd": "^4.0.0",
-    "@ant-design/icons": "^4.0.0"
+    "@ant-design/icons": "^4.0.0",
+    "@ant-design/charts": "^1.2.14"
   }
 }
 ```

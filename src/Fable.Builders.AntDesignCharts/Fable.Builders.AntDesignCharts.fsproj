@@ -11,7 +11,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Core.fs" />
         <Compile Include="Charts.fs" />
+        <Compile Include="DSL.fs" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="*.fsproj; **\*.fs">

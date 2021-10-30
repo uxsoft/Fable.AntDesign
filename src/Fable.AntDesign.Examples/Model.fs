@@ -12,6 +12,7 @@ type Page =
     | ListPage = 42
     | NotificationPage = 55
     | ProgressPage = 57
+    | ChartsPage = 10000
 
 type Model =
     { Page: Page

@@ -1,7 +1,6 @@
 module Fable.AntDesign.Examples.Components.Example
 
 open Fable.Builders.AntDesign
-open Fable.Builders.AntDesign.Ant
 open Fable.Builders.Common
 open Fable.Builders.React
 open Fetch
@@ -24,13 +23,13 @@ let private imageButtonStyle =
       style.cursor.pointer ]
 
 [<ReactComponent>]
-let imageButton url tip inPressed =
+let ImageButton url tip inPressed =
     Tooltip {
         title (str tip)
         
-        Html.span {
+        span {
             onClick (ignore >> inPressed)
-            Html.img {
+            img {
                 style imageButtonStyle
                 src url
             }
@@ -38,24 +37,24 @@ let imageButton url tip inPressed =
     }
     
 [<ReactComponent>]
-let imageToggleButton urlOn urlOff tip onChanged =
+let ImageToggleButton urlOn urlOff tip onChanged =
     let isPressed, setIsPressed = React.useState false
     
     Tooltip {
         title (str tip)
         
-        Html.span {
+        span {
             onClick (fun _ ->
                 setIsPressed (not isPressed)
                 onChanged (not isPressed))
             
             if isPressed then
-                Html.img {
+                img {
                     style imageButtonStyle
                     src urlOn
                 }
             else 
-                Html.img {
+                img {
                     style imageButtonStyle
                     src urlOff
                 }
@@ -63,11 +62,11 @@ let imageToggleButton urlOn urlOff tip onChanged =
     }
     
 let goToSourceButton =
-    imageButton
+    ImageButton
         "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/github-icon.svg"
         
 let showSourceCodeButton =
-    imageToggleButton
+    ImageToggleButton
         "https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg"
         "https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg"
 
@@ -87,24 +86,24 @@ let ExampleComponent (url: string) (startIndex: int) (endIndex: int) (exampleNam
         |> Promise.start 
     ), [||])
     
-    Html.div {        
+    div {        
         style [
             style.border(1, borderStyle.solid, "#f0f0f0")
             style.borderRadius(2)
             style.margin(0, 0, 16) ]
         
         // Example itself
-        Html.section {
+        section {
             style [ style.padding(42, 24, 50) ]
             children
         }
         // Description
-        Html.section {
+        section {
             style [ style.padding 6 ] 
             exampleName
         }
         // Buttons
-        Html.section {
+        section {
             style [
                 style.display.flex
                 style.justifyContent.center
@@ -119,12 +118,12 @@ let ExampleComponent (url: string) (startIndex: int) (endIndex: int) (exampleNam
         }
         
         // Source code
-        Html.div {
+        div {
             style [
                 style.padding 4 ]
            
             if isCodeVisible then
-                Html.pre {
+                pre {
                     str sourceCode
                 }
         }

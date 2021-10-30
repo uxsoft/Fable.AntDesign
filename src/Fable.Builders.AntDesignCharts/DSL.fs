@@ -1,0 +1,38 @@
+﻿namespace Fable.Builders.AntDesignCharts
+
+open Fable.Builders.AntDesignCharts.Charts
+
+[<AutoOpen>]
+module DSL =
+    let Area = AreaBuilder()
+    let Bar = BarBuilder()
+    let Box = BoxBuilder()
+    let Bullet = BulletBuilder()
+    let Column = ColumnBuilder()
+    let Funnel = FunnelBuilder()
+    let Histogram = HistogramBuilder()
+    let Line = LineBuilder()
+    let Liquid = LiquidBuilder()
+    let Heatmap = HeatmapBuilder()
+    let Pie = PieBuilder()
+    let Progress = ProgressBuilder()
+    let Radar = RadarBuilder()
+    let RingProgress = RingProgressBuilder()
+    let Rose = RoseBuilder()
+    let Scatter = ScatterBuilder()
+    let TinyArea = TinyAreaBuilder()
+    let TinyColumn = TinyColumnBuilder()
+    let TinyLine = TinyLineBuilder()
+    let Waterfall = WaterfallBuilder()
+    let WordCloud = WordCloudBuilder()
+    let Sunburst = SunburstBuilder()
+    let DualAxes = DualAxesBuilder()
+    let Stock = StockBuilder()
+    let RadialBar = RadialBarBuilder()
+    let Gauge = GaugeBuilder()
+    let Sankey = SankeyBuilder()
+    let BidirectionalBar = BidirectionalBarBuilder()
+    let OrganizationTreeGraph = OrganizationTreeGraphBuilder()
+    let DagreGraph = DagreGraphBuilder()
+    let IndentedTree = IndentedTreeBuilder()
+    let DagreFundFlowGraph = DagreFundFlowGraphBuilder()

@@ -1,6 +1,7 @@
 namespace Fable.Builders.AntDesign
 
 open Browser.Types
+open Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Builders.AntDesign.Button
 open Fable.Builders.AntDesign.Slider
@@ -46,14 +47,11 @@ module Tooltip =
     type PopConfirmBuilder() =
         inherit TooltipBaseBuilder(import "Popconfirm" "antd")
     
-        //TODO better type
-        [<CustomOperation("cancelButtonProps")>] member inline _.cancelButtonProps (x: DSLElement, v: 'v) = x.attr "cancelButtonProps" (createObj v.Attributes)
+        [<CustomOperation("cancelButtonProps")>] member inline _.cancelButtonProps (x: DSLElement, v: ButtonProp list) = x.attr "cancelButtonProps" (keyValueList CaseRules.LowerFirst v)
         [<CustomOperation("cancelText")>] member inline _.cancelText (x: DSLElement, v: string) = x.attr "cancelText" v
         [<CustomOperation("disabled")>] member inline _.disabled (x: DSLElement, v: bool) = x.attr "disabled" v
         [<CustomOperation("icon")>] member inline _.icon (x: DSLElement, v: ReactElement) = x.attr "icon" v
-        
-        //TODO better type
-        [<CustomOperation("okButtonProps")>] member inline _.okButtonProps (x: DSLElement, v: 'v) = x.attr "okButtonProps" (createObj v.Attributes)
+        [<CustomOperation("okButtonProps")>] member inline _.okButtonProps (x: DSLElement, v: ButtonProp list) = x.attr "okButtonProps" (keyValueList CaseRules.LowerFirst v)
         [<CustomOperation("okText")>] member inline _.okText (x: DSLElement, v: string) = x.attr "okText" v
         [<CustomOperation("okType")>] member inline _.okType (x: DSLElement, v: ButtonType) = x.attr "okType" v
         [<CustomOperation("onCancel")>] member inline _.onCancel (x: DSLElement, v: unit -> unit) = x.attr "onCancel" v

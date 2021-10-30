@@ -3,10 +3,8 @@ module App
 open System
 open Fable.AntDesign.Examples.Pages
 open Fable.AntDesign.Examples.Model
-open Fable.Builders.AntDesign.Ant
+open Fable.Builders.AntDesign
 open Fable.Builders.React
-open Fable.Builders.AntDesign.Menu
-open Fable.Builders.AntDesign.Result
 open Feliz
 open Elmish
 open Elmish.React
@@ -22,6 +20,13 @@ let notFound =
         title (str "Page not found")
         subTitle (str "Try a different one!")
     }
+    
+let PageMenuItem (page: Page) (name: string) =
+    MenuItem {
+        key (string page)
+        str name
+    }
+
 
 let view (model: Model) dispatch =
     Layout {
@@ -32,7 +37,7 @@ let view (model: Model) dispatch =
                 style.boxShadow(0, 1, 4, "rgba(0, 21, 41, 0.08)") ]
                 
             Space {
-                Html.img {
+                img {
                     style [
                         style.float'.left
                         style.margin(12, 0, 0, -32)
@@ -53,14 +58,9 @@ let view (model: Model) dispatch =
                     onClick (onPageSelected dispatch)
                     MenuItemGroup {
                         title (Html.text "General")
-                        MenuItem {
-                            key (string Page.SyntaxPage)
-                            str "Syntax"
-                        }
-                        MenuItem {
-                            key (string Page.ButtonPage)
-                            str "Button"
-                        }
+                        PageMenuItem Page.SyntaxPage "Syntax"
+                        PageMenuItem Page.ButtonPage "Button"
+                        
                         MenuItem {
                             key (string Page.IconPage)
                             str "Icon"
@@ -102,7 +102,6 @@ let view (model: Model) dispatch =
                             str "List"
                         }
                     }
-
                     
                     MenuItemGroup {
                         title (str "Feedback")
@@ -114,6 +113,12 @@ let view (model: Model) dispatch =
                             key (string Page.ProgressPage)
                             str "Progress"
                         }
+                    }
+                    
+                    MenuItemGroup {
+                        title (str "Charts")
+                    
+                        PageMenuItem Page.ChartsPage "Charts"
                     }
                 } 
             }
@@ -129,10 +134,11 @@ let view (model: Model) dispatch =
                 | Page.DividerPage -> DividerPage.view model
                 | Page.GridPage -> GridPage.view model
                 | Page.StepsPage -> StepsPage.view model
+                | Page.FormPage -> FormPage.view model dispatch
                 | Page.ListPage -> ListPage.view model
                 | Page.NotificationPage -> NotificationPage.view model
                 | Page.ProgressPage -> ProgressPage.view model
-                | Page.FormPage -> FormPage.view model dispatch
+                | Page.ChartsPage -> ChartsPage.view model
                 | _ -> notFound
             }
         }

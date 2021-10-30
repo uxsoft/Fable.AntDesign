@@ -1,7 +1,7 @@
 module Fable.AntDesign.Examples.Pages.GridPage
 
 open Fable.Builders.AntDesign
-open Fable.Builders.React.Html
+open Fable.Builders.React
 open Fable.AntDesign.Examples.Components.Example
 open Feliz
 

@@ -3,8 +3,7 @@ module Fable.AntDesign.Examples.Pages.SyntaxPage
 open System
 open Fable.AntDesign.Examples.Components.Example
 open Fable.Builders.AntDesign.Ant
-open Fable.Builders.AntDesign.Button
-open Fable.Builders.React.Html
+open Fable.Builders.React
 open Feliz
 
 let view model =

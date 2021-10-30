@@ -7,7 +7,7 @@ open Feliz
 open Fable.Core.JsInterop
 
 [<AutoOpen>]
-module ButtonTypes =
+module Button =
 
     [<StringEnum; RequireQualifiedAccess>]
     type ButtonType =
@@ -29,6 +29,7 @@ module ButtonTypes =
         | Circle
         | Round
     
+    [<RequireQualifiedAccess>]
     type ButtonProp =
         | Disabled of bool
         | Ghost of bool
@@ -43,8 +44,6 @@ module ButtonTypes =
         | OnClick of (Browser.Types.Event -> unit)
         | Block of bool
         | Danger of bool
-    
-module Button =
 
     type ButtonBuilder() =
         inherit ReactBuilder(import "Button" "antd")

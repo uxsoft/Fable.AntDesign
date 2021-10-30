@@ -18,6 +18,7 @@
         <Compile Include="Pages\SyntaxPage.fs" />
         <Compile Include="Pages\ProgressPage.fs" />
         <Compile Include="Pages\GridPage.fs" />
+        <Compile Include="Pages\ChartsPage.fs" />
         <Compile Include="App.fs" />
         <None Include="icon.png" />
     </ItemGroup>
