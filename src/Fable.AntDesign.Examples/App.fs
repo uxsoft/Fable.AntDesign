@@ -60,26 +60,14 @@ let view (model: Model) dispatch =
                         title (Html.text "General")
                         PageMenuItem Page.SyntaxPage "Syntax"
                         PageMenuItem Page.ButtonPage "Button"
-                        
-                        MenuItem {
-                            key (string Page.IconPage)
-                            str "Icon"
-                        }
-                        MenuItem {
-                            key (string Page.TypographyPage)
-                            str "Typography"
-                        }
+                        PageMenuItem Page.IconPage "Icon"
+                        PageMenuItem Page.TypographyPage "Typography"
                     }
                     MenuItemGroup {
                         title (str "Layout")
-                        MenuItem {
-                            key (string Page.DividerPage)
-                            str "Divider"
-                        }
-                        MenuItem {
-                            key (string Page.GridPage)
-                            str "Grid"
-                        }
+                        PageMenuItem Page.DividerPage "Divider"
+                        PageMenuItem Page.GridPage  "Grid"
+                        PageMenuItem Page.LayoutPage "Layout"
                     }
                     MenuItemGroup {
                         title (str "Navigation")
@@ -133,6 +121,7 @@ let view (model: Model) dispatch =
                 | Page.TypographyPage -> TypographyPage.view model
                 | Page.DividerPage -> DividerPage.view model
                 | Page.GridPage -> GridPage.view model
+                | Page.LayoutPage -> LayoutPage.view model
                 | Page.StepsPage -> StepsPage.view model
                 | Page.FormPage -> FormPage.view model dispatch
                 | Page.ListPage -> ListPage.view model

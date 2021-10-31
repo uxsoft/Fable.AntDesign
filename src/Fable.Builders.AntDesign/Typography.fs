@@ -58,7 +58,7 @@ module Typography =
         [<CustomOperation("underline")>] member inline _.underline (x: DSLElement, v: bool) = x.attr "underline" v
         [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: string -> unit) = x.attr "onChange" v 
         [<CustomOperation("strong")>] member inline _.strong (x: DSLElement, v: bool) = x.attr "strong" v
-        [<CustomOperation("typographyType")>] member inline _.typographyType (x: DSLElement, v: TypographyType) = x.attr "type" v
+        [<CustomOperation("type'")>] member inline _.type' (x: DSLElement, v: TypographyType) = x.attr "type" v
         [<CustomOperation("ellipsis")>] member inline _.ellipsis (x: DSLElement, v: bool) = x.attr "ellipsis" v 
     
       

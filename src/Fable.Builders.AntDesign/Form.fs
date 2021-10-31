@@ -11,6 +11,9 @@ open System
 [<AutoOpen>]
 module Form =
 
+    type Browser.Types.Event with
+        member this.Value = (this.target :?> Browser.Types.HTMLInputElement).value
+    
     [<StringEnum; RequireQualifiedAccess>]
     type FormValidationStatus =
         | Success

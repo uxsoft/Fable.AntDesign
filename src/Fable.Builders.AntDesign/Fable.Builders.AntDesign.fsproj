@@ -9,6 +9,7 @@
     <RepositoryUrl>https://github.com/uxsoft/Fable.AntDesign</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common.fs" />
     <Compile Include="Button.fs" />
     <Compile Include="Progress.fs" />
     <Compile Include="Icon.fs" />

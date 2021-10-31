@@ -4,17 +4,6 @@ open Fable.Core
 open Feliz
 open JsInterop
 
-[<StringEnum; RequireQualifiedAccess>]
-type Size =
-    | Large
-    | Default
-    | Small
-
-[<StringEnum; RequireQualifiedAccess>]
-type Theme =
-    | Dark
-    | Light
-
 type DSLElement =
     { Attributes: (string * obj) list
       Children: ReactElement list }

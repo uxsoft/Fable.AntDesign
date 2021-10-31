@@ -282,7 +282,8 @@ type HtmlBuilder(tag: string) =
     [<CustomOperation("checked")>] member inline _.checked'(x: DSLElement, v) = x.attr "checked" v
     [<CustomOperation("cite")>] member inline _.cite(x: DSLElement, v) = x.attr "cite" v
     [<CustomOperation("classID")>] member inline _.classID(x: DSLElement, v) = x.attr "classID" v
-    [<CustomOperation("className")>] member inline _.className(x: DSLElement, v) = x.attr "className" v
+    // Common already has className
+    //[<CustomOperation("className")>] member inline _.className(x: DSLElement, v) = x.attr "className" v
     [<CustomOperation("colSpan")>] member inline _.colSpan(x: DSLElement, v) = x.attr "colSpan" v
     [<CustomOperation("cols")>] member inline _.cols(x: DSLElement, v) = x.attr "cols" v
     [<CustomOperation("content")>] member inline _.content(x: DSLElement, v) = x.attr "content" v

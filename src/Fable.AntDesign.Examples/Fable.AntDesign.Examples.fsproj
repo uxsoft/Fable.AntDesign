@@ -19,6 +19,7 @@
         <Compile Include="Pages\ProgressPage.fs" />
         <Compile Include="Pages\GridPage.fs" />
         <Compile Include="Pages\ChartsPage.fs" />
+        <Compile Include="Pages\LayoutPage.fs" />
         <Compile Include="App.fs" />
         <None Include="icon.png" />
     </ItemGroup>

@@ -7,6 +7,7 @@ type Page =
     | TypographyPage = 2
     | DividerPage = 3
     | GridPage = 4
+    | LayoutPage = 5
     | StepsPage = 14
     | FormPage = 19
     | ListPage = 42

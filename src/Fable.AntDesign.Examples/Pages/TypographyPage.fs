@@ -17,7 +17,7 @@ let view model =
         }
         
         Paragraph {
-            typographyType TypographyType.Warning
+            type' TypographyType.Warning
             str "Paragraph"
         }
     }

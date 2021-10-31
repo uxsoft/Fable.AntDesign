@@ -32,8 +32,7 @@ let view (model: Model) dispatch =
                       FormRule.Message "This field is mandatory" ] ]
                 Input {
                     prefix (BasicIcon Icons.MailOutlined {
-                        style [
-                            style.color color.lightGray ]
+                        style [ style.color color.lightGray ]
                     })
                     placeholder "Email"
                 }
@@ -47,9 +46,9 @@ let view (model: Model) dispatch =
                       FormRule.Message "This field is mandatory" ] ]
                 Password {
                     prefix (BasicIcon Icons.LockOutlined {
-                        style [
-                            style.color color.lightGray ]
+                        style [ style.color color.lightGray ]
                     })
+                    onChange (fun e -> Browser.Dom.console.log e.Value)
                 }
             }
             
