@@ -1,8 +1,7 @@
 module Fable.AntDesign.Examples.Pages.LayoutPage
-open Fable.Builders.Common
+
 open Fable.Builders.React
 open Fable.Builders.AntDesign
-open Fable.Builders.AntDesignCharts
 open Fable.AntDesign.Examples.Components.Example
 open Feliz
 

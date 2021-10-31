@@ -9,6 +9,10 @@ open Fable.Core.JsInterop
 module Space =
 
     [<StringEnum; RequireQualifiedAccess>]
+    type SpaceSize =
+        | Large | Middle | Small
+    
+    [<StringEnum; RequireQualifiedAccess>]
     type SpaceAlign =
         | Start
         | End
@@ -25,7 +29,6 @@ module Space =
     
         [<CustomOperation("align")>] member inline _.align (x: DSLElement, v: SpaceAlign) = x.attr "align" v
         [<CustomOperation("direction")>] member inline _.direction (x: DSLElement, v: SpaceDirection) = x.attr "direction" v
-        [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: Size) = x.attr "size" v
-        [<CustomOperation("sizeExact")>] member inline _.sizeExact (x: DSLElement, v: int) = x.attr "size" v
+        [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: SpaceSize) = x.attr "size" v
         [<CustomOperation("split")>] member inline _.split (x: DSLElement, v: ReactElement) = x.attr "split" v
         [<CustomOperation("wrap")>] member inline _.wrap (x: DSLElement, v: bool) = x.attr "wrap" v

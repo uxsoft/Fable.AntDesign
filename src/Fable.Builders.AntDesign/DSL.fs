@@ -138,7 +138,7 @@ let Statistic = Statistic.StatisticBuilder()
 let Countdown = Fable.Builders.AntDesign.Statistic.StatisticCountdownBuilder()
 
 let Table<'T> = Table.TableBuilder<'T>()
-let TableColumn<'T> = Fable.Builders.AntDesign.Table.TableColumnBuilder<'T>()
+let TableColumn<'TColumn, 'TRecord> = Fable.Builders.AntDesign.Table.TableColumnBuilder<'TColumn, 'TRecord>()
 let TableColumnGroup = Fable.Builders.AntDesign.Table.TableColumnGroupBuilder()
 
 let Tabs = Tabs.TabsBuilder()

@@ -85,10 +85,8 @@ let view (model: Model) dispatch =
                     }
                     MenuItemGroup {
                         title (str "Data Display")
-                        MenuItem {
-                            key (string Page.ListPage)
-                            str "List"
-                        }
+                        PageMenuItem Page.ListPage "List"
+                        PageMenuItem Page.TablePage "Table"
                     }
                     
                     MenuItemGroup {
@@ -125,6 +123,7 @@ let view (model: Model) dispatch =
                 | Page.StepsPage -> StepsPage.view model
                 | Page.FormPage -> FormPage.view model dispatch
                 | Page.ListPage -> ListPage.view model
+                | Page.TablePage -> TablePage.view model
                 | Page.NotificationPage -> NotificationPage.view model
                 | Page.ProgressPage -> ProgressPage.view model
                 | Page.ChartsPage -> ChartsPage.view model
