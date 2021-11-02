@@ -3,7 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Browser.Types
 open System
 
@@ -34,7 +34,7 @@ module Tabs =
         [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: Size) = x.attr "size" v
         [<CustomOperation("tabBarExtraContent")>] member inline _.tabBarExtraContent (x: DSLElement, v: ReactElement) = x.attr "tabBarExtraContent" v
         [<CustomOperation("tabBarGutter")>] member inline _.tabBarGutter (x: DSLElement, v: float) = x.attr "tabBarGutter" v
-        [<CustomOperation("tabBarStyle")>] member inline _.tabBarStyle(x: DSLElement, v: Props.CSSProp list) = x.attr "tabBarStyle" (keyValueList CaseRules.LowerFirst v)
+        [<CustomOperation("tabBarStyle")>] member inline _.tabBarStyle(x: DSLElement, v: IStyleAttribute list) = x.attr "tabBarStyle" (keyValueList CaseRules.LowerFirst v)
         [<CustomOperation("tabPosition")>] member inline _.tabPosition (x: DSLElement, v: TabsPosition) = x.attr "tabPosition" v
         [<CustomOperation("tabsType")>] member inline _.tabsType (x: DSLElement, v: TabsType) = x.attr "type" v
         [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: string -> unit) = x.attr "onChange" v

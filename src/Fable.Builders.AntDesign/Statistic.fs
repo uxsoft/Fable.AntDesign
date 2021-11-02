@@ -3,9 +3,8 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Fable.MomentJs
-open Fable.React.Props
 
 [<AutoOpen>]
 module Statistic =
@@ -21,7 +20,7 @@ module Statistic =
         [<CustomOperation("suffix")>] member inline _.suffix (x: DSLElement, v: ReactElement) = x.attr "suffix" v
         [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
         [<CustomOperation("value")>] member inline _.value (x: DSLElement, v: string) = x.attr "value" v
-        [<CustomOperation("valueStyle")>] member inline _.valueStyle (x: DSLElement, css: CSSProp list) = x.attr "valueStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("valueStyle")>] member inline _.valueStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "valueStyle" (keyValueList CaseRules.LowerFirst css)
     
     type StatisticCountdownBuilder()  =
         inherit ReactBuilder(import "Statistic.Countdown" "antd")
@@ -32,4 +31,4 @@ module Statistic =
         [<CustomOperation("suffix")>] member inline _.suffix (x: DSLElement, v: ReactElement) = x.attr "suffix" v
         [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v
         [<CustomOperation("value")>] member inline _.value (x: DSLElement, v: Moment) = x.attr "value" v
-        [<CustomOperation("valueStyle")>] member inline _.valueStyle (x: DSLElement, css: CSSProp list) = x.attr "valueStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("valueStyle")>] member inline _.valueStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "valueStyle" (keyValueList CaseRules.LowerFirst css)

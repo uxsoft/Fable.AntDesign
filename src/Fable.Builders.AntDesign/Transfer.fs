@@ -3,7 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Browser.Types
 open System
 
@@ -37,11 +37,10 @@ module Transfer =
         [<CustomOperation("filterOption")>] member inline _.filterOption (x: DSLElement, v: Func<string, obj, bool>) = x.attr "filterOption" v
         [<CustomOperation("footer")>] member inline _.footer (x: DSLElement, v: obj -> ReactElement) = x.attr "footer" v
         [<CustomOperation("listStyle")>] member inline _.listStyle (x: DSLElement, v: obj -> obj) = x.attr "listStyle" v
-        //TODO better type
         [<CustomOperation("locale")>] member inline _.locale (x: DSLElement, v: TransferLocale) = x.attr "locale" v
         [<CustomOperation("operations")>] member inline _.operations (x: DSLElement, v: string array) = x.attr "operations" v
         [<CustomOperation("oneWay")>] member inline _.oneWay (x: DSLElement, v: bool) = x.attr "oneWay" v
-        [<CustomOperation("operationsStyle")>] member inline _.operationsStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "operationsStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("operationsStyle")>] member inline _.operationsStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "operationsStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("pagination")>] member inline _.pagination (x: DSLElement, v: bool) = x.attr "pagination" v
         [<CustomOperation("render")>] member inline _.render (x: DSLElement, v: TransferData -> ReactElement) = x.attr "render" v
         [<CustomOperation("selectedKeys")>] member inline _.selectedKeys (x: DSLElement, v: string array) = x.attr "selectedKeys" v

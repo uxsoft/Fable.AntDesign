@@ -3,7 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 
 [<AutoOpen>]
 module Empty =
@@ -13,5 +13,5 @@ module Empty =
     
         [<CustomOperation("description")>] member inline _.description (x: DSLElement, v: ReactElement) = x.attr "description" v 
         [<CustomOperation("image")>] member inline _.image (x: DSLElement, v: ReactElement) = x.attr "image" v 
-        [<CustomOperation("imageStyle")>] member inline _.imageStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "imageStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("imageStyle")>] member inline _.imageStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "imageStyle" (keyValueList CaseRules.LowerFirst css)
     

@@ -4,9 +4,8 @@ open Browser.Types
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
 open System
-open Fable.React.Props
+open Feliz
 
 [<AutoOpen>]
 module TreeSelect =
@@ -34,7 +33,7 @@ module TreeSelect =
         [<CustomOperation("dropdownClassName")>] member inline _.dropdownClassName (x: DSLElement, v: string) = x.attr "dropdownClassName" v
         [<CustomOperation("dropdownMatchSelectWidth")>] member inline _.dropdownMatchSelectWidth (x: DSLElement, v: bool) = x.attr "dropdownMatchSelectWidth" v
         [<CustomOperation("dropdownRender")>] member inline _.dropdownRender (x: DSLElement, v: Func<ReactElement, obj> -> ReactElement) = x.attr "dropdownRender" v
-        [<CustomOperation("dropdownStyle")>] member inline _.dropdownStyle (x: DSLElement, v: CSSProp list) = x.attr "dropdownStyle" (keyValueList CaseRules.LowerFirst v)
+        [<CustomOperation("dropdownStyle")>] member inline _.dropdownStyle (x: DSLElement, v: IStyleAttribute list) = x.attr "dropdownStyle" (keyValueList CaseRules.LowerFirst v)
         [<CustomOperation("filterTreeNode")>] member inline _.filterTreeNode (x: DSLElement, v: Func<string, TreeSelectData, bool>) = x.attr "filterTreeNode" v
         [<CustomOperation("getPopupContainer")>] member inline _.getPopupContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getPopupContainer" v
         [<CustomOperation("labelInValue")>] member inline _.labelInValue (x: DSLElement, v: bool) = x.attr "labelInValue" v

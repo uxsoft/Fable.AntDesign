@@ -5,7 +5,7 @@ open Fable.Builders.AntDesign.Button
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 
 [<AutoOpen>]
 module Dropdown =
@@ -24,7 +24,7 @@ module Dropdown =
         [<CustomOperation("getPopupContainer")>] member inline _.getPopupContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getPopupContainer" v 
         [<CustomOperation("overlay")>] member inline _.overlay (x: DSLElement, v: ReactElement) = x.attr "overlay" v 
         [<CustomOperation("overlayClassName")>] member inline _.overlayClassName (x: DSLElement, v: string) = x.attr "overlayClassName" v
-        [<CustomOperation("overlayStyle")>] member inline _.overlayStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "overlayStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("overlayStyle")>] member inline _.overlayStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "overlayStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("onVisibleChange")>] member inline _.onVisibleChange (x: DSLElement, v: bool -> unit) = x.attr "onVisibleChange" v 
         [<CustomOperation("placement")>] member inline _.placement (x: DSLElement, v: DropdownPlacement) = x.attr "placement" v 
         [<CustomOperation("trigger")>] member inline _.trigger (x: DSLElement, v: DropdownTrigger array) = x.attr "trigger" v 

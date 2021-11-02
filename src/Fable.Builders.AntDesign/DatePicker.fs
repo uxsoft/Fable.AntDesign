@@ -4,7 +4,7 @@ open Browser.Types
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Fable.MomentJs
 open System
 
@@ -40,7 +40,7 @@ module DatePicker =
         [<CustomOperation("isOpen")>] member inline _.isOpen (x: DSLElement, v: bool) = x.attr "open" v
         [<CustomOperation("picker")>] member inline _.picker (x: DSLElement, v: DatePickerPicker) = x.attr "picker" v
         [<CustomOperation("placeholder")>] member inline _.placeholder (x: DSLElement, v: string) = x.attr "placeholder" v
-        [<CustomOperation("popupStyle")>] member inline _.popupStyle(x: DSLElement, css: Props.CSSProp list) = x.attr "popupStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("popupStyle")>] member inline _.popupStyle(x: DSLElement, css: IStyleAttribute list) = x.attr "popupStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("size")>] member inline _.size (x: DSLElement, v: Size) = x.attr "size" v
         [<CustomOperation("bordered")>] member inline _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v
         [<CustomOperation("suffixIcon")>] member inline _.suffixIcon (x: DSLElement, v: ReactElement) = x.attr "suffixIcon" v

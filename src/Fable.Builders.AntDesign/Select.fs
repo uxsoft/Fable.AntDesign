@@ -3,7 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Browser.Types
 open System
 
@@ -48,7 +48,7 @@ module Select =
         [<CustomOperation("dropdownClassName")>] member inline _.dropdownClassName (x: DSLElement, v: string) = x.attr "dropdownClassName" v
         [<CustomOperation("dropdownMatchSelectWidth")>] member inline _.dropdownMatchSelectWidth (x: DSLElement, v: bool) = x.attr "dropdownMatchSelectWidth" v
         [<CustomOperation("dropDownRender")>] member inline _.dropDownRender (x: DSLElement, v: Func<ReactElement, ReactElement>) = x.attr "dropDownRender" v
-        [<CustomOperation("dropdownStyle")>] member inline _.dropdownStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("dropdownStyle")>] member inline _.dropdownStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("filterOption")>] member inline _.filterOption (x: DSLElement, v: Func<string, 'T, bool>) = x.attr "filterOption" v
         [<CustomOperation("filterSort")>] member inline _.filterSort (x: DSLElement, v: Func<'T, 'T, int>) = x.attr "filterSort" v
         [<CustomOperation("firstActiveValue")>] member inline _.firstActiveValue (x: DSLElement, v: string array) = x.attr "firstActiveValue" v

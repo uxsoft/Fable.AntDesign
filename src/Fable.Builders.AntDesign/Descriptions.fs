@@ -2,8 +2,7 @@ namespace Fable.Builders.AntDesign
 
 open Fable.Builders.Common
 open Fable.Core
-open Fable.React
-open Fable.React.Props
+open Feliz
 open Fable.Core.JsInterop
 
 [<AutoOpen>]
@@ -26,8 +25,8 @@ module Descriptions =
     type DescriptionBuilder() =
         inherit ReactBuilder(import "Descriptions.Item" "antd")
     
-        [<CustomOperation("contentStyle")>] member inline _.contentStyle (x: DSLElement, css: CSSProp list) = x.attr "contentStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("contentStyle")>] member inline _.contentStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "contentStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("label")>] member inline _.label (x: DSLElement, v: ReactElement) = x.attr "label" v 
-        [<CustomOperation("labelStyle")>] member inline _.labelStyle (x: DSLElement, css: CSSProp list) = x.attr "labelStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("labelStyle")>] member inline _.labelStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "labelStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("span")>] member inline _.span (x: DSLElement, v: int) = x.attr "span" v 
     

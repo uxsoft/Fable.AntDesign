@@ -3,8 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
-open Fable.React.Props
+open Feliz
 
 [<AutoOpen>]
 module Card =
@@ -22,8 +21,8 @@ module Card =
     
         [<CustomOperation("actions")>] member inline _.actions (x: DSLElement, v: ReactElement array) = x.attr "actions" v 
         [<CustomOperation("activeTabKey")>] member inline _.activeTabKey (x: DSLElement, v: string) = x.attr "activeTabKey" v 
-        [<CustomOperation("headStyle")>] member inline _.headStyle (x: DSLElement, css: CSSProp list) = x.attr "headStyle" (keyValueList CaseRules.LowerFirst css)
-        [<CustomOperation("bodyStyle")>] member inline _.bodyStyle (x: DSLElement, css: CSSProp list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("headStyle")>] member inline _.headStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "headStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("bodyStyle")>] member inline _.bodyStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("bordered")>] member inline _.bordered (x: DSLElement, v: bool) = x.attr "bordered" v 
         [<CustomOperation("cover")>] member inline _.cover (x: DSLElement, v: ReactElement) = x.attr "cover" v 
         [<CustomOperation("defaultActiveTabKey")>] member inline _.defaultActiveTabKey (x: DSLElement, v: string) = x.attr "defaultActiveTabKey" v 

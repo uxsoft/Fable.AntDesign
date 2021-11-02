@@ -3,7 +3,7 @@ namespace Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Core
 open Fable.Core.JsInterop
-open Fable.React
+open Feliz
 open Browser.Types
 
 [<AutoOpen>]
@@ -20,10 +20,10 @@ module Drawer =
         [<CustomOperation("getContainer")>] member inline _.getContainer (x: DSLElement, v: unit -> HTMLElement) = x.attr "getContainer" v 
         [<CustomOperation("mask")>] member inline _.mask (x: DSLElement, v: bool) = x.attr "mask" v 
         [<CustomOperation("maskClosable")>] member inline _.maskClosable (x: DSLElement, v: bool) = x.attr "maskClosable" v
-        [<CustomOperation("maskStyle")>] member inline _.maskStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "maskStyle" (keyValueList CaseRules.LowerFirst css)
-        [<CustomOperation("drawerStyle")>] member inline _.drawerStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "drawerStyle" (keyValueList CaseRules.LowerFirst css)
-        [<CustomOperation("headerStyle")>] member inline _.headerStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "headerStyle" (keyValueList CaseRules.LowerFirst css)
-        [<CustomOperation("bodyStyle")>] member inline _.bodyStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("maskStyle")>] member inline _.maskStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "maskStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("drawerStyle")>] member inline _.drawerStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "drawerStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("headerStyle")>] member inline _.headerStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "headerStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("bodyStyle")>] member inline _.bodyStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "bodyStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: ReactElement) = x.attr "title" v 
         [<CustomOperation("visible")>] member inline _.visible (x: DSLElement, v: bool) = x.attr "visible" v 
         [<CustomOperation("width")>] member inline _.width (x: DSLElement, v: string) = x.attr "width" v 
@@ -35,5 +35,5 @@ module Drawer =
         [<CustomOperation("afterVisibleChange")>] member inline _.afterVisibleChange (x: DSLElement, v: bool -> unit) = x.attr "afterVisibleChange" v 
         [<CustomOperation("keyboard")>] member inline _.keyboard (x: DSLElement, v: bool) = x.attr "keyboard" v 
         [<CustomOperation("footer")>] member inline _.footer (x: DSLElement, v: ReactElement) = x.attr "footer" v
-        [<CustomOperation("footerStyle")>] member inline _.footerStyle (x: DSLElement, css: Props.CSSProp list) = x.attr "footerStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("footerStyle")>] member inline _.footerStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "footerStyle" (keyValueList CaseRules.LowerFirst css)
     

@@ -2,10 +2,9 @@ namespace Fable.Builders.AntDesign
 
 open System
 open Fable.Core
-open Fable.React
 open Fable.Core.JsInterop
 open Fable.Builders.Common
-open Fable.React.Props
+open Feliz
 
 [<AutoOpen>]
 module Layout =
@@ -53,4 +52,4 @@ module Layout =
         [<CustomOperation("width")>] member inline _.width (x: DSLElement, v: string) = x.attr "width" v
         [<CustomOperation("onCollapse")>] member inline _.onCollapse (x: DSLElement, v: Func<bool, CollapseType, unit>) = x.attr "onCollapse" v
         [<CustomOperation("onBreakpoint")>] member inline _.onBreakpoint (x: DSLElement, v: bool -> unit) = x.attr "onBreakpoint" v
-        [<CustomOperation("zeroWidthTriggerStyle")>] member inline _.zeroWidthTriggerStyle(x: DSLElement, css: CSSProp list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("zeroWidthTriggerStyle")>] member inline _.zeroWidthTriggerStyle(x: DSLElement, css: IStyleAttribute list) = x.attr "zeroWidthTriggerStyle" (keyValueList CaseRules.LowerFirst css)

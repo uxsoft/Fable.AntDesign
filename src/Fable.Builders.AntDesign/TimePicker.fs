@@ -3,11 +3,10 @@ namespace Fable.Builders.AntDesign
 open Browser.Types
 open Fable.Builders.Common
 open Fable.Core
-open Fable.React
 open Fable.MomentJs
 open Fable.Core.JsInterop
 open System
-open Fable.React.Props
+open Feliz
 
 [<AutoOpen>]
 module TimePicker = 
@@ -33,7 +32,7 @@ module TimePicker =
         [<CustomOperation("isOpen")>] member inline _.isOpen (x: DSLElement, v: bool) = x.attr "open" v
         [<CustomOperation("placeholder")>] member inline _.placeholder (x: DSLElement, v: string) = x.attr "placeholder" v
         [<CustomOperation("popupClassName")>] member inline _.popupClassName (x: DSLElement, v: string) = x.attr "popupClassName" v
-        [<CustomOperation("popupStyle")>] member inline _.popupStyle (x: DSLElement, v: CSSProp list) = x.attr "popupStyle" (keyValueList CaseRules.LowerFirst v)
+        [<CustomOperation("popupStyle")>] member inline _.popupStyle (x: DSLElement, v: IStyleAttribute list) = x.attr "popupStyle" (keyValueList CaseRules.LowerFirst v)
         [<CustomOperation("secondStep")>] member inline _.secondStep (x: DSLElement, v: int) = x.attr "secondStep" v
         [<CustomOperation("suffixIcon")>] member inline _.suffixIcon (x: DSLElement, v: ReactElement) = x.attr "suffixIcon" v
         [<CustomOperation("clearIcon")>] member inline _.clearIcon (x: DSLElement, v: ReactElement) = x.attr "clearIcon" v

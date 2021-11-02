@@ -3,10 +3,8 @@ namespace Fable.Builders.AntDesign
 open Browser.Types
 open Fable.Builders.AntDesign
 open Fable.Builders.Common
-open Fable.Builders.AntDesign.Button
-open Fable.Builders.AntDesign.Slider
 open Fable.Core
-open Fable.React
+open Feliz
 open Fable.Core.JsInterop
 
 [<AutoOpen>]
@@ -32,7 +30,7 @@ module Tooltip =
         [<CustomOperation("mouseEnterDelay")>] member inline _.mouseEnterDelay (x: DSLElement, v: float) = x.attr "mouseEnterDelay" v 
         [<CustomOperation("mouseLeaveDelay")>] member inline _.mouseLeaveDelay (x: DSLElement, v: float) = x.attr "mouseLeaveDelay" v 
         [<CustomOperation("overlayClassName")>] member inline _.overlayClassName (x: DSLElement, v: string) = x.attr "overlayClassName" v
-        [<CustomOperation("overlayStyle")>] member inline _.overlayStyle (x: DSLElement, css: Props.CSSProp list) =  x.attr "overlayStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("overlayStyle")>] member inline _.overlayStyle (x: DSLElement, css: IStyleAttribute list) =  x.attr "overlayStyle" (keyValueList CaseRules.LowerFirst css)
         [<CustomOperation("placement")>] member inline _.placement (x: DSLElement, v: TooltipPlacement) = x.attr "placement" v 
         [<CustomOperation("trigger")>] member inline _.trigger (x: DSLElement, v: TooltipTrigger) = x.attr "trigger" v 
         [<CustomOperation("visible")>] member inline _.visible (x: DSLElement, ?v: bool) = x.attr "visible" (Option.defaultValue true v) 
