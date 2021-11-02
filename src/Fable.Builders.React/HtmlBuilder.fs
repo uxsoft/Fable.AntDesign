@@ -8,6 +8,9 @@ open Fable.Core.JsInterop
 type HtmlBuilder(tag: string) =
     inherit ReactBuilder()
     
+    [<CustomOperation("dangerouslySetInnerHTML")>] member inline _.dangerouslySetInnerHTML (x: DSLElement, value: string) = x.attr "dangerouslySetInnerHTML" {| __html = value |}
+
+    
     // Events
     [<CustomOperation("onAbort")>] member inline _.onAbort (x: DSLElement, handler: Event -> unit) = x.attr "onAbort" handler
 

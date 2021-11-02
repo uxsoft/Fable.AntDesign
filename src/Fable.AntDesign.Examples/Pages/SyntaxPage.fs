@@ -54,4 +54,13 @@ let view model =
                 div { str "2" }
             ]
         }
+        Example {
+            name "Inner HTML"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (60, 52)
+            
+            div {
+                dangerouslySetInnerHTML "<a href=\"#\">dangerous link</a>"
+            }
+        }
     }
