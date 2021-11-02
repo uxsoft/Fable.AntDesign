@@ -15,6 +15,7 @@
     <ItemGroup>
         <Compile Include="Common.fs" />
         <Compile Include="HtmlBuilder.fs" />
+        <Compile Include="FragmentBuilder.fs" />
         <Compile Include="DSL.fs" />
     </ItemGroup>
     <ItemGroup>

@@ -57,10 +57,20 @@ let view model =
         Example {
             name "Inner HTML"
             sourceUrl "Pages/SyntaxPage.fs"
-            sourceRange (60, 52)
+            sourceRange (62, 65)
             
             div {
                 dangerouslySetInnerHTML "<a href=\"#\">dangerous link</a>"
+            }
+        }
+        Example {
+            name "Fragment"
+            sourceUrl "Pages/SyntaxPage.fs"
+            sourceRange (62, 65)
+            
+            fragment {
+                div { str "div 1" }
+                div { str "div 2" }
             }
         }
     }

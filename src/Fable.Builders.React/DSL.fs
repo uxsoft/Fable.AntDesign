@@ -1,12 +1,13 @@
 ﻿namespace Fable.Builders.React
 
+open Fable.Builders.React.FragmentBuilder
 open Fable.Builders.React.HtmlBuilder
 
 [<AutoOpen>]
 module DSL =
-
-    // Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+    let fragment = FragmentBuilder()
     
+    // Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element    
     // Document metadata
     let base' = HtmlBuilder("base")
     let head = HtmlBuilder("head")
