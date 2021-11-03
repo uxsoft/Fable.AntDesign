@@ -20,4 +20,9 @@ let view model =
             type' TypographyType.Warning
             str "Paragraph"
         }
+        
+        Text {
+            editable true
+            str "edit me"
+        }
     }

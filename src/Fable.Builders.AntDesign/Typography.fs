@@ -9,8 +9,12 @@ open Fable.Core.JsInterop
 module Typography =
 
     [<StringEnum; RequireQualifiedAccess>]
-    type TypographyType = Secondary | Success | Warning | Danger 
-    
+    type TypographyType =
+        | Secondary
+        | Success
+        | Warning
+        | Danger 
+
     type EllipsisConfigBuilder() =
         inherit ReactBuilder()
         

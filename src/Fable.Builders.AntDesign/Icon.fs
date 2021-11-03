@@ -785,10 +785,10 @@ module Icon =
            WalletTwoTone = IconGlyph (import "WalletTwoTone" "@ant-design/icons") |}
     
     let fromName (name: string) =
-        BasicIcons.[name]
+        BasicIcons.[name] :?> IconGlyph
             
     let tryFromName (name: string) =
-        BasicIcons.[name]
+        BasicIcons.[name] :?> IconGlyph
             
     let getIconNames () =
         JS.Constructors.Object.keys BasicIcons
