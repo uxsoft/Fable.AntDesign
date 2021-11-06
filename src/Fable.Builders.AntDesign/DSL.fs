@@ -117,15 +117,19 @@ let Badge = Badge.BadgeBuilder()
 
 let Calendar = Calendar.CalendarBuilder()
 
-let Card = Card.CardBuilder()
+let Card = Fable.Builders.AntDesign.Card.CardBuilder()
 let CardGrid = Fable.Builders.AntDesign.Card.CardGridBuilder()
 let CardMeta = Fable.Builders.AntDesign.Card.CardMetaBuilder()
 
-let Carousel = Carousel.CarouselBuilder()
+let Carousel = Fable.Builders.AntDesign.Carousel.CarouselBuilder()
 
-let Comment = Comment.CommentBuilder()
+let CollapsePanel = Fable.Builders.AntDesign.Collapse.CollapsePanelBuilder()
+let Collapse = Fable.Builders.AntDesign.Collapse.CollapseBuilder()
 
-let Descriptions = Descriptions.DescriptionsBuilder()
+
+let Comment = Fable.Builders.AntDesign.Comment.CommentBuilder()
+
+let Descriptions = Fable.Builders.AntDesign.Descriptions.DescriptionsBuilder()
 let Description = Fable.Builders.AntDesign.Descriptions.DescriptionBuilder()
 
 let Empty = Empty.EmptyBuilder()

@@ -11,6 +11,7 @@ type Page =
     | StepsPage = 14
     | FormPage = 19
     | ListPage = 42
+    | CollapsePage = 37
     | TablePage = 45
     | NotificationPage = 55
     | ProgressPage = 57

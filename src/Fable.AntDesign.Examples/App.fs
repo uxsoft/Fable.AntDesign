@@ -58,6 +58,7 @@ let view (model: Model) dispatch =
                     onClick (onPageSelected dispatch)
                     MenuItemGroup {
                         title (Html.text "General")
+                        
                         PageMenuItem Page.SyntaxPage "Syntax"
                         PageMenuItem Page.ButtonPage "Button"
                         PageMenuItem Page.IconPage "Icon"
@@ -65,40 +66,33 @@ let view (model: Model) dispatch =
                     }
                     MenuItemGroup {
                         title (str "Layout")
+                        
                         PageMenuItem Page.DividerPage "Divider"
                         PageMenuItem Page.GridPage  "Grid"
                         PageMenuItem Page.LayoutPage "Layout"
                     }
                     MenuItemGroup {
                         title (str "Navigation")
-                        MenuItem {
-                            key (string Page.StepsPage)
-                            str "Steps"
-                        }
+                        
+                        PageMenuItem Page.StepsPage "Steps"
                     }
                     MenuItemGroup {
                         title (str "Data Entry")
-                        MenuItem {
-                            key (string Page.FormPage)
-                            str "Form"
-                        }
+                        
+                        PageMenuItem  Page.FormPage "Form"
                     }
                     MenuItemGroup {
                         title (str "Data Display")
+                        
                         PageMenuItem Page.ListPage "List"
+                        PageMenuItem Page.CollapsePage "Collapse"
                         PageMenuItem Page.TablePage "Table"
                     }
                     
                     MenuItemGroup {
                         title (str "Feedback")
-                        MenuItem {
-                            key (string Page.NotificationPage)
-                            str "Notification"
-                        }
-                        MenuItem {
-                            key (string Page.ProgressPage)
-                            str "Progress"
-                        }
+                        PageMenuItem Page.NotificationPage "Notification"
+                        PageMenuItem Page.ProgressPage "Progress"
                     }
                     
                     MenuItemGroup {
@@ -123,6 +117,7 @@ let view (model: Model) dispatch =
                 | Page.StepsPage -> StepsPage.view model
                 | Page.FormPage -> FormPage.view model dispatch
                 | Page.ListPage -> ListPage.view model
+                | Page.CollapsePage -> CollapsePage.view model
                 | Page.TablePage -> TablePage.view model
                 | Page.NotificationPage -> NotificationPage.view model
                 | Page.ProgressPage -> ProgressPage.view model
