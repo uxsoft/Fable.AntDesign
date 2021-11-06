@@ -37,6 +37,7 @@ let update (msg: Msg) (model: Model) =
         { model with IsLoggingIn = true },
         [ fun dispatch ->
             async {
+                Browser.Dom.console.log $"Logging in with {username}:{password}"
                 do! Async.Sleep 2000
                 dispatch EndLogin
             } |> Async.StartImmediate ]

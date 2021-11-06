@@ -8,69 +8,72 @@ open Feliz
 
 let view (model: Model) dispatch =
     Example {
-        sourceUrl "https://github.com/uxsoft/Fable.AntDesign/blob/master/src/Fable.AntDesign.Examples/Pages/FormPage.fs"
+        sourceUrl "Pages/FormPage.fs"
 
         PageHeader {
             title (str "Login")
             subTitle (str "Please log-in to enter.")
         }
-        
+
         Form {
-            style [
-                style.maxWidth 320
-                style.margin(0, length.auto) ]
+            style [ style.maxWidth 320
+                    style.margin (0, length.auto) ]
+
+            initialValues
+                {| email = ""
+                   password = "" |}
+            
             onFinish (fun values ->
-                dispatch (BeginLogin(string values.["username"], string values.["password"])))
+                dispatch (BeginLogin(values.email, values.password)))
 
             FormItem {
                 name "email"
                 key "login-email"
-                rules [
-                    [ FormRule.RuleType FormRuleType.Email 
-                      FormRule.Message "This isn't a valid email" ]
-                    [ FormRule.Required true
-                      FormRule.Message "This field is mandatory" ] ]
+
+                rules [ [ FormRule.RuleType FormRuleType.Email
+                          FormRule.Message "This isn't a valid email" ]
+                        [ FormRule.Required true
+                          FormRule.Message "This field is mandatory" ] ]
+
                 Input {
-                    prefix (BasicIcon Icons.MailOutlined {
-                        style [ style.color color.lightGray ]
-                    })
+                    prefix (BasicIcon Icons.MailOutlined { style [ style.color color.lightGray ] })
                     placeholder "Email"
                 }
             }
-            
+
             FormItem {
                 name "password"
                 key "login-password"
-                rules [
-                    [ FormRule.Required true
-                      FormRule.Message "This field is mandatory" ] ]
+
+                rules [ [ FormRule.Required true
+                          FormRule.Message "This field is mandatory" ] ]
+
                 Password {
-                    prefix (BasicIcon Icons.LockOutlined {
-                        style [ style.color color.lightGray ]
-                    })
-                    onChange (fun e -> Browser.Dom.console.log e.Value)
+                    prefix (BasicIcon Icons.LockOutlined { style [ style.color color.lightGray ] })
                 }
             }
-            
+
             FormItem {
                 key "login-submit"
+
                 Button {
-                    style [
-                        style.width(length.percent(100)) ]
+                    style [ style.width (length.percent (100)) ]
                     buttonType ButtonType.Primary
                     loading model.IsLoggingIn
-                    htmlType ButtonHtmlType.Submit 
-                    
+                    htmlType ButtonHtmlType.Submit
+
                     str "Login"
                 }
             }
-            
+
             FormItem {
                 key "login-links"
+
                 Button {
                     buttonType ButtonType.Link
                     str "Register"
                 }
+
                 Button {
                     style [ style.float'.right ]
                     buttonType ButtonType.Link
