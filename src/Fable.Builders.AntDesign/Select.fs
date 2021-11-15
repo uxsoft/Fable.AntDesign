@@ -17,13 +17,12 @@ module Select =
         [<CustomOperation("key")>] member inline _.key (x: DSLElement, v: string) = x.attr "key" v
         [<CustomOperation("title")>] member inline _.title (x: DSLElement, v: string) = x.attr "title" v
         [<CustomOperation("value")>] member inline _.value (x: DSLElement, v: string) = x.attr "value" v
-        [<CustomOperation("className")>] member inline _.className (x: DSLElement, v: string) = x.attr "className" v
     
     type SelectOptGroupBuilder() =
         inherit ReactBuilder(import "Select.OptGroup" "antd")
     
-        [<CustomOperation("Key")>] member inline _.Key (x: DSLElement, v: string) = x.attr "key" v
-        [<CustomOperation("Label")>] member inline _.Label (x: DSLElement, v: ReactElement) = x.attr "label" v
+        [<CustomOperation("key")>] member inline _.key (x: DSLElement, v: string) = x.attr "key" v
+        [<CustomOperation("label")>] member inline _.label (x: DSLElement, v: ReactElement) = x.attr "label" v
     
     [<StringEnum; RequireQualifiedAccess>]
     type SelectMode =
@@ -49,6 +48,7 @@ module Select =
         [<CustomOperation("dropdownMatchSelectWidth")>] member inline _.dropdownMatchSelectWidth (x: DSLElement, v: bool) = x.attr "dropdownMatchSelectWidth" v
         [<CustomOperation("dropDownRender")>] member inline _.dropDownRender (x: DSLElement, v: Func<ReactElement, ReactElement>) = x.attr "dropDownRender" v
         [<CustomOperation("dropdownStyle")>] member inline _.dropdownStyle (x: DSLElement, css: IStyleAttribute list) = x.attr "dropdownStyle" (keyValueList CaseRules.LowerFirst css)
+        [<CustomOperation("fieldNames")>] member inline _.fieldNames (x: DSLElement, v: {| label: string; key: string; options: string |}) = x.attr "fieldNames" v
         [<CustomOperation("filterOption")>] member inline _.filterOption (x: DSLElement, v: Func<string, 'T, bool>) = x.attr "filterOption" v
         [<CustomOperation("filterSort")>] member inline _.filterSort (x: DSLElement, v: Func<'T, 'T, int>) = x.attr "filterSort" v
         [<CustomOperation("firstActiveValue")>] member inline _.firstActiveValue (x: DSLElement, v: string array) = x.attr "firstActiveValue" v
@@ -57,8 +57,8 @@ module Select =
         [<CustomOperation("listHeight")>] member inline _.listHeight (x: DSLElement, v: int) = x.attr "listHeight" v
         [<CustomOperation("loading")>] member inline _.loading (x: DSLElement, v: bool) = x.attr "loading" v
         [<CustomOperation("maxTagCount")>] member inline _.maxTagCount (x: DSLElement, v: int) = x.attr "maxTagCount" v
-        [<CustomOperation("maxTagTextLength")>] member inline _.maxTagTextLength (x: DSLElement, v: int) = x.attr "maxTagTextLength" v
         [<CustomOperation("maxTagPlaceholder")>] member inline _.maxTagPlaceholder (x: DSLElement, v: string array -> ReactElement) = x.attr "maxTagPlaceholder" v
+        [<CustomOperation("maxTagTextLength")>] member inline _.maxTagTextLength (x: DSLElement, v: int) = x.attr "maxTagTextLength" v
         [<CustomOperation("menuItemSelectedIcon")>] member inline _.menuItemSelectedIcon (x: DSLElement, v: ReactElement) = x.attr "menuItemSelectedIcon" v
         [<CustomOperation("mode")>] member inline _.mode (x: DSLElement, v: SelectMode) = x.attr "mode" v
         [<CustomOperation("notFoundContent")>] member inline _.notFoundContent (x: DSLElement, v: string) = x.attr "notFoundContent" v
