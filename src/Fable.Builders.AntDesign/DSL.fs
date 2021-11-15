@@ -93,7 +93,7 @@ let RadioGroup<'T> = Fable.Builders.AntDesign.Radio.RadioGroupBuilder<'T>()
 
 let Rate = Rate.RateBuilder()
 
-let Select<'T> = Select.SelectBuilder()
+let Select<'T> = Select.SelectBuilder<'T>()
 let SelectOptGroup = Fable.Builders.AntDesign.Select.SelectOptGroupBuilder()
 let SelectOption = Fable.Builders.AntDesign.Select.SelectOptionBuilder()
 

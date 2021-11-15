@@ -22,6 +22,7 @@
         <Compile Include="Pages\LayoutPage.fs" />
         <Compile Include="Pages\TablePage.fs" />
         <Compile Include="Pages\CollapsePage.fs" />
+        <Compile Include="Pages\SelectPage.fs" />
         <Compile Include="App.fs" />
         <None Include="icon.png" />
     </ItemGroup>

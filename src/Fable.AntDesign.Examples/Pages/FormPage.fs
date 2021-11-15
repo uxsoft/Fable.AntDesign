@@ -3,7 +3,6 @@ module Fable.AntDesign.Examples.Pages.FormPage
 open Fable.AntDesign.Examples.Components.Example
 open Fable.AntDesign.Examples.Model
 open Fable.Builders.AntDesign
-open Fable.Core.DynamicExtensions
 open Feliz
 
 let view (model: Model) dispatch =

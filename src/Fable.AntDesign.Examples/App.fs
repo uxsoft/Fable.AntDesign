@@ -79,7 +79,8 @@ let view (model: Model) dispatch =
                     MenuItemGroup {
                         title (str "Data Entry")
                         
-                        PageMenuItem  Page.FormPage "Form"
+                        PageMenuItem Page.FormPage "Form"
+                        PageMenuItem Page.SelectPage "Select"
                     }
                     MenuItemGroup {
                         title (str "Data Display")
@@ -116,6 +117,7 @@ let view (model: Model) dispatch =
                 | Page.LayoutPage -> LayoutPage.view model
                 | Page.StepsPage -> StepsPage.view model
                 | Page.FormPage -> FormPage.view model dispatch
+                | Page.SelectPage -> SelectPage.view model
                 | Page.ListPage -> ListPage.view model
                 | Page.CollapsePage -> CollapsePage.view model
                 | Page.TablePage -> TablePage.view model

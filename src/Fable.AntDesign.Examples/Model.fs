@@ -10,6 +10,7 @@ type Page =
     | LayoutPage = 5
     | StepsPage = 14
     | FormPage = 19
+    | SelectPage = 25
     | ListPage = 42
     | CollapsePage = 37
     | TablePage = 45

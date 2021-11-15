@@ -6,12 +6,11 @@ open Fable.AntDesign.Examples.Components.Example
 open Fable.Import
 open Feliz
 
-
 let view model =
     Example {
         name "Basic Usage"
         sourceUrl "Pages/CollapsePage.fs"
-        sourceRange (16, 41)
+        sourceRange (15, 40)
         
         let callback key' = Browser.Dom.console.log key'
         let text = """
