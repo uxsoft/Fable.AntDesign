@@ -12,7 +12,7 @@ let view model =
         sourceUrl "Pages/CollapsePage.fs"
         sourceRange (15, 40)
         
-        let callback key' = Browser.Dom.console.log key'
+        let callback (key': string) = Browser.Dom.console.log key'
         let text = """
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,

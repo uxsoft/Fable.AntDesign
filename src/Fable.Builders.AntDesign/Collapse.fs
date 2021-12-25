@@ -26,7 +26,7 @@ module Collapse =
         [<CustomOperation("expandIcon")>] member inline _.expandIcon (x: DSLElement, v: obj -> ReactElement) = x.attr "expandIcon" v 
         [<CustomOperation("expandIconPosition")>] member inline _.expandIconPosition (x: DSLElement, v: CollapseExpandIconPosition) = x.attr "expandIconPosition" v 
         [<CustomOperation("ghost")>] member inline _.ghost (x: DSLElement, v: bool) = x.attr "ghost" v        
-        [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: unit -> unit) = x.attr "onChange" v
+        [<CustomOperation("onChange")>] member inline _.onChange (x: DSLElement, v: string -> unit) = x.attr "onChange" v
         
     
     type CollapsePanelBuilder() =

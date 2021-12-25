@@ -22,7 +22,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
   
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
@@ -47,8 +47,8 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./src/Fable.AntDesign.Examples/public" # App source code path
-          api_location: "api" # Api source code path - optional
+          app_location: "./src/Fable.AntDesign.Examples/dist" # App source code path
+          api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
