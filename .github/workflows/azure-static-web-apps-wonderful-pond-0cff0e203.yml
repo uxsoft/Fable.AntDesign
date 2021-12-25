@@ -26,6 +26,10 @@ jobs:
   
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
+        with: 
+          cache: 'yarn'
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
       
       - name: dotnet tool restore
         run: dotnet tool restore
