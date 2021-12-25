@@ -385,6 +385,7 @@ type HtmlBuilder(tag: string) =
     [<CustomOperation("title")>] member inline _.title(x: DSLElement, v) = x.attr "title" v
     [<CustomOperation("type")>] member inline _.type'(x: DSLElement, v) = x.attr "type" v
     [<CustomOperation("useMap")>] member inline _.useMap(x: DSLElement, v) = x.attr "useMap" v
+    [<CustomOperation("defaultValue")>] member inline _.defaultValue(x: DSLElement, v) = x.attr "defaultValue" v
     [<CustomOperation("value")>] member inline _.value(x: DSLElement, v) = x.attr "value" v
     [<CustomOperation("width")>] member inline _.width(x: DSLElement, v) = x.attr "width" v
     [<CustomOperation("wmode")>] member inline _.wmode(x: DSLElement, v) = x.attr "wmode" v
