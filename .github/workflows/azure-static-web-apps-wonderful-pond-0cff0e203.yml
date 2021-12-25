@@ -37,6 +37,7 @@ jobs:
         
       - name: Yarn Build
         env: 
+          NODE_OPTIONS: --max_old_space_size=6144
           VERSION: ${{ github.run_number }}
         run: yarn build
       
