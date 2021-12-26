@@ -15,8 +15,9 @@
     <ItemGroup>
         <Compile Include="Common.fs" />
         <Compile Include="HtmlBuilder.fs" />
+        <Compile Include="HtmlElementBuilders.fs" />
         <Compile Include="FragmentBuilder.fs" />
-        <Compile Include="DSL.fs" />
+        <Compile Include="Html.fs" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="*.fsproj; **\*.fs">
