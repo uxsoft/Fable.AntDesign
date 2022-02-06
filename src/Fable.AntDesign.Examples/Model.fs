@@ -14,6 +14,7 @@ type Page =
     | ListPage = 42
     | CollapsePage = 37
     | TablePage = 45
+    | TimelinePage = 47
     | NotificationPage = 55
     | ProgressPage = 57
     | ChartsPage = 10000

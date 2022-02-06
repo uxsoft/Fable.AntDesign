@@ -8,6 +8,7 @@
         <Compile Include="Model.fs" />
         <Compile Include="Components\Example.fs" />
         <Compile Include="Pages\ButtonPage.fs" />
+        <Compile Include="Pages\TimelinePage.fs" />
         <Compile Include="Pages\IconPage.fs" />
         <Compile Include="Pages\TypographyPage.fs" />
         <Compile Include="Pages\DividerPage.fs" />
@@ -23,6 +24,7 @@
         <Compile Include="Pages\TablePage.fs" />
         <Compile Include="Pages\CollapsePage.fs" />
         <Compile Include="Pages\SelectPage.fs" />
+        <Compile Include="Pages\TimelinePage.fs" />
         <Compile Include="App.fs" />
         <None Include="icon.png" />
         <Content Include="index.html" />

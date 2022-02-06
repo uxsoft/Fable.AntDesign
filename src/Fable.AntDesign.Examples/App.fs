@@ -88,6 +88,7 @@ let view (model: Model) dispatch =
                         PageMenuItem Page.ListPage "List"
                         PageMenuItem Page.CollapsePage "Collapse"
                         PageMenuItem Page.TablePage "Table"
+                        PageMenuItem Page.TimelinePage "Timeline"
                     }
                     
                     MenuItemGroup {
@@ -121,6 +122,7 @@ let view (model: Model) dispatch =
                 | Page.ListPage -> ListPage.view model
                 | Page.CollapsePage -> CollapsePage.view model
                 | Page.TablePage -> TablePage.view model
+                | Page.TimelinePage -> TimelinePage.view model
                 | Page.NotificationPage -> NotificationPage.view model
                 | Page.ProgressPage -> ProgressPage.view model
                 | Page.ChartsPage -> ChartsPage.view model
