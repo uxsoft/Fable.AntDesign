@@ -55,8 +55,8 @@ let Pagination = Pagination.PaginationBuilder()
 let Steps = Steps.StepsBuilder()
 let Step = Fable.Builders.AntDesign.Steps.StepBuilder()
 
-let AutoComplete = AutoComplete.AutoCompleteBuilder()
-let AutoCompleteOption = Fable.Builders.AntDesign.AutoComplete.AutoCompleteOptionBuilder()
+let AutoComplete<'T> = AutoComplete.AutoCompleteBuilder<'T>()
+let AutoCompleteOption<'T> = Fable.Builders.AntDesign.AutoComplete.AutoCompleteOptionBuilder<'T>()
 
 let Cascader = Cascader.CascaderBuilder()
 

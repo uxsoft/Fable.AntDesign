@@ -9,19 +9,19 @@ open System
 [<AutoOpen>]
 module AutoComplete =
 
-    type AutoCompleteOptionBuilder() =
+    type AutoCompleteOptionBuilder<'T>() =
         inherit ReactBuilder()
         
         member x.Run(s: DSLElement) = createObj s.Attributes
         
         [<CustomOperation("value")>] member inline _.value (x: DSLElement, v: string) = x.attr "value" v 
         [<CustomOperation("label")>] member inline _.label (x: DSLElement, v: ReactElement) = x.attr "label" v    
-        [<CustomOperation("options")>] member inline _.options (x: DSLElement, v: obj array) = x.attr "options" v
+        [<CustomOperation("options")>] member inline _.options (x: DSLElement, v: 'T array) = x.attr "options" v
         //TODO flatten builder
         
         
     
-    type AutoCompleteBuilder() =
+    type AutoCompleteBuilder<'T>() =
         inherit ReactBuilder(import "AutoComplete" "antd")
     
         [<CustomOperation("allowClear")>] member inline _.allowClear (x: DSLElement, v: bool) = x.attr "allowClear" v
@@ -36,7 +36,7 @@ module AutoComplete =
         [<CustomOperation("filterOption")>] member inline _.filterOption (x: DSLElement, v: bool) = x.attr "filterOption" v
         [<CustomOperation("notFoundContent")>] member inline _.notFoundContent (x: DSLElement, v: string) = x.attr "notFoundContent" v
         [<CustomOperation("isOpen")>] member inline _.isOpen (x: DSLElement, v: bool) = x.attr "open" v
-        [<CustomOperation("options")>] member inline _.options (x: DSLElement, v: obj array) = x.attr "options" v
+        [<CustomOperation("options")>] member inline _.options (x: DSLElement, v: 'T array) = x.attr "options" v
         [<CustomOperation("placeholder")>] member inline _.placeholder (x: DSLElement, v: string) = x.attr "placeholder" v
         [<CustomOperation("value")>] member inline _.value (x: DSLElement, v: string) = x.attr "value" v
         [<CustomOperation("onBlur")>] member inline _.onBlur (x: DSLElement, v: unit -> unit) = x.attr "onBlur" v
@@ -44,4 +44,4 @@ module AutoComplete =
         [<CustomOperation("onDropdownVisibleChange")>] member inline _.onDropdownVisibleChange (x: DSLElement, v: bool -> unit) = x.attr "onDropdownVisibleChange" v
         [<CustomOperation("onFocus")>] member inline _.onFocus (x: DSLElement, v: unit -> unit) = x.attr "onFocus" v
         [<CustomOperation("onSearch")>] member inline _.onSearch (x: DSLElement, v: string -> unit) = x.attr "onSearch" v
-        [<CustomOperation("onSelect")>] member inline _.onSelect (x: DSLElement, v: Func<string, obj, unit>) = x.attr "onSelect" v
+        [<CustomOperation("onSelect")>] member inline _.onSelect (x: DSLElement, v: Func<string, 'T, unit>) = x.attr "onSelect" v
