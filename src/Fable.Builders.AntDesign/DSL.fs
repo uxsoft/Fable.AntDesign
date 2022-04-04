@@ -134,6 +134,8 @@ let Description = Fable.Builders.AntDesign.Descriptions.DescriptionBuilder()
 
 let Empty = Empty.EmptyBuilder()
 
+let Image = Image.ImageBuilder()
+
 let List<'T> = List.ListBuilder<'T>()
 let ListItem = Fable.Builders.AntDesign.List.ListItemBuilder()
 let ListMeta = Fable.Builders.AntDesign.List.ListItemMetaBuilder()
