@@ -1,5 +1,6 @@
 namespace Fable.Builders.AntDesign
 
+open Fable.Builders.AntDesign
 open Fable.Builders.Common
 open Fable.Builders.AntDesign.Grid
 open Fable.Core
@@ -50,13 +51,12 @@ module Form =
         | Vertical
         | Inline
     
-    type FormFieldData = {
-        touched: bool
-        validating: bool
-        errors: string array
-        name: string array
-        value: string
-    }
+    type FormFieldData =
+        { touched: bool
+          validating: bool
+          errors: string array
+          name: string array
+          value: string }
     
     type IFieldError =
         abstract name: string
@@ -115,10 +115,10 @@ module Form =
         [<CustomOperation("validateMessages")>] member inline _.validateMessages (x: DSLElement, v: obj) = x.attr "validateMessages" v
         [<CustomOperation("validateTrigger")>] member inline _.validateTrigger (x: DSLElement, v: string array) = x.attr "validateTrigger" v
         [<CustomOperation("wrapperCol")>] member inline _.wrapperCol (x: DSLElement, v: ColProp list) = x.attr "wrapperCol" (keyValueList CaseRules.LowerFirst v)
-        [<CustomOperation("onFieldsChange")>] member inline _.onFieldsChange (x: DSLElement, v: Func<string array, string array, unit>) = x.attr "onFieldsChange" v
+        [<CustomOperation("onFieldsChange")>] member inline _.onFieldsChange (x: DSLElement, v: Func<FormFieldData array, FormFieldData array, unit>) = x.attr "onFieldsChange" v
         [<CustomOperation("onFinish")>] member inline _.onFinish (x: DSLElement, v: 'T -> unit) = x.attr "onFinish" v
         [<CustomOperation("onFinishFailed")>] member inline _.onFinishFailed (x: DSLElement, v: {| values: 'T; errorFields: string array; outOfDate: string array |} -> unit) = x.attr "onFinishFailed" v
-        [<CustomOperation("onValuesChange")>] member inline _.onValuesChange (x: DSLElement, v: Func<string array, string array, unit>) = x.attr "onValuesChange" v
+        [<CustomOperation("onValuesChange")>] member inline _.onValuesChange (x: DSLElement, v: Func<'T, 'T, unit>) = x.attr "onValuesChange" v
     
     type FormItemBuilder() =
         inherit ReactBuilder(import "Form.Item" "antd")
