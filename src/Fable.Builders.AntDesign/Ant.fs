@@ -138,7 +138,7 @@ let Image = Image.ImageBuilder()
 
 let List<'T> = List.ListBuilder<'T>()
 let ListItem = Fable.Builders.AntDesign.List.ListItemBuilder()
-let ListMeta = Fable.Builders.AntDesign.List.ListItemMetaBuilder()
+let ListItemMeta = Fable.Builders.AntDesign.List.ListItemMetaBuilder()
 
 let Statistic = Statistic.StatisticBuilder()
 let Countdown = Fable.Builders.AntDesign.Statistic.StatisticCountdownBuilder()

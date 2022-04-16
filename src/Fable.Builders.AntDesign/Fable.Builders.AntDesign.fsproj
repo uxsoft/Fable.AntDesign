@@ -71,7 +71,7 @@
     <Compile Include="Anchor.fs" />
     <Compile Include="BackTop.fs" />
     <Compile Include="ConfigProvider.fs" />
-    <Compile Include="DSL.fs" />
+    <Compile Include="Ant.fs" />
     <Compile Include="Composite.fs" />
   </ItemGroup>
   <ItemGroup>
