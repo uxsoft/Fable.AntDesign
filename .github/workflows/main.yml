@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
     
     - name: Set version in project file
       uses: roryprimrose/set-vs-sdk-project-version@v1
@@ -25,40 +25,11 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ./src/Fable.AntD/Fable.AntD.fsproj
-        VERSION_STATIC: 3.${{ github.run_number }}.0
-        TAG_COMMIT: true
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        INCLUDE_SYMBOLS: false
+    - name: Build
+      run: dotnet build
 
+    - name: Pack
+      run: dotnet pack ./src/Fable.AntD.fsproj -c Release -o .
 
-    - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ./src/Fable.Builders.React/Fable.Builders.React.fsproj
-        VERSION_STATIC: 1.${{ github.run_number }}.0
-        TAG_COMMIT: true
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        INCLUDE_SYMBOLS: false
-
-    - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ./src/Fable.Builders.AntDesign/Fable.Builders.AntDesign.fsproj
-        VERSION_STATIC: 1.${{ github.run_number }}.0
-        TAG_COMMIT: true
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        INCLUDE_SYMBOLS: false   
-
-    - name: Publish NuGet
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ./src/Fable.Builders.AntDesignCharts/Fable.Builders.AntDesignCharts.fsproj
-        VERSION_STATIC: 1.${{ github.run_number }}.0
-        TAG_COMMIT: true
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        INCLUDE_SYMBOLS: false
-
+    - name: Push
+      run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json

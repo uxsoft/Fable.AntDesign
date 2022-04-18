@@ -13,6 +13,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Builders.React", "src
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Builders.AntDesignCharts", "src\Fable.Builders.AntDesignCharts\Fable.Builders.AntDesignCharts.fsproj", "{21735945-6C8A-4D79-A047-E3BD72FF7FA3}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Builders.DndKit", "Fable.Builders.DndKit\Fable.Builders.DndKit.fsproj", "{5B343ACF-6E96-4C6F-AF51-C5AA1F4803DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{21735945-6C8A-4D79-A047-E3BD72FF7FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21735945-6C8A-4D79-A047-E3BD72FF7FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21735945-6C8A-4D79-A047-E3BD72FF7FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B343ACF-6E96-4C6F-AF51-C5AA1F4803DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B343ACF-6E96-4C6F-AF51-C5AA1F4803DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B343ACF-6E96-4C6F-AF51-C5AA1F4803DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B343ACF-6E96-4C6F-AF51-C5AA1F4803DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
